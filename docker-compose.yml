@@ -1,0 +1,37 @@
+version: '2'
+
+services:
+  application:
+    image: debian
+    volumes:
+      - ./:/var/www/app
+  workspace:
+    image: dung13890/laravel-env
+    restart: always
+    volumes_from:
+      - application
+    tty: true
+    links:
+     - mysql
+  mysql:
+    restart: always
+    image: mysql
+    volumes:
+      - ./.docker/mysql:/var/lib/mysql
+    ports:
+      - "6691:3306"
+    environment:
+      MYSQL_DATABASE: homestead
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: root
+  nginx:
+    image: dung13890/nginx-env
+    restart: always
+    volumes_from:
+      - application
+    ports:
+      - "80:80"
+      - "443:443"
+    tty: true
+    command: /bin/bash -c "/serve.sh workspace toanthang.dev /var/www/app/public && nginx"

@@ -1,0 +1,44 @@
+.app-header.navbar {
+  height: $navbar-height;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border-radius: 0 !important;
+  box-shadow: $navbar-shadow;
+  border:none;
+  @include borders($navbar-border);
+  .navbar-top-right {
+    margin: 12px 0;
+    float:right;
+    li.open {
+      .dropdown-toggle {
+        background-color: #f8f8f8;
+      }
+    }
+  }
+  .navbar-toggler {
+    display:none;
+  }
+  .navbar-brand {
+    height: $navbar-height;
+    width: $sidebar-width;
+    background-color: #252c35;
+    .brand {
+      display: inline-block;
+      width: 100%;
+      height: $navbar-height - 30;
+      margin-right: 0;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-image: url(../../img/logo.png);
+    }
+  }
+
+  .dropdown-toggle {
+    padding: 0 15px;
+    line-height: 75px;
+    float: right;
+    color: #333;
+    text-decoration: none;
+  }
+}

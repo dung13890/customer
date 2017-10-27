@@ -1,0 +1,91 @@
+
+// Body
+$body-bg: #E4E5E6;
+$white: #fff;
+
+// Other
+$border-color: #c2cfd6;
+$blue-hover: #5193db;
+$layout-transition-speed: .25s !default;
+
+// Borders
+$laravel-border-color: darken($body-bg, 10%);
+$list-group-border: $laravel-border-color;
+$navbar-default-border: $laravel-border-color;
+$panel-default-border: $laravel-border-color;
+$panel-inner-border: $laravel-border-color;
+
+// Brands
+$brand-primary: #3097D1;
+$brand-info: #8eb4cb;
+$brand-success: #2ab27b;
+$brand-warning: #cbb956;
+$brand-danger: #bf5329;
+
+// Typography
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+$font-family-sans-serif: "Raleway", sans-serif;
+$font-size-base: 14px;
+$line-height-base: 1.6;
+$text-color: #636b6f;
+
+// Navbar
+$navbar-default-bg: #fff;
+$navbar-height: 75px;
+$navbar-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+$navbar-border: (
+  bottom: (
+    size: 1px,
+    style: solid,
+    color: $border-color
+  )
+);
+$navbar-brand-width: 155px;
+$navbar-padding-y: 0.5rem;
+$navbar-padding-x: 3rem;
+
+// Sidebar
+$sidebar-width: 260px;
+$sidebar-padding: 0;
+$sidebar-color: #fff;
+$sidebar-bg: #2b333e;
+$sidebar-borders: none;
+
+$sidebar-nav-link-padding-y: 20px;
+$sidebar-nav-link-padding-x: 15px;
+$sidebar-nav-link-bg: transparent;
+$sidebar-nav-link-color: #fff;
+$sidebar-nav-link-borders: (
+  bottom: (
+    size: 1px,
+    style: solid,
+    color: #252c35
+  )
+);
+$sidebar-nav-link-icon-color: #868e96;
+$sidebar-nav-link-hover-color: #fff;
+$sidebar-nav-link-hover-bg: $blue-hover;
+$sidebar-nav-link-hover-icon-color:  #fff;
+$sidebar-nav-link-hover-borders: 0;
+$sidebar-nav-link-active-color: #fff;
+$sidebar-nav-link-active-bg: lighten($sidebar-bg, 5%);
+$sidebar-nav-link-active-icon-color:  $blue-hover;
+$sidebar-nav-link-active-borders: 0;
+
+$sidebar-nav-dropdown-bg: rgba(0,0,0,.2);
+$sidebar-nav-dropdown-borders: 0;
+
+$sidebar-nav-link-children-padding: 15px 15px 15px 42px;
+
+// Buttons
+$btn-default-color: $text-color;
+
+// Inputs
+$input-border: lighten($text-color, 40%);
+$input-border-focus: lighten($brand-primary, 25%);
+$input-color-placeholder: lighten($text-color, 30%);
+
+// Panels
+$panel-default-heading-bg: #fff;
+
+$break-small: 480px;

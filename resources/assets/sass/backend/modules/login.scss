@@ -1,0 +1,63 @@
+.login {
+  width: 100%;
+  margin-top: 100px;
+  display: flex;
+  .card {
+    vertical-align: top;
+    margin-bottom: 20px;
+    position: relative;
+    display: block;
+    background: #fff;
+    .card-block {
+      padding: 3rem;
+      h1 {
+        font-size: 3rem;
+        font-weight: 600;
+      }
+      .input-group {
+        .input-group-addon {
+          border-radius: 0;
+          font-size: 2rem;
+        }
+        .form-control {
+          border-radius: 0;
+        }
+      }
+      .text-muted {
+        color: #B0bec5;
+      }
+      button.btn {
+        border-radius: 0;
+        padding-right: 2rem;
+        padding-left: 2rem;
+        .btn-primary {
+          background-color: #20a8d8;
+          border-color: #20a8d8;
+          &:focus, &:hover {
+            background-color: #1985ac;
+            border-color: #187fa3;
+          }
+        }
+      }
+      .btn-link {
+        padding-right: 0;
+      }
+    }
+  }
+  .card-login {
+    flex: 4;
+    float: left;
+    border: 1px solid #cfd8dc;
+    h1 {
+      color: black;
+    }
+  }
+  .card-text {
+    flex: 3;
+    float: left;
+    background-color: #22A5D5;
+    h2, p {
+      color: #fff;
+    }
+  }
+}

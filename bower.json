@@ -1,0 +1,23 @@
+{
+  "name": "Toan Thang",
+  "description": "system",
+  "main": "",
+  "authors": [
+    "Mr. D"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "resources/assets/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Ionicons": "ionicons#^2.0.1",
+    "jqTree": "jqtree#^1.4.3"
+  }
+}

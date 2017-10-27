@@ -1,0 +1,21 @@
+@import "reset";
+
+// Font
+@import "../../bower/Ionicons/scss/ionicons";
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+// Pavilion
+@import "pavilion";
+
+// Variables
+@import "variables";
+
+@import "./partials/layout";
+@import "./partials/header";
+@import "./partials/sidebar";
+
+// Sweet Alert 2
+@import "node_modules/sweetalert2/src/sweetalert2";
+
