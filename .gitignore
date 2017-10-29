@@ -3,6 +3,8 @@
 /public/fonts
 /public/storage
 /public/assets
+/public/images
+/public/mix-manifest.json
 /storage/*.key
 /vendor
 /.docker

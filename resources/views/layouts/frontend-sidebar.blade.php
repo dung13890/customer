@@ -20,7 +20,12 @@
     <div class="wrapper">
         @include('frontend.header.header')
         <div class="main-container">
-            @yield('page-content')
+            @include('frontend.sidebar')
+            <main class="main">
+                <div class="container-fluid">
+                    @yield('page-content')
+                </div>
+            </main>
         </div>
         @include('frontend.footer.footer')
     </div>
