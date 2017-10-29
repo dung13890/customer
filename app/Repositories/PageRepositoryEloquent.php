@@ -51,6 +51,21 @@ class PageRepositoryEloquent extends AbstractRepositoryEloquent implements PageR
         return $this->model->findOrFail($id);
     }
 
+    public function getDataByCategory($id, $limit, $columns = ['*'])
+    {
+        return $this->model
+            ->where('category_id', $id)
+            ->where('locked', false)
+            ->take($limit)
+            ->orderBy('updated_at')
+            ->get($columns);
+    }
+
+    public function findBySlug($slug)
+    {
+        return $this->model->findBySlugOrFail($slug);
+    }
+
     public function store($data)
     {
         return $this->model->create($data);

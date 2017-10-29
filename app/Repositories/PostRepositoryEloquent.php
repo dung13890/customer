@@ -49,9 +49,19 @@ class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostR
         ];
     }
 
+    public function getDataByCategory($id, $limit, $columns = ['*'])
+    {
+        return $this->model
+            ->where('category_id', $id)
+            ->where('locked', false)
+            ->take($limit)
+            ->orderBy('updated')
+            ->get($columns);
+    }
+
     public function findBySlug($slug)
     {
-        return $this->model->findBySlug($slug);
+        return $this->model->findBySlugOrFail($slug);
     }
 
     public function find($id)

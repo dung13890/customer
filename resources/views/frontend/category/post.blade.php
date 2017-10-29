@@ -1,4 +1,5 @@
-@extends('layouts.frontend'
+@extends('layouts.frontend')
+@section('page-content')
     <section class="home-slideshow clearfix" id="home-slideshow">
         <div class="container">
             <div class="row">
@@ -406,4 +407,3 @@
         </div>
     </section>
 @endsection
-@section('page-content')

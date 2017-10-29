@@ -26,7 +26,7 @@ mix.js('resources/assets/js/backend.js', 'public/assets/js')
     .sass('resources/assets/sass/backend/modules/slide.scss', 'public/assets/css/backend')
     .sass('resources/assets/sass/backend/modules/category.scss', 'public/assets/css/backend');
 
-mix.copyDirectory('resources/assets/img', 'public/images');
+mix.copyDirectory('resources/assets/img', 'public/img');
 mix.copyDirectory('resources/assets/vendor', 'public/frontend');
 
 mix.copy('resources/assets/bower/summernote/dist/summernote.min.js', 'public/assets/js/backend/summernote.min.js');

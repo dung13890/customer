@@ -21,7 +21,7 @@
 <div class="form-group">
     {{ Form::label('name', __('repositories.category.banner'), ['class' => 'control-label']) }}
     @component('backend._partials.components.uploadfile',
-    ['imgFields' => $item->banner_default ?? null, 'elementFields' => 'banner-upload']
+    ['imgFields' => (isset($item) && $item->banner) ? $item->banner_default : null, 'elementFields' => 'banner-upload']
     )
     @slot('uploadFields')
         {{ Form::file('banner', ['id' => 'banner']) }}
@@ -33,7 +33,7 @@
     <div class="row">
         <div class="col-sm-6">
             {{ Form::label('name', __('repositories.category.image'), ['class' => 'control-label']) }}
-            @component('backend._partials.components.uploadfile', ['imgFields' => $item->image_medium ?? null])
+            @component('backend._partials.components.uploadfile', ['imgFields' => (isset($item) && $item->image) ? $item->image_medium : null])
             @slot('uploadFields')
                 {{ Form::file('image', ['id' => 'image']) }}
             @endslot
