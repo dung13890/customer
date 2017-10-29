@@ -19,6 +19,7 @@ return [
         'post' => 'Tin tức',
         'page' => 'Trang',
         'browse' => 'Chọn ảnh...',
+        'social' => 'Mạng xã hội',
     ],
 
     'text' => [
@@ -36,6 +37,8 @@ return [
         'title' => 'Tiêu đề',
         'root' => 'Nguồn',
         'image' => 'Hình ảnh',
+        'phone' => 'Điện thoại',
+        'fax' => 'Fax',
         'banner' => 'Ảnh banner',
         'username' => 'Tên đăng nhập',
         'name' => 'Tên',
@@ -45,6 +48,10 @@ return [
         'password_confirmation' => 'Nhập lại mật khẩu',
         'description' => 'Mô tả',
         'locked' => 'Khoá',
+        'address' => 'Địa chỉ',
+        'introduce' => 'Giới thiệu',
+        'slogan' => 'Slogan',
+        'logo' => 'Logo',
     ],
 
     'button' => [
@@ -108,6 +115,13 @@ return [
             'index' => 'Danh sách tin tức',
             'create' => 'Tạo mới tin tức',
             'edit' => 'Cập nhật tin tức',
+        ]
+    ],
+
+    'config' => [
+        'name' => 'Cài đặt',
+        'resource' => [
+            'index' => 'Cài đặt tổng thể',
         ]
     ],
 ];

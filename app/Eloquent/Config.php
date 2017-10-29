@@ -13,7 +13,7 @@ class Config extends Model
     public function getLogoAttribute()
     {
         if ($this->key == 'logo') {
-            return app()['glide.builder']->getUrl($this->value);
+            return $this->value ? app()['glide.builder']->getUrl($this->value) : null;
         }
     }
 }

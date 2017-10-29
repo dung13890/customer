@@ -11,6 +11,7 @@
                     <h3 class="panel-title">{{ $heading }}</h3>
                 </div>
                 <div class="panel-body">
+                    @include('backend._partials.components.notification_message')
                     {{ Form::open([
                         'url' => route('backend.config.store'),
                         'role'  => 'form',
