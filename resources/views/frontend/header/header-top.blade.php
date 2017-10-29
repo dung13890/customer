@@ -29,28 +29,28 @@
                         </form>
                         <ul class="menu-top list-inline d-ib float-right">
                             <li class="limenu">
-                                <a class="abmenu" href="#">
+                                <a class="abmenu" href="{{ route('category.show', $__categoryMenu->get(0)->slug) }}">
                                     <span>Về chúng tôi</span>
                                 </a>
                             </li>
                             <li class="limenu">
-                                <a class="abmenu" href="#">
-                                    <span>Tin tức</span>
+                                <a class="abmenu" href="{{ route('category.show', $__categoryMenu->get(5)->slug) }}">
+                                    <span>{{ $__categoryMenu->get(5)->name }}</span>
                                 </a>
                             </li>
                             <li class="limenu">
-                                <a class="abmenu" href="#">
-                                    <span>Hệ thống phân phối</span>
+                                <a class="abmenu" href="{{ route('category.show', $__categoryMenu->get(1)->slug) }}">
+                                    <span>{{ $__categoryMenu->get(1)->name }}</span>
                                 </a>
                             </li>
                             <li class="limenu">
-                                <a class="abmenu" href="#">
-                                    <span>Cổ đông &amp; nhà đầu tư</span>
+                                <a class="abmenu" href="{{ route('category.show', $__categoryMenu->get(2)->slug) }}">
+                                    <span>{{ $__categoryMenu->get(2)->name }}</span>
                                 </a>
                             </li>
                             <li class="limenu">
-                                <a class="abmenu" href="#">
-                                    <span>Tuyển dụng</span>
+                                <a class="abmenu" href="{{ route('category.show', $__categoryMenu->get(3)->slug) }}">
+                                    <span>{{ $__categoryMenu->get(3)->name }}</span>
                                 </a>
                             </li>
                             <li class="limenu">

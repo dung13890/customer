@@ -62,6 +62,30 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
         })->get($columns);
     }
 
+    public function getLimitRoot($type, $limit, $with = [], $columns = ['*'])
+    {
+        return $this->model->with($with)
+            ->where('type', $type)
+            ->where('locked', false)
+            ->where('parent_id', 0)
+            ->take($limit)
+            ->orderBy('updated_at')
+            ->get($columns);
+    }
+
+    public function getDataByIds(array $ids, $with = [], $columns = ['*'])
+    {
+        return $this->model->with($with)
+            ->whereIn('id', $ids)
+            ->orderBy('id')
+            ->get($columns);
+    }
+
+    public function findBySlug($slug)
+    {
+        return $this->model->findBySlugOrFail($slug);
+    }
+
     public function find($id)
     {
         return $this->model->findOrFail($id);

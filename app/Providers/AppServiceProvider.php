@@ -99,8 +99,14 @@ class AppServiceProvider extends ServiceProvider
                     }
                 })->pluck('value', 'key');
             }));
-            $view->with('__pages', Cache::remember('__pages', 60, function () {
-                return app(\App\Contracts\Repositories\CategoryRepository::class)->find(3)->pages;
+            $view->with('__categoryMenu', Cache::remember('__categoryMenu', 60, function () {
+                return app(\App\Contracts\Repositories\CategoryRepository::class)->getDataByIds(config('common.category.id_system'));
+            }));
+            $view->with('__categoryPosts', Cache::remember('__categoryPosts', 60, function () {
+                return app(\App\Contracts\Repositories\CategoryRepository::class)->getLimitRoot('post', 3);
+            }));
+            $view->with('__categoryProducts', Cache::remember('__categoryProducts', 60, function () {
+                return app(\App\Contracts\Repositories\CategoryRepository::class)->getLimitRoot('product', 16);
             }));
         });
     }

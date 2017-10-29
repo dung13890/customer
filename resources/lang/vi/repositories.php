@@ -2,6 +2,10 @@
 
 return [
     'title' => [
+        'page_1' => 'Giới thiệu',
+        'page_2' => 'Cổ đông & nhà đầu tư',
+        'page_3' => 'Hệ thống phân phối',
+        'page_4' => 'Tuyển dụng',
         'login' => 'Đăng nhập',
         'config' => 'Cấu hình',
         'ceo' => 'SEO',

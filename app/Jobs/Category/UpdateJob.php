@@ -48,7 +48,7 @@ class UpdateJob
             }
             $data['banner'] = $this->uploadFile($data['banner'], $path);
         }
-        if ($this->item->id == 1 || $this->item->id == 2) {
+        if (in_array($this->id, config('common.category.id_system'))) {
             $data['parent_id'] = 0;
         }
         $this->item->update($data);

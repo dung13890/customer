@@ -20,9 +20,9 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-8">
                     <div class="single-post-wrap">
-                        <h1 class="post-title">{{ $heading }}</h1>
+                        <h1 class="post-title">{{ $item->name }}</h1>
                         <div class="post-content">
-                            {!! $description !!}
+                            {!! $item->description !!}
                         </div>
                         <div class="fb-comments" data-href="https://nguyenduytu3i.github.io/" data-width="100%" data-numposts="5"></div>
                     </div>
