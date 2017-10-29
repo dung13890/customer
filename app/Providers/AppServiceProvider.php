@@ -83,7 +83,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('me', \Auth::guard('backend')->user());
 
             $view->with('configs', Cache::remember('configs', 60, function () {
-                return app(\App\Contracts\Repositories\ConfigRepository::class)->all()->each(function ($item) {
+                return app(\App\Contracts\Repositories\ConfigRepository::class)->getData()->each(function ($item) {
                     if ($item->key == 'logo') {
                         return $item->value = $item->logo;
                     }
