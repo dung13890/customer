@@ -25,7 +25,8 @@ return [
         'sign_in_to_acc' => 'Đăng nhập với tài khoản của bạn.!',
         'sign_in_to_info' => 'Công ty cổ phần Toàn Thắng',
         'sign_in_to_addr' => 'Quang Trung, Quận Hà Đông, Hà Nội',
-        'sign_in_to_phon' => '(04) 66 530 666'
+        'sign_in_to_phon' => '(04) 66 530 666',
+        'show_in_category' => 'Hiển thị tại danh mục',
     ],
 
     'label' => [
@@ -98,6 +99,15 @@ return [
             'index' => 'Danh sách trang',
             'create' => 'Tạo mới trang',
             'edit' => 'Cập nhật trang',
+        ]
+    ],
+
+    'post' => [
+        'name' => 'Tin tức',
+        'resource' => [
+            'index' => 'Danh sách tin tức',
+            'create' => 'Tạo mới tin tức',
+            'edit' => 'Cập nhật tin tức',
         ]
     ],
 ];

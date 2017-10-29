@@ -1,15 +1,15 @@
 @push('prescripts')
 {{ Html::script(mix('/assets/js/backend/summernote.min.js')) }}
-{{ Html::script(mix('/assets/js/backend/modules/page.js')) }}
+{{ Html::script(mix('/assets/js/backend/modules/post.js')) }}
     <script>
         $(function () {
-            window.page.form();
+            window.post.form();
         });
     </script>
 @endpush
 
 @push('prestyles')
-{{ Html::style('assets/css/backend/page.css') }}
+{{ Html::style('assets/css/backend/post.css') }}
 @endpush
 
 @include('backend._partials.components.errors')
@@ -49,18 +49,19 @@
                 </div>
             </div>
         </div>
+        <div class="form-group">
+            {{ Form::label('description', __('repositories.label.description'), ['class' => 'control-label']) }}
+            {{ Form::textarea('description', null, ['class' => 'form-control textarea-summernote']) }}
+        </div>
     </div>
     <div class="col-sm-4">
         @include('backend._partials.includes.seo')
+        @include('backend._partials.includes.category', ['titleInclude' => __('repositories.text.show_in_category')])
     </div>
-</div>
-<div class="form-group">
-    {{ Form::label('description', __('repositories.label.description'), ['class' => 'control-label']) }}
-    {{ Form::textarea('description', null, ['class' => 'form-control textarea-summernote']) }}
 </div>
 
 <div class="form-group">
-    <div class="text-right">
+    <div class="text-right col-sm-4 col-sm-offset-4">
         <button type="submit" class="btn btn-success btn-sm"><i class="ion-checkmark-circled"></i> {{ isset($item) ? __('repositories.title.edit') : __('repositories.title.create') }}</button>
         <a href="javascript:window.history.back()" class="btn btn-primary btn-sm" ><i class="ion-arrow-left-a"></i> {{ __('repositories.title.back') }}</a>
     </div>

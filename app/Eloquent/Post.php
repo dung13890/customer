@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Traits\GetImageTrait;
 use App\Traits\ModelableTrait;
 
-class Page extends Model
+class Post extends Model
 {
     use GetImageTrait, ModelableTrait;
 
@@ -25,6 +25,11 @@ class Page extends Model
     public function category()
     {
         $this->belongsTo(Category::class);
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class)->where('type', 'product');
     }
 
     public function setCeoTitleAttribute($value)
