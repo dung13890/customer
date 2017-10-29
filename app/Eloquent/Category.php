@@ -37,4 +37,9 @@ class Category extends Model
     {
         return app()['glide.builder']->getUrl($this->banner);
     }
+
+    public function pages()
+    {
+        return $this->hasMany(Page::class)->where('locked', false)->orderBy('updated_at');
+    }
 }

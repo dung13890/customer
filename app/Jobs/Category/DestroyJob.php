@@ -30,7 +30,7 @@ class DestroyJob
      */
     public function handle(CategoryRepository $repository)
     {
-        if ($this->id == 1 || $this->id == 2) {
+        if ($this->id == 1 || $this->id == 2 || $this->id == 3) {
             return false;
         }
         $item = $repository->find($this->id);

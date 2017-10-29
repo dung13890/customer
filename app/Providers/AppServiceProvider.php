@@ -46,8 +46,8 @@ class AppServiceProvider extends ServiceProvider
                         'fit' => 'crop',
                     ],
                     'small' => [
-                        'w' => 320,
-                        'h' => 240,
+                        'w' => 400,
+                        'h' => 400,
                         'fit' => 'crop',
                     ],
                     'medium' => [
@@ -98,6 +98,9 @@ class AppServiceProvider extends ServiceProvider
                         return $item->value = $item->logo;
                     }
                 })->pluck('value', 'key');
+            }));
+            $view->with('__pages', Cache::remember('__pages', 60, function () {
+                return app(\App\Contracts\Repositories\CategoryRepository::class)->find(3)->pages;
             }));
         });
     }

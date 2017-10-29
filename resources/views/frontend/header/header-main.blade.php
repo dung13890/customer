@@ -3,198 +3,34 @@
         <div class="menu-container">
             <div class="container-full">
                 <div class="menuzord relative" id="menuzord">
-                    <a class="menuzord-brand hidden-lg hidden-md" href="index.html">
-                        <img src="images/logo.png" />
+                    <a class="menuzord-brand hidden-lg hidden-md" href="{{ route('home') }}">
+                        <img src="{{ route('image', $configs['logo']) }}" />
                     </a>
                     <ul class="menuzord-menu">
                         <li class="active">
-                            <a href="index.html">Trang chủ</a>
+                            <a href="{{ route('home') }}">Trang chủ</a>
                         </li>
                         <li>
                             <a href="#">Giới Thiệu</a>
                             <div class="megamenu">
                                 <div class="megamenu-inner">
                                     <div class="owl-carousel owl-product">
+                                        @if (count($__pages))
+                                        @foreach ($__pages->chunk(2) as $chunks)
                                         <div class="item">
+                                            @foreach ($chunks as $chunk)
                                             <div class="box text-center">
-                                                <a class="box-img" href="#" title="">
-                                                    <img class="img-responsive" src="images/gt-01.png" alt="" />
+                                                <a class="box-img" href="{{ route('page.show', $chunk->slug) }}" title="{{ $chunk->name }}">
+                                                    <img class="img-responsive" src="{{ route('image', $chunk->image_thumbnail) }}" alt="{{ $chunk->name }}" />
                                                 </a>
                                                 <h4 class="box-title">
-                                                    <a href="#" title="">Giới thiệu chung</a>
+                                                    <a href="{{ route('page.show', $chunk->slug) }}" title="{{ $chunk->name }}">{{ $chunk->name }}</a>
                                                 </h4>
                                             </div>
-                                            <div class="box text-center">
-                                                <a class="box-img" href="#" title="">
-                                                    <img class="img-responsive" src="images/gt-02.png" alt="" />
-                                                </a>
-                                                <h4 class="box-title">
-                                                    <a href="#" title="">Tầm nhìn và sứ mệnh</a>
-                                                </h4>
-                                            </div>
+                                            @endforeach
                                         </div>
-                                        <div class="item">
-                                            <div class="box text-center">
-                                                <a class="box-img" href="#" title="">
-                                                    <img class="img-responsive" src="images/gt-03.png" alt="" />
-                                                </a>
-                                                <h4 class="box-title">
-                                                    <a href="#" title="">ban lãnh đạo</a>
-                                                </h4>
-                                            </div>
-                                            <div class="box text-center">
-                                                <a class="box-img" href="#" title="">
-                                                    <img class="img-responsive" src="images/gt-04.png" alt="" />
-                                                </a>
-                                                <h4 class="box-title">
-                                                    <a href="#" title="">thành tích</a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="box text-center">
-                                                <a class="box-img" href="#" title="">
-                                                    <img class="img-responsive" src="images/gt-05.png" alt="" />
-                                                </a>
-                                                <h4 class="box-title">
-                                                    <a href="#" title="">văn phòng</a>
-                                                </h4>
-                                            </div>
-                                            <div class="box text-center">
-                                                <a class="box-img" href="#" title="">
-                                                    <img class="img-responsive" src="images/gt-06.png" alt="" />
-                                                </a>
-                                                <h4 class="box-title">
-                                                    <a href="#" title="">quá trình phát triển</a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="box text-center">
-                                                <a class="box-img" href="#" title="">
-                                                    <img class="img-responsive" src="images/gt-07.png" alt="" />
-                                                </a>
-                                                <h4 class="box-title">
-                                                    <a href="#" title="">sơ đồ tổ chức</a>
-                                                </h4>
-                                            </div>
-                                            <div class="box text-center">
-                                                <a class="box-img" href="#" title="">
-                                                    <img class="img-responsive" src="images/gt-08.png" alt="" />
-                                                </a>
-                                                <h4 class="box-title">
-                                                    <a href="#" title="">nhà máy</a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="box text-center">
-                                                <a class="box-img" href="#" title="">
-                                                    <img class="img-responsive" src="images/gt-09.png" alt="" />
-                                                </a>
-                                                <h4 class="box-title">
-                                                    <a href="#" title="">hồ sơ công ty</a>
-                                                </h4>
-                                            </div>
-                                            <div class="box text-center">
-                                                <a class="box-img" href="#" title="">
-                                                    <img class="img-responsive" src="images/gt-010.png" alt="" />
-                                                </a>
-                                                <h4 class="box-title">
-                                                    <a href="#" title="">thư viện</a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="box text-center">
-                                                <a class="box-img" href="#" title="">
-                                                    <img class="img-responsive" src="images/gt-01.png" alt="" />
-                                                </a>
-                                                <h4 class="box-title">
-                                                    <a href="#" title="">Giới thiệu chung</a>
-                                                </h4>
-                                            </div>
-                                            <div class="box text-center">
-                                                <a class="box-img" href="#" title="">
-                                                    <img class="img-responsive" src="images/gt-02.png" alt="" />
-                                                </a>
-                                                <h4 class="box-title">
-                                                    <a href="#" title="">Tầm nhìn và sứ mệnh</a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="box text-center">
-                                                <a class="box-img" href="#" title="">
-                                                    <img class="img-responsive" src="images/gt-03.png" alt="" />
-                                                </a>
-                                                <h4 class="box-title">
-                                                    <a href="#" title="">ban lãnh đạo</a>
-                                                </h4>
-                                            </div>
-                                            <div class="box text-center">
-                                                <a class="box-img" href="#" title="">
-                                                    <img class="img-responsive" src="images/gt-04.png" alt="" />
-                                                </a>
-                                                <h4 class="box-title">
-                                                    <a href="#" title="">quá trình phát triển</a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="box text-center">
-                                                <a class="box-img" href="#" title="">
-                                                    <img class="img-responsive" src="images/gt-05.png" alt="" />
-                                                </a>
-                                                <h4 class="box-title">
-                                                    <a href="#" title="">sơ đồ tổ chức</a>
-                                                </h4>
-                                            </div>
-                                            <div class="box text-center">
-                                                <a class="box-img" href="#" title="">
-                                                    <img class="img-responsive" src="images/gt-06.png" alt="" />
-                                                </a>
-                                                <h4 class="box-title">
-                                                    <a href="#" title="">thành tích</a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="box text-center">
-                                                <a class="box-img" href="#" title="">
-                                                    <img class="img-responsive" src="images/gt-07.png" alt="" />
-                                                </a>
-                                                <h4 class="box-title">
-                                                    <a href="#" title="">văn phòng</a>
-                                                </h4>
-                                            </div>
-                                            <div class="box text-center">
-                                                <a class="box-img" href="#" title="">
-                                                    <img class="img-responsive" src="images/gt-08.png" alt="" />
-                                                </a>
-                                                <h4 class="box-title">
-                                                    <a href="#" title="">nhà máy</a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="box text-center">
-                                                <a class="box-img" href="#" title="">
-                                                    <img class="img-responsive" src="images/gt-09.png" alt="" />
-                                                </a>
-                                                <h4 class="box-title">
-                                                    <a href="#" title="">hồ sơ công ty</a>
-                                                </h4>
-                                            </div>
-                                            <div class="box text-center">
-                                                <a class="box-img" href="#" title="">
-                                                    <img class="img-responsive" src="images/gt-010.png" alt="" />
-                                                </a>
-                                                <h4 class="box-title">
-                                                    <a href="#" title="">thư viện</a>
-                                                </h4>
-                                            </div>
-                                        </div>
+                                        @endforeach
+                                        @endif
                                     </div>
                                 </div>
                             </div>
