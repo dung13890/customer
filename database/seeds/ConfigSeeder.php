@@ -57,6 +57,14 @@ class ConfigSeeder extends Seeder
             'value' => '0466530999',
         ]);
         app(Config::class)->create([
+            'key' => 'factory',
+            'value' => 'Factory',
+        ]);
+        app(Config::class)->create([
+            'key' => 'copyright',
+            'value' => 'copyright',
+        ]);
+        app(Config::class)->create([
             'key' => 'address',
             'value' => 'Tầng 7, Tòa nhà số 8 Quang Trung, Quận Hà Đông, Hà Nội',
         ]);
