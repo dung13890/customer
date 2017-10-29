@@ -12,10 +12,11 @@ class ConfigRepositoryEloquent extends AbstractRepositoryEloquent implements Con
 
     protected $rules = [
         'store' => [
-
-        ],
-        'update' => [
-
+            'name' => 'required|min:4|max:255',
+            'email' => 'required|email|min:4|max:255',
+            'phone' => 'required|min:4|max:255',
+            'address' => 'required|min:4|max:255',
+            'logo' => 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
         ],
     ];
 
@@ -34,6 +35,11 @@ class ConfigRepositoryEloquent extends AbstractRepositoryEloquent implements Con
     public function getData($columns = ['*'])
     {
         return $this->model->get($columns);
+    }
+
+    public function findByKey($key)
+    {
+        return $this->model->where('key', $key)->first();
     }
 
     public function find($id)
