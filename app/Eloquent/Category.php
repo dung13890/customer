@@ -20,7 +20,7 @@ class Category extends Model
     }
 
     protected $fillable = [
-        'name', 'parent_id', 'type', 'description', 'image', 'locked'
+        'name', 'parent_id', 'type', 'description', 'image', 'banner', 'locked'
     ];
 
     public function children()
@@ -31,5 +31,10 @@ class Category extends Model
     public function parent()
     {
         return $this->belongsTo(self::class, 'parent_id', 'id');
+    }
+
+    public function getBannerDefaultAttribute($value)
+    {
+        return app()['glide.builder']->getUrl($this->banner);
     }
 }

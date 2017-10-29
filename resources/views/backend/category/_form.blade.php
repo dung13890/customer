@@ -20,18 +20,33 @@
 
 <div class="form-group">
     {{ Form::label('name', __('repositories.category.banner'), ['class' => 'control-label']) }}
-    @component('backend._partials.components.uploadfile', ['item' => $item ?? null])
-    @slot('upload_fields')
-        {{ Form::file('image', ['id' => 'image']) }}
+    @component('backend._partials.components.uploadfile',
+    ['imgFields' => $item->banner_default ?? null, 'elementFields' => 'banner-upload']
+    )
+    @slot('uploadFields')
+        {{ Form::file('banner', ['id' => 'banner']) }}
     @endslot
     @endcomponent
 </div>
 
 <div class="form-group">
-    <div class="checkbox">
-        <label>
-            {{ Form::checkbox('locked', true, old('locked'), ['data-toggle'=>'toggle', 'data-size' => 'small']) }} <b>{{ __('repositories.label.locked') }}</b>
-        </label>
+    <div class="row">
+        <div class="col-sm-6">
+            {{ Form::label('name', __('repositories.category.image'), ['class' => 'control-label']) }}
+            @component('backend._partials.components.uploadfile', ['imgFields' => $item->image_medium ?? null])
+            @slot('uploadFields')
+                {{ Form::file('image', ['id' => 'image']) }}
+            @endslot
+            @endcomponent
+        </div>
+        <div class="col-sm-6">
+            <label></label>
+            <div class="checkbox">
+                <label>
+                    {{ Form::checkbox('locked', true, old('locked'), ['data-toggle'=>'toggle', 'data-size' => 'small']) }} <b>{{ __('repositories.label.locked') }}</b>
+                </label>
+            </div>
+        </div>
     </div>
 </div>
 

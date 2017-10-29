@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Jobs\Category;
+namespace App\Jobs\Page;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Foundation\Bus\Dispatchable;
-use App\Contracts\Repositories\CategoryRepository;
+use App\Contracts\Repositories\PageRepository;
 use App\Traits\UploadableTrait;
 
-class StoreJob
+class UpdateJob
 {
     use Dispatchable, Queueable, UploadableTrait;
 
@@ -17,10 +17,12 @@ class StoreJob
      * @return void
      */
     protected $attributes;
+    protected $item;
 
-    public function __construct(array $attributes)
+    public function __construct($attributes, $item)
     {
         $this->attributes = $attributes;
+        $this->item = $item;
     }
 
     /**
@@ -28,16 +30,18 @@ class StoreJob
      *
      * @return void
      */
-    public function handle(CategoryRepository $repository)
+    public function handle(PageRepository $repository)
     {
         $path = strtolower(class_basename($repository->model));
         $data = array_only($this->attributes, $repository->model->getFillable());
+        $data['locked'] = $data['locked'] ?? false;
         if (array_has($data, 'image')) {
+            if (!empty($this->item->image)) {
+                $this->destroyFile($this->item->image);
+            }
             $data['image'] = $this->uploadFile($data['image'], $path);
         }
-        if (array_has($data, 'banner')) {
-            $data['banner'] = $this->uploadFile($data['banner'], $path);
-        }
-        $repository->store($data);
+
+        $this->item->update($data);
     }
 }

@@ -2,7 +2,10 @@
     "/assets/js/backend.js": "/assets/js/backend.js",
     "/assets/css/backend/app.css": "/assets/css/backend/app.css",
     "/assets/css/backend/login.css": "/assets/css/backend/login.css",
+    "/assets/css/backend/page.css": "/assets/css/backend/page.css",
     "/assets/css/backend/category.css": "/assets/css/backend/category.css",
+    "/assets/js/backend/modules/page.js": "/assets/js/backend/modules/page.js",
     "/assets/js/backend/modules/user.js": "/assets/js/backend/modules/user.js",
-    "/assets/js/backend/modules/category.js": "/assets/js/backend/modules/category.js"
+    "/assets/js/backend/modules/category.js": "/assets/js/backend/modules/category.js",
+    "/assets/js/backend/summernote.min.js": "/assets/js/backend/summernote.min.js"
 }

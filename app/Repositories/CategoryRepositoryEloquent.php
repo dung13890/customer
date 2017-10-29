@@ -12,14 +12,16 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
 
     protected $rules = [
         'store' => [
-            'name' => "required|min:2|max:255",
+            'name' => 'required|min:2|max:100',
             'locked' => 'sometimes|boolean',
             'image'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
-            'type' => "required|in:product,post",
+            'banner'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
+            'type' => 'required|in:product,post,page',
         ],
         'update' => [
-            'name' => "required|min:2|max:255",
+            'name' => 'required|min:2|max:100',
             'image'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
+            'banner'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
             'locked' => 'sometimes|boolean',
         ],
     ];
@@ -35,6 +37,7 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
             'name' => __('repositories.label.name'),
             'locked' => __('repositories.label.locked'),
             'image' => __('repositories.label.image'),
+            'banner' => __('repositories.label.banner'),
             'type' => __('repositories.label.type'),
         ];
     }

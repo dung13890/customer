@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Jobs\Category;
+namespace App\Jobs\Page;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Foundation\Bus\Dispatchable;
-use App\Contracts\Repositories\CategoryRepository;
+use App\Contracts\Repositories\PageRepository;
 use App\Traits\UploadableTrait;
 
 class DestroyJob
@@ -28,17 +28,11 @@ class DestroyJob
      *
      * @return void
      */
-    public function handle(CategoryRepository $repository)
+    public function handle(PageRepository $repository)
     {
-        if ($this->id == 1 || $this->id == 2) {
-            return false;
-        }
         $item = $repository->find($this->id);
         if (!empty($item->image)) {
             $this->destroyFile($item->image);
-        }
-        if (!empty($item->banner)) {
-            $this->destroyFile($item->banner);
         }
 
         return $repository->destroy($this->id);

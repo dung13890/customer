@@ -4,6 +4,6 @@ namespace App\Contracts\Repositories;
 
 use App\Contracts\Traits\ValidatableInterface;
 
-interface UserRepository extends ValidatableInterface
+interface PageRepository extends ValidatableInterface
 {
 }

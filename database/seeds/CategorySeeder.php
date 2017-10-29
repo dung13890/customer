@@ -13,12 +13,16 @@ class CategorySeeder extends Seeder
     public function run()
     {
         app(Category::class)->create([
-            'name' => config('common.category.type')[0],
+            'name' => __('repositories.title.' . config('common.category.type')[0]),
             'type' => config('common.category.type')[0],
         ]);
         app(Category::class)->create([
-            'name' => config('common.category.type')[1],
+            'name' => __('repositories.title.' . config('common.category.type')[1]),
             'type' => config('common.category.type')[1],
+        ]);
+        app(Category::class)->create([
+            'name' => __('repositories.title.' . config('common.category.type')[2]),
+            'type' => config('common.category.type')[2],
         ]);
 
         if (App::environment('local')) {

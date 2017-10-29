@@ -4,6 +4,7 @@ return [
     'title' => [
         'login' => 'Đăng nhập',
         'config' => 'Cấu hình',
+        'ceo' => 'SEO',
         'profile' => 'Thông tin',
         'logout' => 'Thoát',
         'setting' => 'Cài đặt',
@@ -12,9 +13,11 @@ return [
         'create' => 'Tạo mới',
         'edit' => 'Cập nhật',
         'back' => 'Quay lại',
+        'list' => 'Danh sách',
         'category' => 'Danh mục',
         'product' => 'Sản phẩm',
         'post' => 'Tin tức',
+        'page' => 'Trang',
         'browse' => 'Chọn ảnh...',
     ],
 
@@ -26,9 +29,13 @@ return [
     ],
 
     'label' => [
+        'ceo_title' => 'Tiêu đề CEO',
+        'ceo_keywords' => 'Từ khoá CEO',
+        'ceo_description' => 'Mô tả CEO',
         'title' => 'Tiêu đề',
         'root' => 'Nguồn',
         'image' => 'Hình ảnh',
+        'banner' => 'Ảnh banner',
         'username' => 'Tên đăng nhập',
         'name' => 'Tên',
         'email' => 'Email',
@@ -82,5 +89,15 @@ return [
     'category' => [
         'name' => 'Danh mục',
         'banner' => 'Ảnh nền',
+        'image' => 'Ảnh đại diện',
+    ],
+
+    'page' => [
+        'name' => 'Trang',
+        'resource' => [
+            'index' => 'Danh sách trang',
+            'create' => 'Tạo mới trang',
+            'edit' => 'Cập nhật trang',
+        ]
     ],
 ];

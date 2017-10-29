@@ -17,12 +17,12 @@ class UpdateJob
      * @return void
      */
     protected $attributes;
-    protected $id;
+    protected $item;
 
-    public function __construct($attributes, $id)
+    public function __construct($attributes, $item)
     {
         $this->attributes = $attributes;
-        $this->id = $id;
+        $this->item = $item;
     }
 
     /**
@@ -34,16 +34,23 @@ class UpdateJob
     {
         $path = strtolower(class_basename($repository->model));
         $data = array_only($this->attributes, $repository->model->getFillable());
+        $data['locked'] = $data['locked'] ?? false;
         if (array_has($data, 'image')) {
-            $item = $repository->find($this->id);
-            if (!empty($item->image)) {
-                $this->destroyFile($item->image);
+            if (!empty($this->item->image)) {
+                $this->destroyFile($this->item->image);
             }
             $data['image'] = $this->uploadFile($data['image'], $path);
         }
-        if ($this->id == 1 || $this->id == 2) {
+
+        if (array_has($data, 'banner')) {
+            if (!empty($this->item->banner)) {
+                $this->destroyFile($this->item->banner);
+            }
+            $data['banner'] = $this->uploadFile($data['banner'], $path);
+        }
+        if ($this->item->id == 1 || $this->item->id == 2) {
             $data['parent_id'] = 0;
         }
-        $repository->update($data, $this->id);
+        $this->item->update($data);
     }
 }
