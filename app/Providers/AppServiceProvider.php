@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Cache;
 use League\Glide\ServerFactory;
 use League\Glide\Responses\LaravelResponseFactory;
 use League\Glide\Urls\UrlBuilderFactory;
@@ -80,6 +81,14 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('backend.*', function ($view) {
             $view->with('me', \Auth::guard('backend')->user());
+
+            $view->with('configs', Cache::remember('configs', 60, function () {
+                return app(\App\Contracts\Repositories\ConfigRepository::class)->all()->each(function ($item) {
+                    if ($item->key == 'logo') {
+                        return $item->value = $item->logo;
+                    }
+                })->pluck('value', 'key');
+            }));
         });
     }
 
