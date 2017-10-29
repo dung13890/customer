@@ -29,3 +29,6 @@ mix.js('resources/assets/js/backend.js', 'public/assets/js')
 mix.copyDirectory('resources/assets/img', 'public/images');
 
 mix.copy('resources/assets/bower/summernote/dist/summernote.min.js', 'public/assets/js/backend/summernote.min.js');
+
+mix.js('resources/assets/js/frontend.js', 'public/assets/js')
+    .sass('resources/assets/sass/frontend/app.scss', 'public/assets/css/frontend');

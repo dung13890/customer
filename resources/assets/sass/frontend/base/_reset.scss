@@ -1,0 +1,71 @@
+//
+// Base :: Reset
+// --------------------------------------------------
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+abbr[title], acronym[title] {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  &,
+  &:focus,
+  &:hover {
+    outline: none;
+    text-decoration: none;
+  }
+}
+
+button {
+  &,
+  &.btn {
+    &:focus {
+      outline: 0 none;
+      box-shadow: none;
+    }
+  }
+}
+
+.btn {
+  &:focus,
+  &.focus,
+  &:active:focus,
+  &:active.focus,
+  &.active:focus,
+  &.active.focus {
+    outline: 0;
+    box-shadow: none;
+  }
+}
+
+input[type="checkbox"]:focus {
+  outline: 0;
+}

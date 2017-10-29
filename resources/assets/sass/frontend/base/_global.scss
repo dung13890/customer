@@ -1,0 +1,160 @@
+//
+// Base :: Global
+// --------------------------------------------------
+@font-face {
+  font-family: 'UTM Bebas';
+  src: url('../../fonts/UTMBebas.eot');
+  src: url('../../fonts/UTMBebas.eot?#iefix') format('embedded-opentype'),
+    url('../../fonts/UTMBebas.woff') format('woff'),
+    url('../../fonts/UTMBebas.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'UTM Avo';
+  src: url('../../fonts/UTMAvo-BoldItalic.eot');
+  src: url('../../fonts/UTMAvo-BoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('../../fonts/UTMAvo-BoldItalic.woff') format('woff'),
+    url('../../fonts/UTMAvo-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'UTM Avo';
+  src: url('../../fonts/UTMAvoBold.eot');
+  src: url('../../fonts/UTMAvoBold.eot?#iefix') format('embedded-opentype'),
+    url('../../fonts/UTMAvoBold.woff') format('woff'),
+    url('../../fonts/UTMAvoBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'UTM Avo';
+  src: url('../../fonts/UTMAvo.eot');
+  src: url('../../fonts/UTMAvo.eot?#iefix') format('embedded-opentype'),
+    url('../../fonts/UTMAvo.woff') format('woff'),
+    url('../../fonts/UTMAvo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'UTM Avo';
+  src: url('../../fonts/UTMAvo-Italic.eot');
+  src: url('../../fonts/UTMAvo-Italic.eot?#iefix') format('embedded-opentype'),
+    url('../../fonts/UTMAvo-Italic.woff') format('woff'),
+    url('../../fonts/UTMAvo-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+body {
+  font-size: 14px;
+  font-family: $font-family-primary;
+  background-color: $white;
+}
+
+.megamenu .item-new,
+.megamenu .item-new h5,
+.sidebar .block-content .box-list-title {
+  font-family: $font-family-primary !important;
+}
+
+span.text,
+.menuzord .menuzord-menu > li > a,
+#main-menu .ulmenu > .limenu > .abmenu,
+.megamenu .box-title,
+.megamenu .heading.color,
+.megamenu .contact-form,
+.featured-image .featured-image-content {
+  font-family: $font-family-menu !important;
+  font-weight: normal;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
+}
+
+a {
+  color: #000;
+  &:hover {
+    color: $brand-primary;
+  }
+}
+
+.title-one,
+.title-one a,
+.title-one span,
+.title-one h2,
+.title-one h3,
+.title-one h4,
+.title-one-full,
+.title-one-full a,
+.title-one-full span,
+.title-one-full h2,
+.title-one-full h3,
+.title-one-full h4,
+.title-two,
+.title-two a,
+.title-two span,
+.title-two h2,
+.title-two h3,
+.title-two h4,
+.title-three,
+.title-three a,
+.title-three span,
+.title-three h2,
+.title-three h3,
+.title-three h4,
+.megamenu .title-new,
+.footer .title span {
+  font-family: $font-family-heading !important;
+  color: #000;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: bold;
+}
+
+.form-control:focus {
+  border-color: $brand-primary;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.media {
+  .media-left {
+    img {
+      min-width: 64px;
+    }
+  }
+}
+
+.news-block {
+  .media {
+    .media-left {
+      a,
+      img {
+        width: 98px;
+        display: inline-block;
+      }
+
+      img {
+        border: 1px solid #ccc;
+        padding: 3px;
+      }
+    }
+  }
+}
+
+.relative {
+  position: relative;
+}

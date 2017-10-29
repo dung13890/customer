@@ -16,5 +16,7 @@ class HomeController extends FrontendController
     {
         $this->view = 'home.index';
         $this->compacts['heading'] = __('repositores.home');
+
+        return $this->viewRender();
     }
 }
