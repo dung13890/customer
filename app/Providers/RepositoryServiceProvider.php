@@ -27,6 +27,11 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repositories\PostRepositoryEloquent::class,
         ],
 
+        'slide' => [
+            \App\Contracts\Repositories\SlideRepository::class,
+            \App\Repositories\SlideRepositoryEloquent::class,
+        ],
+
         'config' => [
             \App\Contracts\Repositories\ConfigRepository::class,
             \App\Repositories\ConfigRepositoryEloquent::class,

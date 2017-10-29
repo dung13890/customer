@@ -50,6 +50,7 @@ class ConfigController extends BackendController
 
         return $this->doRequest(function () use ($data) {
             $this->dispatch(new StoreJob($data));
-        }, __FUNCTION__);
+            \Cache::flush();
+        }, 'update');
     }
 }

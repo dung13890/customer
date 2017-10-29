@@ -43,6 +43,19 @@
             </div>
         </div>
         <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    {{ Form::label('factory', __('repositories.label.factory'), ['class'=>'control-label']) }}<span class="require">*</span>
+                    {{ Form::text('factory', $items->keyBy('key')['factory']['value'], ['class' => 'form-control']) }}
+                </div>
+
+                <div class="col-md-6">
+                    {{ Form::label('copyright', __('repositories.label.copyright'), ['class'=>'control-label']) }}<span class="require">*</span>
+                    {{ Form::text('copyright', $items->keyBy('key')['copyright']['value'], ['class' => 'form-control']) }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
             {{ Form::label('address', __('repositories.label.address'), ['class'=>'control-label']) }}<span class="require">*</span>
             {{ Form::text('address', $items->keyBy('key')['address']['value'], ['class' => 'form-control']) }}
         </div>
