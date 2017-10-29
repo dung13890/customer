@@ -13,7 +13,7 @@
     <title>@yield('title')</title>
 
     <!-- Styles -->
-    {{ Html::style(mix('/assets/css/frontend/app.css')) }}
+    {{ Html::style('/frontend/css/main.css') }}
     @stack('prestyles')
 </head>
 <body>
@@ -25,7 +25,7 @@
         @include('frontend.footer.footer')
     </div>
     <div id="fb-root"></div>
-    {{ Html::script(mix('/assets/js/frontend.js')) }}
+    {{ Html::script('/frontend/js/main.js') }}
     @stack('prescripts')
 </body>
 </html>

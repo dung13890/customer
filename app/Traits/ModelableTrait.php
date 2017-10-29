@@ -3,10 +3,11 @@
 namespace App\Traits;
 
 use Cviebrock\EloquentSluggable\Sluggable as SluggableTrait;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 
 trait ModelableTrait
 {
-    use SluggableTrait;
+    use SluggableTrait, SluggableScopeHelpers;
 
     public function sluggable()
     {
