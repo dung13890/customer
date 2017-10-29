@@ -18,6 +18,13 @@ Route::get('image/{path}', ['as' => 'image' , function (Request $request, MediaI
     return $service->getReponseImage($path, $params);
 }])->where('path', '(.*?)');
 
+Route::group(['prefix' => '/', 'namespace' => 'Frontend'], function () {
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('category/{slug}', 'CategoryController@show')->name('category.show');
+    Route::get('page/{slug}', 'PageController@show')->name('page.show');
+    Route::get('post/{slug}', 'PostController@show')->name('post.show');
+});
+
 Route::group(['namespace' => 'Backend'], function () {
     Auth::routes();
     Route::group(['prefix' => 'backend', 'as' => 'backend.', 'middleware' => ['auth']], function () {
@@ -31,10 +38,8 @@ Route::group(['namespace' => 'Backend'], function () {
         Route::get('category/type/{type}', 'CategoryController@type')->name('category.type');
         Route::resource('page', 'PageController');
         Route::resource('post', 'PostController');
+        Route::resource('config', 'ConfigController', [
+            'only' => ['index', 'store']
+        ]);
     });
 });
-
-Route::get('/', function () {
-    return view('welcome');
-});
-

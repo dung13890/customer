@@ -26,6 +26,11 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Contracts\Repositories\PostRepository::class,
             \App\Repositories\PostRepositoryEloquent::class,
         ],
+
+        'config' => [
+            \App\Contracts\Repositories\ConfigRepository::class,
+            \App\Repositories\ConfigRepositoryEloquent::class,
+        ],
     ];
     /**
      * Bootstrap the application services.
