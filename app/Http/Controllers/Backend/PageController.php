@@ -72,7 +72,7 @@ class PageController extends BackendController
     public function update(Request $request, $id)
     {
         $item = $this->repository->find($id);
-        $this->validation($request, __FUNCTION__);
+        $this->validation($request, __FUNCTION__, $item);
         $data = $request->all();
 
         return $this->doRequest(function () use ($data, $item) {

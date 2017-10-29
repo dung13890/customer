@@ -52,6 +52,8 @@ return [
         'introduce' => 'Giới thiệu',
         'slogan' => 'Slogan',
         'logo' => 'Logo',
+        'factory' => 'Nhà máy',
+        'copyright' => 'Copyright',
     ],
 
     'button' => [
@@ -115,6 +117,15 @@ return [
             'index' => 'Danh sách tin tức',
             'create' => 'Tạo mới tin tức',
             'edit' => 'Cập nhật tin tức',
+        ]
+    ],
+
+    'slide' => [
+        'name' => 'Slide',
+        'resource' => [
+            'index' => 'Danh sách slide',
+            'create' => 'Tạo mới slide',
+            'edit' => 'Cập nhật slide',
         ]
     ],
 

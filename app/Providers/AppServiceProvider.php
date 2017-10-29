@@ -90,6 +90,16 @@ class AppServiceProvider extends ServiceProvider
                 })->pluck('value', 'key');
             }));
         });
+
+        view()->composer('frontend.*', function ($view) {
+            $view->with('configs', Cache::remember('configs', 60, function () {
+                return app(\App\Contracts\Repositories\ConfigRepository::class)->getData()->each(function ($item) {
+                    if ($item->key == 'logo') {
+                        return $item->value = $item->logo;
+                    }
+                })->pluck('value', 'key');
+            }));
+        });
     }
 
 }

@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="col-sm-8">
                     {{ Form::label('name', __('repositories.label.image'), ['class' => 'control-label']) }}
-                    @component('backend._partials.components.uploadfile', ['imgFields' => $item->image ? $item->image_medium : null])
+                    @component('backend._partials.components.uploadfile', ['imgFields' => (isset($item) && $item->image) ? $item->image_medium : null])
                     @slot('uploadFields')
                         {{ Form::file('image', ['id' => 'image']) }}
                     @endslot
