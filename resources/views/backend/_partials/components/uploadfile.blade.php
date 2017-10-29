@@ -1,9 +1,12 @@
 <div class="input-group">
     <span class="input-group-btn">
         <span class="btn btn-default btn-file">
-            {{ __('repositories.title.browse') }} {{ $upload_fields }}
+            {{ __('repositories.title.browse') }} {{ $uploadFields }}
         </span>
     </span>
     <input type="text" class="form-control" readonly>
 </div>
-{{ HTML::image( (isset($item) && $item->image ) ? route('image', $item->image_medium) :  null, '', ['id' => 'img-upload']) }}
+{{ Html::image( ($imgFields) ? route('image', $imgFields) : null, '', [
+    'id' => $elementFields ?? 'img-upload',
+    'class' => 'file-upload'
+    ]) }}

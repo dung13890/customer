@@ -66,8 +66,8 @@ class CategoryController extends BackendController
         $this->validation($request, __FUNCTION__, $item);
         $data = $request->all();
 
-        return $this->doRequest(function () use ($data, $id) {
-            return $this->dispatch(new UpdateJob($data, $id));
+        return $this->doRequest(function () use ($data, $item) {
+            return $this->dispatch(new UpdateJob($data, $item));
         }, __FUNCTION__, false, url()->previous());
     }
 

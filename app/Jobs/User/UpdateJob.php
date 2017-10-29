@@ -32,6 +32,7 @@ class UpdateJob
     public function handle(UserRepository $repository)
     {
         $data = array_only($this->attributes, $repository->model->getFillable());
+        $data['locked'] = $data['locked'] ?? false;
         $repository->update($data, $this->id);
     }
 }

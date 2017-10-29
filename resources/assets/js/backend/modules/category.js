@@ -10,6 +10,8 @@ class Category {
     var notification = new Notification();
     var uploadfile = new Uploadfile();
     uploadfile.init();
+    var uploadbanner = new Uploadfile('#banner', '#banner-upload');
+    uploadbanner.init();
     this.jqTree(items, item);
 
     notification.destroyRow(null, true);

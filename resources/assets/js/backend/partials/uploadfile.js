@@ -31,6 +31,29 @@ class Upload {
       reader.readAsDataURL(input.files[0]);
     }
   }
+
+  sendImage(file, url, element, callback) {
+    var _$ = window.$;
+    var  data = new FormData();
+    data.append("image", file);
+    _$.ajax({
+      data: data,
+      type: "POST",
+      url: url,
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: function(data) {
+        element.summernote("insertImage", data.url);
+      },
+      error: function(xhr, textStatus, error) {
+        console.log(xhr.responseJSON.message);
+      }
+    });
+    if (callback) {
+      callback.apply(this);
+    }
+  }
 }
 
 export default Upload;

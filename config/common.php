@@ -2,6 +2,6 @@
 
 return [
     'category' => [
-        'type' => ['post', 'product'],
+        'type' => ['post', 'product', 'page'],
     ]
 ];

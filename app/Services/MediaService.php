@@ -5,7 +5,7 @@ namespace App\Services;
 use App\Contracts\Services\MediaInterface;
 use League\Glide\Signatures\SignatureException;
 use League\Glide\Signatures\SignatureFactory;
-use App\Jobs\Media\Summernote;
+use App\Jobs\Media\SummernoteJob;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 class MediaService implements MediaInterface
@@ -28,6 +28,6 @@ class MediaService implements MediaInterface
 
     public function summernote(array $attributes)
     {
-        return $this->dispatch(new Summernote($attributes));
+        return $this->dispatch(new SummernoteJob($attributes));
     }
 }

@@ -15,7 +15,7 @@
 @endpush
 
 @push('prestyles')
-{{ HTML::style('assets/css/backend/category.css') }}
+{{ Html::style('assets/css/backend/category.css') }}
 @endpush
 
 @section('page-content')
