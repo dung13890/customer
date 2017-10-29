@@ -7,4 +7,5 @@ use App\Contracts\Traits\ValidatableInterface;
 interface ConfigRepository extends ValidatableInterface
 {
     public function getData($columns = ['*']);
+    public function findByKey($key);
 }
