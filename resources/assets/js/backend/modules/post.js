@@ -3,7 +3,8 @@
 
 import Datatable from './../partials/datatable';
 import Uploadfile from './../partials/uploadfile';
-class Page {
+import 'jquery-slimscroll';
+class Post {
   index () {
     var _$ = window.$;
     let columns = [
@@ -11,7 +12,7 @@ class Page {
       { data: 'name',
         name: 'name',
         render: function (data, type, row) {
-          return '<a href="' + window.laroute.route('backend.page.show', {page: row.id}) + '">' + row.name + '</a>';
+          return '<a href="' + window.laroute.route('backend.post.show', {post: row.id}) + '">' + row.name + '</a>';
         }
       },
       { data: 'ceo_keywords', name: 'ceo_keywords'},
@@ -28,7 +29,7 @@ class Page {
         d.category_id = _$('select[name=category_id]').val();
       }
     };
-    var datatable = new Datatable('page', columns, searches);
+    var datatable = new Datatable('post', columns, searches);
     datatable.init();
 
     _$('#search-form').on('click', function (e) {
@@ -48,6 +49,9 @@ class Page {
     var _$ = window.jQuery;
     var uploadfile = new Uploadfile();
     uploadfile.init();
+    _$('.slim-scroll').slimScroll({
+      height: 300
+    });
     _$('.textarea-summernote').summernote({
       height:250,
       callbacks: {
@@ -59,4 +63,4 @@ class Page {
   }
 }
 
-export default window.page = new Page();
+export default window.post = new Post();
