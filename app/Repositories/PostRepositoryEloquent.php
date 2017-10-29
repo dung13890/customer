@@ -49,6 +49,11 @@ class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostR
         ];
     }
 
+    public function findBySlug($slug)
+    {
+        return $this->model->findBySlug($slug);
+    }
+
     public function find($id)
     {
         return $this->model->findOrFail($id);
