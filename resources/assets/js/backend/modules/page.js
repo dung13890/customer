@@ -11,7 +11,7 @@ class Page {
       { data: 'name',
         name: 'name',
         render: function (data, type, row) {
-          return '<a href="' + window.laroute.route('backend.page.show', {page: row.id}) + '">' + row.name + '</a>';
+          return '<a href="' + window.laroute.route('page.show', {slug: row.slug}) + '">' + row.name + '</a>';
         }
       },
       { data: 'ceo_keywords', name: 'ceo_keywords'},

@@ -4,7 +4,7 @@
 import Datatable from './../partials/datatable';
 import Uploadfile from './../partials/uploadfile';
 import 'jquery-slimscroll';
-class Post {
+class Product {
   index () {
     var _$ = window.$;
     let columns = [
@@ -12,7 +12,7 @@ class Post {
       { data: 'name',
         name: 'name',
         render: function (data, type, row) {
-          return '<a href="' + window.laroute.route('post.show', {slug: row.slug}) + '">' + row.name + '</a>';
+          return '<a href="' + window.laroute.route('product.show', {slug: row.slug}) + '">' + row.name + '</a>';
         }
       },
       { data: 'ceo_keywords', name: 'ceo_keywords'},
@@ -29,7 +29,7 @@ class Post {
         d.category_id = _$('select[name=category_id]').val();
       }
     };
-    var datatable = new Datatable('post', columns, searches);
+    var datatable = new Datatable('product', columns, searches);
     datatable.init();
 
     _$('#search-form').on('click', function (e) {
@@ -63,4 +63,4 @@ class Post {
   }
 }
 
-export default window.post = new Post();
+export default window.product = new Product();

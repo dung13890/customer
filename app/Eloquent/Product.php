@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Traits\GetImageTrait;
 use App\Traits\ModelableTrait;
 
-class Post extends Model
+class Product extends Model
 {
     use GetImageTrait, ModelableTrait;
 
@@ -14,38 +14,38 @@ class Post extends Model
         'ceo_title',
         'ceo_description',
         'ceo_keywords',
+        'advantage',
+        'coordination',
+        'information',
+        'conduct',
+        'produce',
         'name',
         'slug',
         'image',
-        'description',
         'locked',
-        'category_id',
     ];
-
-    public function category()
-    {
-        $this->belongsTo(Category::class);
-    }
 
     public function categories()
     {
         return $this->belongsToMany(Category::class)->where('type', 'product');
     }
 
-    public function setCeoTitleAttribute($value)
+    public function images()
     {
-        $this->attributes['ceo_title'] = $value ?? $this->name;
+        return $this->morphMany(Image::class, 'imageable');
     }
 
     public function scopeByKeywords($query, $keywords)
     {
         return $query->where('name', 'LIKE', "{$keywords}%")
             ->orWhere('ceo_keywords', 'LIKE', "{$keywords}%")
-            ->orWhere('description', 'LIKE', "{$keywords}%");
+            ->orWhere('ceo_title', 'LIKE', "{$keywords}%");
     }
 
-    public function scopeByCategory($query, $param)
+    public function scopeByCategory($query, $category)
     {
-        return $query->where('category_id', $param);
+        return $query->whereHas('categories', function ($query) use ($category) {
+            return $query->where('id', $category);
+        });
     }
 }

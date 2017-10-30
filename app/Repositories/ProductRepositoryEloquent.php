@@ -2,11 +2,11 @@
 
 namespace App\Repositories;
 
-use App\Contracts\Repositories\PostRepository;
+use App\Contracts\Repositories\ProductRepository;
 use App\Traits\ValidatableTrait;
-use App\Eloquent\Post;
+use App\Eloquent\Product;
 
-class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostRepository
+class ProductRepositoryEloquent extends AbstractRepositoryEloquent implements ProductRepository
 {
     use ValidatableTrait;
 
@@ -16,8 +16,7 @@ class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostR
             'ceo_title' => 'nullable|max:100',
             'ceo_description' => 'nullable|max:200',
             'ceo_keywords' => 'nullable|max:150',
-            'image'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
-            'category_id' => 'required|integer|not_in:0',
+            'image'=> 'required|nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
             'category_ids' => 'nullable|array',
         ],
         'update' => [
@@ -26,12 +25,11 @@ class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostR
             'ceo_description' => 'nullable|max:200',
             'ceo_keywords' => 'nullable|max:150',
             'image'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
-            'category_id' => 'required|integer|not_in:0',
             'category_ids' => 'nullable|array',
         ],
     ];
 
-    public function __construct(Post $post)
+    public function __construct(Product $post)
     {
         parent::__construct($post);
     }
@@ -44,7 +42,6 @@ class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostR
             'ceo_description' => __('repositories.label.ceo_description'),
             'ceo_keywords' => __('repositories.label.ceo_keywords'),
             'image' => __('repositories.label.image'),
-            'category_id' => __('repositories.category.name'),
             'category_ids' => __('repositories.label.category_ids'),
         ];
     }

@@ -15,7 +15,7 @@ class PostController extends BackendController
     use ControllableTrait;
 
     protected $repoCategory;
-    protected $dataSelect = ['id', 'name', 'ceo_keywords', 'locked'];
+    protected $dataSelect = ['id', 'name', 'ceo_keywords', 'locked', 'slug'];
     protected $categorySelect = ['id', 'name', 'parent_id'];
 
     public function __construct(PostRepository $post, CategoryRepository $category)
