@@ -13,6 +13,8 @@ class Image extends Model
         'name', 'src', 'size', 'type'
     ];
 
+    protected $appends = ['image_thumbnail'];
+
     public function getImageAttribute()
     {
         return $this->src;
