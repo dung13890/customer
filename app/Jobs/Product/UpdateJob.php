@@ -47,7 +47,7 @@ class UpdateJob
             $this->item->categories()->sync($this->attributes['category_ids']);
         }
 
-        if ($this->attributes['image_ids'] != $this->item->images->pluck('id')->toArray()) {
+        if (isset($this->attributes['image_ids']) && $this->attributes['image_ids'] != $this->item->images->pluck('id')->toArray()) {
             $this->item->images()->whereNotIn('id', $this->attributes['image_ids'])->delete();
             $this->item->images()->saveMany($repoImage->find($this->attributes['image_ids']));
         }

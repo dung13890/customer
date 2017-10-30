@@ -29,6 +29,11 @@ class Category extends Model
         return $this->hasMany(Post::class)->where('locked', false);
     }
 
+    public function products()
+    {
+        return $this->belongsToMany(Product::class)->where('locked', false);
+    }
+
     public function pages()
     {
         return $this->hasMany(Page::class)->where('locked', false);

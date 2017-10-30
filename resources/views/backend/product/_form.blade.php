@@ -1,7 +1,6 @@
 @push('prescripts')
 <script>
     var item = {!! $item or '{}' !!};
-    console.log(item.images);
 </script>
 {{ Html::script(mix('/assets/js/backend/summernote.min.js')) }}
 {{ Html::script(mix('/assets/js/backend/modules/product.js')) }}

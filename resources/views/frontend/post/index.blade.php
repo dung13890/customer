@@ -2,7 +2,7 @@
 
 @section('page-content')
     <div class="featured-image clearfix">
-        <img class="img-responsive" src="images/banner-category.jpg" alt="" />
+        <img class="img-responsive" src="/images/banner-category.jpg" alt="" />
     </div>
     <div class="page-title-block mt-30 clearfix">
         <div class="container">
@@ -32,7 +32,7 @@
                             <div class="block-content">
                                 <div class="box-grid news-block mb-15">
                                     <a class="box-grid-img" href="single.html" title="">
-                                        <img class="img-responsive" src="images/sp1.png" alt="">
+                                        <img class="img-responsive" src="/images/sp1.png" alt="">
                                     </a>
                                     <h4 class="box-grid-title">
                                         <a href="single.html" title="">Nhu cầu xây dựng phục hồi, ngành thép trong nước có dấu hiệu khởi sắc.</a>
@@ -44,7 +44,7 @@
                                     <div class="media">
                                         <div class="media-left">
                                             <a class="box-list-img" href="single.html" target="_blank" title="">
-                                                <img class="img-responsive" src="images/nw1.png" alt="">
+                                                <img class="img-responsive" src="/images/nw1.png" alt="">
                                             </a>
                                         </div>
                                         <div class="media-body">
@@ -59,7 +59,7 @@
                                     <div class="media">
                                         <div class="media-left">
                                             <a class="box-list-img" href="single.html" target="_blank" title="">
-                                                <img class="img-responsive" src="images/nw1.png" alt="">
+                                                <img class="img-responsive" src="/images/nw1.png" alt="">
                                             </a>
                                         </div>
                                         <div class="media-body">
@@ -74,7 +74,7 @@
                                     <div class="media">
                                         <div class="media-left">
                                             <a class="box-list-img" href="single.html" target="_blank" title="">
-                                                <img class="img-responsive" src="images/nw1.png" alt="">
+                                                <img class="img-responsive" src="/images/nw1.png" alt="">
                                             </a>
                                         </div>
                                         <div class="media-body">
@@ -96,7 +96,7 @@
                                     <div class="media">
                                         <div class="media-left">
                                             <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="images/nw1.png" alt="">
+                                                <img class="img-responsive" src="/images/nw1.png" alt="">
                                             </a>
                                         </div>
                                         <div class="media-body">
@@ -110,7 +110,7 @@
                                     <div class="media">
                                         <div class="media-left">
                                             <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="images/nw1.png" alt="">
+                                                <img class="img-responsive" src="/images/nw1.png" alt="">
                                             </a>
                                         </div>
                                         <div class="media-body">
@@ -124,7 +124,7 @@
                                     <div class="media">
                                         <div class="media-left">
                                             <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="images/nw1.png" alt="">
+                                                <img class="img-responsive" src="/images/nw1.png" alt="">
                                             </a>
                                         </div>
                                         <div class="media-body">
@@ -138,7 +138,7 @@
                                     <div class="media">
                                         <div class="media-left">
                                             <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="images/nw1.png" alt="">
+                                                <img class="img-responsive" src="/images/nw1.png" alt="">
                                             </a>
                                         </div>
                                         <div class="media-body">

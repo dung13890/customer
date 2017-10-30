@@ -111,7 +111,7 @@
         var promises = [];
         images.forEach(function(image) {
           var promise = new Promise(function(resolve, reject) {
-            var file = { name: image.name, size: image.size, src: laroute.route('image', { path:image.image_thumbnail }) };
+            var file = { name: image.name, size: image.size, src: window.laroute.route('image', {path: image.image_thumbnail}) };
             file.data = image;
             resolve(self.dzMockImage(file, image));
           });

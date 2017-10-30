@@ -83,6 +83,13 @@ class ProductController extends BackendController
         }, __FUNCTION__);
     }
 
+    public function destroy($id)
+    {
+        return $this->doRequest(function () use ($id) {
+            return $this->dispatch(new DestroyJob($id));
+        }, __FUNCTION__);
+    }
+
     public function imageStore(Request $request)
     {
         $this->validation($request, __FUNCTION__);

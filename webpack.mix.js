@@ -32,5 +32,6 @@ mix.js('resources/assets/js/backend.js', 'public/assets/js')
 mix.js('resources/assets/vue/dropzone.js', 'public/assets/vue/');
 mix.copyDirectory('resources/assets/img', 'public/img');
 mix.copyDirectory('resources/assets/vendor', 'public/frontend');
+mix.copyDirectory('resources/assets/vendor/images', 'public/images')
 
 mix.copy('resources/assets/bower/summernote/dist/summernote.min.js', 'public/assets/js/backend/summernote.min.js');
