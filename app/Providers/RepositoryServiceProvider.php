@@ -27,6 +27,11 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repositories\PostRepositoryEloquent::class,
         ],
 
+        'product' => [
+            \App\Contracts\Repositories\ProductRepository::class,
+            \App\Repositories\ProductRepositoryEloquent::class,
+        ],
+
         'slide' => [
             \App\Contracts\Repositories\SlideRepository::class,
             \App\Repositories\SlideRepositoryEloquent::class,
@@ -35,6 +40,16 @@ class RepositoryServiceProvider extends ServiceProvider
         'config' => [
             \App\Contracts\Repositories\ConfigRepository::class,
             \App\Repositories\ConfigRepositoryEloquent::class,
+        ],
+
+        'contact' => [
+            \App\Contracts\Repositories\ContactRepository::class,
+            \App\Repositories\ContactRepositoryEloquent::class,
+        ],
+
+        'image' => [
+            \App\Contracts\Repositories\ImageRepository::class,
+            \App\Repositories\ImageRepositoryEloquent::class,
         ],
     ];
     /**

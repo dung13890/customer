@@ -28,15 +28,19 @@ Route::group(['prefix' => '/', 'namespace' => 'Frontend'], function () {
 Route::group(['namespace' => 'Backend'], function () {
     Auth::routes();
     Route::group(['prefix' => 'backend', 'as' => 'backend.', 'middleware' => ['auth']], function () {
-        Route::get('/', 'HomeController@index');
+        Route::get('/', 'HomeController@index')->name('home.index');
         Route::post('summernote/image', 'HomeController@summernoteImage')->name('summernote.image');
+        Route::resource('home', 'HomeController', [
+            'except' => ['index', 'create', 'store', 'update', 'edit']
+        ]);
 
         Route::resource('user', 'UserController');
         Route::resource('category', 'CategoryController', [
-            'except' => ['index', 'create', 'show', 'create']
+            'except' => ['index', 'create', 'show']
         ]);
         Route::get('category/type/{type}', 'CategoryController@type')->name('category.type');
         Route::resource('page', 'PageController');
+        Route::resource('product', 'ProductController');
         Route::resource('post', 'PostController');
         Route::resource('slide', 'SlideController');
         Route::resource('config', 'ConfigController', [

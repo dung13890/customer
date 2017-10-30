@@ -3,11 +3,11 @@
 @section('title', isset($heading) ? $heading : __('repositories.index'))
 
 @push('prescripts')
-{{ Html::script(mix('/assets/js/backend/modules/home.js')) }}
+{{ Html::script(mix('/assets/js/backend/modules/product.js')) }}
     <script>
         $(function () {
             window.flash_message = '{!! session("flash_message") !!}';
-            window.home.index();
+            window.product.index();
         });
     </script>
 @endpush
@@ -28,17 +28,25 @@
                     </div>
                     @component('backend._partials.components.filter', ['search_field' => __('repositories.title.search')])
                         @slot('filter_fields')
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">{{ __('repositories.category.name') }}</span>
+                                    {{ Form::select('category_id', $categories, null, ['class' => 'form-control']) }}
+                                </div>
+                            </div>
+                        </div>
                         @endslot
                     @endcomponent
+                    <a href="{{ route('backend.product.create') }}" class="btn btn-success btn-sm create-form"><i class="ion-plus-round"></i> {{ __('repositories.title.create') }}</a>
                     <div class="table-responsive">
                         <table id="table-index" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th style="display:none">ID</th>
                                     <th>{{ __('repositories.label.name') }}</th>
-                                    <th>{{ __('repositories.label.email') }}</th>
-                                    <th>{{ __('repositories.label.phone') }}</th>
-                                    <th>{{ __('repositories.label.content') }}</th>
+                                    <th>{{ __('repositories.label.ceo_keywords') }}</th>
+                                    <th>{{ __('repositories.label.locked') }}</th>
                                     <th>{{ __('repositories.label.action') }}</th>
                                 </tr>
                             </thead>

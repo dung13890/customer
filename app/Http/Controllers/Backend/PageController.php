@@ -15,7 +15,7 @@ class PageController extends BackendController
     use ControllableTrait;
 
     protected $category;
-    protected $dataSelect = ['id', 'name', 'ceo_keywords', 'locked'];
+    protected $dataSelect = ['id', 'name', 'ceo_keywords', 'locked', 'slug'];
     protected $categorySelect = ['id', 'name'];
 
     public function __construct(PageRepository $page, CategoryRepository $category)

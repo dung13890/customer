@@ -43,6 +43,7 @@ return [
         'image' => 'Hình ảnh',
         'phone' => 'Điện thoại',
         'fax' => 'Fax',
+        'content' => 'Nội dung',
         'banner' => 'Ảnh banner',
         'username' => 'Tên đăng nhập',
         'name' => 'Tên',
@@ -87,7 +88,7 @@ return [
     ],
 
     'home' => [
-        'name' => 'Bảng điều khiển',
+        'name' => 'Liên hệ',
     ],
 
     'user' => [
@@ -121,6 +122,15 @@ return [
             'index' => 'Danh sách tin tức',
             'create' => 'Tạo mới tin tức',
             'edit' => 'Cập nhật tin tức',
+        ]
+    ],
+
+    'product' => [
+        'name' => 'Sản phẩm',
+        'resource' => [
+            'index' => 'Danh sách sản phẩm',
+            'create' => 'Tạo mới sản phẩm',
+            'edit' => 'Cập nhật sản phẩm',
         ]
     ],
 
