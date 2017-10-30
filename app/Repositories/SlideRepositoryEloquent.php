@@ -37,6 +37,11 @@ class SlideRepositoryEloquent extends AbstractRepositoryEloquent implements Slid
         ];
     }
 
+    public function getData()
+    {
+        return $this->model->get();
+    }
+
     public function find($id)
     {
         return $this->model->findOrFail($id);

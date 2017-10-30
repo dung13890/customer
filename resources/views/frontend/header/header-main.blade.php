@@ -25,11 +25,11 @@
                                             <h4 class="title-new">{{ $categoryPost->name }}</h4>
                                             <div class="owl-carousel owl-new">
                                                 @if ($categoryPost->limitPosts)
-                                                @foreach($categoryPost->limitPosts->chunk(3) as $chunks)
+                                                @foreach($categoryPost->limitPosts->chunk(5) as $chunks)
                                                 <div class="item">
                                                     @foreach($chunks as $chunk)
                                                     <a class="item-new" href="{{ route('post.show', $chunk->slug) }}">
-                                                        <img src="{{ route('image', $chunk->image_thumbnail) }}" />
+                                                        <img src="{{ route('image', $chunk->image_100x70) }}" />
                                                         <div class="info">
                                                             <h5>{{ $chunk->name }}</h5>
                                                         </div>
@@ -52,12 +52,12 @@
                                 <div class="megamenu-inner">
                                     <div class="owl-carousel owl-product">
                                         @if ($__categoryProducts)
-                                        @foreach($__categoryProducts->chunk(2) as $chunks)
+                                        @foreach($__categoryProducts->chunk(5) as $chunks)
                                         <div class="item">
                                             @foreach ($chunks as $chunk)
                                             <div class="box text-center">
                                                 <a class="box-img" href="{{ route('category.show', $chunk->slug) }}" title="{{ $chunk->name }}">
-                                                    <img class="img-responsive" src="{{ route('image', $chunk->image_thumbnail) }}" alt="{{ $chunk->name }}" />
+                                                    <img class="img-responsive" src="{{ route('image', $chunk->image_100x70) }}" alt="{{ $chunk->name }}" />
                                                 </a>
                                                 <h4 class="box-title">
                                                     <a href="{{ route('category.show', $chunk->slug) }}" title="{{ $chunk->name }}">{{ $chunk->name }}</a>

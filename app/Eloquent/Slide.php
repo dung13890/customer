@@ -22,4 +22,9 @@ class Slide extends Model
         return $query->where('name', 'LIKE', "{$keywords}%")
             ->orWhere('description', 'LIKE', "{$keywords}%");
     }
+
+    public function getImage1170x445Attribute($value)
+    {
+        return app()['glide.builder']->getUrl($this->image, ['p' => '1170x445']);
+    }
 }
