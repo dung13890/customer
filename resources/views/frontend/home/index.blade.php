@@ -6,18 +6,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="el-slideshow slider-main" id="js-slider-main">
+                    @foreach ($slides as $slide)
                     <div class="item">
-                        <img src="images/slide.png">
+                        <img src="{{ route('image', $slide->image_1170x445) }}" />
                     </div>
-                    <div class="item">
-                        <img src="images/slide.png">
-                    </div>
-                    <div class="item">
-                        <img src="images/slide.png">
-                    </div>
-                    <div class="item">
-                        <img src="images/slide.png">
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

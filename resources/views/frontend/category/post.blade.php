@@ -25,6 +25,7 @@
     <section class="daily-news mt-30 mb-30 clearfix" id="daily-news">
         <div class="container">
             <div class="title-one-full pl-50">
+                {{ $item->heading }}
                 <h2>Bản tin thời sự</h2>
             </div>
             <div class="row">

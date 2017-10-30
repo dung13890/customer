@@ -60,6 +60,16 @@ class AppServiceProvider extends ServiceProvider
                         'h' => 600,
                         'fit' => 'crop',
                     ],
+                    '100x70' => [
+                        'w' => 100,
+                        'h' => 74,
+                        'fit' => 'crop',
+                    ],
+                    '1170x445' => [
+                        'w' => 1170,
+                        'h' => 445,
+                        'fit' => 'crop',
+                    ],
                 ],
                 'response' => new LaravelResponseFactory(),
             ]);

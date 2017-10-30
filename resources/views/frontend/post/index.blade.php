@@ -24,7 +24,6 @@
                         <div class="post-content">
                             {!! $item->description !!}
                         </div>
-                        <div class="fb-comments" data-href="https://nguyenduytu3i.github.io/" data-width="100%" data-numposts="5"></div>
                     </div>
                 </div>
                 <aside class="sidebar sidebar-blog col-xs-12 col-sm-12 col-md-4">

@@ -13,7 +13,7 @@
     <title>@yield('title')</title>
 
     <!-- Styles -->
-    {{ Html::style('/frontend/css/main.css') }}
+    {{ Html::style('/frontend/css/main.min.css') }}
     @stack('prestyles')
 </head>
 <body>
@@ -25,7 +25,39 @@
         @include('frontend.footer.footer')
     </div>
     <div id="fb-root"></div>
-    {{ Html::script('/frontend/js/main.js') }}
+    <div class="modal fade custom-modal" id="modal-onload" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h3 class="modal-title">Khuyễn mại cuối năm - Sale Off 50%</h3>
+                    <h5>Bình Nước Nóng Toàn Thắng Giải pháp Tốt & Hiệu quả nhất cho mùa đông</h5>
+                    <p>Tầng 7, Tòa nhà số 8 Quang Trung, Quận Hà Đông, Hà Nội </p>
+                    <p>Hãy để lại email của bạn cho chúng tôi để nhận được những ưu đãi tốt nhất</p>
+                    <form class="contact-form" name="contact-form" action="/contact/" method="POST">
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Họ và tên" name="name" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Email" name="email" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Số điện thoại" name="phone-number" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" type="text" placeholder="Nhập nội dung" name="content"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-default" type="submit">Gửi</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ Html::script('/frontend/js/main.min.js') }}
     @stack('prescripts')
 </body>
 </html>

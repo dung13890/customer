@@ -48,4 +48,9 @@ class Post extends Model
     {
         return $query->where('category_id', $param);
     }
+
+    public function getImage100x70Attribute($value)
+    {
+        return app()['glide.builder']->getUrl($this->image, ['p' => '100x70']);
+    }
 }
