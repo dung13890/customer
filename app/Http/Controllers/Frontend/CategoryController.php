@@ -24,6 +24,7 @@ class CategoryController extends FrontendController
             case 'product':
                 $this->view = 'category.product';
                 $this->compacts['item'] = $item;
+                $this->compacts['products'] = $item->products()->paginate(9);
                 $this->compacts['heading'] = $item->name;
                 break;
             case 'page':

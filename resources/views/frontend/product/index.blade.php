@@ -4,7 +4,7 @@
     <div class="featured-image clearfix">
         <div class="container">
             <div class="featured-image clearfix">
-                <img class="img-responsive" src="images/banner-category.jpg" alt="" />
+                <img class="img-responsive" src="{{ route('image', $item->categories->first()->image_default) }}" alt="" />
             </div>
         </div>
     </div>
@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <h2 class="page-title title-one-full">
-                        <span>Chậu rửa INOX</span>
+                        <span>{{ $item->name }}</span>
                     </h2>
                 </div>
             </div>
@@ -26,6 +26,7 @@
                     <div class="product-single-top">
                         <div class="product-gallery">
                             <div class="product-photo">
+                                @if ($item->images)
                                 @foreach ($item->images as $image)
                                 <figure>
                                     <a class="item" href="{{ route('image', $image->image_large) }}" data-size="800x600">
@@ -33,79 +34,72 @@
                                     </a>
                                 </figure>
                                 @endforeach
+                                @endif
 
                             </div>
                             <div class="product-thumbs">
+                                @if ($item->images)
                                 @foreach ($item->images as $image)
                                 <div class="item">
                                     <img src="{{ route('image', $image->image_thumbnail) }}" alt="image_thumbnail">
                                 </div>
                                 @endforeach
+                                @endif
                             </div>
                         </div>
                     </div>
                     <div class="product-single-tabs">
                         <ul class="nav nav-tabs" role="tablist">
-                            @if ($item->information != '')
+                            @if ($item->information)
                             <li class="active" role="presentation">
                                 <a href="#product-info" aria-controls="product-info" role="tab" data-toggle="tab" aria-expanded="false">Thông số kỹ thuật</a>
                             </li>
                             @endif
 
-                            @if ($item->advantage != '')
+                            @if ($item->advantage)
                             <li role="presentation">
                                 <a href="#product-advantage" aria-controls="product-advantage" role="tab" data-toggle="tab" aria-expanded="false">Ưu điểm</a>
                             </li>
                             @endif
 
-                            @if ($item->coordination != '')
+                            @if ($item->coordination)
                             <li role="presentation">
                                 <a href="#setup-formality" aria-controls="setup-formality" role="tab" data-toggle="tab" aria-expanded="true">Các hình thức lắp đặt </a>
                             </li>
                             @endif
 
-                            @if ($item->conduct != '')
+                            @if ($item->conduct)
                             <li role="presentation">
                                 <a href="#setup-step" aria-controls="setup-step" role="tab" data-toggle="tab" aria-expanded="false">Các bước lắp đặt</a>
                             </li>
                             @endif
 
-                            @if ($item->produce != '')
+                            @if ($item->produce)
                             <li role="presentation">
                                 <a href="#product-process" aria-controls="product-process" role="tab" data-toggle="tab" aria-expanded="false">Dây chuyền sản xuất</a>
                             </li>
                             @endif
                         </ul>
                         <div class="tab-content">
-                            @if ($item->information != '')
                             <div class="tab-pane active" id="product-info" role="tabpanel">
                                {!! $item->information !!}
                             </div>
-                            @endif
 
-                            @if ($item->advantage != '')
                             <div class="tab-pane active" id="product-advantage" role="tabpanel">
                                {!! $item->advantage !!}
                             </div>
-                            @endif
 
-                            @if ($item->coordination != '')
                             <div class="tab-pane" id="setup-formality" role="tabpanel">
                                 {!! $item->coordination !!}
                             </div>
-                            @endif
 
-                            @if ($item->conduct != '')
                             <div class="tab-pane" id="setup-step" role="tabpanel">
                                 {!! $item->conduct !!}
                             </div>
-                            @endif
 
-                            @if ($item->produce != '')
                             <div class="tab-pane" id="product-process" role="tabpanel">
                                 {!! $item->produce !!}
                             </div>
-                            @endif
                         </div>
                     </div>
                 </div>
@@ -120,7 +114,7 @@
                                     <div class="media">
                                         <div class="media-left">
                                             <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="images/nw1.png" alt="">
+                                                <img class="img-responsive" src="/images/nw1.png" alt="">
                                             </a>
                                         </div>
                                         <div class="media-body">
@@ -134,7 +128,7 @@
                                     <div class="media">
                                         <div class="media-left">
                                             <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="images/nw1.png" alt="">
+                                                <img class="img-responsive" src="/images/nw1.png" alt="">
                                             </a>
                                         </div>
                                         <div class="media-body">
@@ -148,7 +142,7 @@
                                     <div class="media">
                                         <div class="media-left">
                                             <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="images/nw1.png" alt="">
+                                                <img class="img-responsive" src="/images/nw1.png" alt="">
                                             </a>
                                         </div>
                                         <div class="media-body">
@@ -162,7 +156,7 @@
                                     <div class="media">
                                         <div class="media-left">
                                             <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="images/nw1.png" alt="">
+                                                <img class="img-responsive" src="/images/nw1.png" alt="">
                                             </a>
                                         </div>
                                         <div class="media-body">
@@ -183,7 +177,7 @@
                                     <div class="media">
                                         <div class="media-left">
                                             <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="images/nw1.png" alt="">
+                                                <img class="img-responsive" src="/images/nw1.png" alt="">
                                             </a>
                                         </div>
                                         <div class="media-body">
@@ -197,7 +191,7 @@
                                     <div class="media">
                                         <div class="media-left">
                                             <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="images/nw1.png" alt="">
+                                                <img class="img-responsive" src="/images/nw1.png" alt="">
                                             </a>
                                         </div>
                                         <div class="media-body">
@@ -211,7 +205,7 @@
                                     <div class="media">
                                         <div class="media-left">
                                             <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="images/nw1.png" alt="">
+                                                <img class="img-responsive" src="/images/nw1.png" alt="">
                                             </a>
                                         </div>
                                         <div class="media-body">
@@ -225,7 +219,7 @@
                                     <div class="media">
                                         <div class="media-left">
                                             <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="images/nw1.png" alt="">
+                                                <img class="img-responsive" src="/images/nw1.png" alt="">
                                             </a>
                                         </div>
                                         <div class="media-body">
@@ -246,7 +240,7 @@
                                     <div class="media">
                                         <div class="media-left">
                                             <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="images/nw1.png" alt="">
+                                                <img class="img-responsive" src="/images/nw1.png" alt="">
                                             </a>
                                         </div>
                                         <div class="media-body">
@@ -260,7 +254,7 @@
                                     <div class="media">
                                         <div class="media-left">
                                             <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="images/nw1.png" alt="">
+                                                <img class="img-responsive" src="/images/nw1.png" alt="">
                                             </a>
                                         </div>
                                         <div class="media-body">
@@ -274,7 +268,7 @@
                                     <div class="media">
                                         <div class="media-left">
                                             <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="images/nw1.png" alt="">
+                                                <img class="img-responsive" src="/images/nw1.png" alt="">
                                             </a>
                                         </div>
                                         <div class="media-body">
@@ -288,7 +282,7 @@
                                     <div class="media">
                                         <div class="media-left">
                                             <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="images/nw1.png" alt="">
+                                                <img class="img-responsive" src="/images/nw1.png" alt="">
                                             </a>
                                         </div>
                                         <div class="media-body">

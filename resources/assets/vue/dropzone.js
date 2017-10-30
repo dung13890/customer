@@ -8,6 +8,6 @@ new Vue({
     'upload-image': UploadImage,
   },
   data:{
-    item :window.item || {}
+    item : window.item || {}
   }
 });
