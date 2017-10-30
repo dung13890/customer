@@ -8,6 +8,7 @@
     "/assets/css/backend/config.css": "/assets/css/backend/config.css",
     "/assets/css/backend/slide.css": "/assets/css/backend/slide.css",
     "/assets/css/backend/category.css": "/assets/css/backend/category.css",
+    "/assets/vue/dropzone.js": "/assets/vue/dropzone.js",
     "/assets/js/backend/modules/product.js": "/assets/js/backend/modules/product.js",
     "/assets/js/backend/modules/post.js": "/assets/js/backend/modules/post.js",
     "/assets/js/backend/modules/slide.js": "/assets/js/backend/modules/slide.js",

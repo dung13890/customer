@@ -34,6 +34,11 @@ class ImageRepositoryEloquent extends AbstractRepositoryEloquent implements Imag
         return $this->model->findOrFail($id);
     }
 
+    public function findByIds(array $ids)
+    {
+        return $this->model->find($ids);
+    }
+
     public function store($data)
     {
         return $this->model->create($data);

@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 use App\Jobs\Product\StoreJob;
 use App\Jobs\Product\UpdateJob;
 use App\Jobs\Product\DestroyJob;
+use App\Jobs\Media\ImageStoreJob;
 use App\Traits\ControllableTrait;
+use Illuminate\Http\Response;
 
 class ProductController extends BackendController
 {
@@ -41,5 +43,57 @@ class ProductController extends BackendController
         }
 
         return $this->viewRender();
+    }
+
+    public function create()
+    {
+        parent::__create();
+        $this->compacts['rootCategories'] = $this->repoCategory->getRootByType('product', $this->categorySelect);
+
+        return $this->viewRender();
+    }
+
+    public function store(Request $request)
+    {
+        $this->validation($request, __FUNCTION__);
+        $data = $request->all();
+
+        return $this->doRequest(function () use ($data) {
+            $this->dispatch(new StoreJob($data));
+        }, __FUNCTION__);
+    }
+
+    public function edit($id)
+    {
+        parent::__edit($id);
+        $this->compacts['rootCategories'] = $this->repoCategory->getRootByType('product', $this->categorySelect);
+        $this->compacts['images'] = $this->compacts['item']->images;
+
+        return $this->viewRender();
+    }
+
+    public function update(Request $request, $id)
+    {
+        $item = $this->repository->find($id);
+        $this->validation($request, __FUNCTION__, $item);
+        $data = $request->all();
+
+        return $this->doRequest(function () use ($data, $item) {
+            return $this->dispatch(new UpdateJob($data, $item));
+        }, __FUNCTION__);
+    }
+
+    public function imageStore(Request $request)
+    {
+        $this->validation($request, __FUNCTION__);
+        $data = $request->only('name', 'src', 'size', 'type');
+
+        try {
+            $result = $this->dispatch(new ImageStoreJob($data));
+        } catch (\Exception $e) {
+            return response()->json(__('repositories.actions.imatestore.unsuccessfully'), Response::HTTP_PAYMENT_REQUIRED);
+        }
+
+        return $result;
     }
 }

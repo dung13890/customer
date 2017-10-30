@@ -19,11 +19,14 @@
     "bootstrap-sass": "^3.3.7",
     "codemirror": "^5.31.0",
     "datatables.net-bs": "^1.10.16",
+    "dropzone": "^5.2.0",
+    "es6-promise": "^4.1.1",
     "jquery": "^3.2.1",
     "jquery-slimscroll": "^1.3.8",
     "lang.js": "^1.1.8",
     "owl.carousel": "^2.2.0",
     "slick-carousel": "^1.8.1",
-    "sweetalert2": "^6.11.1"
+    "sweetalert2": "^6.11.1",
+    "vue": "^2.5.2"
   }
 }

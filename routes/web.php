@@ -23,6 +23,7 @@ Route::group(['prefix' => '/', 'namespace' => 'Frontend'], function () {
     Route::get('category/{slug}', 'CategoryController@show')->name('category.show');
     Route::get('page/{slug}', 'PageController@show')->name('page.show');
     Route::get('post/{slug}', 'PostController@show')->name('post.show');
+    Route::get('product/{slug}', 'ProductController@show')->name('product.show');
 });
 
 Route::group(['namespace' => 'Backend'], function () {
@@ -41,6 +42,7 @@ Route::group(['namespace' => 'Backend'], function () {
         Route::get('category/type/{type}', 'CategoryController@type')->name('category.type');
         Route::resource('page', 'PageController');
         Route::resource('product', 'ProductController');
+        Route::post('product/image/store', 'ProductController@imageStore')->name('product.image.store');
         Route::resource('post', 'PostController');
         Route::resource('slide', 'SlideController');
         Route::resource('config', 'ConfigController', [
