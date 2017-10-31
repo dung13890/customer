@@ -17,6 +17,7 @@ class Page extends Model
         'name',
         'slug',
         'image',
+        'file',
         'description',
         'locked',
         'category_id',

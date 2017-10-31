@@ -35,6 +35,10 @@ class DestroyJob
             $this->destroyFile($item->image);
         }
 
+        if (!empty($item->file)) {
+            $this->destroyFile($item->file, 'public');
+        }
+
         return $repository->destroy($this->id);
     }
 }

@@ -18,6 +18,7 @@ class PageRepositoryEloquent extends AbstractRepositoryEloquent implements PageR
             'ceo_keywords' => 'nullable|max:150',
             'image'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
             'category_id' => 'required|integer|not_in:0',
+            'file' => 'nullable|mimes:pdf',
         ],
         'update' => [
             'name' => 'required|min:2|max:100',
@@ -26,6 +27,7 @@ class PageRepositoryEloquent extends AbstractRepositoryEloquent implements PageR
             'ceo_keywords' => 'nullable|max:150',
             'image'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
             'category_id' => 'required|integer|not_in:0',
+            'file' => 'nullable|mimes:pdf',
         ],
     ];
 

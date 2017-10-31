@@ -16,6 +16,8 @@ class Product extends Model
         'ceo_keywords',
         'advantage',
         'coordination',
+        'feature_1',
+        'feature_2',
         'information',
         'conduct',
         'produce',

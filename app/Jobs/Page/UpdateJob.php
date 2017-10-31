@@ -42,6 +42,13 @@ class UpdateJob
             $data['image'] = $this->uploadFile($data['image'], $path);
         }
 
+        if (array_has($data, 'file')) {
+            if (!empty($this->item->file)) {
+                $this->destroyFile($this->item->file, 'public');
+            }
+            $data['file'] = $this->uploadFile($data['file'], $path, 'public');
+        }
+
         $this->item->update($data);
     }
 }

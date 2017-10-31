@@ -69,8 +69,12 @@ class ConfigSeeder extends Seeder
             'value' => 'Tầng 7, Tòa nhà số 8 Quang Trung, Quận Hà Đông, Hà Nội',
         ]);
         app(Config::class)->create([
-            'key' => 'slogan',
-            'value' => 'Toàn Thắng mang tầm cao mới cho ngôi nhà của bạn!',
+            'key' => 'map',
+            'value' => '',
+        ]);
+        app(Config::class)->create([
+            'key' => 'popup',
+            'value' => '',
         ]);
         app(Config::class)->create([
             'key' => 'introduce',

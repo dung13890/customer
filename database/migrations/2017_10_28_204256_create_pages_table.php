@@ -21,6 +21,7 @@ class CreatePagesTable extends Migration
             $table->string('name', 100);
             $table->string('slug', 100)->index()->unique();
             $table->string('image')->nullable();
+            $table->string('file')->nullable();
             $table->text('description')->nullable();
             $table->boolean('locked')->default(false);
             $table->integer('category_id')->index()->unsigned();

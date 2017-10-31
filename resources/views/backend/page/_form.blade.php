@@ -49,6 +49,17 @@
                 </div>
             </div>
         </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-8">
+                    {{ Form::label('pdf', __('repositories.label.pdf'), ['class' => 'control-label']) }}
+                    {{ Form::file('file', ['id' => 'file']) }}
+                    @if (isset($item) && $item->file)
+                    <a href="#">{{ $item->file }}</a>
+                    @endif
+                </div>
+            </div>
+        </div>
     </div>
     <div class="col-sm-4">
         @include('backend._partials.includes.seo')

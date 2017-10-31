@@ -8,6 +8,7 @@ return [
         'page_4' => 'Tuyển dụng',
         'login' => 'Đăng nhập',
         'config' => 'Cấu hình',
+        'cache_clear' => 'Xoá Cache',
         'ceo' => 'SEO',
         'profile' => 'Thông tin',
         'logout' => 'Thoát',
@@ -62,10 +63,14 @@ return [
         'produce' => 'Dây chuyền sản xuất',
         'address' => 'Địa chỉ',
         'introduce' => 'Giới thiệu',
-        'slogan' => 'Slogan',
+        'map' => 'Bản đồ',
         'logo' => 'Logo',
+        'popup' => 'Popup',
         'factory' => 'Nhà máy',
         'copyright' => 'Copyright',
+        'pdf' => 'PDF',
+        'feature_1' => 'Đặc tính 1',
+        'feature_2' => 'Đặc tính 2',
     ],
 
     'button' => [

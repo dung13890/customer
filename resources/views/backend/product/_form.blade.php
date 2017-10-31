@@ -36,6 +36,19 @@
                 </div>
             </div>
         </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    {{ Form::label('feature_1', __('repositories.label.feature_1'), ['class'=>'control-label']) }}
+                    {{ Form::text('feature_1', null, ['class' => 'form-control', 'placeholder' => __('repositories.label.feature_1')]) }}
+                </div>
+
+                <div class="col-md-6">
+                    {{ Form::label('feature_2', __('repositories.label.feature_2'), ['class'=>'control-label']) }}
+                    {{ Form::text('feature_2', null, ['class' => 'form-control', 'placeholder' => __('repositories.label.feature_2')]) }}
+                </div>
+            </div>
+        </div>
         <div class="form-group" id="dropzone-form">
             {{ Form::label('images[]', __('repositories.label.images')) }}
             <upload-image @if(isset($item)) :images="item.images" @endif></upload-image>

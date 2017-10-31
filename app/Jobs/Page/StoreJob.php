@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Foundation\Bus\Dispatchable;
 use App\Contracts\Repositories\PageRepository;
 use App\Traits\UploadableTrait;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class StoreJob
 {
@@ -35,6 +36,10 @@ class StoreJob
 
         if (array_has($data, 'image')) {
             $data['image'] = $this->uploadFile($data['image'], $path);
+        }
+
+        if (array_has($data, 'file')) {
+            $data['file'] = $this->uploadFile($data['file'], $path, 'public');
         }
 
         $repository->store($data);

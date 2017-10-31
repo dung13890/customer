@@ -99,7 +99,7 @@
       },
       dzMockImage: function (mockFile, data) {
         this.dz.emit("addedfile", mockFile);
-        this.dz.createThumbnailFromUrl(mockFile, mockFile.src);
+        this.dz.emit('thumbnail', mockFile, mockFile.src);
         this.dz.emit("complete", mockFile);
         this.dz.emit("success", mockFile, data);
         data.file = mockFile;

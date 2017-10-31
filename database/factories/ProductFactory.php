@@ -10,7 +10,8 @@ $factory->define(\App\Eloquent\Product::class, function (Faker $faker) {
         'coordination' => $faker->realText,
         'information' => $faker->realText,
         'conduct' => $faker->realText,
-        'produce' => $faker->realText,
+        'feature_1' => 'KT. chậu: 1050 x 450 x 235 mm',
+        'produce' => 'KT. hố chậu: 1030 x 430 mm',
         'locked' => rand(0, 1),
     ];
 });

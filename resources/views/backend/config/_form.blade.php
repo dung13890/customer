@@ -66,8 +66,8 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-6">
-                    {{ Form::label('slogan', __('repositories.label.slogan'), ['class'=>'control-label']) }}
-                    {{ Form::text('slogan', $items->keyBy('key')['slogan']['value'], ['class' => 'form-control']) }}
+                    {{ Form::label('map', __('repositories.label.map'), ['class'=>'control-label']) }}
+                    {{ Form::text('map', $items->keyBy('key')['map']['value'], ['class' => 'form-control']) }}
                 </div>
                 <div class="col-md-6">
                     {{ Form::label('name', __('repositories.label.logo'), ['class' => 'control-label']) }}
@@ -80,7 +80,13 @@
             </div>
         </div>
 
+        <div class="form-group">
+            {{ Form::label('popup', __('repositories.label.popup'), ['class'=>'control-label']) }}<span class="require">*</span>
+            {{ Form::textarea('popup', $items->keyBy('key')['popup']['value'], ['class' => 'form-control textarea-summernote', 'rows' => 3]) }}
+        </div>
+
         <div class="form-group text-right">
+            <button type="submit" class="btn btn-warning btn-sm"><i class="ion-trash-b"></i> {{ isset($item) ? __('repositories.title.edit') : __('repositories.title.cache_clear') }}</button>
             <button type="submit" class="btn btn-success btn-sm"><i class="ion-checkmark-circled"></i> {{ isset($item) ? __('repositories.title.edit') : __('repositories.title.create') }}</button>
         </div>
     </div>
