@@ -15,14 +15,12 @@ class ProductController extends FrontendController
     public function show($slug)
     {
         $this->view = 'product.index';
-        $this->compacts['item'] = $this->repository->findBySlug($slug);
-        $this->compacts['heading'] = $this->compacts['item']->name;
-        $this->compacts['image'] = $this->compacts['item']->image;
-        $this->compacts['advantage'] = $this->compacts['item']->advantage;
-        $this->compacts['coordination'] = $this->compacts['item']->coordination;
-        $this->compacts['information'] = $this->compacts['item']->information;
-        $this->compacts['conduct'] = $this->compacts['item']->conduct;
-        $this->compacts['produce'] = $this->compacts['item']->produce;
+        $item = $this->repository->findBySlug($slug);
+        $this->compacts['item'] = $item;
+        $this->compacts['heading'] = $item->ceo_title;
+        $this->compacts['description'] = $item->ceo_description;
+        $this->compacts['keywords'] = $item->ceo_keywords;
+        $this->compacts['image_social'] = route('image', $item->image_small);
 
         return $this->viewRender();
     }

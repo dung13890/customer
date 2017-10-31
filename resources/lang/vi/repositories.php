@@ -36,9 +36,9 @@ return [
     ],
 
     'label' => [
-        'ceo_title' => 'Tiêu đề CEO',
-        'ceo_keywords' => 'Từ khoá CEO',
-        'ceo_description' => 'Mô tả CEO',
+        'ceo_title' => 'Tiêu đề SEO',
+        'ceo_keywords' => 'Từ khoá SEO',
+        'ceo_description' => 'Mô tả SEO',
         'title' => 'Tiêu đề',
         'root' => 'Nguồn',
         'image' => 'Hình ảnh',

@@ -37,6 +37,11 @@ class Product extends Model
         return $this->morphMany(Image::class, 'imageable');
     }
 
+    public function setCeoTitleAttribute($value)
+    {
+        $this->attributes['ceo_title'] = $value ?? $this->name;
+    }
+
     public function scopeByKeywords($query, $keywords)
     {
         return $query->where('name', 'LIKE', "{$keywords}%")
