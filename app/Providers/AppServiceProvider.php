@@ -17,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        \Schema::defaultStringLength(191);
     }
 
     /**
@@ -62,7 +62,12 @@ class AppServiceProvider extends ServiceProvider
                     ],
                     '100x70' => [
                         'w' => 100,
-                        'h' => 74,
+                        'h' => 70,
+                        'fit' => 'crop',
+                    ],
+                    '156x100' => [
+                        'w' => 156,
+                        'h' => 100,
                         'fit' => 'crop',
                     ],
                     '1170x445' => [

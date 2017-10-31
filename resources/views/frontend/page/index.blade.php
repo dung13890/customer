@@ -1,6 +1,7 @@
 @extends('layouts.frontend')
 
 @section('page-content')
+@if ($item)
     <div class="featured-image clearfix">
         <img class="img-responsive" src="images/banner-category.jpg" alt="" />
     </div>
@@ -36,4 +37,5 @@
             </div>
         </div>
     </div>
+@endif
 @endsection

@@ -7,15 +7,15 @@
                         <img src="{{ route('image', $configs['logo']) }}" />
                     </a>
                     <ul class="menuzord-menu">
-                        <li class="active">
+                        <li {{ check_active(route('home')) }}>
                             <a href="{{ route('home') }}">Trang chủ</a>
                         </li>
-                        <li>
-                            <a href="#">{{ $__categoryMenu->get(0)->name }}</a>
+                        <li {{ check_active(route('category.show', $__categoryMenu->get(0)->slug)) }}>
+                            <a href="{{ route('category.show', $__categoryMenu->get(0)->slug) }}">{{ $__categoryMenu->get(0)->name }}</a>
                             @include('frontend.header._box-page', ['boxCategory' => $__categoryMenu->get(0)])
                         </li>
-                        <li>
-                            <a href="#">{{ $__categoryMenu->get(5)->name }}</a>
+                        <li {{ check_active(route('category.show', $__categoryMenu->get(5)->slug)) }}>
+                            <a href="{{ route('category.show', $__categoryMenu->get(5)->slug) }}">{{ $__categoryMenu->get(5)->name }}</a>
                             <div class="megamenu">
                                 <div class="megamenu-inner">
                                     <div class="megamenu-row new">
@@ -46,8 +46,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li>
-                            <a href="#">{{ $__categoryMenu->get(4)->name }}</a>
+                        <li {{ check_active(route('category.show', $__categoryMenu->get(4)->slug)) }}>
+                            <a href="{{ route('category.show', $__categoryMenu->get(4)->slug) }}">{{ $__categoryMenu->get(4)->name }}</a>
                             <div class="megamenu">
                                 <div class="megamenu-inner">
                                     <div class="owl-carousel owl-product">
@@ -71,16 +71,16 @@
                                 </div>
                             </div>
                         </li>
-                        <li>
-                            <a href="#">{{ $__categoryMenu->get(1)->name }}</a>
+                        <li {{ check_active(route('category.show', $__categoryMenu->get(1)->slug)) }}>
+                            <a href="route('category.show', $__categoryMenu->get(1)->slug)">{{ $__categoryMenu->get(1)->name }}</a>
                             @include('frontend.header._box-page', ['boxCategory' => $__categoryMenu->get(1)])
                         </li>
-                        <li>
-                            <a href="#">{{ $__categoryMenu->get(2)->name }}</a>
+                        <li {{ check_active(route('category.show', $__categoryMenu->get(2)->slug)) }}>
+                            <a href="{{ route('category.show', $__categoryMenu->get(2)->slug) }}">{{ $__categoryMenu->get(2)->name }}</a>
                             @include('frontend.header._box-page', ['boxCategory' => $__categoryMenu->get(2)])
                         </li>
-                        <li>
-                            <a href="#">{{ $__categoryMenu->get(3)->name }}</a>
+                        <li {{ check_active(route('category.show', $__categoryMenu->get(3)->slug)) }}>
+                            <a href="{{ route('category.show', $__categoryMenu->get(3)->slug) }}">{{ $__categoryMenu->get(3)->name }}</a>
                             @include('frontend.header._box-page', ['boxCategory' => $__categoryMenu->get(3)])
                         </li>
                         <li>
@@ -91,7 +91,13 @@
                                         <div class="col-md-4 col-lg-4">
                                             <h4 class="heading color">Thông tin</h4>
                                             <!-- Contact form-->
-                                            <form class="contact-form" name="contact-form" action="/contact/" method="POST">
+                                                {{ Form::open([
+                                                    'url' => route('home.contact'),
+                                                    'role'  => 'form',
+                                                    'files' => true,
+                                                    'class' => 'contact-form',
+                                                    'autocomplete'=>'off',
+                                                ]) }}
                                                 <div class="form-group">
                                                     <input class="form-control" type="text" placeholder="Họ và tên" name="name" />
                                                 </div>
@@ -99,18 +105,18 @@
                                                     <input class="form-control" type="text" placeholder="Email" name="email" />
                                                 </div>
                                                 <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="Số điện thoại" name="phone-number" />
+                                                    <input class="form-control" type="text" placeholder="Số điện thoại" name="phone" />
                                                 </div>
                                                 <div class="form-group">
-                                                    <textarea class="form-control" type="text" placeholder="Nhập nội dung" name="content"></textarea>
+                                                    <textarea class="form-control" type="text" placeholder="Nhập nội dung" name="description"></textarea>
                                                 </div>
                                                 <div class="form-group">
                                                     <button class="btn btn-primary" type="submit">Gửi</button>
                                                 </div>
-                                            </form>
+                                            {{ Form::close() }}
                                         </div>
                                         <div class="col-md-8 col-lg-8">
-                                            <iframe frameborder="0" style="width:100%;height:374px;border:0;" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDPCgIglOh2FCHMwH5LN4GlVyN4-EVD3HM&amp;zoom=17&amp;q=Space+Needle,Seattle+WA" allowfullscreen="allowfullscreen"></iframe>
+                                            <iframe frameborder="0" style="width:100%;height:374px;border:0;" src="{{ $configs['map'] }}" allowfullscreen="allowfullscreen"></iframe>
                                         </div>
                                     </div>
                                 </div>

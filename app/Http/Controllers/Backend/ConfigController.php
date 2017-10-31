@@ -44,6 +44,10 @@ class ConfigController extends BackendController
             'fax',
             'slogan',
             'address',
+            'copyright',
+            'factory',
+            'map',
+            'popup',
             'logo',
             'introduce',
         ]);

@@ -68,6 +68,7 @@
                 <div class="col-md-6">
                     {{ Form::label('map', __('repositories.label.map'), ['class'=>'control-label']) }}
                     {{ Form::text('map', $items->keyBy('key')['map']['value'], ['class' => 'form-control']) }}
+                    <iframe frameborder="0" style="width:100%;height:100px;border:0;" src="{{ $items->keyBy('key')['map']['value'] }}" allowfullscreen="allowfullscreen"></iframe>
                 </div>
                 <div class="col-md-6">
                     {{ Form::label('name', __('repositories.label.logo'), ['class' => 'control-label']) }}
@@ -87,7 +88,7 @@
 
         <div class="form-group text-right">
             <button type="submit" class="btn btn-warning btn-sm"><i class="ion-trash-b"></i> {{ isset($item) ? __('repositories.title.edit') : __('repositories.title.cache_clear') }}</button>
-            <button type="submit" class="btn btn-success btn-sm"><i class="ion-checkmark-circled"></i> {{ isset($item) ? __('repositories.title.edit') : __('repositories.title.create') }}</button>
+            <button type="submit" class="btn btn-success btn-sm"><i class="ion-checkmark-circled"></i> {{ isset($item) ? __('repositories.title.edit') : __('repositories.title.edit') }}</button>
         </div>
     </div>
     <div class="col-sm-4">

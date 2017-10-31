@@ -37,9 +37,12 @@ class SlideRepositoryEloquent extends AbstractRepositoryEloquent implements Slid
         ];
     }
 
-    public function getData()
+    public function getData($limit, $columns = ['*'])
     {
-        return $this->model->get();
+        return $this->model->where('locked', false)
+            ->orderBy('updated_at', 'desc')
+            ->take($limit)
+            ->get($columns);
     }
 
     public function find($id)

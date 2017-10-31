@@ -20,6 +20,7 @@ Route::get('image/{path}', ['as' => 'image' , function (Request $request, MediaI
 
 Route::group(['prefix' => '/', 'namespace' => 'Frontend'], function () {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::post('contact', 'HomeController@contact')->name('home.contact');
     Route::get('category/{slug}', 'CategoryController@show')->name('category.show');
     Route::get('page/{slug}', 'PageController@show')->name('page.show');
     Route::get('post/{slug}', 'PostController@show')->name('post.show');
