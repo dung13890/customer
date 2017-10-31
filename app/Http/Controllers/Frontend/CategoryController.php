@@ -30,7 +30,7 @@ class CategoryController extends FrontendController
             case 'page':
                 $this->compacts['item'] = $item->pages->first();
                 $this->compacts['heading'] = $this->compacts['item']->name ?? $item->name;
-                $this->view = 'page.index';
+                $this->view = 'category.page';
                 break;
         }
 

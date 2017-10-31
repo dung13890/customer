@@ -72,7 +72,7 @@
                             </div>
                         </li>
                         <li {{ check_active(route('category.show', $__categoryMenu->get(1)->slug)) }}>
-                            <a href="route('category.show', $__categoryMenu->get(1)->slug)">{{ $__categoryMenu->get(1)->name }}</a>
+                            <a href="{{ route('category.show', $__categoryMenu->get(1)->slug) }}">{{ $__categoryMenu->get(1)->name }}</a>
                             @include('frontend.header._box-page', ['boxCategory' => $__categoryMenu->get(1)])
                         </li>
                         <li {{ check_active(route('category.show', $__categoryMenu->get(2)->slug)) }}>

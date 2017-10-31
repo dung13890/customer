@@ -4,7 +4,7 @@
     <div class="featured-image clearfix">
         <div class="container">
             <div class="featured-image clearfix">
-                <img class="img-responsive" src="{{ route('image', $item->categories->first()->image_default) }}" alt="" />
+                <img class="img-responsive" src="{{ route('image', $item->categories->first()->banner_default) }}" alt="" />
             </div>
         </div>
     </div>
