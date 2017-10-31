@@ -52,7 +52,7 @@
                                 <div class="megamenu-inner">
                                     <div class="owl-carousel owl-product">
                                         @if ($__categoryProducts)
-                                        @foreach($__categoryProducts->chunk(5) as $chunks)
+                                        @foreach($__categoryProducts->chunk(2) as $chunks)
                                         <div class="item">
                                             @foreach ($chunks as $chunk)
                                             <div class="box text-center">
