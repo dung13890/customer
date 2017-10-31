@@ -53,4 +53,9 @@ class Post extends Model
     {
         return app()['glide.builder']->getUrl($this->image, ['p' => '100x70']);
     }
+
+    public function getImage156x100Attribute($value)
+    {
+        return app()['glide.builder']->getUrl($this->image, ['p' => '156x100']);
+    }
 }

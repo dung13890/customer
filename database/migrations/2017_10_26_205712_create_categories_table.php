@@ -22,6 +22,7 @@ class CreateCategoriesTable extends Migration
             $table->string('image')->nullable();
             $table->string('banner')->nullable();
             $table->text('description')->nullable();
+            $table->boolean('is_home')->default(true);
             $table->boolean('locked')->default(false);
             $table->timestamps();
         });

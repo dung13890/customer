@@ -4,123 +4,26 @@
             <h2>&nbsp;</h2>
         </div>
         <div class="row">
-            <div class="fmain-col col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            @if (count($__pages))
+            @foreach ($__pages->chunk(6) as $chunks)
+            <div class="fmain-col col-xs-12 col-sm-6 @if ($loop->last) col-md-2 col-lg-2 @else col-md-3 col-lg-3 @endif">
                 <div class="block footer-menu">
                     <h4 class="title">
-                        <span>Giới thiệu</span>
+                        <span>{{ str_limit($chunks->first()->name, 20) }}</span>
                     </h4>
                     <ul class="menu">
+                        @foreach ($chunks as $chunk)
                         <li class="limenu">
-                            <a class="abmenu" href="#">
-                                <span>Giới thiệu chung</span>
+                            <a class="abmenu" href="{{ route('page.show', $chunk->slug) }}">
+                                <span>{{ str_limit($chunk->name, 20) }}</span>
                             </a>
                         </li>
-                        <li class="limenu">
-                            <a class="abmenu" href="#">
-                                <span>Tầm nhìn &amp; sứ mệnh</span>
-                            </a>
-                        </li>
-                        <li class="limenu">
-                            <a class="abmenu" href="#">
-                                <span>Nhà máy</span>
-                            </a>
-                        </li>
-                        <li class="limenu">
-                            <a class="abmenu" href="#">
-                                <span>Ban Lãnh Đạo</span>
-                            </a>
-                        </li>
-                        <li class="limenu">
-                            <a class="abmenu" href="#">
-                                <span>Giải thưởng</span>
-                            </a>
-                        </li>
-                        <li class="limenu">
-                            <a class="abmenu" href="#">
-                                <span>Sơ đồ tổ chức</span>
-                            </a>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
-            <div class="fmain-col col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                <div class="block footer-menu">
-                    <h4 class="title">
-                        <span>Sản phẩm</span>
-                    </h4>
-                    <ul class="menu">
-                        <li class="limenu">
-                            <a class="abmenu" href="#">
-                                <span>Giới thiệu chung</span>
-                            </a>
-                        </li>
-                        <li class="limenu">
-                            <a class="abmenu" href="#">
-                                <span>Tầm nhìn &amp; sứ mệnh</span>
-                            </a>
-                        </li>
-                        <li class="limenu">
-                            <a class="abmenu" href="#">
-                                <span>Nhà máy</span>
-                            </a>
-                        </li>
-                        <li class="limenu">
-                            <a class="abmenu" href="#">
-                                <span>Ban Lãnh Đạo</span>
-                            </a>
-                        </li>
-                        <li class="limenu">
-                            <a class="abmenu" href="#">
-                                <span>Giải thưởng</span>
-                            </a>
-                        </li>
-                        <li class="limenu">
-                            <a class="abmenu" href="#">
-                                <span>Sơ đồ tổ chức</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="fmain-col col-xs-12 col-sm-6 col-md-2 col-lg-2">
-                <div class="block footer-menu">
-                    <h4 class="title">
-                        <span>Sản phẩm</span>
-                    </h4>
-                    <ul class="menu">
-                        <li class="limenu">
-                            <a class="abmenu" href="#">
-                                <span>Giới thiệu chung</span>
-                            </a>
-                        </li>
-                        <li class="limenu">
-                            <a class="abmenu" href="#">
-                                <span>Tầm nhìn &amp; sứ mệnh</span>
-                            </a>
-                        </li>
-                        <li class="limenu">
-                            <a class="abmenu" href="#">
-                                <span>Nhà máy</span>
-                            </a>
-                        </li>
-                        <li class="limenu">
-                            <a class="abmenu" href="#">
-                                <span>Ban Lãnh Đạo</span>
-                            </a>
-                        </li>
-                        <li class="limenu">
-                            <a class="abmenu" href="#">
-                                <span>Giải thưởng</span>
-                            </a>
-                        </li>
-                        <li class="limenu">
-                            <a class="abmenu" href="#">
-                                <span>Sơ đồ tổ chức</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            @endforeach
+            @endif
             <div class="fmain-col col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="block footer-about">
                     <img class="footer-logo img-responsive" src="{{ route('image', $configs['logo']) }}" alt="" />

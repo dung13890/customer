@@ -56,6 +56,7 @@ return [
         'password_confirmation' => 'Nhập lại mật khẩu',
         'description' => 'Mô tả',
         'locked' => 'Khoá',
+        'is_home' => 'Hiện trang chủ',
         'advantage' => 'Ưu điểm',
         'coordination' => 'Hình thức lắp đặt',
         'information' => 'Thông tin kỹ thuật',

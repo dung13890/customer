@@ -7,14 +7,14 @@
     <title>{!! $heading or $configs['name'] !!}</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <meta name="description" content="{!! $description or $configs['description'] !!}">
-    <meta name="keywords" content="{!! $keywords or $configs['keywords'] !!}">
-    <meta property="og:url" content="{!! Request::url() !!}" />
-    <meta property="og:site_name" content="{!! $heading or $configs['name'] !!}" />
+    <meta name="description" content="{{ $description or $configs['description'] }}">
+    <meta name="keywords" content="{{ $keywords or $configs['keywords'] }}">
+    <meta property="og:url" content="{{ Request::url() }}" />
+    <meta property="og:site_name" content="{{ $heading or $configs['name'] }}" />
     <meta property="og:type"   content="website" />
-    <meta property="og:title"  content="{!! $heading or $configs['name'] !!}" />
+    <meta property="og:title"  content="{{ $heading or $configs['name'] }}" />
     <meta property="og:description"  content="{{ $description or $configs['description'] }}" />
-    <meta property="og:image"  content="{!! $image_social or '/favicon.ico' !!}" />
+    <meta property="og:image"  content="{{ $image_social or '/favicon.ico' }}" />
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="300">
     <meta property="og:image:height" content="300">

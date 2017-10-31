@@ -12,7 +12,7 @@
                 <div class="header-static float-right">
                     <div class="lang d-b text-right">
                         <a class="d-ib" href="#">
-                            <img class="lang-img" src="images/uk.png" alt="" />
+                            <img class="lang-img" src="/images/uk.png" alt="" />
                         </a>
                     </div>
                     <div class="static-block">

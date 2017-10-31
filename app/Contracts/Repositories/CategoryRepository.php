@@ -11,4 +11,5 @@ interface CategoryRepository extends ValidatableInterface
     public function getLimitRoot($type, $limit, $columns = ['*']);
     public function getDataByIds(array $ids, $with = [], $columns = ['*']);
     public function findBySlug($slug);
+    public function getHome($limit, $type, $with = [], $columns = ['*']);
 }

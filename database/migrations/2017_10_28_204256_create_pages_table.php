@@ -24,6 +24,7 @@ class CreatePagesTable extends Migration
             $table->string('file')->nullable();
             $table->text('description')->nullable();
             $table->boolean('locked')->default(false);
+            $table->boolean('is_home')->default(false);
             $table->integer('category_id')->index()->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();

@@ -81,6 +81,17 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
             ->get($columns);
     }
 
+    public function getHome($limit, $type, $with = [], $columns = ['*'])
+    {
+        return $this->model->with($with)
+            ->where('is_home', true)
+            ->where('locked', false)
+            ->where('type', $type)
+            ->take($limit)
+            ->orderBy('updated_at', 'desc')
+            ->get($columns);
+    }
+
     public function findBySlug($slug)
     {
         return $this->model->findBySlugOrFail($slug);

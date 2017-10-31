@@ -25,7 +25,10 @@ class HomeController extends FrontendController
     public function index()
     {
         $this->view = 'home.index';
-        $this->compacts['slides'] = $this->repoSlide->getData(5);
+        $this->compacts['slides'] = $this->repoSlide->getData(5, ['image', 'name']);
+        $this->compacts['productCategories'] = $this->repository->getHome(9, 'product', [], ['image', 'slug', 'name']);
+        $this->compacts['postCategories'] = $this->repository->getHome(3, 'post', [], ['id', 'image', 'slug', 'name']);
+        $this->compacts['pages'] = $this->repoPage->getHome(3, ['id', 'name', 'slug', 'image']);
 
         return $this->viewRender();
     }

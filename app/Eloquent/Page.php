@@ -20,6 +20,7 @@ class Page extends Model
         'file',
         'description',
         'locked',
+        'is_home',
         'category_id',
     ];
 

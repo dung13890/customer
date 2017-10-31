@@ -39,7 +39,15 @@
                     @endslot
                     @endcomponent
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-2">
+                    <label></label>
+                    <div class="checkbox">
+                        <label>
+                            {{ Form::checkbox('is_home', true, old('is_home'), ['data-toggle'=>'toggle', 'data-size' => 'small']) }} <b>{{ __('repositories.label.is_home') }}</b>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-2">
                     <label></label>
                     <div class="checkbox">
                         <label>

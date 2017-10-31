@@ -11,7 +11,7 @@ class Category extends Model
     use GetImageTrait, ModelableTrait;
 
     protected $fillable = [
-        'name', 'parent_id', 'type', 'description', 'image', 'banner', 'locked'
+        'name', 'parent_id', 'type', 'description', 'image', 'banner', 'is_home', 'locked'
     ];
 
     public function children()
@@ -41,12 +41,17 @@ class Category extends Model
 
     public function limitPosts()
     {
-        return $this->posts()->take(15);
+        return $this->posts()->take(15)->select(['image', 'name', 'slug']);
+    }
+
+    public function homePosts()
+    {
+        return $this->posts()->orderBy('updated_at', 'desc')->take(7)->select(['image', 'name', 'slug']);
     }
 
     public function limitPages()
     {
-        return $this->pages()->take(15);
+        return $this->pages()->take(15)->select(['image', 'name', 'slug']);
     }
 
     public function getBannerDefaultAttribute($value)
