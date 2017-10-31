@@ -14,7 +14,7 @@
                     <ul class="menu">
                         @foreach ($chunks as $chunk)
                         <li class="limenu">
-                            <a class="abmenu" href="{{ route('page.show', $chunk->slug) }}">
+                            <a title="{{ $chunk->name }}" class="abmenu" href="{{ route('page.show', $chunk->slug) }}">
                                 <span>{{ str_limit($chunk->name, 20) }}</span>
                             </a>
                         </li>

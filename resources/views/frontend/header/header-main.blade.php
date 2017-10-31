@@ -57,7 +57,7 @@
                                             @foreach ($chunks as $chunk)
                                             <div class="box text-center">
                                                 <a class="box-img" href="{{ route('category.show', $chunk->slug) }}" title="{{ $chunk->name }}">
-                                                    <img class="img-responsive" src="{{ route('image', $chunk->image_100x70) }}" alt="{{ $chunk->name }}" />
+                                                    <img class="img-responsive" src="{{ route('image', $chunk->image_156x100) }}" alt="{{ $chunk->name }}" />
                                                 </a>
                                                 <h4 class="box-title">
                                                     <a href="{{ route('category.show', $chunk->slug) }}" title="{{ $chunk->name }}">{{ $chunk->name }}</a>
