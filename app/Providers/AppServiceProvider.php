@@ -124,7 +124,7 @@ class AppServiceProvider extends ServiceProvider
                 return app(\App\Contracts\Repositories\CategoryRepository::class)->getLimitRoot('product', 16);
             }));
             $view->with('__pages', Cache::remember('__pages', 60, function () {
-                return app(\App\Contracts\Repositories\PageRepository::class)->getHome(18, ['name', 'slug'], 'asc');
+                return app(\App\Contracts\Repositories\PageRepository::class)->getLimit(18, ['name', 'slug'], 'asc');
             }));
         });
     }

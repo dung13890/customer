@@ -92,6 +92,15 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
             ->get($columns);
     }
 
+    public function getFirstByRand($type, $columns = ['*'])
+    {
+        return $this->model
+            ->where('locked', false)
+            ->where('type', $type)
+            ->inRandomOrder()
+            ->first($columns);
+    }
+
     public function findBySlug($slug)
     {
         return $this->model->findBySlugOrFail($slug);

@@ -12,4 +12,5 @@ interface CategoryRepository extends ValidatableInterface
     public function getDataByIds(array $ids, $with = [], $columns = ['*']);
     public function findBySlug($slug);
     public function getHome($limit, $type, $with = [], $columns = ['*']);
+    public function getFirstByRand($type, $columns = ['*']);
 }

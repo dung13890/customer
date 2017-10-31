@@ -63,14 +63,23 @@ class PageRepositoryEloquent extends AbstractRepositoryEloquent implements PageR
             ->get($columns);
     }
 
-    public function getHome($limit, $columns = ['*'], $order = 'desc')
+    public function getHome($limit, $columns = ['*'])
     {
         return $this->model
             ->where('locked', false)
             ->where('is_home', true)
             ->whereNotIn('category_id', config('common.category.id_system'))
             ->take($limit)
-            ->orderBy('updated_at', $order)
+            ->orderBy('updated_at', 'desc')
+            ->get($columns);
+    }
+
+    public function getLimit($limit, $columns = ['*'], $orderBy = 'desc')
+    {
+        return $this->model
+            ->where('locked', false)
+            ->take($limit)
+            ->orderBy('updated_at', $orderBy)
             ->get($columns);
     }
 

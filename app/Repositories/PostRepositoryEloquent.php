@@ -59,6 +59,14 @@ class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostR
             ->get($columns);
     }
 
+    public function getDataByRand($limit, $columns)
+    {
+        return $this->model->inRandomOrder()
+            ->where('locked', false)
+            ->take($limit)
+            ->get($columns);
+    }
+
     public function findBySlug($slug)
     {
         return $this->model->findBySlugOrFail($slug);

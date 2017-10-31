@@ -46,7 +46,7 @@ class Category extends Model
 
     public function homePosts()
     {
-        return $this->posts()->orderBy('updated_at', 'desc')->take(7)->select(['image', 'name', 'slug']);
+        return $this->posts()->orderBy('updated_at', 'desc')->take(7)->select(['image', 'name', 'slug', 'ceo_description']);
     }
 
     public function limitPages()
