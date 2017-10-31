@@ -20,11 +20,11 @@ Route::get('image/{path}', ['as' => 'image' , function (Request $request, MediaI
 
 Route::group(['prefix' => '/', 'namespace' => 'Frontend'], function () {
     Route::get('/', 'HomeController@index')->name('home');
-    Route::post('contact', 'HomeController@contact')->name('home.contact');
-    Route::get('category/{slug}', 'CategoryController@show')->name('category.show');
-    Route::get('page/{slug}', 'PageController@show')->name('page.show');
-    Route::get('post/{slug}', 'PostController@show')->name('post.show');
-    Route::get('product/{slug}', 'ProductController@show')->name('product.show');
+    Route::post('lien-he', 'HomeController@contact')->name('home.contact');
+    Route::get('danh-muc/{slug}', 'CategoryController@show')->name('category.show');
+    Route::get('trang/{slug}', 'PageController@show')->name('page.show');
+    Route::get('bai-viet/{slug}', 'PostController@show')->name('post.show');
+    Route::get('san-pham/{slug}', 'ProductController@show')->name('product.show');
 });
 
 Route::group(['namespace' => 'Backend'], function () {

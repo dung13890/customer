@@ -6,16 +6,16 @@
                 <div class="col-md-12">
                     <div class="el-slideshow slider-main" id="js-slider-main">
                         <div class="item">
-                            <img src="images/slide.png">
+                            <img src="/images/slide.png">
                         </div>
                         <div class="item">
-                            <img src="images/slide.png">
+                            <img src="/images/slide.png">
                         </div>
                         <div class="item">
-                            <img src="images/slide.png">
+                            <img src="/images/slide.png">
                         </div>
                         <div class="item">
-                            <img src="images/slide.png">
+                            <img src="/images/slide.png">
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-20">
                     <div class="box-grid news-block mb-15">
                         <a class="box-grid-img" href="single.html" title="">
-                            <img class="img-responsive" src="images/sp1.png" alt="" />
+                            <img class="img-responsive" src="/images/sp1.png" alt="" />
                         </a>
                         <h4 class="box-grid-title">
                             <a href="single.html" title="">Nhu cầu xây dựng phục hồi, ngành thép trong nước có dấu hiệu khởi sắc.</a>
@@ -43,7 +43,7 @@
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-20">
                     <div class="box-grid news-block mb-15">
                         <a class="box-grid-img" href="single.html" title="">
-                            <img class="img-responsive" src="images/sp1.png" alt="" />
+                            <img class="img-responsive" src="/images/sp1.png" alt="" />
                         </a>
                         <h4 class="box-grid-title">
                             <a href="single.html" title="">Nhu cầu xây dựng phục hồi, ngành thép trong nước có dấu hiệu khởi sắc.</a>
@@ -54,7 +54,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 mb-20">
                     <div class="box-grid news-block mb-15">
                         <a class="box-grid-img" href="single.html" title="">
-                            <img class="img-responsive" src="images/sp1.png" alt="" />
+                            <img class="img-responsive" src="/images/sp1.png" alt="" />
                         </a>
                         <h4 class="box-grid-title">
                             <a href="single.html" title="">Nhu cầu xây dựng phục hồi, ngành thép trong nước có dấu hiệu khởi sắc.</a>
@@ -74,7 +74,7 @@
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-20">
                     <div class="box-grid news-block mb-15">
                         <a class="box-grid-img" href="single.html" title="">
-                            <img class="img-responsive" src="images/sp1.png" alt="" />
+                            <img class="img-responsive" src="/images/sp1.png" alt="" />
                         </a>
                         <h4 class="box-grid-title">
                             <a href="single.html" title="">Nhu cầu xây dựng phục hồi, ngành thép trong nước có dấu hiệu khởi sắc.</a>
@@ -87,7 +87,7 @@
                         <div class="media">
                             <div class="media-left">
                                 <a class="box-list-img" href="single.html" target="_blank" title="">
-                                    <img class="img-responsive" src="images/nw1.png" alt="" />
+                                    <img class="img-responsive" src="/images/nw1.png" alt="" />
                                 </a>
                             </div>
                             <div class="media-body">
@@ -102,7 +102,7 @@
                         <div class="media">
                             <div class="media-left">
                                 <a class="box-list-img" href="single.html" target="_blank" title="">
-                                    <img class="img-responsive" src="images/nw1.png" alt="" />
+                                    <img class="img-responsive" src="/images/nw1.png" alt="" />
                                 </a>
                             </div>
                             <div class="media-body">
@@ -117,7 +117,7 @@
                         <div class="media">
                             <div class="media-left">
                                 <a class="box-list-img" href="single.html" target="_blank" title="">
-                                    <img class="img-responsive" src="images/nw1.png" alt="" />
+                                    <img class="img-responsive" src="/images/nw1.png" alt="" />
                                 </a>
                             </div>
                             <div class="media-body">
@@ -134,7 +134,7 @@
                         <div class="media">
                             <div class="media-left">
                                 <a class="box-list-img" href="single.html" target="_blank" title="">
-                                    <img class="img-responsive" src="images/nw1.png" alt="" />
+                                    <img class="img-responsive" src="/images/nw1.png" alt="" />
                                 </a>
                             </div>
                             <div class="media-body">
@@ -149,7 +149,7 @@
                         <div class="media">
                             <div class="media-left">
                                 <a class="box-list-img" href="single.html" target="_blank" title="">
-                                    <img class="img-responsive" src="images/nw1.png" alt="" />
+                                    <img class="img-responsive" src="/images/nw1.png" alt="" />
                                 </a>
                             </div>
                             <div class="media-body">
@@ -164,7 +164,7 @@
                         <div class="media">
                             <div class="media-left">
                                 <a class="box-list-img" href="single.html" target="_blank" title="">
-                                    <img class="img-responsive" src="images/nw1.png" alt="" />
+                                    <img class="img-responsive" src="/images/nw1.png" alt="" />
                                 </a>
                             </div>
                             <div class="media-body">
@@ -188,7 +188,7 @@
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-20">
                     <div class="box-grid news-block mb-15">
                         <a class="box-grid-img" href="single.html" title="">
-                            <img class="img-responsive" src="images/sp1.png" alt="" />
+                            <img class="img-responsive" src="/images/sp1.png" alt="" />
                         </a>
                         <h4 class="box-grid-title">
                             <a href="single.html" title="">Nhu cầu xây dựng phục hồi, ngành thép trong nước có dấu hiệu khởi sắc.</a>
@@ -201,7 +201,7 @@
                         <div class="media">
                             <div class="media-left">
                                 <a class="box-list-img" href="single.html" target="_blank" title="">
-                                    <img class="img-responsive" src="images/nw1.png" alt="" />
+                                    <img class="img-responsive" src="/images/nw1.png" alt="" />
                                 </a>
                             </div>
                             <div class="media-body">
@@ -216,7 +216,7 @@
                         <div class="media">
                             <div class="media-left">
                                 <a class="box-list-img" href="single.html" target="_blank" title="">
-                                    <img class="img-responsive" src="images/nw1.png" alt="" />
+                                    <img class="img-responsive" src="/images/nw1.png" alt="" />
                                 </a>
                             </div>
                             <div class="media-body">
@@ -231,7 +231,7 @@
                         <div class="media">
                             <div class="media-left">
                                 <a class="box-list-img" href="single.html" target="_blank" title="">
-                                    <img class="img-responsive" src="images/nw1.png" alt="" />
+                                    <img class="img-responsive" src="/images/nw1.png" alt="" />
                                 </a>
                             </div>
                             <div class="media-body">
@@ -248,7 +248,7 @@
                         <div class="media">
                             <div class="media-left">
                                 <a class="box-list-img" href="single.html" target="_blank" title="">
-                                    <img class="img-responsive" src="images/nw1.png" alt="" />
+                                    <img class="img-responsive" src="/images/nw1.png" alt="" />
                                 </a>
                             </div>
                             <div class="media-body">
@@ -263,7 +263,7 @@
                         <div class="media">
                             <div class="media-left">
                                 <a class="box-list-img" href="single.html" target="_blank" title="">
-                                    <img class="img-responsive" src="images/nw1.png" alt="" />
+                                    <img class="img-responsive" src="/images/nw1.png" alt="" />
                                 </a>
                             </div>
                             <div class="media-body">
@@ -278,7 +278,7 @@
                         <div class="media">
                             <div class="media-left">
                                 <a class="box-list-img" href="single.html" target="_blank" title="">
-                                    <img class="img-responsive" src="images/nw1.png" alt="" />
+                                    <img class="img-responsive" src="/images/nw1.png" alt="" />
                                 </a>
                             </div>
                             <div class="media-body">
@@ -302,7 +302,7 @@
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-20">
                     <div class="box-grid news-block mb-15">
                         <a class="box-grid-img" href="single.html" title="">
-                            <img class="img-responsive" src="images/sp1.png" alt="" />
+                            <img class="img-responsive" src="/images/sp1.png" alt="" />
                         </a>
                         <h4 class="box-grid-title">
                             <a href="single.html" title="">Nhu cầu xây dựng phục hồi, ngành thép trong nước có dấu hiệu khởi sắc.</a>
@@ -315,7 +315,7 @@
                         <div class="media">
                             <div class="media-left">
                                 <a class="box-list-img" href="single.html" target="_blank" title="">
-                                    <img class="img-responsive" src="images/nw1.png" alt="" />
+                                    <img class="img-responsive" src="/images/nw1.png" alt="" />
                                 </a>
                             </div>
                             <div class="media-body">
@@ -330,7 +330,7 @@
                         <div class="media">
                             <div class="media-left">
                                 <a class="box-list-img" href="single.html" target="_blank" title="">
-                                    <img class="img-responsive" src="images/nw1.png" alt="" />
+                                    <img class="img-responsive" src="/images/nw1.png" alt="" />
                                 </a>
                             </div>
                             <div class="media-body">
@@ -345,7 +345,7 @@
                         <div class="media">
                             <div class="media-left">
                                 <a class="box-list-img" href="single.html" target="_blank" title="">
-                                    <img class="img-responsive" src="images/nw1.png" alt="" />
+                                    <img class="img-responsive" src="/images/nw1.png" alt="" />
                                 </a>
                             </div>
                             <div class="media-body">
@@ -362,7 +362,7 @@
                         <div class="media">
                             <div class="media-left">
                                 <a class="box-list-img" href="single.html" target="_blank" title="">
-                                    <img class="img-responsive" src="images/nw1.png" alt="" />
+                                    <img class="img-responsive" src="/images/nw1.png" alt="" />
                                 </a>
                             </div>
                             <div class="media-body">
@@ -377,7 +377,7 @@
                         <div class="media">
                             <div class="media-left">
                                 <a class="box-list-img" href="single.html" target="_blank" title="">
-                                    <img class="img-responsive" src="images/nw1.png" alt="" />
+                                    <img class="img-responsive" src="/images/nw1.png" alt="" />
                                 </a>
                             </div>
                             <div class="media-body">
@@ -392,7 +392,7 @@
                         <div class="media">
                             <div class="media-left">
                                 <a class="box-list-img" href="single.html" target="_blank" title="">
-                                    <img class="img-responsive" src="images/nw1.png" alt="" />
+                                    <img class="img-responsive" src="/images/nw1.png" alt="" />
                                 </a>
                             </div>
                             <div class="media-body">

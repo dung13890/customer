@@ -102,6 +102,7 @@
                             </div>
                         </div>
                     </div>
+                    <div class="fb-comments" data-href="{{ Request::url()}}" data-width="100%" data-numposts="5"></div>
                 </div>
                 <aside class="sidebar sidebar-shop col-xs-12 col-sm-12 col-md-4">
                     <div class="sidebar-inner">
@@ -336,3 +337,17 @@
         </div>
     </div>
 @endsection
+@push('prescripts')
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id)
+        {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10&appId=590749964645815';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+@endpush

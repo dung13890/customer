@@ -18,15 +18,15 @@
                     <div class="product xs-full col-xs-6 col-sm-6 col-md-4 col-lg-4">
                         <div class="product-inner">
                             <a class="product-image" href="{{ route('product.show', $product->slug) }}">
-                                <img class="img-responsive" src="{{ route('image', $product->image_small) }}" alt="" />
+                                <img class="img-responsive" src="{{ route('image', $product->image_medium) }}" alt="" />
                             </a>
                             <div class="product-content">
                                 <h4 class="product-name">
                                     <a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a>
                                 </h4>
                                 <div class="product-info">
-                                    <span>KT. chậu: 1050 x 450 x 235 mm</span>
-                                    <span>KT. hố chậu: 1030 x 430 mm</span>
+                                    <span>{{ $product->feature_1 }}</span>
+                                    <span>{{ $product->feature_1 }}</span>
                                 </div>
                             </div>
                         </div>

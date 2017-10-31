@@ -16,7 +16,7 @@ class PageController extends FrontendController
     {
         parent::__construct($page);
         $this->repoPost = $post;
-        $this->repoCategory = $category;
+        $this->repoCate = $category;
     }
 
     public function show($slug)
@@ -30,7 +30,7 @@ class PageController extends FrontendController
         $this->compacts['image_social'] = route('image', $item->image_small);
 
         $this->compacts['posts'] = $this->repoPost->getDataByRand(4, ['name', 'image', 'slug', 'ceo_description']);
-        $this->compacts['category'] = $this->repoCategory->getFirstByRand('post', ['name', 'id']);
+        $this->compacts['category'] = $this->repoCate->getFirstByRand('post', ['name', 'id']);
 
         return $this->viewRender();
     }

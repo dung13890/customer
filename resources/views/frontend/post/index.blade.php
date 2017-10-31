@@ -1,15 +1,16 @@
 @extends('layouts.frontend')
 
 @section('page-content')
+@if ($item)
     <div class="featured-image clearfix">
-        <img class="img-responsive" src="/images/banner-category.jpg" alt="" />
+        <img class="img-responsive" src="{{ route('image', $item->category->image_default) }}" alt="" />
     </div>
     <div class="page-title-block mt-30 clearfix">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <h2 class="page-title title-one-full pl-50">
-                        <span>Bản tin thời sự</span>
+                        <span>{{ $item->category->name }}</span>
                     </h2>
                 </div>
             </div>
@@ -21,133 +22,75 @@
                 <div class="col-xs-12 col-sm-12 col-md-8">
                     <div class="single-post-wrap">
                         <h1 class="post-title">{{ $item->name }}</h1>
+                        <div class="control-blog">
+                            <p></p>
+                        </div>
                         <div class="post-content">
                             {!! $item->description !!}
                         </div>
+                        <div class="fb-comments" data-href="{{ Request::url()}}" data-width="100%" data-numposts="5"></div>
                     </div>
                 </div>
                 <aside class="sidebar sidebar-blog col-xs-12 col-sm-12 col-md-4">
                     <div class="sidebar-inner">
                         <div class="block block-news">
                             <div class="block-content">
+                                @if (count($posts))
+                                @foreach ($posts as $post)
+                                @if ($loop->first)
                                 <div class="box-grid news-block mb-15">
-                                    <a class="box-grid-img" href="single.html" title="">
-                                        <img class="img-responsive" src="/images/sp1.png" alt="">
+                                    <a class="box-grid-img" href="{{ route('post.show', $post->slug) }}" title="{{ $post->name }}">
+                                        <img class="img-responsive" src="{{ route('image', $post->image_medium) }}" alt="{{ $post->name }}">
                                     </a>
                                     <h4 class="box-grid-title">
-                                        <a href="single.html" title="">Nhu cầu xây dựng phục hồi, ngành thép trong nước có dấu hiệu khởi sắc.</a>
+                                        <a href="{{ route('post.show', $post->slug) }}" title="{{ $post->name }}">{{ $post->name }}</a>
                                     </h4>
-                                    <p class="box-grid-info mt-10">Theo nhận định của Bộ Công Thương ngày 4.11, tình hình sản xuất thép trong nước tháng 10 và 10 tháng đầu năm đều tăng trưởng dương do tận dụng cơ hội từ việc Việt Nam áp dụng biện pháp tự vệ đối với thép dài
-                                        và phôi thép.</p>
+                                    <p class="box-grid-info mt-10">{{ $post->ceo_description }}</p>
                                 </div>
+                                @else
                                 <div class="box-list news-block mb-15">
                                     <div class="media">
                                         <div class="media-left">
-                                            <a class="box-list-img" href="single.html" target="_blank" title="">
-                                                <img class="img-responsive" src="/images/nw1.png" alt="">
+                                            <a class="box-list-img" href="{{ route('post.show', $post->slug) }}" target="_blank" title="{{ $post->name }}">
+                                                <img class="img-responsive" src="{{ route('image', $post->image_156x100) }}" alt="{{ $post->name }}">
                                             </a>
                                         </div>
                                         <div class="media-body">
                                             <h4 class="box-list-title">
-                                                <a href="single.html" target="_blank" title="">Toàn Thắng ra mắt dòng sản phẩm Chậu rửa Inox cao cấp</a>
+                                                <a href="{{ route('post.show', $post->slug) }}" target="_blank" title="{{ $post->name }}">{{ $post->name }}</a>
                                             </h4>
                                         </div>
                                     </div>
-                                    <p class="box-list-info mt-10">Sáng ngày 14/07/2017, tại Hà Nội, công ty cổ phần Toàn Thắng đã tổ chức thành công Lễ ra mắt dòng sản phẩm Chậu rửa Inox cao cấp Toàn Thắng.</p>
+                                    <p class="box-list-info mt-10">{{ $post->ceo_description }}</p>
                                 </div>
-                                <div class="box-list news-block mb-15">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a class="box-list-img" href="single.html" target="_blank" title="">
-                                                <img class="img-responsive" src="/images/nw1.png" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="box-list-title">
-                                                <a href="single.html" target="_blank" title="">Toàn Thắng ra mắt dòng sản phẩm Chậu rửa Inox cao cấp</a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <p class="box-list-info mt-10">Sáng ngày 14/07/2017, tại Hà Nội, công ty cổ phần Toàn Thắng đã tổ chức thành công Lễ ra mắt dòng sản phẩm Chậu rửa Inox cao cấp Toàn Thắng.</p>
-                                </div>
-                                <div class="box-list news-block mb-15">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a class="box-list-img" href="single.html" target="_blank" title="">
-                                                <img class="img-responsive" src="/images/nw1.png" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="box-list-title">
-                                                <a href="single.html" target="_blank" title="">Toàn Thắng ra mắt dòng sản phẩm Chậu rửa Inox cao cấp</a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <p class="box-list-info mt-10">Sáng ngày 14/07/2017, tại Hà Nội, công ty cổ phần Toàn Thắng đã tổ chức thành công Lễ ra mắt dòng sản phẩm Chậu rửa Inox cao cấp Toàn Thắng.</p>
-                                </div>
+                                @endif
+                                @endforeach
+                                @endif
                             </div>
                         </div>
                         <div class="block block-news">
                             <h3 class="block-title title-two">
-                                <span>Dự án</span>
+                                <span>{{ $category->name }}</span>
                             </h3>
                             <div class="block-content">
+                                @if (count($category->homePosts))
+                                @foreach ($category->homePosts as $homePost)
                                 <div class="box-list undefined">
                                     <div class="media">
                                         <div class="media-left">
-                                            <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="/images/nw1.png" alt="">
+                                            <a class="box-list-img" href="{{ route('post.show', $homePost->slug) }}" target="_blank" title="{{ $homePost->name }}">
+                                                <img class="img-responsive" src="{{ route('image', $homePost->image_156x100) }}" alt="{{ $homePost->name }}">
                                             </a>
                                         </div>
                                         <div class="media-body">
                                             <h4 class="box-list-title">
-                                                <a href="#" target="_blank" title="">Toàn cảnh dây chuyền sản xuất tấm Panel cho bồn Inox công nghiệp dung tích lớn.</a>
+                                                <a href="{{ route('post.show', $homePost->slug) }}" target="_blank" title="{{ $homePost->name }}">{{ $homePost->name }}</a>
                                             </h4>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="box-list undefined">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="/images/nw1.png" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="box-list-title">
-                                                <a href="#" target="_blank" title="">Kết nối đồng đội - Kỳ nghỉ hè gắn kết thành công của Toàn Thắng tại Cửa Lò - Nghệ An.</a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="box-list undefined">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="/images/nw1.png" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="box-list-title">
-                                                <a href="#" target="_blank" title="">Lễ ra mắt sản phẩm chậu rửa Inox liền khối tại Tòa nhà số 8 Quan Trung, Hà Đông</a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="box-list undefined">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="/images/nw1.png" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="box-list-title">
-                                                <a href="#" target="_blank" title="">Văn phòng làm việc Toàn Thắng - không gian mở cho những sáng tạo và thành công.</a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -155,4 +98,19 @@
             </div>
         </div>
     </div>
+@endif
 @endsection
+@push('prescripts')
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id)
+        {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10&appId=590749964645815';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+@endpush

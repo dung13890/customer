@@ -1,7 +1,7 @@
-<div class="menu-wrapper menu-sticky menu-boxed">
-    <div class="container">
+<div class="menu-wrapper menu-sticky @if (isset($is_home)) menu-boxed @endif">
+    <div class="@if (isset($is_home)) container @else container-full @endif">
         <div class="menu-container">
-            <div class="container-full">
+            <div class="@if (isset($is_home)) container-full @else container @endif">
                 <div class="menuzord relative" id="menuzord">
                     <a class="menuzord-brand hidden-lg hidden-md" href="{{ route('home') }}">
                         <img src="{{ route('image', $configs['logo']) }}" />

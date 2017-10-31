@@ -3,7 +3,7 @@
 @section('page-content')
 @if ($item)
     <div class="featured-image clearfix">
-        <img class="img-responsive" src="images/banner-category.jpg" alt="" />
+        <img class="img-responsive" src="{{ route('image', $item->category->image_default) }}" alt="" />
     </div>
     <div class="page-title-block mt-30 clearfix">
         <div class="container">
@@ -53,6 +53,7 @@
                                     </h4>
                                     <p class="box-grid-info mt-10">{{ $post->ceo_description }}</p>
                                 </div>
+                                @else
                                 <div class="box-list news-block mb-15">
                                     <div class="media">
                                         <div class="media-left">
