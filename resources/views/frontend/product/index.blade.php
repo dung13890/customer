@@ -2,13 +2,9 @@
 
 @section('page-content')
     <div class="featured-image clearfix">
-        <div class="container">
-            <div class="featured-image clearfix">
-                @if (count($categories))
-                <img class="img-responsive" src="{{ route('image', $categories->first()->banner_default) }}" alt="" />
-                @endif
-            </div>
-        </div>
+        @if (count($categories))
+        <img class="img-responsive" src="{{ route('image', $categories->first()->banner_default) }}" alt="" />
+        @endif
     </div>
     <div class="page-title-block clearfix">
         <div class="container">
