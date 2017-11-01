@@ -29,12 +29,12 @@ class Product extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class)->where('type', 'product');
+        return $this->belongsToMany(Category::class)->orderBy('updated_at')->where('type', 'product');
     }
 
     public function categoryChildren()
     {
-        return $this->categories()->where('parent_id', '<>', 0)->orderBy('id')->select(['name', 'id'])->take(3);
+        return $this->categories()->where('parent_id', '<>', 0)->select(['name', 'id'])->take(3);
     }
 
     public function images()
