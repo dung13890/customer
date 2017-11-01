@@ -17,10 +17,13 @@ class ProductController extends FrontendController
         $this->view = 'product.index';
         $item = $this->repository->findBySlug($slug);
         $this->compacts['item'] = $item;
+        $this->compacts['class'] = 'single-product';
         $this->compacts['heading'] = $item->ceo_title;
         $this->compacts['description'] = $item->ceo_description;
         $this->compacts['keywords'] = $item->ceo_keywords;
         $this->compacts['image_social'] = route('image', $item->image_small);
+
+        $this->compacts['categories'] = $item->categoryChildren;
 
         return $this->viewRender();
     }

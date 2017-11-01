@@ -17,6 +17,7 @@ class Config {
         ['fontsize', ['fontsize']],
         ['font', ['fontname']],
         ['height', ['height']],
+        ['view', ['codeview']],
       ],
       callbacks: {
         onImageUpload: function(files) {

@@ -101,7 +101,6 @@
 @endif
 @endsection
 @push('prescripts')
-    <div id="fb-root"></div>
     <script>
         (function(d, s, id)
         {

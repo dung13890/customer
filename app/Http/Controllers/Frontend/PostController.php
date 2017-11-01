@@ -19,6 +19,7 @@ class PostController extends FrontendController
     public function show($slug)
     {
         $this->view = 'post.index';
+        $this->compacts['class'] = 'single-post';
         $item = $this->repository->findBySlug($slug);
         $this->compacts['item'] = $item;
         $this->compacts['heading'] = $item->ceo_title;

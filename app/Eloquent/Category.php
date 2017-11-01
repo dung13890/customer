@@ -29,6 +29,14 @@ class Category extends Model
         return $this->hasMany(Post::class)->where('locked', false);
     }
 
+    public function productPosts()
+    {
+        return $this->belongsToMany(Post::class, 'category_post', 'category_id', 'post_id')
+            ->take(5)
+            ->orderBy('updated_at', 'desc')
+            ->select(['name', 'image', 'slug']);
+    }
+
     public function products()
     {
         return $this->belongsToMany(Product::class)->where('locked', false);

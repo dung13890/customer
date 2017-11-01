@@ -32,6 +32,11 @@ class Product extends Model
         return $this->belongsToMany(Category::class)->where('type', 'product');
     }
 
+    public function categoryChildren()
+    {
+        return $this->categories()->where('parent_id', '<>', 0)->orderBy('id')->select(['name', 'id'])->take(3);
+    }
+
     public function images()
     {
         return $this->morphMany(Image::class, 'imageable');

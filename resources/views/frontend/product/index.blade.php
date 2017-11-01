@@ -4,7 +4,7 @@
     <div class="featured-image clearfix">
         <div class="container">
             <div class="featured-image clearfix">
-                <img class="img-responsive" src="{{ route('image', $item->categories->first()->banner_default) }}" alt="" />
+                <img class="img-responsive" src="{{ route('image', $item->categoryChildren->first()->banner_default) }}" alt="" />
             </div>
         </div>
     </div>
@@ -117,195 +117,35 @@
                 </div>
                 <aside class="sidebar sidebar-shop col-xs-12 col-sm-12 col-md-4">
                     <div class="sidebar-inner">
+                        @if (count($categories))
+                        @foreach ($categories as $category)
                         <div class="block block-news">
                             <h3 class="block-title title-two">
-                                <span>Chính sách bảo hành & lắp đặt</span>
+                                <span>{{ $category->name }}</span>
                             </h3>
                             <div class="block-content">
+                                @if ($category->productPosts)
+                                @foreach ($category->productPosts as $post)
                                 <div class="box-list undefined">
                                     <div class="media">
                                         <div class="media-left">
-                                            <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="/images/nw1.png" alt="">
+                                            <a class="box-list-img" href="{{ route('post.show', $post->slug) }}" title="{{ $post->name }}">
+                                                <img class="img-responsive" src="{{ route('image', $post->image_156x100) }}" alt="{{ $post->name }}">
                                             </a>
                                         </div>
                                         <div class="media-body">
                                             <h4 class="box-list-title">
-                                                <a href="#" target="_blank" title="">Chính sách bảo hành</a>
+                                                <a href="{{ route('post.show', $post->slug) }}" title="{ $post->name }}">{{ $post->name }}</a>
                                             </h4>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="box-list undefined">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="/images/nw1.png" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="box-list-title">
-                                                <a href="#" target="_blank" title="">Chính sách lắp đặt</a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="box-list undefined">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="/images/nw1.png" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="box-list-title">
-                                                <a href="#" target="_blank" title="">Dây chuyền sản xuất</a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="box-list undefined">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="/images/nw1.png" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="box-list-title">
-                                                <a href="#" target="_blank" title="">Văn phòng làm việc Toàn Thắng - không gian mở cho những sáng tạo và thành công.</a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
+                                @endif
                             </div>
                         </div>
-                        <div class="block block-news">
-                            <h3 class="block-title title-two">
-                                <span>Thông tin hữu ích</span>
-                            </h3>
-                            <div class="block-content">
-                                <div class="box-list undefined">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="/images/nw1.png" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="box-list-title">
-                                                <a href="#" target="_blank" title="">Lý do lựa chọn và giải pháp</a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="box-list undefined">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="/images/nw1.png" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="box-list-title">
-                                                <a href="#" target="_blank" title="">So sánh bể nước bê tông với bồn nước công nghiệp Toàn Thắng</a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="box-list undefined">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="/images/nw1.png" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="box-list-title">
-                                                <a href="#" target="_blank" title="">Tính tối ưu về dung tích chứa nước</a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="box-list undefined">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="/images/nw1.png" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="box-list-title">
-                                                <a href="#" target="_blank" title="">Hỏi - đáp những vấn đề về giải pháp chứa nước cho các công trình .</a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="block block-news">
-                            <h3 class="block-title title-two">
-                                <span>Dự án</span>
-                            </h3>
-                            <div class="block-content">
-                                <div class="box-list undefined">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="/images/nw1.png" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="box-list-title">
-                                                <a href="#" target="_blank" title="">Toàn cảnh dây chuyền sản xuất tấm Panel cho bồn Inox công nghiệp dung tích lớn.</a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="box-list undefined">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="/images/nw1.png" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="box-list-title">
-                                                <a href="#" target="_blank" title="">Kết nối đồng đội - Kỳ nghỉ hè gắn kết thành công của Toàn Thắng tại Cửa Lò - Nghệ An.</a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="box-list undefined">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="/images/nw1.png" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="box-list-title">
-                                                <a href="#" target="_blank" title="">Lễ ra mắt sản phẩm chậu rửa Inox liền khối tại Tòa nhà số 8 Quan Trung, Hà Đông</a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="box-list undefined">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a class="box-list-img" href="#" target="_blank" title="">
-                                                <img class="img-responsive" src="/images/nw1.png" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="box-list-title">
-                                                <a href="#" target="_blank" title="">Văn phòng làm việc Toàn Thắng - không gian mở cho những sáng tạo và thành công.</a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                        @endif
                     </div>
                 </aside>
             </div>
@@ -349,7 +189,6 @@
     </div>
 @endsection
 @push('prescripts')
-    <div id="fb-root"></div>
     <script>
         (function(d, s, id)
         {
