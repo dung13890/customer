@@ -18,6 +18,7 @@
         </div>
     </div>
 </section>
+
 <section class="home-intro clearfix" id="home-intro">
     <div class="container">
         <div class="row">
