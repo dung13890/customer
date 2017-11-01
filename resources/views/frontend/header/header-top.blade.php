@@ -17,16 +17,21 @@
                     </div>
                     <div class="static-block">
                         <!-- Search form-->
-                        <form class="search-form d-ib float-right" name="search-form" action="/san-pham/tags/" method="POST">
+                        {{ Form::open([
+                            'url' => route('product.search'),
+                            'role'  => 'form',
+                            'class' => 'search-form d-ib float-right',
+                            'autocomplete'=>'off',
+                        ]) }}
                             <div class="input-group">
-                                <input class="form-control" id="tag" type="text" placeholder="Tìm kiếm ..." name="tag" />
+                                <input class="form-control" type="text" placeholder="Tìm kiếm ..." name="keyword" />
                                 <span class="input-group-btn">
                                     <button class="btn btn-search" type="submit">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </span>
                             </div>
-                        </form>
+                        {{ Form::close() }}
                         <ul class="menu-top list-inline d-ib float-right">
                             <li class="limenu">
                                 <a class="abmenu" href="{{ route('category.show', $__categoryMenu->get(0)->slug) }}">

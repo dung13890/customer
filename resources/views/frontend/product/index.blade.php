@@ -26,25 +26,26 @@
                     <div class="product-single-top">
                         <div class="product-gallery">
                             <div class="product-photo">
-                                @if ($item->images)
+                                <?php $html = ''; ?>
+                                @if (count($item->images))
                                 @foreach ($item->images as $image)
                                 <figure>
                                     <a class="item" href="{{ route('image', $image->image_large) }}" data-size="800x600">
                                         <img src="{{ route('image', $image->image_large) }}" alt="image">
                                     </a>
                                 </figure>
+                                <?php
+                                    $html .='
+                                        <div class="item">
+                                            <img src="' . route('image', $image->image_thumbnail) . '" alt="image_thumbnail">
+                                        </div>
+                                    ';
+                                ?>
                                 @endforeach
                                 @endif
-
                             </div>
                             <div class="product-thumbs">
-                                @if ($item->images)
-                                @foreach ($item->images as $image)
-                                <div class="item">
-                                    <img src="{{ route('image', $image->image_thumbnail) }}" alt="image_thumbnail">
-                                </div>
-                                @endforeach
-                                @endif
+                                {!! $html !!}
                             </div>
                         </div>
                     </div>
@@ -81,25 +82,35 @@
                             @endif
                         </ul>
                         <div class="tab-content">
+                            @if ($item->information)
                             <div class="tab-pane active" id="product-info" role="tabpanel">
                                {!! $item->information !!}
                             </div>
+                            @endif
 
+                            @if ($item->advantage)
                             <div class="tab-pane active" id="product-advantage" role="tabpanel">
                                {!! $item->advantage !!}
                             </div>
+                            @endif
 
+                            @if ($item->coordination)
                             <div class="tab-pane" id="setup-formality" role="tabpanel">
                                 {!! $item->coordination !!}
                             </div>
+                            @endif
 
+                            @if ($item->conduct)
                             <div class="tab-pane" id="setup-step" role="tabpanel">
                                 {!! $item->conduct !!}
                             </div>
+                            @endif
 
+                            @if ($item->produce)
                             <div class="tab-pane" id="product-process" role="tabpanel">
                                 {!! $item->produce !!}
                             </div>
+                            @endif
                         </div>
                     </div>
                     <div class="fb-comments" data-href="{{ Request::url()}}" data-width="100%" data-numposts="5"></div>

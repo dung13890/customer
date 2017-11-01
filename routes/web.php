@@ -25,6 +25,7 @@ Route::group(['prefix' => '/', 'namespace' => 'Frontend'], function () {
     Route::get('trang/{slug}', 'PageController@show')->name('page.show');
     Route::get('bai-viet/{slug}', 'PostController@show')->name('post.show');
     Route::get('san-pham/{slug}', 'ProductController@show')->name('product.show');
+    Route::post('san-pham-tim-kiem', 'ProductController@search')->name('product.search');
 });
 
 Route::group(['namespace' => 'Backend'], function () {

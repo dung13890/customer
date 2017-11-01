@@ -24,4 +24,17 @@ class ProductController extends FrontendController
 
         return $this->viewRender();
     }
+
+    public function search(Request $request)
+    {
+        $this->view = "product.search";
+        $this->compacts['value'] = $request->keyword;
+        $this->compacts['productSearch'] = $this->repository->model
+            ->byKeywords($this->compacts['value'])
+            ->orderBy('id','DESC')
+            ->take(9)
+            ->get();
+
+        return $this->viewRender();
+    }
 }
