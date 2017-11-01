@@ -8,7 +8,7 @@
                 </button>
                 {!! $configs['popup'] !!}
                 {{ Form::open([
-                    'url' => route('product.search'),
+                    'url' => route('home.contact'),
                     'role'  => 'form',
                     'class' => 'contact-form',
                     'autocomplete'=>'off',
