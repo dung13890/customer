@@ -23,7 +23,7 @@
                     <div class="single-post-wrap">
                         <div class="control-blog">
                            <p>
-                               <a href="{{ asset($item->file) }}">
+                               <a href="{{ asset('/statics/file/' . $item->file) }}">
                                    <i class="fa fa-file-pdf-o"></i>Download PDF
                                </a>
                                <a href="#">
