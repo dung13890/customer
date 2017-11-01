@@ -26,7 +26,7 @@ class Category extends Model
 
     public function posts()
     {
-        return $this->hasMany(Post::class)->where('locked', false);
+        return $this->hasMany(Post::class)->orderBy('updated_at', 'desc')->where('locked', false);
     }
 
     public function productPosts()
@@ -44,7 +44,7 @@ class Category extends Model
 
     public function pages()
     {
-        return $this->hasMany(Page::class)->where('locked', false);
+        return $this->hasMany(Page::class)->orderBy('updated_at', 'desc')->where('locked', false);
     }
 
     public function limitPosts()
@@ -54,7 +54,7 @@ class Category extends Model
 
     public function homePosts()
     {
-        return $this->posts()->orderBy('updated_at', 'desc')->take(7)->select(['image', 'name', 'slug', 'ceo_description']);
+        return $this->posts()->take(7)->select(['image', 'name', 'slug', 'ceo_description']);
     }
 
     public function limitPages()

@@ -31,15 +31,15 @@
 
         <div class="form-group">
             <div class="row">
-                <div class="col-sm-8">
-                    {{ Form::label('name', __('repositories.label.image'), ['class' => 'control-label']) }}
+                <div class="col-sm-5">
+                    {{ Form::label('name', __('repositories.label.icon'), ['class' => 'control-label']) }}
                     @component('backend._partials.components.uploadfile', ['imgFields' => (isset($item) && $item->image) ? $item->image_medium : null])
                     @slot('uploadFields')
                         {{ Form::file('image', ['id' => 'image']) }}
                     @endslot
                     @endcomponent
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-4">
                     <label></label>
                     <div class="checkbox">
                         <label>

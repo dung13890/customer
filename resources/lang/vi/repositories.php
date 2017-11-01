@@ -39,6 +39,7 @@ return [
         'ceo_title' => 'Tiêu đề SEO',
         'ceo_keywords' => 'Từ khoá SEO',
         'ceo_description' => 'Mô tả SEO',
+        'icon' => 'Icon',
         'title' => 'Tiêu đề',
         'root' => 'Nguồn',
         'image' => 'Hình ảnh',

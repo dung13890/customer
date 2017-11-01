@@ -8,7 +8,7 @@
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="ion-ios-folder-outline"></i> {{ __('repositories.title.product') }}</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('backend.product.index') }}"> {{ __('repositories.title.list') }}</a>
+                        <a class="nav-link" href="{{ route('backend.product.index') }}"> {{ __('repositories.product.name') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('backend.category.type', 'product') }}"> {{ __('repositories.category.name') }}</a>
@@ -19,7 +19,7 @@
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="ion-clipboard"></i> {{ __('repositories.title.post') }}</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('backend.post.index') }}"> {{ __('repositories.title.list') }}</a>
+                        <a class="nav-link" href="{{ route('backend.post.index') }}"> {{ __('repositories.post.name') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('backend.category.type', 'post') }}"> {{ __('repositories.category.name') }}</a>
@@ -30,7 +30,7 @@
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="ion-ios-paper-outline"></i> {{ __('repositories.title.page') }}</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('backend.page.index') }}"> {{ __('repositories.title.list') }}</a>
+                        <a class="nav-link" href="{{ route('backend.page.index') }}"> {{ __('repositories.page.name') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('backend.category.type', 'page') }}"> {{ __('repositories.category.name') }}</a>
