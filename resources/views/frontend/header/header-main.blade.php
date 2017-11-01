@@ -91,13 +91,12 @@
                                         <div class="col-md-4 col-lg-4">
                                             <h4 class="heading color">Thông tin</h4>
                                             <!-- Contact form-->
-                                                {{ Form::open([
-                                                    'url' => route('home.contact'),
-                                                    'role'  => 'form',
-                                                    'files' => true,
-                                                    'class' => 'contact-form',
-                                                    'autocomplete'=>'off',
-                                                ]) }}
+                                            {{ Form::open([
+                                                'url' => route('home.contact'),
+                                                'role'  => 'form',
+                                                'class' => 'contact-form',
+                                                'autocomplete'=>'off',
+                                            ]) }}
                                                 <div class="form-group">
                                                     <input class="form-control" type="text" placeholder="Họ và tên" name="name" />
                                                 </div>
