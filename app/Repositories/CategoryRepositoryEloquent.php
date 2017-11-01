@@ -101,6 +101,17 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
             ->first($columns);
     }
 
+    public function getLimitWithOut($type, $limit, $id, $columns = ['*'])
+    {
+        return $this->model
+            ->where('locked', false)
+            ->where('type', $type)
+            ->where('id', '<>', $id)
+            ->take($limit)
+            ->inRandomOrder()
+            ->get($columns);
+    }
+
     public function findBySlug($slug)
     {
         return $this->model->findBySlugOrFail($slug);
