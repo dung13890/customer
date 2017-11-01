@@ -87,6 +87,7 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
             ->where('is_home', true)
             ->where('locked', false)
             ->where('type', $type)
+            ->where('parent_id', 0)
             ->take($limit)
             ->orderBy('updated_at', 'desc')
             ->get($columns);
