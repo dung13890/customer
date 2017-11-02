@@ -24,7 +24,7 @@
 
                 <div class="col-md-4">
                     {{ Form::label('category_id', __('repositories.category.name'), ['class'=>'control-label']) }}<span class="require">*</span>
-                    {{ Form::select('category_id', $categories, null, ['class' => 'form-control']) }}
+                    {{ Form::select('category_id', $categories, null, ['class' => 'form-control', 'placeholder' => '---']) }}
                 </div>
             </div>
         </div>

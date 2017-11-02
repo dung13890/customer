@@ -16,7 +16,7 @@ class PageController extends BackendController
 
     protected $category;
     protected $dataSelect = ['id', 'name', 'ceo_keywords', 'locked', 'slug'];
-    protected $categorySelect = ['id', 'name'];
+    protected $categorySelect = ['id', 'name', 'parent_id'];
 
     public function __construct(PageRepository $page, CategoryRepository $category)
     {
@@ -27,7 +27,7 @@ class PageController extends BackendController
     public function index(Request $request)
     {
         parent::__index();
-        $this->compacts['categories'] = $this->category->pluck('name', 'id')->prepend('---', 0);
+        $this->renderOptions();
         if ($request->ajax() && $request->has('datatables')) {
             $params = $request->all();
             $datatables = \DataTables::of($this->repository->datatables($this->dataSelect));
@@ -46,7 +46,7 @@ class PageController extends BackendController
     public function create()
     {
         parent::__create();
-        $this->compacts['categories'] = $this->category->pluck('name', 'id')->prepend('---', 0);
+        $this->renderOptions();
 
         return $this->viewRender();
     }
@@ -64,7 +64,7 @@ class PageController extends BackendController
     public function edit($id)
     {
         parent::__edit($id);
-        $this->compacts['categories'] = $this->category->pluck('name', 'id')->prepend('---', 0);
+        $this->renderOptions();
 
         return $this->viewRender();
     }
@@ -85,5 +85,17 @@ class PageController extends BackendController
         return $this->doRequest(function () use ($id) {
             return $this->dispatch(new DestroyJob($id));
         }, __FUNCTION__);
+    }
+
+    protected function renderOptions()
+    {
+        $data = [];
+        foreach ($this->category as $item) {
+            $data[$item->name] = count($item->children)
+                ? $item->children->pluck('name', 'id')->toArray()
+                : [];
+        }
+
+        $this->compacts['categories'] = $data;
     }
 }

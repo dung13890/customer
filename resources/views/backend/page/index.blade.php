@@ -32,7 +32,7 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon">{{ __('repositories.category.name') }}</span>
-                                    {{ Form::select('category_id', $categories, null, ['class' => 'form-control']) }}
+                                    {{ Form::select('category_id', $categories, null, ['class' => 'form-control', 'placeholder' => '---']) }}
                                 </div>
                             </div>
                         </div>

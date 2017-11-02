@@ -59,8 +59,8 @@
                                 </a>
                             </li>
                             <li class="limenu">
-                                <a class="abmenu" href="#">
-                                    <span>Liên hệ</span>
+                                <a class="abmenu" href="{{ route('home.page.contact') }}">
+                                    <span>{{ __('repositories.title.contact') }}</span>
                                 </a>
                             </li>
                         </ul>

@@ -1,0 +1,44 @@
+.share-links {
+    margin-top: 20px;
+}
+
+.share-links li span,
+.share-links li a {
+    font-size: 19px;
+    line-height: 30px;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    border-radius: 100%;
+    color: #fff;
+    background: #0c8c46;
+}
+
+.share-links .list-inline-item:not(:last-child) {
+    margin-right: 0;
+}
+
+.share-links .list-inline > li {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.product-single-tabs .nav-tabs {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.product-single-tabs .nav-tabs>li {
+    width: 25%;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+.product-single-tabs .nav-tabs>li>a {
+    height: 100%;
+}

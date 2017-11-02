@@ -68,7 +68,6 @@ class PageRepositoryEloquent extends AbstractRepositoryEloquent implements PageR
         return $this->model
             ->where('locked', false)
             ->where('is_home', true)
-            ->whereNotIn('category_id', config('common.category.id_system'))
             ->take($limit)
             ->orderBy('updated_at', 'desc')
             ->get($columns);

@@ -111,6 +111,25 @@
                             @endif
                         </div>
                     </div>
+                    <div class="share-links">
+                        <ul class="social-icons list-inline pull-right">
+                            <li class="list-inline-item share-text">
+                                <span><i class="fa fa-share"></i></span>
+                            </li>
+                            <li class="list-inline-item facebook">
+                                <a href="http://www.facebook.com/sharer.php?u={{ Request::url() }}" class="post-share-facebook" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=220,width=600');return false;"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            </li>
+                            <li class="list-inline-item twitter">
+                                <a href="https://twitter.com/share?url={{ Request::url() }}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=260,width=600');return false;" class="post-share-twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            </li>
+                            <li class="list-inline-item google-plus">
+                                <a href="https://plus.google.com/share?url={{ Request::url() }}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                            </li>
+                            <li class="list-inline-item pinterest">
+                                <a href="http://pinterest.com/pin/create/button/?url={{ Request::url() }}&media={{ route('image', $item->image_medium) }}&description={{ $item->ceo_description }}"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                            </li>
+                        </ul>
+                    </div>
                     <div class="fb-comments" data-href="{{ Request::url()}}" data-width="100%" data-numposts="5"></div>
                 </div>
                 <aside class="sidebar sidebar-shop col-xs-12 col-sm-12 col-md-4">
@@ -186,6 +205,9 @@
         </div>
     </div>
 @endsection
+@push('prestyles')
+{{ Html::style('/frontend/css/custom.css') }}
+@endpush
 @push('prescripts')
     <script>
         (function(d, s, id)

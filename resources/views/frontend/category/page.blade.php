@@ -3,7 +3,7 @@
 @section('page-content')
 @if ($item)
     <div class="featured-image clearfix">
-        <img class="img-responsive" src="{{ route('image', $item->category->banner_default) }}" alt="" />
+        <img class="img-responsive" src="{{ route('image', $item->banner_default) }}" alt="{{ $item->name }}" />
     </div>
     <div class="page-title-block mt-30 clearfix">
         <div class="container">
@@ -23,12 +23,7 @@
                     <div class="single-post-wrap">
                         <div class="control-blog">
                            <p>
-                               <a href="{{ asset($item->file) }}">
-                                   <i class="fa fa-file-pdf-o"></i>Download PDF
-                               </a>
-                               <a href="#">
-                                   <i class="fa fa-print"></i>Print
-                               </a>
+
                            </p>
                        </div>
                         <div class="post-content">

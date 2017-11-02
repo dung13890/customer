@@ -25,6 +25,7 @@ return [
         'page' => 'Trang',
         'browse' => 'Chọn ảnh...',
         'social' => 'Mạng xã hội',
+        'contact' => 'Liên hệ',
     ],
 
     'text' => [
@@ -33,6 +34,7 @@ return [
         'sign_in_to_addr' => 'Quang Trung, Quận Hà Đông, Hà Nội',
         'sign_in_to_phon' => '(04) 66 530 666',
         'show_in_category' => 'Hiển thị tại danh mục',
+        'message_contact' => 'Chúng tôi sẽ liên hệ với bạn sớm nhất có thể. Cám ơn!',
     ],
 
     'label' => [

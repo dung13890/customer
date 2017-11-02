@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <h2 class="page-title title-one-full">
-                        <span>Sản phẩm nổi bật</span>
+                        <span>{{ $item->name }}</span>
                     </h2>
                 </div>
                 <div class="products">

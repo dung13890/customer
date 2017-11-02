@@ -83,8 +83,8 @@
                             <a href="{{ route('category.show', $__categoryMenu->get(3)->slug) }}">{{ $__categoryMenu->get(3)->name }}</a>
                             @include('frontend.header._box-page', ['boxCategory' => $__categoryMenu->get(3)])
                         </li>
-                        <li>
-                            <a href="#">Liên hệ</a>
+                        <li {{ check_active(route('home.page.contact')) }}>
+                            <a href="{{ route('home.page.contact') }}">{{ __('repositories.title.contact') }}</a>
                             <div class="megamenu">
                                 <div class="megamenu-inner">
                                     <div class="row">

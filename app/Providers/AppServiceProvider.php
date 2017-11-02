@@ -115,7 +115,7 @@ class AppServiceProvider extends ServiceProvider
                 })->pluck('value', 'key');
             }));
             $view->with('__categoryMenu', Cache::remember('__categoryMenu', 60, function () {
-                return app(\App\Contracts\Repositories\CategoryRepository::class)->getDataByIds(config('common.category.id_system'));
+                return app(\App\Contracts\Repositories\CategoryRepository::class)->getDataByIds(config('common.category.id_system'), ['children']);
             }));
             $view->with('__categoryPosts', Cache::remember('__categoryPosts', 60, function () {
                 return app(\App\Contracts\Repositories\CategoryRepository::class)->getLimitRoot('post', 3);

@@ -41,6 +41,14 @@ class HomeController extends FrontendController
             $this->repoContact->store($request->all());
         }
 
-        return redirect(route('home'));
+        return redirect(route('home.page.contact'))->with('message', __('repositories.text.message_contact'));
+    }
+
+    public function pageContact()
+    {
+        $this->view = 'home.contact';
+        $this->compacts['heading'] = 'Liên hệ';
+
+        return $this->viewRender();
     }
 }
