@@ -59,7 +59,7 @@ class Category extends Model
 
     public function limitPages()
     {
-        return $this->pages()->take(15)->select(['image', 'name', 'slug']);
+        return $this->pages()->take(15)->select(['image', 'name', 'slug', 'ceo_description']);
     }
 
     public function getBannerDefaultAttribute($value)
