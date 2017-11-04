@@ -13,7 +13,10 @@ use App\Contracts\Services\MediaInterface;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('image/{path}', ['as' => 'image' , function (Request $request, MediaInterface $service, $path) {
+Route::get('image/{path?}', ['as' => 'image' , function (Request $request, MediaInterface $service, $path = null) {
+    if (!$path) {
+        return;
+    }
     $params = $request->all();
     return $service->getReponseImage($path, $params);
 }])->where('path', '(.*?)');
