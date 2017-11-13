@@ -38,19 +38,36 @@ Route::group(['namespace' => 'Backend'], function () {
         Route::get('/', 'HomeController@index')->name('home.index');
         Route::post('summernote/image', 'HomeController@summernoteImage')->name('summernote.image');
         Route::resource('home', 'HomeController', [
-            'except' => ['index', 'create', 'store', 'update', 'edit']
+            'except' => ['index', 'create', 'store', 'update', 'edit', 'destroy']
         ]);
+        Route::post('home/{contact}', 'HomeController@destroy')->name('home.destroy');
 
-        Route::resource('user', 'UserController');
-        Route::resource('category', 'CategoryController', [
-            'except' => ['index', 'create', 'show']
+        Route::resource('user', 'UserController', [
+            'except' => ['destroy']
         ]);
+        Route::post('user/{user}', 'UserController@destroy')->name('user.destroy');
+        Route::resource('category', 'CategoryController', [
+            'except' => ['index', 'create', 'show', 'destroy']
+        ]);
+        Route::post('category/{category}', 'CategoryController@destroy')->name('category.destroy');
         Route::get('category/type/{type}', 'CategoryController@type')->name('category.type');
-        Route::resource('page', 'PageController');
-        Route::resource('product', 'ProductController');
+        Route::resource('page', 'PageController', [
+            'except' => ['destroy']
+        ]);
+        Route::post('page/{page}', 'PageController@destroy')->name('page.destroy');
+        Route::resource('product', 'ProductController', [
+            'except' => ['destroy']
+        ]);
+        Route::post('product/{product}', 'ProductController@destroy')->name('product.destroy');
         Route::post('product/image/store', 'ProductController@imageStore')->name('product.image.store');
-        Route::resource('post', 'PostController');
-        Route::resource('slide', 'SlideController');
+        Route::resource('post', 'PostController', [
+            'except' => ['destroy']
+        ]);
+        Route::post('post/{post}', 'PostController@destroy')->name('post.destroy');
+        Route::resource('slide', 'SlideController', [
+            'except' => ['destroy']
+        ]);
+        Route::post('slide/{slide}', 'SlideController@destroy')->name('slide.destroy');
         Route::resource('config', 'ConfigController', [
             'only' => ['index', 'store']
         ]);

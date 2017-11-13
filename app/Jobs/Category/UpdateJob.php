@@ -53,5 +53,6 @@ class UpdateJob
             $data['parent_id'] = 0;
         }
         $this->item->update($data);
+        \Cache::flush();
     }
 }

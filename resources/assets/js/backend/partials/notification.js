@@ -20,7 +20,7 @@ class Notification {
         cancelButtonText: window.lang.get('repositories.sweetalert.cancel')
       }).then(function () {
         _$.ajax({
-          type: 'DELETE',
+          type: 'POST',
           url: deleteUrl,
           success: function (response) {
             self.alertNotification(response.message, true);

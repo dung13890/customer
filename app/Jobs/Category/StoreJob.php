@@ -39,5 +39,6 @@ class StoreJob
             $data['banner'] = $this->uploadFile($data['banner'], $path);
         }
         $repository->store($data);
+        \Cache::flush();
     }
 }

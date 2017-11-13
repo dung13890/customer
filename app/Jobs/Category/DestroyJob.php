@@ -40,7 +40,7 @@ class DestroyJob
         if (!empty($item->banner)) {
             $this->destroyFile($item->banner);
         }
-
+        \Cache::flush();
         return $repository->destroy($this->id);
     }
 }
