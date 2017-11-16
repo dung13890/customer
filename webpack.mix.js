@@ -31,6 +31,10 @@ mix.js('resources/assets/js/backend.js', 'public/assets/js')
     .sass('resources/assets/sass/backend/modules/category.scss', 'public/assets/css/backend')
     .sass('resources/assets/sass/backend/modules/menu.scss', 'public/assets/css/backend');
 
+mix.sass('resources/assets/vendor/css/main.scss', './../resources/assets/vendor/css', {
+    outputStyle: 'compressed'
+})
+
 mix.js('resources/assets/vue/dropzone.js', 'public/assets/vue/');
 mix.copyDirectory('resources/assets/img', 'public/img');
 mix.copyDirectory('resources/assets/vendor', 'public/frontend');

@@ -23,7 +23,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Styles -->
-    {{ Html::style('/frontend/css/main.min.css') }}
+    {{ Html::style('/frontend/css/main.css') }}
     @stack('prestyles')
 </head>
 <body class="{{ $class or null }}">
