@@ -38,6 +38,19 @@ class StoreJob
             unset($this->attributes['logo']);
         }
 
+        if (isset($this->attributes['popup_img']) && $this->attributes['popup_img']) {
+            $this->uploadImageConfig($this->attributes['popup_img'], 'popup_img', $path);
+            unset($this->attributes['popup_img']);
+        }
+
+        if (!isset($this->attributes['popup_img_flg'])) {
+            $this->attributes['popup_img_flg'] = 0;
+        }
+
+        if (!isset($this->attributes['popup_disp_flg'])) {
+            $this->attributes['popup_disp_flg'] = 0;
+        }
+
         foreach ($this->attributes as $key => $value) {
             $repository->findByKey($key)->update(['value' => $value]);
         }

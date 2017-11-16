@@ -26,6 +26,7 @@ Route::group(['prefix' => '/', 'namespace' => 'Frontend'], function () {
     Route::post('lien-he', 'HomeController@contact')->name('home.contact');
     Route::get('danh-muc/{slug}', 'CategoryController@show')->name('category.show');
     Route::get('trang/{slug}', 'PageController@show')->name('page.show');
+    Route::get('menu/{type}', 'MenuController@index')->name('menu.index');
     Route::get('bai-viet/{slug}', 'PostController@show')->name('post.show');
     Route::get('san-pham/{slug}', 'ProductController@show')->name('product.show');
     Route::get('lien-he', 'HomeController@pageContact')->name('home.page.contact');
@@ -51,18 +52,25 @@ Route::group(['namespace' => 'Backend'], function () {
         ]);
         Route::post('category/{category}', 'CategoryController@destroy')->name('category.destroy');
         Route::get('category/type/{type}', 'CategoryController@type')->name('category.type');
+
         Route::resource('page', 'PageController', [
-            'except' => ['destroy']
+            'except' => ['destroy', 'index', 'create']
         ]);
+        Route::get('page/type/{type}', 'PageController@type')->name('page.type');
+        Route::get('page/create/{type}', 'PageController@create')->name('page.create.type');
         Route::post('page/{page}', 'PageController@destroy')->name('page.destroy');
+
         Route::resource('product', 'ProductController', [
             'except' => ['destroy']
         ]);
         Route::post('product/{product}', 'ProductController@destroy')->name('product.destroy');
         Route::post('product/image/store', 'ProductController@imageStore')->name('product.image.store');
+
         Route::resource('post', 'PostController', [
-            'except' => ['destroy']
+            'except' => ['destroy', 'index', 'create']
         ]);
+        Route::get('post/type/{type}', 'PostController@type')->name('post.type');
+        Route::get('post/create/{type}', 'PostController@create')->name('post.create.type');
         Route::post('post/{post}', 'PostController@destroy')->name('post.destroy');
         Route::resource('slide', 'SlideController', [
             'except' => ['destroy']
@@ -71,5 +79,10 @@ Route::group(['namespace' => 'Backend'], function () {
         Route::resource('config', 'ConfigController', [
             'only' => ['index', 'store']
         ]);
+
+        Route::resource('menu', 'MenuController', [
+            'except' => ['show', 'create', 'destroy']
+        ]);
+        Route::post('menu/{menu}', 'MenuController@destroy')->name('menu.destroy');
     });
 });

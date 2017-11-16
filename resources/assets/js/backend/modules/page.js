@@ -3,6 +3,7 @@
 
 import Datatable from './../partials/datatable';
 import Uploadfile from './../partials/uploadfile';
+import toolbarSummernote from './../partials/toolbar';
 class Page {
   index () {
     var _$ = window.$;
@@ -25,7 +26,6 @@ class Page {
     let searches = {
       data: function (d) {
         d.keywords = _$('input[name=keywords]').val();
-        d.category_id = _$('select[name=category_id]').val();
       }
     };
     var datatable = new Datatable('page', columns, searches);
@@ -39,7 +39,6 @@ class Page {
     _$('#reset-form').on('click', function (e) {
       e.preventDefault();
       _$('input').val('');
-      _$('select').prop('selectedIndex', 0);
       datatable.refresh();
     });
   }
@@ -48,7 +47,17 @@ class Page {
     var _$ = window.jQuery;
     var uploadfile = new Uploadfile();
     uploadfile.init();
+    var uploadicon = new Uploadfile('#icon', '#icon-upload');
+    uploadicon.init();
+    _$('.datetimepicker').datetimepicker({
+      format: 'DD/MM/YYYY HH:mm',
+      locale: 'vi',
+      widgetPositioning: {
+        vertical: 'bottom'
+      }
+    });
     _$('.textarea-summernote').summernote({
+      toolbar: toolbarSummernote,
       height:250,
       callbacks: {
         onImageUpload: function(files) {

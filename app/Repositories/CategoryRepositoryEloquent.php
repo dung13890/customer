@@ -16,7 +16,7 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
             'locked' => 'sometimes|boolean',
             'image'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
             'banner'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
-            'type' => 'required|in:product,post,page',
+            'type' => 'required|in:product,post,article',
         ],
         'update' => [
             'name' => 'required|min:2|max:100',
@@ -44,40 +44,16 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
 
     public function getDataByType($type, $columns = ['*'])
     {
-        return $this->model->where(function ($query) use ($type) {
-            if ($type) {
-                $query->where('type', $type);
-            }
-        })->get($columns);
+        return $this->model->where('type', $type)->get($columns);
     }
 
-    public function getRootByType($type, $columns = ['*'])
+    public function getLimitByType($type, $limit, $columns = ['*'])
     {
-        return $this->model->with(['children' => function ($query) use ($columns) {
-            $query->select($columns);
-        }])->where('parent_id', 0)->where(function ($query) use ($type) {
-            if ($type) {
-                $query->where('type', $type);
-            }
-        })->get($columns);
-    }
-
-    public function getLimitRoot($type, $limit, $with = [], $columns = ['*'])
-    {
-        return $this->model->with($with)
+        return $this->model
             ->where('type', $type)
             ->where('locked', false)
-            ->where('parent_id', 0)
             ->take($limit)
             ->orderBy('updated_at', 'desc')
-            ->get($columns);
-    }
-
-    public function getDataByIds(array $ids, $with = [], $columns = ['*'])
-    {
-        return $this->model->with($with)
-            ->whereIn('id', $ids)
-            ->orderBy('id')
             ->get($columns);
     }
 
@@ -87,7 +63,6 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
             ->where('is_home', true)
             ->where('locked', false)
             ->where('type', $type)
-            ->where('parent_id', 0)
             ->take($limit)
             ->orderBy('updated_at', 'desc')
             ->get($columns);

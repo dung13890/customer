@@ -24,17 +24,18 @@ class Product extends Model
         'name',
         'slug',
         'image',
+        'category_id',
         'locked',
     ];
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class)->orderBy('categories.updated_at', 'desc')->where('type', 'product');
+        return $this->belongsToMany(Category::class)->orderBy('categories.updated_at', 'desc')->where('type', 'article');
     }
 
-    public function categoryChildren()
+    public function category()
     {
-        return $this->categories()->where('parent_id', '<>', 0)->select(['name', 'id', 'banner'])->take(3);
+        return $this->belongsTo(Category::class);
     }
 
     public function images()
@@ -56,8 +57,6 @@ class Product extends Model
 
     public function scopeByCategory($query, $category)
     {
-        return $query->whereHas('categories', function ($query) use ($category) {
-            return $query->where('id', $category);
-        });
+        return $query->where('category_id', $category);
     }
 }

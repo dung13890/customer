@@ -22,10 +22,17 @@ return [
         'category' => 'Danh mục',
         'product' => 'Sản phẩm',
         'post' => 'Tin tức',
+        'article' => 'Bài viết',
         'page' => 'Trang',
         'browse' => 'Chọn ảnh...',
         'social' => 'Mạng xã hội',
         'contact' => 'Liên hệ',
+        'menu' => 'Menu',
+        'introduce' => 'Gới thiệu',
+        'distributor' => 'Hệ thống phân phối',
+        'investor' => 'Cổ đông & nhà đầu tư',
+        'recruitment' => 'Tuyển dụng',
+        'link' => 'Đường dẫn',
     ],
 
     'text' => [
@@ -33,7 +40,7 @@ return [
         'sign_in_to_info' => 'Công ty cổ phần Toàn Thắng',
         'sign_in_to_addr' => 'Quang Trung, Quận Hà Đông, Hà Nội',
         'sign_in_to_phon' => '(04) 66 530 666',
-        'show_in_category' => 'Hiển thị tại danh mục',
+        'show_in_category' => 'Nhóm bài viết hiển thị',
         'message_contact' => 'Chúng tôi sẽ liên hệ với bạn sớm nhất có thể. Cám ơn!',
     ],
 
@@ -41,7 +48,7 @@ return [
         'ceo_title' => 'Tiêu đề SEO',
         'ceo_keywords' => 'Từ khoá SEO',
         'ceo_description' => 'Mô tả SEO',
-        'icon' => 'Icon',
+        'icon' => 'Icon menu (200x200)',
         'title' => 'Tiêu đề',
         'root' => 'Nguồn',
         'image' => 'Hình ảnh',
@@ -51,7 +58,8 @@ return [
         'content' => 'Nội dung',
         'banner' => 'Ảnh banner',
         'username' => 'Tên đăng nhập',
-        'category_ids' => 'Danh mục',
+        'category_id' => 'Danh mục',
+        'category_ids' => 'Nhóm sản phẩm',
         'name' => 'Tên',
         'email' => 'Email',
         'action' => 'Thao tác',
@@ -69,12 +77,19 @@ return [
         'introduce' => 'Giới thiệu',
         'map' => 'Bản đồ',
         'logo' => 'Logo',
+        'create_dt' => 'Ngày tạo',
         'popup' => 'Popup',
+        'popup_img_flg' => 'Chọn popup ảnh',
+        'type' => 'Kiểu',
+        'popup_disp_flg' => 'Hiện popup',
+        'popup_img' => 'popup ảnh',
         'factory' => 'Nhà máy',
         'copyright' => 'Copyright',
         'pdf' => 'PDF',
         'feature_1' => 'Đặc tính 1',
         'feature_2' => 'Đặc tính 2',
+        'sort' => 'Thứ tự',
+        'url' => 'Đường dẫn',
     ],
 
     'button' => [
@@ -119,12 +134,23 @@ return [
 
     'category' => [
         'name' => 'Danh mục',
-        'banner' => 'Ảnh nền',
-        'image' => 'Ảnh đại diện',
+        'banner' => 'Ảnh nền ( 1920x570 )',
+        'image' => 'Ảnh đại diện ( 200 x 200 )',
+    ],
+
+    'menu' => [
+        'name' => 'Menu',
+        'resource' => [
+            'index' => 'Form Menu',
+        ]
     ],
 
     'page' => [
         'name' => 'Trang',
+        'introduce' => 'Gới thiệu',
+        'distributor' => 'Hệ thống phân phối',
+        'investor' => 'Cổ đông & nhà đầu tư',
+        'recruitment' => 'Tuyển dụng',
         'resource' => [
             'index' => 'Danh sách trang',
             'create' => 'Tạo mới trang',
@@ -134,10 +160,11 @@ return [
 
     'post' => [
         'name' => 'Tin tức',
+        'article' => 'Bài viết theo sản phẩm',
         'resource' => [
-            'index' => 'Danh sách tin tức',
-            'create' => 'Tạo mới tin tức',
-            'edit' => 'Cập nhật tin tức',
+            'index' => 'Danh sách',
+            'create' => 'Tạo mới',
+            'edit' => 'Cập nhật',
         ]
     ],
 

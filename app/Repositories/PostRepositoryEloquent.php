@@ -18,7 +18,7 @@ class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostR
             'ceo_keywords' => 'nullable|max:150',
             'image'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
             'category_id' => 'required|integer|not_in:0',
-            'category_ids' => 'nullable|array',
+            'type' => 'required|in:post,article',
         ],
         'update' => [
             'name' => 'required|min:2|max:100',
@@ -27,7 +27,6 @@ class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostR
             'ceo_keywords' => 'nullable|max:150',
             'image'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
             'category_id' => 'required|integer|not_in:0',
-            'category_ids' => 'nullable|array',
         ],
     ];
 

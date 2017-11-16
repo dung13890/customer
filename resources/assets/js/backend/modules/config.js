@@ -10,6 +10,8 @@ class Config {
     var _$ = window.jQuery;
     var uploadfile = new Uploadfile();
     uploadfile.init();
+    var uploadpopup = new Uploadfile('#popup_img', '#popup_img-upload');
+    uploadpopup.init();
     _$('.textarea-summernote').summernote({
       height:200,
       toolbar: [

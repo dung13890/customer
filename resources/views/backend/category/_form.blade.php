@@ -1,14 +1,9 @@
 @include('backend._partials.components.errors')
 <div class="form-group">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             {{ Form::label('name', __('repositories.label.title'), ['class'=>'control-label']) }}<span class="require">*</span>
             {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => __('repositories.label.title')]) }}
-        </div>
-
-        <div class="col-md-6">
-            {{ Form::label('parent_id', __('repositories.label.root'), ['class'=>'control-label']) }}<span class="require">*</span>
-            {{ Form::select('parent_id', $listItems, null, ['class' => 'form-control']) }}
         </div>
     </div>
 </div>

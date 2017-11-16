@@ -17,7 +17,6 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->string('name', 100);
             $table->string('slug', 100)->index()->unique();
-            $table->integer('parent_id')->default(0)->index();
             $table->char('type', 10)->default('post');
             $table->string('image')->nullable();
             $table->string('banner')->nullable();

@@ -35,6 +35,10 @@ class DestroyJob
             $this->destroyFile($item->image);
         }
 
+        if (!empty($item->icon)) {
+            $this->destroyFile($item->icon);
+        }
+
         if (!empty($item->file)) {
             $this->destroyFile($item->file, 'public');
         }

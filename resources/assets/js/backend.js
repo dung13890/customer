@@ -7,4 +7,5 @@
 
 import './bootstrap';
 import 'datatables.net-bs';
+import 'eonasdan-bootstrap-datetimepicker';
 import Common from './backend/partials/common';

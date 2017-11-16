@@ -52,7 +52,7 @@ class Datatable {
         }
       },
       ajax: _$.extend({
-        url: window.laroute.route('backend.' + this._resource + '.index', {'datatables': 1})
+        url: window.routeType ? window.routeType : window.laroute.route('backend.' + this._resource + '.index', {'datatables': 1})
       }, this._searches, {
         error: function (xhr) {
           notification.alertNotification(xhr.responseJSON.message, false);

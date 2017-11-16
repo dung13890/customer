@@ -7,6 +7,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use App\Contracts\Repositories\PageRepository;
 use App\Traits\UploadableTrait;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Carbon\Carbon;
 
 class StoreJob
 {
@@ -33,9 +34,14 @@ class StoreJob
     {
         $path = strtolower(class_basename($repository->model));
         $data = array_only($this->attributes, $repository->model->getFillable());
+        $data['create_dt'] = Carbon::createFromFormat(config('common.create_dt.format'), $data['create_dt']);
 
         if (array_has($data, 'image')) {
             $data['image'] = $this->uploadFile($data['image'], $path);
+        }
+
+        if (array_has($data, 'icon')) {
+            $data['icon'] = $this->uploadFile($data['icon'], $path);
         }
 
         if (array_has($data, 'file')) {

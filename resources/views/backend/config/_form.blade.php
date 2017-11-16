@@ -86,6 +86,35 @@
             {{ Form::textarea('popup', $items->keyBy('key')['popup']['value'], ['class' => 'form-control textarea-summernote', 'rows' => 3]) }}
         </div>
 
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-2">
+                    <label></label>
+                    <div class="checkbox">
+                        <label>
+                            {{ Form::checkbox('popup_disp_flg', true, (int)$items->keyBy('key')['popup_disp_flg']['value'], ['data-toggle'=>'toggle', 'data-size' => 'small']) }} <b>{{ __('repositories.label.popup_disp_flg') }}</b>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label></label>
+                    <div class="checkbox">
+                        <label>
+                            {{ Form::checkbox('popup_img_flg', true, $items->keyBy('key')['popup_img_flg']['value'], ['data-toggle'=>'toggle', 'data-size' => 'small']) }} <b>{{ __('repositories.label.popup_img_flg') }}</b>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    {{ Form::label('name', __('repositories.label.popup_img'), ['class' => 'control-label']) }}
+                    @component('backend._partials.components.uploadfile', ['imgFields' => $items->keyBy('key')['popup_img']['popup_img'] ?? null, 'elementFields' => 'popup_img-upload'])
+                    @slot('uploadFields')
+                        {{ Form::file('popup_img', ['id' => 'popup_img']) }}
+                    @endslot
+                    @endcomponent
+                </div>
+            </div>
+        </div>
+
         <div class="form-group text-right">
             <button type="submit" class="btn btn-warning btn-sm"><i class="ion-trash-b"></i> {{ isset($item) ? __('repositories.title.edit') : __('repositories.title.cache_clear') }}</button>
             <button type="submit" class="btn btn-success btn-sm"><i class="ion-checkmark-circled"></i> {{ isset($item) ? __('repositories.title.edit') : __('repositories.title.edit') }}</button>

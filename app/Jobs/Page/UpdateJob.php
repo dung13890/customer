@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Foundation\Bus\Dispatchable;
 use App\Contracts\Repositories\PageRepository;
 use App\Traits\UploadableTrait;
+use Carbon\Carbon;
 
 class UpdateJob
 {
@@ -36,11 +37,19 @@ class UpdateJob
         $data = array_only($this->attributes, $repository->model->getFillable());
         $data['locked'] = $data['locked'] ?? false;
         $data['is_home'] = $data['is_home'] ?? false;
+        $data['create_dt'] = Carbon::createFromFormat(config('common.create_dt.format'), $data['create_dt']);
         if (array_has($data, 'image')) {
             if (!empty($this->item->image)) {
                 $this->destroyFile($this->item->image);
             }
             $data['image'] = $this->uploadFile($data['image'], $path);
+        }
+
+        if (array_has($data, 'icon')) {
+            if (!empty($this->item->icon)) {
+                $this->destroyFile($this->item->icon);
+            }
+            $data['icon'] = $this->uploadFile($data['icon'], $path);
         }
 
         if (array_has($data, 'file')) {

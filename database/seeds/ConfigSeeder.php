@@ -58,11 +58,11 @@ class ConfigSeeder extends Seeder
         ]);
         app(Config::class)->create([
             'key' => 'factory',
-            'value' => 'Factory',
+            'value' => 'Km3, quốc lộ 2, phường Phúc Thắng, thị xã Phúc Yên, tỉnh Vĩnh Phúc',
         ]);
         app(Config::class)->create([
             'key' => 'copyright',
-            'value' => 'copyright',
+            'value' => '© 2007 - 2017 TOANTHANG - ALL RIGHTS RESERVED.',
         ]);
         app(Config::class)->create([
             'key' => 'address',
@@ -74,6 +74,18 @@ class ConfigSeeder extends Seeder
         ]);
         app(Config::class)->create([
             'key' => 'popup',
+            'value' => '',
+        ]);
+        app(Config::class)->create([
+            'key' => 'popup_disp_flg',
+            'value' => true,
+        ]);
+        app(Config::class)->create([
+            'key' => 'popup_img_flg',
+            'value' => true,
+        ]);
+        app(Config::class)->create([
+            'key' => 'popup_img',
             'value' => '',
         ]);
         app(Config::class)->create([

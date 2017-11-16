@@ -26,9 +26,6 @@ class CategoryController extends FrontendController
             case 'product':
                 $this->products($item);
                 break;
-            case 'page':
-                $this->pages($item);
-                break;
         }
 
         return $this->viewRender();
@@ -48,18 +45,6 @@ class CategoryController extends FrontendController
         $this->view = 'category.product';
         $this->compacts['item'] = $item;
         $this->compacts['products'] = $item->products()->paginate(9);
-        $this->compacts['heading'] = $item->name;
-    }
-
-    protected function pages($item)
-    {
-        if ($item->parent_id == 0) {
-            $item = $item->children->first() ?? $item;
-        }
-
-        $this->view = 'category.page';
-        $this->compacts['item'] = $item;
-        $this->compacts['pages'] = $item->limitPages;
         $this->compacts['heading'] = $item->name;
     }
 }

@@ -16,7 +16,7 @@ class PostController extends BackendController
 
     protected $repoCategory;
     protected $dataSelect = ['id', 'name', 'ceo_keywords', 'locked', 'slug'];
-    protected $categorySelect = ['id', 'name', 'parent_id'];
+    protected $categorySelect = ['id', 'name'];
 
     public function __construct(PostRepository $post, CategoryRepository $category)
     {
@@ -24,13 +24,17 @@ class PostController extends BackendController
         $this->repoCategory = $category;
     }
 
-    public function index(Request $request)
+    public function type(Request $request, $type)
     {
+        if (!in_array($type, config('common.post.type'))) {
+            abort(403);
+        }
         parent::__index();
-        $this->compacts['categories'] = $this->repoCategory->getRootByType('post', $this->categorySelect)->pluck('name', 'id')->prepend('---', 0);
+        $this->compacts['type'] = $type;
+        $this->compacts['categories'] = $this->repoCategory->getDataByType($type, $this->categorySelect)->pluck('name', 'id')->prepend('---', 0);
         if ($request->ajax() && $request->has('datatables')) {
             $params = $request->all();
-            $datatables = \DataTables::of($this->repository->datatables($this->dataSelect));
+            $datatables = \DataTables::of($this->repository->datatables($this->dataSelect)->where('type', $type));
             $this->filterDatatable($datatables, $params, function ($query, $params) {
                 if (array_has($params, 'category_id') && $params['category_id']) {
                     $query->byCategory($params['category_id']);
@@ -43,11 +47,11 @@ class PostController extends BackendController
         return $this->viewRender();
     }
 
-    public function create()
+    public function create($type)
     {
         parent::__create();
-        $this->compacts['categories'] = $this->repoCategory->getRootByType('post', $this->categorySelect)->pluck('name', 'id')->prepend('---', 0);
-        $this->compacts['rootCategories'] = $this->repoCategory->getRootByType('product', $this->categorySelect);
+        $this->compacts['type'] = $type;
+        $this->compacts['categories'] = $this->repoCategory->getDataByType($type, $this->categorySelect)->pluck('name', 'id')->prepend('---', 0);
 
         return $this->viewRender();
     }
@@ -56,17 +60,17 @@ class PostController extends BackendController
     {
         $this->validation($request, __FUNCTION__);
         $data = $request->all();
+        $type = $request->type;
 
         return $this->doRequest(function () use ($data) {
             $this->dispatch(new StoreJob($data));
-        }, __FUNCTION__);
+        }, __FUNCTION__, false, route($this->prefix . 'post.type', $type));
     }
 
     public function edit($id)
     {
         parent::__edit($id);
-        $this->compacts['categories'] = $this->repoCategory->getRootByType('post', $this->categorySelect)->pluck('name', 'id');
-        $this->compacts['rootCategories'] = $this->repoCategory->getRootByType('product', $this->categorySelect);
+        $this->compacts['categories'] = $this->repoCategory->getDataByType($this->compacts['item']->type, $this->categorySelect)->pluck('name', 'id');
 
         return $this->viewRender();
     }
@@ -79,7 +83,7 @@ class PostController extends BackendController
 
         return $this->doRequest(function () use ($data, $item) {
             return $this->dispatch(new UpdateJob($data, $item));
-        }, __FUNCTION__);
+        }, __FUNCTION__, false, route($this->prefix . 'post.type', $item->type));
     }
 
     public function destroy($id)

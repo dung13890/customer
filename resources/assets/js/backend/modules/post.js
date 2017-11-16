@@ -3,6 +3,7 @@
 
 import Datatable from './../partials/datatable';
 import Uploadfile from './../partials/uploadfile';
+import toolbarSummernote from './../partials/toolbar';
 import 'jquery-slimscroll';
 class Post {
   index () {
@@ -53,6 +54,7 @@ class Post {
       height: 300
     });
     _$('.textarea-summernote').summernote({
+      toolbar: toolbarSummernote,
       height:250,
       callbacks: {
         onImageUpload: function(files) {

@@ -18,6 +18,7 @@ class ProductRepositoryEloquent extends AbstractRepositoryEloquent implements Pr
             'ceo_keywords' => 'nullable|max:150',
             'image'=> 'required|nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
             'category_ids' => 'required|array',
+            'category_id' => 'required|integer|not_in:0',
         ],
         'update' => [
             'name' => 'required|min:2|max:100',
@@ -25,6 +26,7 @@ class ProductRepositoryEloquent extends AbstractRepositoryEloquent implements Pr
             'ceo_description' => 'nullable|max:200',
             'ceo_keywords' => 'nullable|max:150',
             'image'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
+            'category_id' => 'required|integer|not_in:0',
             'category_ids' => 'required|array',
         ],
         'imageStore' => [
@@ -46,6 +48,7 @@ class ProductRepositoryEloquent extends AbstractRepositoryEloquent implements Pr
             'ceo_keywords' => __('repositories.label.ceo_keywords'),
             'image' => __('repositories.label.image'),
             'category_ids' => __('repositories.label.category_ids'),
+            'category_id' => __('repositories.label.category_id'),
         ];
     }
 

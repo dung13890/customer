@@ -112,19 +112,31 @@ class AppServiceProvider extends ServiceProvider
                     if ($item->key == 'logo') {
                         return $item->value = $item->logo;
                     }
+                    if ($item->popup == 'popup_img') {
+                        return $item->value = $item->popup_img;
+                    }
                 })->pluck('value', 'key');
             }));
-            $view->with('__categoryMenu', Cache::remember('__categoryMenu', 60, function () {
-                return app(\App\Contracts\Repositories\CategoryRepository::class)->getDataByIds(config('common.category.id_system'), ['children']);
+            $view->with('__menus', Cache::remember('__menus', 60, function () {
+                return app(\App\Contracts\Repositories\MenuRepository::class)->getDataLimit(10, ['type', 'name', 'url', 'sort']);
+            }));
+            $view->with('__pageIntroduce', Cache::remember('__pageIntroduce', 60, function () {
+                return app(\App\Contracts\Repositories\PageRepository::class)->getDataLimit('introduce', 16);
+            }));
+            $view->with('__pageDistributor', Cache::remember('__pageDistributor', 60, function () {
+                return app(\App\Contracts\Repositories\PageRepository::class)->getDataLimit('distributor', 16);
+            }));
+            $view->with('__pageRecruitment', Cache::remember('__pageRecruitment', 60, function () {
+                return app(\App\Contracts\Repositories\PageRepository::class)->getDataLimit('recruitment', 16);
+            }));
+            $view->with('__pageInvestor', Cache::remember('__pageInvestor', 60, function () {
+                return app(\App\Contracts\Repositories\PageRepository::class)->getDataLimit('investor', 16);
             }));
             $view->with('__categoryPosts', Cache::remember('__categoryPosts', 60, function () {
-                return app(\App\Contracts\Repositories\CategoryRepository::class)->getLimitRoot('post', 3);
+                return app(\App\Contracts\Repositories\CategoryRepository::class)->getLimitByType('post', 3);
             }));
             $view->with('__categoryProducts', Cache::remember('__categoryProducts', 60, function () {
-                return app(\App\Contracts\Repositories\CategoryRepository::class)->getLimitRoot('product', 16);
-            }));
-            $view->with('__pages', Cache::remember('__pages', 60, function () {
-                return app(\App\Contracts\Repositories\PageRepository::class)->getLimit(18, ['name', 'slug'], 'asc');
+                return app(\App\Contracts\Repositories\CategoryRepository::class)->getLimitByType('product', 16);
             }));
         });
     }

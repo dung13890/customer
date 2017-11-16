@@ -10,7 +10,7 @@ if (! function_exists('check_active')) {
      */
     function check_active($route)
     {
-        if (\Request::url() == $route) {
+        if (\Request::url() == $route || parse_url(\Request::url(), PHP_URL_PATH) == $route) {
             return 'class=active';
         }
     }

@@ -56,7 +56,6 @@
     </div>
     <div class="col-sm-4">
         @include('backend._partials.includes.seo')
-        @include('backend._partials.includes.category', ['titleInclude' => __('repositories.text.show_in_category')])
     </div>
 </div>
 

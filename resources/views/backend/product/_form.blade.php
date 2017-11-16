@@ -82,6 +82,7 @@
         @endslot
         @endcomponent
         @include('backend._partials.includes.seo')
+        @include('backend.product._category')
         @include('backend._partials.includes.category', ['titleInclude' => __('repositories.text.show_in_category')])
     </div>
 </div>

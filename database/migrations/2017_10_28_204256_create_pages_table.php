@@ -20,13 +20,15 @@ class CreatePagesTable extends Migration
             $table->string('ceo_keywords', 150)->nullable();
             $table->string('name', 100);
             $table->string('slug', 100)->index()->unique();
+            $table->string('icon')->nullable();
             $table->string('image')->nullable();
             $table->string('file')->nullable();
             $table->text('description')->nullable();
+            $table->dateTime('create_dt');
             $table->boolean('locked')->default(false);
             $table->boolean('is_home')->default(false);
-            $table->integer('category_id')->index()->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->json('attributes')->nullable();
+            $table->char('type')->default('introduce');
             $table->timestamps();
         });
     }

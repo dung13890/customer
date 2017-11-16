@@ -8,7 +8,7 @@
         <div class="col-sm-12">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{ $heading }}</h3>
+                    <h3 class="panel-title">{{ $heading }} ( {{ __('repositories.title.' . $type) }} )</h3>
                 </div>
                 <div class="panel-body">
                     {{ Form::open([
@@ -17,6 +17,7 @@
                         'files' => true,
                         'autocomplete'=>'off',
                     ]) }}
+                        {{ Form::hidden('type', $type) }}
                         @include('backend.post._form')
                     {{ Form::close() }}
                 </div>

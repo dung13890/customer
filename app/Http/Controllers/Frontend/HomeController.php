@@ -47,7 +47,7 @@ class HomeController extends FrontendController
     public function pageContact()
     {
         $this->view = 'home.contact';
-        $this->compacts['heading'] = 'Liên hệ';
+        $this->compacts['heading'] = __('repositories.title.contact');
 
         return $this->viewRender();
     }

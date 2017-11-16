@@ -11,27 +11,17 @@ class Category extends Model
     use GetImageTrait, ModelableTrait;
 
     protected $fillable = [
-        'name', 'parent_id', 'type', 'description', 'image', 'banner', 'is_home', 'locked'
+        'name', 'type', 'description', 'image', 'banner', 'is_home', 'locked'
     ];
-
-    public function children()
-    {
-        return $this->hasMany(self::class, 'parent_id', 'id');
-    }
-
-    public function parent()
-    {
-        return $this->belongsTo(self::class, 'parent_id', 'id');
-    }
 
     public function posts()
     {
         return $this->hasMany(Post::class)->orderBy('updated_at', 'desc')->where('locked', false);
     }
 
-    public function productPosts()
+    public function articles()
     {
-        return $this->belongsToMany(Post::class, 'category_post', 'category_id', 'post_id')
+        return $this->hasMany(Post::class)
             ->take(5)
             ->orderBy('updated_at', 'desc')
             ->select(['name', 'image', 'slug']);
@@ -39,12 +29,7 @@ class Category extends Model
 
     public function products()
     {
-        return $this->belongsToMany(Product::class)->where('locked', false);
-    }
-
-    public function pages()
-    {
-        return $this->hasMany(Page::class)->orderBy('updated_at', 'desc')->where('locked', false);
+        return $this->hasMany(Product::class)->where('locked', false);
     }
 
     public function limitPosts()
@@ -55,11 +40,6 @@ class Category extends Model
     public function homePosts()
     {
         return $this->posts()->take(7)->select(['image', 'name', 'slug', 'ceo_description']);
-    }
-
-    public function limitPages()
-    {
-        return $this->pages()->take(15)->select(['image', 'name', 'slug', 'ceo_description']);
     }
 
     public function getBannerDefaultAttribute($value)

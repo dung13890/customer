@@ -3,6 +3,7 @@
 
 import Datatable from './../partials/datatable';
 import Uploadfile from './../partials/uploadfile';
+import toolbarSummernote from './../partials/toolbar';
 import 'jquery-slimscroll';
 class Product {
   index () {
@@ -53,18 +54,11 @@ class Product {
       height: 250
     });
     _$('.textarea-summernote').summernote({
+      toolbar: toolbarSummernote,
       height:250,
       callbacks: {
         onImageUpload: function(files) {
           uploadfile.sendImage(files[0], laroute.route('backend.summernote.image'), _$(this));
-        }
-      }
-    });
-    _$(':checkbox[class="children"]').change(function() {
-      if(_$(this).is(":checked")) {
-        var parentId = _$(this).data('parent');
-        if (! _$(':checkbox[class="parent"][value=' + parentId + ']').is(':checked')) {
-          _$(':checkbox[class="parent"][value=' + parentId + ']').prop('checked', 'true');
         }
       }
     });

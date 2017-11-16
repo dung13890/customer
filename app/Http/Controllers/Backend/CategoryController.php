@@ -13,7 +13,7 @@ class CategoryController extends BackendController
 {
     use ControllableTrait;
 
-    protected $dataSelect = ['id', 'name', 'type', 'parent_id', 'locked'];
+    protected $dataSelect = ['id', 'name', 'type', 'locked'];
 
     protected function indexRender($type, $action = 'create')
     {
@@ -23,10 +23,7 @@ class CategoryController extends BackendController
         $this->view = $this->repositoryName . '.index';
         $this->compacts['heading'] = __('repositories.title.category') . ' ' . __('repositories.title.' . $type);
         $this->compacts['action'] = __('repositories.title.' . $action);
-        $this->compacts['items'] = $this->repository->getRootByType($type, $this->dataSelect);
-        $this->compacts['listItems'] = (!isset($this->compacts['item']))
-            ? $this->compacts['items']->pluck('name', 'id')->prepend(__('repositories.label.root'), 0)
-            : $this->compacts['items']->pluck('name', 'id')->forget($this->compacts['item']->id)->prepend('Root', 0);
+        $this->compacts['items'] = $this->repository->getDataByType($type, $this->dataSelect);
 
         return $this->viewRender();
     }

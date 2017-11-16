@@ -32,38 +32,6 @@
                                 </span>
                             </div>
                         {{ Form::close() }}
-                        <ul class="menu-top list-inline d-ib float-right">
-                            <li class="limenu">
-                                <a class="abmenu" href="{{ route('category.show', $__categoryMenu->get(0)->slug) }}">
-                                    <span>Về chúng tôi</span>
-                                </a>
-                            </li>
-                            <li class="limenu">
-                                <a class="abmenu" href="{{ route('category.show', $__categoryMenu->get(5)->slug) }}">
-                                    <span>{{ $__categoryMenu->get(5)->name }}</span>
-                                </a>
-                            </li>
-                            <li class="limenu">
-                                <a class="abmenu" href="{{ route('category.show', $__categoryMenu->get(1)->slug) }}">
-                                    <span>{{ $__categoryMenu->get(1)->name }}</span>
-                                </a>
-                            </li>
-                            <li class="limenu">
-                                <a class="abmenu" href="{{ route('category.show', $__categoryMenu->get(2)->slug) }}">
-                                    <span>{{ $__categoryMenu->get(2)->name }}</span>
-                                </a>
-                            </li>
-                            <li class="limenu">
-                                <a class="abmenu" href="{{ route('category.show', $__categoryMenu->get(3)->slug) }}">
-                                    <span>{{ $__categoryMenu->get(3)->name }}</span>
-                                </a>
-                            </li>
-                            <li class="limenu">
-                                <a class="abmenu" href="{{ route('home.page.contact') }}">
-                                    <span>{{ __('repositories.title.contact') }}</span>
-                                </a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>

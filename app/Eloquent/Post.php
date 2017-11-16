@@ -18,6 +18,7 @@ class Post extends Model
         'slug',
         'image',
         'description',
+        'type',
         'locked',
         'category_id',
     ];
@@ -25,11 +26,6 @@ class Post extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
-    }
-
-    public function categories()
-    {
-        return $this->belongsToMany(Category::class)->where('type', 'product');
     }
 
     public function setCeoTitleAttribute($value)

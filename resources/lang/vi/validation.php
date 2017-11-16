@@ -51,7 +51,7 @@ return [
     'ipv6'                 => 'The :attribute must be a valid IPv6 address.',
     'json'                 => 'The :attribute must be a valid JSON string.',
     'max'                  => [
-        'numeric' => 'The :attribute may not be greater than :max.',
+        'numeric' => ':attribute phải nhỏ hơn :max.',
         'file'    => ':attribute không được vượt quá :max kilobytes.',
         'string'  => ':attribute phải nhỏ hơn :max ký tự.',
         'array'   => 'The :attribute may not have more than :max items.',

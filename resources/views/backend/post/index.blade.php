@@ -6,7 +6,9 @@
 {{ Html::script(mix('/assets/js/backend/modules/post.js')) }}
     <script>
         $(function () {
+            var type = '{{ $type }}';
             window.flash_message = '{!! session("flash_message") !!}';
+            window.routeType = window.laroute.route('backend.post.type', {'type': type, 'datatables': 1});
             window.post.index();
         });
     </script>
@@ -18,7 +20,7 @@
         <div class="col-xs-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{ $heading }}</h3>
+                    <h3 class="panel-title">{{ $heading }} ( {{ __('repositories.title.' . $type) }} )</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -38,7 +40,7 @@
                         </div>
                         @endslot
                     @endcomponent
-                    <a href="{{ route('backend.post.create') }}" class="btn btn-success btn-sm create-form"><i class="ion-plus-round"></i> {{ __('repositories.title.create') }}</a>
+                    <a href="{{ route('backend.post.create.type', $type) }}" class="btn btn-success btn-sm create-form"><i class="ion-plus-round"></i> {{ __('repositories.title.create') }}</a>
                     <div class="table-responsive">
                         <table id="table-index" class="table table-bordered table-hover">
                             <thead>

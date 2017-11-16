@@ -3,7 +3,7 @@
 @section('page-content')
     <div class="featured-image clearfix">
         @if (count($categories))
-        <img class="img-responsive" src="{{ route('image', $categories->first()->banner_default) }}" alt="" />
+        <img class="img-responsive" src="{{ route('image', $item->category->banner_default) }}" alt="" />
         @endif
     </div>
     <div class="page-title-block clearfix">
@@ -141,8 +141,8 @@
                                 <span>{{ $category->name }}</span>
                             </h3>
                             <div class="block-content">
-                                @if ($category->productPosts)
-                                @foreach ($category->productPosts as $post)
+                                @if ($category->articles)
+                                @foreach ($category->articles as $post)
                                 <div class="box-list undefined">
                                     <div class="media">
                                         <div class="media-left">

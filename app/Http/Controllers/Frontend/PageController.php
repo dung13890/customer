@@ -10,7 +10,6 @@ use App\Contracts\Repositories\CategoryRepository;
 class PageController extends FrontendController
 {
     protected $repoPost;
-    protected $repoCate;
 
     public function __construct(PageRepository $page, PostRepository $post, CategoryRepository $category)
     {
@@ -21,7 +20,7 @@ class PageController extends FrontendController
 
     public function show($slug)
     {
-        $this->view = 'page.index';
+        $this->view = 'page.show';
         $this->compacts['class'] = 'single-post';
         $item = $this->repository->findBySlug($slug);
         $this->compacts['item'] = $item;

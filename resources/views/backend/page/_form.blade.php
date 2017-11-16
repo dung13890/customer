@@ -21,23 +21,42 @@
                     {{ Form::label('name', __('repositories.label.title'), ['class'=>'control-label']) }}<span class="require">*</span>
                     {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => __('repositories.label.title')]) }}
                 </div>
-
                 <div class="col-md-4">
-                    {{ Form::label('category_id', __('repositories.category.name'), ['class'=>'control-label']) }}<span class="require">*</span>
-                    {{ Form::select('category_id', $categories, null, ['class' => 'form-control', 'placeholder' => '---']) }}
+                    {{ Form::label('create_dt', __('repositories.label.create_dt'), ['class'=>'control-label']) }}<span class="require">*</span>
+                    {{ Form::text('create_dt', null, ['class' => 'form-control datetimepicker', 'placeholder' => config('common.create_dt.format')]) }}
                 </div>
             </div>
         </div>
-
         <div class="form-group">
             <div class="row">
                 <div class="col-sm-5">
-                    {{ Form::label('name', __('repositories.label.icon'), ['class' => 'control-label']) }}
+                    {{ Form::label('icon', __('repositories.label.icon'), ['class' => 'control-label']) }}<span class="require">*</span>
+                    @component('backend._partials.components.uploadfile',
+                    ['imgFields' => (isset($item) && $item->icon) ? $item->icon_default : null, 'elementFields' => 'icon-upload']
+                    )
+                    @slot('uploadFields')
+                        {{ Form::file('icon', ['id' => 'icon']) }}
+                    @endslot
+                    @endcomponent
+                </div>
+                <div class="col-sm-7">
+                    {{ Form::label('image', __('repositories.label.image'), ['class' => 'control-label']) }}
                     @component('backend._partials.components.uploadfile', ['imgFields' => (isset($item) && $item->image) ? $item->image_medium : null])
                     @slot('uploadFields')
                         {{ Form::file('image', ['id' => 'image']) }}
                     @endslot
                     @endcomponent
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-5">
+                    {{ Form::label('pdf', __('repositories.label.pdf'), ['class' => 'control-label']) }}
+                    {{ Form::file('file', ['id' => 'file']) }}
+                    @if (isset($item) && $item->file)
+                    <a href="#">{{ $item->file }}</a>
+                    @endif
                 </div>
                 <div class="col-sm-4">
                     <label></label>
@@ -54,17 +73,6 @@
                             {{ Form::checkbox('locked', true, old('locked'), ['data-toggle'=>'toggle', 'data-size' => 'small']) }} <b>{{ __('repositories.label.locked') }}</b>
                         </label>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="row">
-                <div class="col-sm-8">
-                    {{ Form::label('pdf', __('repositories.label.pdf'), ['class' => 'control-label']) }}
-                    {{ Form::file('file', ['id' => 'file']) }}
-                    @if (isset($item) && $item->file)
-                    <a href="#">{{ $item->file }}</a>
-                    @endif
                 </div>
             </div>
         </div>

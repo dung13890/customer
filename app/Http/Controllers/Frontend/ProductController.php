@@ -14,7 +14,7 @@ class ProductController extends FrontendController
 
     public function show($slug)
     {
-        $this->view = 'product.index';
+        $this->view = 'product.show';
         $item = $this->repository->findBySlug($slug);
         $this->compacts['item'] = $item;
         $this->compacts['class'] = 'single-product';
@@ -23,7 +23,7 @@ class ProductController extends FrontendController
         $this->compacts['keywords'] = $item->ceo_keywords;
         $this->compacts['image_social'] = route('image', $item->image_small);
 
-        $this->compacts['categories'] = $item->categoryChildren;
+        $this->compacts['categories'] = $item->categories;
 
         return $this->viewRender();
     }

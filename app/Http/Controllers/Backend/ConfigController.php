@@ -48,6 +48,9 @@ class ConfigController extends BackendController
             'factory',
             'map',
             'popup',
+            'popup_disp_flg',
+            'popup_img_flg',
+            'popup_img',
             'logo',
             'introduce',
         ]);

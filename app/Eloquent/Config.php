@@ -16,4 +16,11 @@ class Config extends Model
             return $this->value ? app()['glide.builder']->getUrl($this->value) : null;
         }
     }
+
+    public function getPopupImgAttribute()
+    {
+        if ($this->key == 'popup_img') {
+            return $this->value ? app()['glide.builder']->getUrl($this->value) : null;
+        }
+    }
 }

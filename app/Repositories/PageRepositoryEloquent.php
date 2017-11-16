@@ -17,16 +17,19 @@ class PageRepositoryEloquent extends AbstractRepositoryEloquent implements PageR
             'ceo_description' => 'nullable|max:200',
             'ceo_keywords' => 'nullable|max:150',
             'image'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
-            'category_id' => 'required|integer|not_in:0',
+            'icon'=> 'required|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
             'file' => 'nullable|mimes:pdf',
+            'create_dt' => 'required|date_format:d/m/Y H:i',
+            'type' => 'required|in:introduce,distributor,recruitment,investor',
         ],
         'update' => [
             'name' => 'required|min:2|max:100',
             'ceo_title' => 'nullable|max:100',
             'ceo_description' => 'nullable|max:200',
             'ceo_keywords' => 'nullable|max:150',
+            'create_dt' => 'required|date_format:d/m/Y H:i',
             'image'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
-            'category_id' => 'required|integer|not_in:0',
+            'icon'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
             'file' => 'nullable|mimes:pdf',
         ],
     ];
@@ -44,23 +47,15 @@ class PageRepositoryEloquent extends AbstractRepositoryEloquent implements PageR
             'ceo_description' => __('repositories.label.ceo_description'),
             'ceo_keywords' => __('repositories.label.ceo_keywords'),
             'image' => __('repositories.label.image'),
+            'icon' => __('repositories.label.icon'),
             'category_id' => __('repositories.category.name'),
+            'create_dt' => __('repositories.label.create_dt'),
         ];
     }
 
     public function find($id)
     {
         return $this->model->findOrFail($id);
-    }
-
-    public function getDataByCategory($id, $limit, $columns = ['*'])
-    {
-        return $this->model
-            ->where('category_id', $id)
-            ->where('locked', false)
-            ->take($limit)
-            ->orderBy('updated_at', 'desc')
-            ->get($columns);
     }
 
     public function getHome($limit, $columns = ['*'])
@@ -73,12 +68,13 @@ class PageRepositoryEloquent extends AbstractRepositoryEloquent implements PageR
             ->get($columns);
     }
 
-    public function getLimit($limit, $columns = ['*'], $orderBy = 'desc')
+    public function getDataLimit($type, $limit, $columns = ['*'])
     {
         return $this->model
             ->where('locked', false)
+            ->where('type', $type)
             ->take($limit)
-            ->orderBy('updated_at', $orderBy)
+            ->orderBy('updated_at', 'desc')
             ->get($columns);
     }
 

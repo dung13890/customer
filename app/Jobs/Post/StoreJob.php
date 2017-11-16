@@ -37,10 +37,6 @@ class StoreJob
             $data['image'] = $this->uploadFile($data['image'], $path);
         }
 
-        $post = $repository->store($data);
-
-        if (isset($this->attributes['category_ids'])) {
-            $post->categories()->sync($this->attributes['category_ids']);
-        }
+        return $repository->store($data);
     }
 }

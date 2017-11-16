@@ -18,7 +18,7 @@ class ProductController extends BackendController
 
     protected $repoCategory;
     protected $dataSelect = ['id', 'name', 'ceo_keywords', 'locked', 'slug'];
-    protected $categorySelect = ['id', 'name', 'parent_id'];
+    protected $categorySelect = ['id', 'name'];
 
     public function __construct(ProductRepository $product, CategoryRepository $category)
     {
@@ -29,7 +29,7 @@ class ProductController extends BackendController
     public function index(Request $request)
     {
         parent::__index();
-        $this->compacts['categories'] = $this->repoCategory->getRootByType('product', $this->categorySelect)->pluck('name', 'id')->prepend('---', 0);
+        $this->compacts['categories'] = $this->repoCategory->getDataByType('product', $this->categorySelect)->pluck('name', 'id')->prepend('---', 0);
         if ($request->ajax() && $request->has('datatables')) {
             $params = $request->all();
             $datatables = \DataTables::of($this->repository->datatables($this->dataSelect));
@@ -48,7 +48,8 @@ class ProductController extends BackendController
     public function create()
     {
         parent::__create();
-        $this->compacts['rootCategories'] = $this->repoCategory->getRootByType('product', $this->categorySelect);
+        $this->compacts['categories'] = $this->repoCategory->getDataByType('product', $this->categorySelect)->pluck('name', 'id')->prepend('---', 0);
+        $this->compacts['articleCategories'] = $this->repoCategory->getDataByType('article', $this->categorySelect);
 
         return $this->viewRender();
     }
@@ -66,7 +67,8 @@ class ProductController extends BackendController
     public function edit($id)
     {
         parent::__edit($id);
-        $this->compacts['rootCategories'] = $this->repoCategory->getRootByType('product', $this->categorySelect);
+        $this->compacts['categories'] = $this->repoCategory->getDataByType('product', $this->categorySelect)->pluck('name', 'id');
+        $this->compacts['articleCategories'] = $this->repoCategory->getDataByType('article', $this->categorySelect);
         $this->compacts['images'] = $this->compacts['item']->images;
 
         return $this->viewRender();

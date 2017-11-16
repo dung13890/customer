@@ -42,9 +42,5 @@ class UpdateJob
             $data['image'] = $this->uploadFile($data['image'], $path);
         }
         $this->item->update($data);
-
-        if (isset($this->attributes['category_ids'])) {
-            $this->item->categories()->sync($this->attributes['category_ids']);
-        }
     }
 }
