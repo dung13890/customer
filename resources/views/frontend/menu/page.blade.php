@@ -18,31 +18,41 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="single-post-wrap">
                     <div class="post-content">
-                        @if (count($pages))
-                        @foreach ($pages->chunk(2) as $chunks)
-                        <div class="row">
-                            @foreach ($chunks as $chunk)
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="box-list news-block mb-15">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a class="box-list-img" href="{{ route('page.show', $chunk->slug) }}" title="{{ $chunk->name }}">
-                                                <img class="img-responsive" src="{{ route('image', $chunk->image_small) }}" alt="{{ $chunk->name }}" />
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="box-list-title">
-                                                <a href="{{ route('page.show', $chunk->slug) }}" title="{{ $chunk->name }}">{{ $chunk->name }}</a>
-                                            </h4>
-                                            <p class="box-list-info mt-10">{{ $chunk->ceo_description }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                        @endforeach
-                        @endif
+                        <table class="table page-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Ngày</th>
+                                    <th scope="col">Ảnh</th>
+                                    <th scope="col">Nội dung</th>
+                                    <th scope="col">Tải về</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (count($pages))
+                                @foreach ($pages->chunk(2) as $chunks)
+                                @foreach ($chunks as $chunk)
+                                <tr>
+                                    <th class="item-date text-center" scope="row">15/11/2017</th>
+                                    <td class="item-image text-center">
+                                        <a class="box-list-img" href="{{ route('page.show', $chunk->slug) }}" title="{{ $chunk->name }}">
+                                            <img class="img-responsive" src="{{ route('image', $chunk->image_small) }}" alt="{{ $chunk->name }}" />
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <h5 class="box-list-title">
+                                            <a href="{{ route('page.show', $chunk->slug) }}" title="{{ $chunk->name }}">{{ $chunk->name }}</a>
+                                        </h5>
+                                        <p class="box-list-info mt-10">{{ $chunk->ceo_description }}</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <a class="link-download" href="{{ route('page.show', $chunk->slug) }}">Download</a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @endforeach
+                                @endif
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

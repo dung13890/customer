@@ -1,7 +1,7 @@
 <div id="fb-root"></div>
 <div class="modal fade custom-modal" id="modal-onload" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+        <div class="modal-content" style="{{ 'background-image: url(' . route('image', $configs['popup_img']) . ')' }}">
             <div class="modal-body">
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
