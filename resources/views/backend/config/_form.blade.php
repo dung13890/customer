@@ -123,5 +123,6 @@
     <div class="col-sm-4">
         @include('backend.config._seo')
         @include('backend.config._social')
+        @include('backend.config._scripts')
     </div>
 </div>

@@ -1,4 +1,5 @@
 <div id="fb-root"></div>
+@if ($configs['popup_disp_flg'])
 <div class="modal fade custom-modal" id="modal-onload" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -6,6 +7,9 @@
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
+                @if ($configs['popup_img_flg'])
+                    <img src="{{ route('image', $configs['popup_img']) }}" />
+                @else
                 {!! $configs['popup'] !!}
                 {{ Form::open([
                     'url' => route('home.contact'),
@@ -29,7 +33,9 @@
                         <button class="btn btn-default" type="submit">Gửi</button>
                     </div>
                 {{ Form::close() }}
+                @endif
             </div>
         </div>
     </div>
 </div>
+@endif

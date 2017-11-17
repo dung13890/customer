@@ -12,6 +12,7 @@ class ConfigSeeder extends Seeder
      */
     public function run()
     {
+        \DB::table('configs')->truncate();
         app(Config::class)->create([
             'key' => 'name',
             'value' => 'Toàn Thắng',
@@ -91,6 +92,14 @@ class ConfigSeeder extends Seeder
         app(Config::class)->create([
             'key' => 'introduce',
             'value' => 'introduce',
+        ]);
+        app(Config::class)->create([
+            'key' => 'analytics',
+            'value' => 'analytics',
+        ]);
+        app(Config::class)->create([
+            'key' => 'vchat',
+            'value' => 'vchat',
         ]);
         app(Config::class)->create([
             'key' => 'logo',

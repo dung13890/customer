@@ -31,7 +31,7 @@
 
         <div class="form-group">
             <div class="row">
-                <div class="col-sm-8">
+                <div class="col-sm-6">
                     {{ Form::label('name', __('repositories.label.image'), ['class' => 'control-label']) }}
                     @component('backend._partials.components.uploadfile', ['imgFields' => (isset($item) && $item->image) ? $item->image_medium : null])
                     @slot('uploadFields')
@@ -39,11 +39,19 @@
                     @endslot
                     @endcomponent
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-2">
                     <label></label>
                     <div class="checkbox">
                         <label>
                             {{ Form::checkbox('locked', true, old('locked'), ['data-toggle'=>'toggle', 'data-size' => 'small']) }} <b>{{ __('repositories.label.locked') }}</b>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label></label>
+                    <div class="checkbox">
+                        <label>
+                            {{ Form::checkbox('is_comment', true, old('is_comment'), ['data-toggle'=>'toggle', 'data-size' => 'small']) }} <b>{{ __('repositories.label.is_comment') }}</b>
                         </label>
                     </div>
                 </div>

@@ -18,6 +18,7 @@ class Post extends Model
         'slug',
         'image',
         'description',
+        'is_comment',
         'type',
         'locked',
         'category_id',

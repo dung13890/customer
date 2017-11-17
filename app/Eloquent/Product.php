@@ -26,6 +26,7 @@ class Product extends Model
         'image',
         'category_id',
         'locked',
+        'is_comment',
     ];
 
     public function categories()

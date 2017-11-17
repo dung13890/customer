@@ -68,6 +68,7 @@ return [
         'description' => 'Mô tả',
         'locked' => 'Khoá',
         'is_home' => 'Hiện trang chủ',
+        'is_comment' => 'Khoá bình luận',
         'advantage' => 'Ưu điểm',
         'coordination' => 'Hình thức lắp đặt',
         'information' => 'Thông tin kỹ thuật',

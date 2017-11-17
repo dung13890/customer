@@ -112,7 +112,7 @@ class AppServiceProvider extends ServiceProvider
                     if ($item->key == 'logo') {
                         return $item->value = $item->logo;
                     }
-                    if ($item->popup == 'popup_img') {
+                    if ($item->key == 'popup_img') {
                         return $item->value = $item->popup_img;
                     }
                 })->pluck('value', 'key');
