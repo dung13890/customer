@@ -9,6 +9,7 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <meta name="description" content="{{ $description or $configs['description'] }}">
     <meta name="keywords" content="{{ $keywords or $configs['keywords'] }}">
+    <meta property="fb:app_id" content="{{ env('FB_APP_ID') }}" />
     <meta property="og:url" content="{{ Request::url() }}" />
     <meta property="og:site_name" content="{{ $heading or $configs['name'] }}" />
     <meta property="og:type"   content="website" />

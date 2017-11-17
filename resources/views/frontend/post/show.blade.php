@@ -124,16 +124,4 @@
 @push('prestyles')
 {{ Html::style('/frontend/css/custom.css') }}
 @endpush
-@push('prescripts')
-    <script>
-        (function(d, s, id)
-        {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10&appId=590749964645815';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
-@endpush
+@include('frontend.scripts._facebook')

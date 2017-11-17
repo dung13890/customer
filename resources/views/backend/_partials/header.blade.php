@@ -5,6 +5,10 @@
     </div>
 
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ $me->login_name }} <span class="caret"></span></a>
+    <a href="{{ route('home') }}" class="icon-menu">
+        <i class="ion-ios-bell-outline"></i>
+        <span class="fb-comments-count badge badge-dange" data-href="{{ env('APP_URL') }}">0</span>
+    </a>
     <ul class="dropdown-menu dropdown-menu-right">
         <li><a href="#"> <i class="ion-person"></i> {{ __('repositories.title.profile') }}</a></li>
         <li><a href="#"> <i class="ion-ios-cog"></i> {{ __('repositories.title.setting') }}</a></li>
@@ -21,3 +25,4 @@
         </li>
     </ul>
 </nav>
+@include('frontend.scripts._facebook')

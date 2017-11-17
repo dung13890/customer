@@ -41,4 +41,25 @@
     color: #333;
     text-decoration: none;
   }
+  .icon-menu {
+    padding: 0 15px;
+    line-height: 75px;
+    float: right;
+    color: #333;
+    text-decoration: none;
+    position: relative;
+    i {
+      font-size: 22px;
+      margin-right: 2px;
+      vertical-align: middle;
+    }
+    .badge-dange {
+      color: #fff;
+      background-color: #dc3545;
+      position: absolute;
+      top: 21px;
+      right: 4px;
+      border-radius: 100% !important;
+    }
+  }
 }
