@@ -53,6 +53,9 @@ class ConfigController extends BackendController
             'popup_img',
             'logo',
             'introduce',
+            'vchat_hash',
+            'vchat_data',
+            'analytics',
         ]);
 
         return $this->doRequest(function () use ($data) {
