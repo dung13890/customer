@@ -6,6 +6,7 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+@import url('https://fonts.googleapis.com/css?family=Oswald');
 html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
@@ -2960,6 +2961,61 @@ table th[class*="col-"] {
     .table-responsive > .table-bordered > tfoot > tr:last-child > td {
         border-bottom: 0;
     }
+}
+
+.table.page-table {
+    color: #575757;
+    border: solid 1px #d3d3d3;
+}
+
+.table.page-table .item-image img {
+    max-width: 80px;
+    display: inline-block;
+}
+
+.table.page-table a {
+    color: #575757;
+}
+
+.table.page-table h4 a,
+.table.page-table h5 a,
+.table.page-table h6 a,
+.table.page-table a.link-download {
+    color: #111;
+}
+
+.table.page-table a:hover {
+    color: #0c8c46;
+}
+
+.table.page-table h4 a:hover,
+.table.page-table h5 a:hover,
+.table.page-table h6 a:hover,
+.table.page-table a.link-download:hover {
+    color: #0c8c46;
+}
+
+.table.page-table > thead > tr > th,
+.table.page-table > thead > tr > td,
+.table.page-table > tbody > tr > th,
+.table.page-table > tbody > tr > td,
+.table.page-table > tfoot > tr > th,
+.table.page-table > tfoot > tr > td {
+    padding: 5px 12px;
+    vertical-align: middle;
+    font-weight: normal;
+}
+
+.table.page-table > thead > tr > th {
+    color: #fff;
+    background: #0c8c46;
+    border: 0;
+    text-align: center;
+    padding: 15px 12px;
+}
+
+.table.page-table td {
+    border-left: solid 1px #d3d3d3;
 }
 
 fieldset {
@@ -11379,6 +11435,26 @@ License: http://codecanyon.net/licenses
 /* 14 - MOBILE MODE (RESPONSIVE MODE)
 ======================================*/
 @media (max-width: 768px) {
+    .megamenu ul li img {
+        display: none !important;
+    }
+
+    .megamenu .box-img,
+    .megamenu .owl-carousel .owl-item .box-img,
+    .megamenu .box-img img,
+    .megamenu .owl-carousel .owl-item .box-img img {
+        display: none !important;
+    }
+
+    .menuzord .menuzord-menu li a {
+        padding: 10px 5px !important;
+    }
+
+    .megamenu .box-title {
+        margin: 0;
+        margin-top: 0 !important;
+    }
+
     /* Responsive menu container */
     .menuzord-responsive.menuzord {
         padding: 0;
@@ -11780,7 +11856,7 @@ Border-bottom Skin
 }
 
 /*
- * 	Owl Carousel - Auto Height Plugin
+ *  Owl Carousel - Auto Height Plugin
  */
 .owl-height {
     -webkit-transition: height 500ms ease-in-out;
@@ -11788,7 +11864,7 @@ Border-bottom Skin
 }
 
 /*
- * 	Owl Carousel - Lazy Load Plugin
+ *  Owl Carousel - Lazy Load Plugin
  */
 .owl-carousel .owl-item .owl-lazy {
     opacity: 0;
@@ -11802,7 +11878,7 @@ Border-bottom Skin
 }
 
 /*
- * 	Owl Carousel - Video Plugin
+ *  Owl Carousel - Video Plugin
  */
 .owl-carousel .owl-video-wrapper {
     position: relative;
@@ -13973,10 +14049,6 @@ p.a-menu {
     width: 100%;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
 }
 
 .menuzord .menuzord-menu li a {
