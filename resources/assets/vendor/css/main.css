@@ -14722,7 +14722,7 @@ p.a-menu {
 }
 
 .call-mobile {
-    background: #dc6526;
+    background: #0c8c46;
     position: fixed;
     bottom: 10px;
     height: 40px;
@@ -14732,6 +14732,7 @@ p.a-menu {
     color: #fff;
     left: 20px;
     z-index: 99999;
+    padding-right: 40px;
 }
 
 .call-mobile a {
@@ -14739,8 +14740,8 @@ p.a-menu {
     font-size: 18px;
     font-weight: bold;
     text-decoration: none;
-    margin-right: 10px;
-    padding-left: 10px;
+    margin-right: 0;
+    padding-left: 0;
 }
 
 .call-mobile i {
@@ -14752,6 +14753,39 @@ p.a-menu {
     height: 40px;
     text-align: center;
     float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
+}
+
+#callnowbutton {
+    display: inline-block;
+    width: 0;
+    visibility: hidden;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: all 0.6s; /* Safari */
+    transition: all 0.6s;
+}
+
+.call-mobile {
+    width: 40px;
+}
+
+.call-mobile:hover {
+    width: auto;
+    background: #dc6526;
+}
+
+.call-mobile:hover #callnowbutton {
+    display: inline-block;
+    width: auto;
+    visibility: visible;
+    opacity: 1;
+    filter: alpha(opacity=100);
+    margin-right: 10px;
+    padding-left: 10px;
 }
 
 @media (max-width: 500px) {
