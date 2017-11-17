@@ -29,6 +29,7 @@ class CreateProductsTable extends Migration
             $table->text('produce')->nullable();
             $table->text('coordination')->nullable();
             $table->boolean('locked')->default(false);
+            $table->boolean('is_comment')->default(false);
             $table->integer('category_id')->index()->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();

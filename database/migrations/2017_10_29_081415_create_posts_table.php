@@ -23,6 +23,7 @@ class CreatePostsTable extends Migration
             $table->string('image')->nullable();
             $table->text('description')->nullable();
             $table->boolean('locked')->default(false);
+            $table->boolean('is_comment')->default(false);
             $table->char('type')->default('post');
             $table->integer('category_id')->index()->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

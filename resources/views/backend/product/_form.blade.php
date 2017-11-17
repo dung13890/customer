@@ -21,16 +21,24 @@
     <div class="col-sm-8">
         <div class="form-group">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-6">
                     {{ Form::label('name', __('repositories.label.title'), ['class'=>'control-label']) }}<span class="require">*</span>
                     {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => __('repositories.label.title')]) }}
                 </div>
 
-                <div class="col-sm-4">
+                <div class="col-sm-2">
                     <label></label>
                     <div class="checkbox">
                         <label>
                             {{ Form::checkbox('locked', true, old('locked'), ['data-toggle'=>'toggle', 'data-size' => 'small']) }} <b>{{ __('repositories.label.locked') }}</b>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label></label>
+                    <div class="checkbox">
+                        <label>
+                            {{ Form::checkbox('is_comment', true, old('is_comment'), ['data-toggle'=>'toggle', 'data-size' => 'small']) }} <b>{{ __('repositories.label.is_comment') }}</b>
                         </label>
                     </div>
                 </div>

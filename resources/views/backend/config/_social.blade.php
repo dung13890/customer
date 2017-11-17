@@ -23,6 +23,5 @@
             {{ Form::label('instagram', 'Instagram', ['class'=>'control-label']) }}
             {{ Form::text('instagram', $items->keyBy('key')['instagram']['value'], ['class' => 'form-control']) }}
         </div>
-
     </div>
 </div>

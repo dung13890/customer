@@ -29,26 +29,26 @@
                             </thead>
                             <tbody>
                                 @if (count($pages))
-                                @foreach ($pages->chunk(2) as $chunks)
-                                @foreach ($chunks as $chunk)
-                                <tr>
-                                    <th class="item-date text-center" scope="row">15/11/2017</th>
-                                    <td class="item-image text-center">
-                                        <a class="box-list-img" href="{{ route('page.show', $chunk->slug) }}" title="{{ $chunk->name }}">
-                                            <img class="img-responsive" src="{{ route('image', $chunk->image_small) }}" alt="{{ $chunk->name }}" />
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <h5 class="box-list-title">
-                                            <a href="{{ route('page.show', $chunk->slug) }}" title="{{ $chunk->name }}">{{ $chunk->name }}</a>
-                                        </h5>
-                                        <p class="box-list-info mt-10">{{ $chunk->ceo_description }}</p>
-                                    </td>
-                                    <td class="text-center">
-                                        <a class="link-download" href="{{ route('page.show', $chunk->slug) }}">Download</a>
-                                    </td>
-                                </tr>
-                                @endforeach
+                                @foreach ($pages as $page)
+                                    <tr>
+                                        <th class="item-date text-center" scope="row">{{ $page->create_dt }}</th>
+                                        <td class="item-image text-center">
+                                            <a class="box-list-img" href="{{ route('page.show', $page->slug) }}" title="{{ $page->name }}">
+                                                <img class="img-responsive" src="{{ route('image', $page->image_small) }}" alt="{{ $page->name }}" />
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <h5 class="box-list-title">
+                                                <a href="{{ route('page.show', $page->slug) }}" title="{{ $page->name }}">{{ $page->name }}</a>
+                                            </h5>
+                                            <p class="box-list-info mt-10">{{ $page->ceo_description }}</p>
+                                        </td>
+                                        <td class="text-center">
+                                            @if ($page->file)
+                                            <a class="link-download" href="{{ asset('/statics/file/' . $page->file) }}">Download</a>
+                                            @endif
+                                        </td>
+                                    </tr>
                                 @endforeach
                                 @endif
                             </tbody>

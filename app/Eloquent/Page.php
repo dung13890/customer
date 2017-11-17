@@ -23,6 +23,7 @@ class Page extends Model
         'description',
         'locked',
         'is_home',
+        'is_comment',
         'attributes',
         'type',
     ];

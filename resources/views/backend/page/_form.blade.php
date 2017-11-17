@@ -51,14 +51,14 @@
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     {{ Form::label('pdf', __('repositories.label.pdf'), ['class' => 'control-label']) }}
                     {{ Form::file('file', ['id' => 'file']) }}
                     @if (isset($item) && $item->file)
                     <a href="#">{{ $item->file }}</a>
                     @endif
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <label></label>
                     <div class="checkbox">
                         <label>
@@ -71,6 +71,14 @@
                     <div class="checkbox">
                         <label>
                             {{ Form::checkbox('locked', true, old('locked'), ['data-toggle'=>'toggle', 'data-size' => 'small']) }} <b>{{ __('repositories.label.locked') }}</b>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <label></label>
+                    <div class="checkbox">
+                        <label>
+                            {{ Form::checkbox('is_comment', true, old('is_comment'), ['data-toggle'=>'toggle', 'data-size' => 'small']) }} <b>{{ __('repositories.label.is_comment') }}</b>
                         </label>
                     </div>
                 </div>
