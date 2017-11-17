@@ -34,8 +34,22 @@
         </div>
         @include('frontend.footer.footer')
     </div>
+    <div class="call-mobile">
+        <a id="callnowbutton" href="tel:0942.691.366">0942.691.366</a><i class="fa fa-phone"></i>
+    </div>
     @include('frontend.footer.popup')
     {{ Html::script('/frontend/js/main.min.js') }}
+    <script lang="javascript">(function() {var pname = ( (document.title !='')? document.title : ((document.querySelector('h1') != null)? document.querySelector('h1').innerHTML : '') );var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async=1; ga.src = '//live.vnpgroup.net/js/web_client_box.php?hash={{ $configs['vchat_hash'] }}&data={{ $configs['vchat_data'] }}&pname='+pname;var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ $configs['analytics'] }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '{{ $configs["analytics"] }}');
+    </script>
+
     @stack('prescripts')
 </body>
 </html>

@@ -2,14 +2,12 @@
 @if ($configs['popup_disp_flg'])
 <div class="modal fade custom-modal" id="modal-onload" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+        <div class="modal-content" @if ($configs['popup_img_flg']) style="background-image: url({{ route('image', $configs['popup_img']) }}); background-color: transparent !important; background-size: contain; background-repeat: no-repeat; box-shadow: none !important; -webkit-box-shadow : none !important;" @endif >                           
             <div class="modal-body">
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
-                @if ($configs['popup_img_flg'])
-                    <img src="{{ route('image', $configs['popup_img']) }}" />
-                @else
+                @if (!$configs['popup_img_flg'])
                 {!! $configs['popup'] !!}
                 {{ Form::open([
                     'url' => route('home.contact'),

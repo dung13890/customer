@@ -424,7 +424,7 @@ new(function(){});var f=j.$Jease$={$Swing:function(a){return-c.cos(a*c.PI)/2+.5}
       });
     }
 
-    $('.owl-product').owlCarousel({
+    /*$('.owl-product').owlCarousel({
       loop: false,
       margin: 18,
       nav: true,
@@ -441,7 +441,7 @@ new(function(){});var f=j.$Jease$={$Swing:function(a){return-c.cos(a*c.PI)/2+.5}
           items:5
         }
       }
-    });
+    });*/
 
     $('.owl-new').owlCarousel({
       loop: false,
@@ -450,5 +450,63 @@ new(function(){});var f=j.$Jease$={$Swing:function(a){return-c.cos(a*c.PI)/2+.5}
       navText: ["<i class='fa fa-caret-left'></i>","<i class='fa fa-caret-right'></i>"],
       items: 1
     });
+
+    var owl_product = $('.owl-product'),
+        owlOptions = {
+            loop: false,
+            margin: 18,
+            nav: true,
+            navText: ["<i class='fa fa-caret-left'></i>","<i class='fa fa-caret-right'></i>"],
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:3
+                },
+                1000:{
+                    items:5
+                }
+            }
+        };
+
+    if ( $(window).width() > 768 ) {
+        var owlActive = owl_product.owlCarousel(owlOptions);
+    } else {
+        owl_product.addClass('off');
+    }
+
+    $(window).resize(function() {
+        if ( $(window).width() > 768 ) {
+            if ( $('.owl-product').hasClass('off') ) {
+                var owlActive = owl_product.owlCarousel(owlOptions);
+                owl_product.removeClass('off');
+            }
+        } else {
+            if ( !$('.owl-carousel').hasClass('off') ) {
+                owl_product.addClass('off').trigger('destroy.owl.carousel');
+                owl_product.find('.owl-stage-outer').children(':eq(0)').unwrap();
+            }
+        }
+    });
   });
 })(jQuery);
+
+// $(window).load(function(){
+//   $('#modal-onload').modal('show');
+// });
+
+// init
+jQuery(document).ready(function(){
+
+  // Start
+  // sessionStorage.getItem('key');
+  if (sessionStorage.getItem("story") !== 'true') {
+    // sessionStorage.setItem('key', 'value'); pair
+    sessionStorage.setItem("story", "true");
+    // Calling the bootstrap modal
+    $('#modal-onload').modal('show');
+    }
+  // End
+});

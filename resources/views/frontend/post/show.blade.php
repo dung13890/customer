@@ -47,7 +47,9 @@
                                 </li>
                             </ul>
                         </div>
+                        @if ($item->is_comment)
                         <div class="fb-comments" data-href="{{ Request::url()}}" data-width="100%" data-numposts="5"></div>
+                        @endif
                     </div>
                 </div>
                 <aside class="sidebar sidebar-blog col-xs-12 col-sm-12 col-md-4">

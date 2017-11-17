@@ -95,11 +95,15 @@ class ConfigSeeder extends Seeder
         ]);
         app(Config::class)->create([
             'key' => 'analytics',
-            'value' => 'analytics',
+            'value' => 'UA-109817333-1',
         ]);
         app(Config::class)->create([
-            'key' => 'vchat',
-            'value' => 'vchat',
+            'key' => 'vchat_hash',
+            'value' => '53b569cf8e09e4bf91c02848b9e0a57e',
+        ]);
+        app(Config::class)->create([
+            'key' => 'vchat_data',
+            'value' => 'eyJzc29faWQiOjUxNjU1NjcsImhhc2giOiJiMDBlNzNmNzUxZjIwNTllMzA4NDZmNmYwMjI0ZWY3NCJ9',
         ]);
         app(Config::class)->create([
             'key' => 'logo',
