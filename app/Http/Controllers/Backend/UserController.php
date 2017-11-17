@@ -8,26 +8,34 @@ use App\Jobs\User\StoreJob;
 use App\Jobs\User\UpdateJob;
 use App\Jobs\User\DestroyJob;
 use App\Traits\ControllableTrait;
+use Bouncer;
 
 class UserController extends BackendController
 {
     use ControllableTrait;
 
     protected $dataSelect = ['id', 'username', 'name', 'email'];
+    protected $roleList;
 
     public function __construct(UserRepository $user)
     {
         parent::__construct($user);
+        $this->roleList = Bouncer::role()->pluck('name', 'id');
     }
 
     public function index(Request $request)
     {
         parent::__index();
+        $this->compacts['roles'] = $this->roleList;
 
         if ($request->ajax() && $request->has('datatables')) {
             $params = $request->all();
             $datatables = \DataTables::of($this->repository->datatables($this->dataSelect));
-            $this->filterDatatable($datatables, $params);
+            $this->filterDatatable($datatables, $params, function ($query, $params) {
+                if (array_has($params, 'role_id') && $params['role_id']) {
+                    $query->byRole($params['role_id']);
+                }
+            });
 
             return $this->columnDatatable($datatables)->make(true);
         }
@@ -38,6 +46,7 @@ class UserController extends BackendController
     public function create()
     {
         parent::__create();
+        $this->compacts['roles'] = $this->roleList;
 
         return $this->viewRender();
     }
@@ -61,6 +70,7 @@ class UserController extends BackendController
 
     public function edit($id)
     {
+        $this->compacts['roles'] = $this->roleList;
         parent::__edit($id);
 
         return $this->viewRender();

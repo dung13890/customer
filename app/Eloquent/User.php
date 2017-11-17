@@ -39,4 +39,11 @@ class User extends Authenticatable
             ->orWhere('name', 'LIKE', "{$keywords}%")
             ->orWhere('email', 'LIKE', "{$keywords}%");
     }
+
+    public function scopeByRole($query, $role)
+    {
+        return $query->whereHas('roles', function($q) use ($role) {
+            $q->where('id', $role);
+        });
+    }
 }

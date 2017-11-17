@@ -9,6 +9,8 @@ return [
         'login' => 'Đăng nhập',
         'config' => 'Cấu hình',
         'cache_clear' => 'Xoá Cache',
+        'read' => 'Xem',
+        'write' => 'Thao tác',
         'ceo' => 'SEO',
         'profile' => 'Thông tin',
         'logout' => 'Thoát',
@@ -90,7 +92,9 @@ return [
         'feature_1' => 'Đặc tính 1',
         'feature_2' => 'Đặc tính 2',
         'sort' => 'Thứ tự',
+        'role_id' => 'Quyền',
         'url' => 'Đường dẫn',
+        'abilities' => 'Quyền hạn',
     ],
 
     'button' => [
@@ -125,11 +129,21 @@ return [
 
     'user' => [
         'name' => 'Thành viên',
+        'roles' => 'Danh sách vai trò',
         'resource' => [
             'index' => 'Danh sách thành viên',
             'create' => 'Tạo mới thành viên',
             'edit' => 'Cập nhật thành viên',
             'show' => 'Thông tin thành viên',
+        ]
+    ],
+
+    'role' => [
+        'name' => 'Vai trò',
+        'resource' => [
+            'index' => 'Danh sách vai trò',
+            'create' => 'Tạo mới vai trò',
+            'edit' => 'Cập nhật vai trò',
         ]
     ],
 
@@ -157,6 +171,10 @@ return [
             'create' => 'Tạo mới trang',
             'edit' => 'Cập nhật trang',
         ]
+    ],
+
+    'contact' => [
+        'name' => 'Liên hệ',
     ],
 
     'post' => [

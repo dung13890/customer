@@ -35,6 +35,13 @@
 </div>
 
 <div class="form-group">
+    <label class="col-sm-3 control-label">{{ __('repositories.label.role_id') }}<span class="require">*</span></label>
+    <div class="col-md-5">
+        {{ Form::select('role_id', $roles, null, ['class' => 'form-control', 'placeholder' => '---']) }}
+    </div>
+</div>
+
+<div class="form-group">
     <div class="col-sm-offset-3 col-sm-5 text-right">
         <button type="submit" class="btn btn-success btn-sm"><i class="ion-checkmark-circled"></i> {{ isset($item) ? __('repositories.title.edit') : __('repositories.title.create') }}</button>
         <a href="javascript:window.history.back()" class="btn btn-primary btn-sm" ><i class="ion-arrow-left-a"></i> {{ __('repositories.title.back') }}</a>

@@ -47,6 +47,12 @@ Route::group(['namespace' => 'Backend'], function () {
             'except' => ['destroy']
         ]);
         Route::post('user/{user}', 'UserController@destroy')->name('user.destroy');
+
+        Route::resource('role', 'RoleController', [
+            'except' => ['destroy']
+        ]);
+        Route::post('role/{role}', 'RoleController@destroy')->name('role.destroy');
+
         Route::resource('category', 'CategoryController', [
             'except' => ['index', 'create', 'show', 'destroy']
         ]);

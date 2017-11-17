@@ -11,4 +11,5 @@ return [
     'emptyTable' => 'Không có kết quả nào phù hợp',
     'zeroRecords' => 'Không có dữ liệu nào',
     'infoEmpty' => 'Hiển thị 0 tới 0 của 0 bản ghi',
+    'processing' => 'Đang xử lý...',
 ];

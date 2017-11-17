@@ -28,6 +28,14 @@
                     </div>
                     @component('backend._partials.components.filter', ['search_field' => __('repositories.title.search')])
                         @slot('filter_fields')
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">{{ __('repositories.user.roles') }}</span>
+                                    {{ Form::select('role_id', $roles, null, ['class' => 'form-control', 'placeholder' => '---']) }}
+                                </div>
+                            </div>
+                        </div>
                         @endslot
                     @endcomponent
                     <a href="{{ route('backend.user.create') }}" class="btn btn-success btn-sm create-form"><i class="ion-plus-round"></i> {{ __('repositories.title.create') }}</a>

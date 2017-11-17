@@ -13,6 +13,7 @@ class UserRepositoryEloquent extends AbstractRepositoryEloquent implements UserR
     protected $rules = [
         'store' => [
             'name' => "required|min:4|max:255",
+            'role_id' => "required|integer|not_in:0",
             'username' => "required|alpha_dash|min:4|max:255|unique:users",
             'email' => "required|email|max:255|unique:users",
             'password' => 'required|alpha_dash|confirmed|min:6',
@@ -24,6 +25,7 @@ class UserRepositoryEloquent extends AbstractRepositoryEloquent implements UserR
             'email' => "required|email|max:255|unique:users,email,{id}",
             'password' => 'confirmed|alpha_dash|min:6',
             'password_confirmation' => 'min:6',
+            'role_id' => "required|integer|not_in:0",
         ],
     ];
 
@@ -40,6 +42,7 @@ class UserRepositoryEloquent extends AbstractRepositoryEloquent implements UserR
             'email' => __('repositories.label.email'),
             'password' => __('repositories.label.password'),
             'password_confirmation' => __('repositories.label.password_confirmation'),
+            'role_id' => __('repositories.label.role_id'),
         ];
     }
 

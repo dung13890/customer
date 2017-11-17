@@ -19,6 +19,7 @@ class User {
     let searches = {
       data: function (d) {
         d.keywords = _$('input[name=keywords]').val();
+        d.role_id = _$('select[name=role_id]').val();
       }
     };
     var datatable = new Datatable('user', columns, searches);
@@ -32,6 +33,7 @@ class User {
     _$('#reset-form').on('click', function (e) {
       e.preventDefault();
       _$('input').val('');
+      _$('select').prop('selectedIndex', 0);
       datatable.refresh();
     });
   }

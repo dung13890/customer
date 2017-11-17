@@ -31,8 +31,10 @@ class UpdateJob
      */
     public function handle(UserRepository $repository)
     {
+        $item = $repository->find($this->id);
         $data = array_only($this->attributes, $repository->model->getFillable());
         $data['locked'] = $data['locked'] ?? false;
-        $repository->update($data, $this->id);
+        $item->roles()->sync($this->attributes['role_id']);
+        $user = $repository->update($data, $this->id);
     }
 }

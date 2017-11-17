@@ -13,6 +13,7 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/backend.js', 'public/assets/js')
     .js('resources/assets/js/backend/modules/user.js', 'public/assets/js/backend/modules')
+    .js('resources/assets/js/backend/modules/role.js', 'public/assets/js/backend/modules')
     .js('resources/assets/js/backend/modules/category.js', 'public/assets/js/backend/modules')
     .js('resources/assets/js/backend/modules/menu.js', 'public/assets/js/backend/modules')
     .js('resources/assets/js/backend/modules/page.js', 'public/assets/js/backend/modules')

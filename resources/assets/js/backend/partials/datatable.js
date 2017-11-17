@@ -28,7 +28,7 @@ class Datatable {
     }
     this._datatable = _$(this._selector).DataTable({
       dom: "<'row'<'col-xs-6'l>>" +
-        "<'row'<'col-xs-12't>>" +
+        "<'row'<'col-xs-12'tr>>" +
         "<'row'<'col-sm-5'i><'col-sm-7'p>>",
       pageLength: 10,
       processing: true,
@@ -42,6 +42,7 @@ class Datatable {
         search: '_INPUT_',
         zeroRecords: window.lang.get('datatables.zeroRecords'),
         info: datatableInfo,
+        processing: window.lang.get('datatables.processing'),
         infoEmpty: window.lang.get('datatables.infoEmpty'),
         infoFiltered: window.lang.get('datatables.infoFiltered').replace(':max', '_MAX_'),
         emptyTable: window.lang.get('datatables.emptyTable'),
