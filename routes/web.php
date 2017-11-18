@@ -21,6 +21,10 @@ Route::get('image/{path?}', ['as' => 'image' , function (Request $request, Media
     return $service->getReponseImage($path, $params);
 }])->where('path', '(.*?)');
 
+Route::get('webhook', ['as' => 'webhook', function (Request $request) {
+
+}]);
+
 Route::group(['prefix' => '/', 'namespace' => 'Frontend'], function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::post('lien-he', 'HomeController@contact')->name('home.contact');

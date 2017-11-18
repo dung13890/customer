@@ -35,22 +35,50 @@
         </div>
         @include('frontend.footer.footer')
     </div>
+    @if ($configs['hotline'])
     <div class="call-mobile">
-        <a id="callnowbutton" href="tel:0942.691.366">0942.691.366</a><i class="fa fa-phone"></i>
+        <a id="callnowbutton" href="tel:{{ $configs['hotline'] }}">{{ $configs['hotline'] }}</a><i class="fa fa-phone"></i>
     </div>
+    @endif
     @include('frontend.footer.popup')
     {{ Html::script('/frontend/js/main.min.js') }}
-    <script lang="javascript">(function() {var pname = ( (document.title !='')? document.title : ((document.querySelector('h1') != null)? document.querySelector('h1').innerHTML : '') );var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async=1; ga.src = '//live.vnpgroup.net/js/web_client_box.php?hash={{ $configs['vchat_hash'] }}&data={{ $configs['vchat_data'] }}&pname='+pname;var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ $configs['analytics'] }}"></script>
+    @stack('prescripts')
+    <!-- Global site tag (vchat.js) - Vchat -->
+    <script lang="javascript">(function() {
+        var pname = ( (document.title !='')? document.title : ((document.querySelector('h1') != null)? document.querySelector('h1').innerHTML : '') );
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async=1;
+        ga.src = '//live.vnpgroup.net/js/web_client_box.php?hash={{ $configs['vchat_hash'] }}&data={{ $configs['vchat_data'] }}&pname='+pname;
+        var s = document.getElementsByTagName('script');
+        s[0].parentNode.insertBefore(ga, s[0]);
+        })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ $configs['analytics_id'] }}"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', '{{ $configs["analytics"] }}');
+      gtag('config', '{{ $configs["analytics_id"] }}');
     </script>
-
-    @stack('prescripts')
+    @if ($configs["adwords_id"] )
+    <!-- Global site tag (conversion.js) - Google Adwords -->
+    <script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = {{ $configs["adwords_id"] }};
+    var google_custom_params = window.google_tag_params;
+    var google_remarketing_only = true;
+    /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+    <div style="display:inline;">
+    <img height="1" width="1" style="border-style:none;" alt="" src="{{ $configs['adwords_src'] }}"/>
+    </div>
+    </noscript>
+    @endif
 </body>
 </html>

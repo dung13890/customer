@@ -110,10 +110,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('configs', Cache::remember('configs', 60, function () {
                 return app(\App\Contracts\Repositories\ConfigRepository::class)->getData()->each(function ($item) {
                     if ($item->key == 'logo') {
-                        return $item->value = $item->logo;
+                        $item->value = $item->logo;
                     }
                     if ($item->key == 'popup_img') {
-                        return $item->value = $item->popup_img;
+                        $item->value = $item->popup_img;
                     }
                 })->pluck('value', 'key');
             }));
