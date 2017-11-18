@@ -22,7 +22,6 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Ngày</th>
-                                    <th scope="col">Ảnh</th>
                                     <th scope="col">Nội dung</th>
                                     <th scope="col">Tải về</th>
                                 </tr>
@@ -32,11 +31,6 @@
                                 @foreach ($pages as $page)
                                     <tr>
                                         <th class="item-date text-center" scope="row">{{ $page->create_dt }}</th>
-                                        <td class="item-image text-center">
-                                            <a class="box-list-img" href="{{ route('page.show', $page->slug) }}" title="{{ $page->name }}">
-                                                <img class="img-responsive" src="{{ route('image', $page->image_small) }}" alt="{{ $page->name }}" />
-                                            </a>
-                                        </td>
                                         <td>
                                             <h5 class="box-list-title">
                                                 <a href="{{ route('page.show', $page->slug) }}" title="{{ $page->name }}">{{ $page->name }}</a>

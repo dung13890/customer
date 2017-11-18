@@ -54,6 +54,10 @@ class ConfigSeeder extends Seeder
             'value' => '0466530666',
         ]);
         app(Config::class)->create([
+            'key' => 'hotline',
+            'value' => '0466530666',
+        ]);
+        app(Config::class)->create([
             'key' => 'fax',
             'value' => '0466530999',
         ]);
@@ -74,7 +78,11 @@ class ConfigSeeder extends Seeder
             'value' => '',
         ]);
         app(Config::class)->create([
-            'key' => 'popup',
+            'key' => 'popup_title',
+            'value' => '',
+        ]);
+        app(Config::class)->create([
+            'key' => 'popup_description',
             'value' => '',
         ]);
         app(Config::class)->create([
@@ -90,12 +98,24 @@ class ConfigSeeder extends Seeder
             'value' => '',
         ]);
         app(Config::class)->create([
+            'key' => 'popup_url',
+            'value' => '',
+        ]);
+        app(Config::class)->create([
             'key' => 'introduce',
             'value' => 'introduce',
         ]);
         app(Config::class)->create([
-            'key' => 'analytics',
+            'key' => 'analytics_id',
             'value' => 'UA-109817333-1',
+        ]);
+        app(Config::class)->create([
+            'key' => 'adwords_id',
+            'value' => '',
+        ]);
+        app(Config::class)->create([
+            'key' => 'adwords_src',
+            'value' => '',
         ]);
         app(Config::class)->create([
             'key' => 'vchat_hash',

@@ -31,12 +31,15 @@
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     {{ Form::label('phone', __('repositories.label.phone'), ['class'=>'control-label']) }}<span class="require">*</span>
                     {{ Form::text('phone', $items->keyBy('key')['phone']['value'], ['class' => 'form-control']) }}
                 </div>
-
-                <div class="col-md-6">
+                <div class="col-md-4">
+                    {{ Form::label('hotline', __('repositories.label.hotline'), ['class'=>'control-label']) }}
+                    {{ Form::text('hotline', $items->keyBy('key')['hotline']['value'], ['class' => 'form-control']) }}
+                </div>
+                <div class="col-md-4">
                     {{ Form::label('fax', __('repositories.label.fax'), ['class'=>'control-label']) }}<span class="require">*</span>
                     {{ Form::text('fax', $items->keyBy('key')['fax']['value'], ['class' => 'form-control']) }}
                 </div>
@@ -80,10 +83,14 @@
                 </div>
             </div>
         </div>
-
+        <hr>
         <div class="form-group">
-            {{ Form::label('popup', __('repositories.label.popup'), ['class'=>'control-label']) }}<span class="require">*</span>
-            {{ Form::textarea('popup', $items->keyBy('key')['popup']['value'], ['class' => 'form-control textarea-summernote', 'rows' => 3]) }}
+            {{ Form::label('popup_title', __('repositories.label.popup_title'), ['class'=>'control-label']) }}
+            {{ Form::text('popup_title', $items->keyBy('key')['popup_title']['value'], ['class' => 'form-control']) }}
+        </div>
+        <div class="form-group">
+            {{ Form::label('popup_description', __('repositories.label.popup_description'), ['class'=>'control-label']) }}
+            {{ Form::textarea('popup_description', $items->keyBy('key')['popup_description']['value'], ['class' => 'form-control', 'rows' => 5]) }}
         </div>
 
         <div class="form-group">
@@ -114,6 +121,11 @@
                 </div>
             </div>
         </div>
+        <div class="form-group">
+            {{ Form::label('popup_url', __('repositories.label.popup_url'), ['class'=>'control-label']) }}
+            {{ Form::text('popup_url', $items->keyBy('key')['popup_url']['value'], ['class' => 'form-control', 'placeholder' => 'https://']) }}
+        </div>
+        <hr>
 
         <div class="form-group text-right">
             <button type="submit" class="btn btn-warning btn-sm"><i class="ion-trash-b"></i> {{ isset($item) ? __('repositories.title.edit') : __('repositories.title.cache_clear') }}</button>
