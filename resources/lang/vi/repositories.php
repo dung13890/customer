@@ -42,6 +42,7 @@ return [
 
     'text' => [
         'sign_in_to_acc' => 'Đăng nhập với tài khoản của bạn.!',
+        'slide_page' => 'Slide landing page',
         'sign_in_to_info' => 'Công ty cổ phần Toàn Thắng',
         'sign_in_to_addr' => 'Quang Trung, Quận Hà Đông, Hà Nội',
         'sign_in_to_phon' => '(04) 66 530 666',
@@ -106,6 +107,7 @@ return [
         'attribute' => 'Thuộc tính',
         'key' => 'Tiêu đề',
         'value' => 'Giá trị',
+        'is_page' => 'Landing page',
     ],
 
     'button' => [
@@ -161,7 +163,8 @@ return [
     'category' => [
         'name' => 'Danh mục',
         'banner' => 'Ảnh nền ( 1920x570 )',
-        'image' => 'Ảnh đại diện ( 200 x 200 )',
+        'image' => 'Ảnh đại diện ( 640 x 480 )',
+        'icon' => 'Ảnh menu ( 100 x 100 )',
     ],
 
     'menu' => [

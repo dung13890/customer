@@ -36,6 +36,7 @@ class UpdateJob
         $data = array_only($this->attributes, $repository->model->getFillable());
         $data['locked'] = $data['locked'] ?? false;
         $data['is_home'] = $data['is_home'] ?? false;
+        $data['is_page'] = $data['is_page'] ?? false;
         if (array_has($data, 'image')) {
             if (!empty($this->item->image)) {
                 $this->destroyFile($this->item->image);
@@ -49,8 +50,11 @@ class UpdateJob
             }
             $data['banner'] = $this->uploadFile($data['banner'], $path);
         }
-        if (in_array($this->item->id, config('common.category.id_system'))) {
-            $data['parent_id'] = 0;
+        if (array_has($data, 'icon')) {
+            if (!empty($this->item->icon)) {
+                $this->destroyFile($this->item->icon);
+            }
+            $data['icon'] = $this->uploadFile($data['icon'], $path);
         }
         $this->item->update($data);
         \Cache::flush();

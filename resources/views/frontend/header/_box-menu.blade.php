@@ -4,24 +4,19 @@
             <?php
                 switch ($boxMenu->type) {
                     case 'introduce':
-                        $childrenMenus = $__pageIntroduce;
-                        $type = 'page';
+                        $childrenMenus = $__categoryIntroduce;
                         break;
                     case 'distributor':
-                        $childrenMenus = $__pageDistributor;
-                        $type = 'page';
+                        $childrenMenus = $__categoryDistributor;
                         break;
                     case 'recruitment':
-                        $childrenMenus = $__pageRecruitment;
-                        $type = 'page';
+                        $childrenMenus = $__categoryRecruitment;
                         break;
                     case 'investor':
-                        $childrenMenus = $__pageInvestor;
-                        $type = 'page';
+                        $childrenMenus = $__categoryInvestor;
                         break;
                     case 'product':
                         $childrenMenus = $__categoryProducts;
-                        $type = 'category';
                         break;
                     default:
                         $childrenMenus = null;
@@ -33,11 +28,11 @@
             <div class="item">
                 @foreach ($chunks as $chunk)
                 <div class="box text-center">
-                    <a class="box-img" href="{{ route($type . '.show', $chunk->slug) }}" title="{{ $chunk->name }}">
-                        <img class="img-responsive" src="{{ route('image', $type == 'category' ? $chunk->image_thumbnail : $chunk->icon_thumbnail ) }}" alt="{{ $chunk->name }}" />
+                    <a class="box-img" href="{{ route('category.show', $chunk->slug) }}" title="{{ $chunk->name }}">
+                        <img class="img-responsive" src="{{ route('image', $chunk->icon_thumbnail ) }}" alt="{{ $chunk->name }}" />
                     </a>
                     <h4 class="box-title">
-                        <a href="{{ route($type . '.show', $chunk->slug) }}" title="{{ $chunk->name }}">{{ $chunk->name }}</a>
+                        <a href="{{ route('category.show', $chunk->slug) }}" title="{{ $chunk->name }}">{{ str_limit($chunk->name, 40) }}</a>
                     </h4>
                 </div>
                 @endforeach

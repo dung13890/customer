@@ -87,9 +87,12 @@ Route::group(['namespace' => 'Backend'], function () {
         Route::get('post/create/{type}', 'PostController@create')->name('post.create.type');
         Route::post('post/{post}', 'PostController@destroy')->name('post.destroy');
         Route::resource('slide', 'SlideController', [
-            'except' => ['destroy']
+            'except' => ['destroy', 'index', 'create']
         ]);
+        Route::get('slide/type/{type}', 'SlideController@type')->name('slide.type');
+        Route::get('slide/create/{type}', 'SlideController@create')->name('slide.create.type');
         Route::post('slide/{slide}', 'SlideController@destroy')->name('slide.destroy');
+
         Route::resource('config', 'ConfigController', [
             'only' => ['index', 'store']
         ]);

@@ -14,6 +14,8 @@ class Slide extends Model
         'description',
         'url',
         'image',
+        'type',
+        'category_id',
         'locked',
     ];
 
@@ -26,5 +28,10 @@ class Slide extends Model
     public function getImage1170x445Attribute($value)
     {
         return app()['glide.builder']->getUrl($this->image, ['p' => '1170x445']);
+    }
+
+    public function getImage1920x570Attribute($value)
+    {
+        return app()['glide.builder']->getUrl($this->image, ['p' => '1920x570']);
     }
 }

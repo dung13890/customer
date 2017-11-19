@@ -29,9 +29,6 @@ class PageController extends FrontendController
         $this->compacts['keywords'] = $item->ceo_keywords;
         $this->compacts['image_social'] = route('image', $item->image_small);
 
-        $this->compacts['posts'] = $this->repoPost->getDataByRand(4, ['name', 'image', 'slug', 'ceo_description']);
-        $this->compacts['category'] = $this->repoCate->getFirstByRand('post', ['name', 'id']);
-
         return $this->viewRender();
     }
 }

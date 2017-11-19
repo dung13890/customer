@@ -24,7 +24,13 @@ class CategoryController extends FrontendController
                 $this->posts($item);
                 break;
             case 'product':
-                $this->products($item);
+                $item->is_page ? $this->landingPage($item) : $this->products($item);
+                break;
+            case 'introduce':
+            case 'distributor':
+            case 'recruitment':
+            case 'investor':
+                $this->pages($item);
                 break;
         }
 
@@ -34,7 +40,7 @@ class CategoryController extends FrontendController
     protected function posts($item)
     {
         $this->view = 'category.post';
-        $this->compacts['slides'] = $this->repoSlide->getData(5, ['image', 'name']);
+        $this->compacts['slides'] = $this->repoSlide->getDataByType(5, 'slide', ['image', 'name']);
         $this->compacts['item'] = $item;
         $this->compacts['heading'] = $item->name;
         $this->compacts['categories'] = $this->repository->getLimitWithOut('post', 3, $item->id, ['name', 'slug', 'id']);
@@ -42,9 +48,24 @@ class CategoryController extends FrontendController
 
     protected function products($item)
     {
-        $this->view = 'category.product';
         $this->compacts['item'] = $item;
         $this->compacts['products'] = $item->products()->paginate(9);
         $this->compacts['heading'] = $item->name;
+        $this->view = 'category.product';
+    }
+
+    public function pages($item)
+    {
+        $this->view = 'category.page';
+        $this->compacts['pages'] = $item->pages;
+        $this->compacts['heading'] = $item->name;
+    }
+
+    public function landingPage($item)
+    {
+        $this->compacts['class'] = 'landing-page';
+        $this->compacts['item'] = $item;
+        $this->compacts['heading'] = $item->name;
+        $this->view = 'category.landingpage';
     }
 }

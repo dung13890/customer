@@ -21,7 +21,6 @@ class Page extends Model
         'name',
         'slug',
         'image',
-        'icon',
         'file',
         'create_dt',
         'description',
@@ -29,6 +28,7 @@ class Page extends Model
         'is_home',
         'is_comment',
         'attributes',
+        'category_id',
         'type',
     ];
 
@@ -44,14 +44,9 @@ class Page extends Model
             ->orWhere('description', 'LIKE', "{$keywords}%");
     }
 
-    public function getIconDefaultAttribute($value)
+    public function scopeByCategory($query, $param)
     {
-        return app()['glide.builder']->getUrl($this->icon);
-    }
-
-    public function getIconThumbnailAttribute($value)
-    {
-        return app()['glide.builder']->getUrl($this->icon, ['p' => 'thumbnail']);
+        return $query->where('category_id', $param);
     }
 
     public function getCreateDtAttribute($value)

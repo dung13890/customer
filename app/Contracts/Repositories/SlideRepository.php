@@ -6,5 +6,5 @@ use App\Contracts\Traits\ValidatableInterface;
 
 interface SlideRepository extends ValidatableInterface
 {
-    public function getData($limit, $columns = ['*']);
+    public function getDataByType($limit, $type, $columns = ['*']);
 }

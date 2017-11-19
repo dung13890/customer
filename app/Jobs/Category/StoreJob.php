@@ -38,6 +38,9 @@ class StoreJob
         if (array_has($data, 'banner')) {
             $data['banner'] = $this->uploadFile($data['banner'], $path);
         }
+        if (array_has($data, 'icon')) {
+            $data['icon'] = $this->uploadFile($data['icon'], $path);
+        }
         $repository->store($data);
         \Cache::flush();
     }

@@ -31,14 +31,17 @@ class UserController extends BackendController
 
         if ($request->ajax() && $request->has('datatables')) {
             $params = $request->all();
-            $datatables = \DataTables::of($this->repository->datatables($this->dataSelect));
+            $datatables = \DataTables::of($this->repository->datatables($this->dataSelect, ['roles']));
             $this->filterDatatable($datatables, $params, function ($query, $params) {
                 if (array_has($params, 'role_id') && $params['role_id']) {
                     $query->byRole($params['role_id']);
                 }
             });
 
-            return $this->columnDatatable($datatables)->make(true);
+            return $this->columnDatatable($datatables)
+            ->addColumn('roles', function ($item) {
+                return $item->roles->first()->name;
+            })->make(true);
         }
 
         return $this->viewRender();

@@ -19,6 +19,12 @@
             {{ Form::label('name', __('repositories.label.title'), ['class'=>'control-label']) }}<span class="require">*</span>
             {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => __('repositories.label.title')]) }}
         </div>
+        @if ($type == 'page')
+        <div class="col-md-4">
+            {{ Form::label('category_id', __('repositories.category.name'), ['class'=>'control-label']) }}
+            {{ Form::select('category_id', $categories, null, ['class' => 'form-control']) }}
+        </div>
+        @endif
     </div>
 </div>
 
@@ -40,7 +46,7 @@
 </div>
 <div class="form-group">
     {{ Form::label('name', __('repositories.label.image'), ['class' => 'control-label']) }}
-    @component('backend._partials.components.uploadfile', ['imgFields' => (isset($item) && $item->image) ? $item->image_medium : null])
+    @component('backend._partials.components.uploadfile', ['imgFields' => (isset($item) && $item->image) ? $item->image_1170x445 : null])
     @slot('uploadFields')
         {{ Form::file('image', ['id' => 'image']) }}
     @endslot

@@ -1,5 +1,7 @@
 @push('prescripts')
+{{ Html::script(mix('/assets/js/backend/jquery-ui.min.js')) }}
 {{ Html::script(mix('/assets/js/backend/summernote.min.js')) }}
+{{ Html::script(mix('/assets/js/backend/grideditor.min.js')) }}
 {{ Html::script(mix('/assets/js/backend/modules/page.js')) }}
     <script>
         $(function () {
@@ -33,14 +35,8 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-sm-5">
-                    {{ Form::label('icon', __('repositories.label.icon'), ['class' => 'control-label']) }}<span class="require">*</span>
-                    @component('backend._partials.components.uploadfile',
-                    ['imgFields' => (isset($item) && $item->icon) ? $item->icon_default : null, 'elementFields' => 'icon-upload']
-                    )
-                    @slot('uploadFields')
-                        {{ Form::file('icon', ['id' => 'icon']) }}
-                    @endslot
-                    @endcomponent
+                    {{ Form::label('category_id', __('repositories.category.name'), ['class'=>'control-label']) }}<span class="require">*</span>
+                    {{ Form::select('category_id', $categories, null, ['class' => 'form-control']) }}
                 </div>
                 <div class="col-sm-7">
                     {{ Form::label('image', __('repositories.label.image'), ['class' => 'control-label']) }}
@@ -106,6 +102,7 @@
 </div>
 <div class="form-group">
     {{ Form::label('description', __('repositories.label.description'), ['class' => 'control-label']) }}
+    <div class="grid-editor"></div>
     {{ Form::textarea('description', null, ['class' => 'form-control textarea-summernote']) }}
 </div>
 

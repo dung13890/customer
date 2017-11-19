@@ -4,8 +4,8 @@
             <h2>&nbsp;</h2>
         </div>
         <div class="row">
-            @if (count($__pageIntroduce))
-            @foreach ($__pageIntroduce->chunk(6) as $chunks)
+            @if (count($__categoryIntroduce))
+            @foreach ($__categoryIntroduce->chunk(6) as $chunks)
             <div class="fmain-col col-xs-12 col-sm-6 @if ($loop->last) col-md-2 col-lg-2 @else col-md-3 col-lg-3 @endif">
                 <div class="block footer-menu">
                     <h4 class="title">

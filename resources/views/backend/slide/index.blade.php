@@ -6,7 +6,9 @@
 {{ Html::script(mix('/assets/js/backend/modules/slide.js')) }}
     <script>
         $(function () {
+            var type = '{{ $type }}';
             window.flash_message = '{!! session("flash_message") !!}';
+            window.routeType = window.laroute.route('backend.slide.type', {'type': type, 'datatables': 1});
             window.slide.index();
         });
     </script>
@@ -31,7 +33,7 @@
                         @endslot
                     @endcomponent
                     @can('slide-create')
-                    <a href="{{ route('backend.slide.create') }}" class="btn btn-success btn-sm create-form"><i class="ion-plus-round"></i> {{ __('repositories.title.create') }}</a>
+                    <a href="{{ route('backend.slide.create.type', $type) }}" class="btn btn-success btn-sm create-form"><i class="ion-plus-round"></i> {{ __('repositories.title.create') }}</a>
                     @endcan
                     <div class="table-responsive">
                         <table id="table-index" class="table table-bordered table-hover">

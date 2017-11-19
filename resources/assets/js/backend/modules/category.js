@@ -12,6 +12,8 @@ class Category {
     uploadfile.init();
     var uploadbanner = new Uploadfile('#banner', '#banner-upload');
     uploadbanner.init();
+    var uploadicon = new Uploadfile('#icon', '#icon-upload');
+    uploadicon.init();
     this.jqTree(items, item);
 
     notification.destroyRow(null, 'li');

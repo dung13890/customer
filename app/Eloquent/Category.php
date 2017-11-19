@@ -11,7 +11,17 @@ class Category extends Model
     use GetImageTrait, ModelableTrait;
 
     protected $fillable = [
-        'name', 'type', 'description', 'image', 'banner', 'is_home', 'locked'
+        'name',
+        'type',
+        'description',
+        'image',
+        'banner',
+        'is_home',
+        'is_page',
+        'icon',
+        'districts',
+        'information',
+        'locked',
     ];
 
     public function posts()
@@ -19,17 +29,28 @@ class Category extends Model
         return $this->hasMany(Post::class)->orderBy('updated_at', 'desc')->where('locked', false);
     }
 
+    public function slides()
+    {
+        return $this->hasMany(Slide::class)->orderBy('updated_at', 'desc')->where('locked', false);
+    }
+
     public function articles()
     {
         return $this->hasMany(Post::class)
             ->take(5)
+            ->where('locked', false)
             ->orderBy('updated_at', 'desc')
             ->select(['name', 'image', 'slug']);
     }
 
+    public function pages()
+    {
+        return $this->hasMany(Page::class)->where('locked', false)->orderBy('updated_at', 'desc');
+    }
+
     public function products()
     {
-        return $this->hasMany(Product::class)->where('locked', false);
+        return $this->hasMany(Product::class)->where('locked', false)->orderBy('updated_at', 'desc');
     }
 
     public function limitPosts()
@@ -47,8 +68,13 @@ class Category extends Model
         return app()['glide.builder']->getUrl($this->banner);
     }
 
-    public function getImage156x100Attribute($value)
+    public function getIconThumbnailAttribute($value)
     {
-        return app()['glide.builder']->getUrl($this->image, ['p' => '156x100']);
+        return app()['glide.builder']->getUrl($this->icon, ['p' => 'thumbnail']);
+    }
+
+    public function getBanner1920x570Attribute($value)
+    {
+        return app()['glide.builder']->getUrl($this->banner, ['p' => '1920x570']);
     }
 }

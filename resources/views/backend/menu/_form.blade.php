@@ -7,7 +7,7 @@
         </div>
 
         <div class="col-md-4">
-            {{ Form::label('sort', __('repositories.label.sort'), ['class'=>'control-label']) }}
+            {{ Form::label('sort', __('repositories.label.sort'), ['class'=>'control-label']) }}<span class="require">*</span>
             {{ Form::number('sort', null, ['class' => 'form-control', 'placeholder' => __('repositories.label.sort'), 'maxlength' => 2]) }}
         </div>
     </div>

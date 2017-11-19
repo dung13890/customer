@@ -53,15 +53,39 @@ class Product {
     _$('.slim-scroll').slimScroll({
       height: 250
     });
+    _$('.grid-editor').gridEditor({
+      new_row_layouts: [[4,4,4], [6,6], [9,3]],
+      content_types: ['summernote'],
+    });
     _$('.textarea-summernote').summernote({
       toolbar: toolbarSummernote,
       height:250,
+      buttons: {
+        layout: this.insertLayout
+      },
       callbacks: {
         onImageUpload: function(files) {
           uploadfile.sendImage(files[0], laroute.route('backend.summernote.image'), _$(this));
         }
       }
     });
+  }
+
+  insertLayout (context) {
+    var _$ = window.$;
+    var ui = _$.summernote.ui;
+
+    // create button
+    var button = ui.button({
+      contents: '<i class="ion-ios-monitor-outline"/>',
+      tooltip: 'insert layout',
+      click: function () {
+        var node = _$(_$('.grid-editor').gridEditor('getHtml'))[0];
+        context.invoke('editor.insertNode', node);
+      }
+    });
+
+    return button.render();
   }
 }
 

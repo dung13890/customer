@@ -16,12 +16,14 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
             'locked' => 'sometimes|boolean',
             'image'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
             'banner'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
-            'type' => 'required|in:product,post,article',
+            'icon'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
+            'type' => 'required|in:product,post,article,introduce,distributor,recruitment,investor',
         ],
         'update' => [
             'name' => 'required|min:2|max:100',
             'image'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
             'banner'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
+            'icon'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
             'locked' => 'sometimes|boolean',
         ],
     ];
@@ -38,6 +40,7 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
             'locked' => __('repositories.label.locked'),
             'image' => __('repositories.label.image'),
             'banner' => __('repositories.label.banner'),
+            'icon' => __('repositories.label.icon'),
             'type' => __('repositories.label.type'),
         ];
     }
@@ -47,11 +50,17 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
         return $this->model->where('type', $type)->get($columns);
     }
 
+    public function getDataIsPage($columns = ['*'])
+    {
+        return $this->model->where('is_page', true)->get($columns);
+    }
+
     public function getLimitByType($type, $limit, $columns = ['*'])
     {
         return $this->model
             ->where('type', $type)
             ->where('locked', false)
+            ->where('id', '<>', config('common.category.id_system')[1])
             ->take($limit)
             ->orderBy('updated_at', 'desc')
             ->get($columns);

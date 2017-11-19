@@ -75,6 +75,11 @@ class AppServiceProvider extends ServiceProvider
                         'h' => 445,
                         'fit' => 'crop',
                     ],
+                    '1920x570' => [
+                        'w' => 1920,
+                        'h' => 570,
+                        'fit' => 'crop',
+                    ],
                 ],
                 'response' => new LaravelResponseFactory(),
             ]);
@@ -112,17 +117,17 @@ class AppServiceProvider extends ServiceProvider
             $view->with('__menus', Cache::remember('__menus', 60, function () {
                 return app(\App\Contracts\Repositories\MenuRepository::class)->getDataLimit(10, ['type', 'name', 'url', 'sort']);
             }));
-            $view->with('__pageIntroduce', Cache::remember('__pageIntroduce', 60, function () {
-                return app(\App\Contracts\Repositories\PageRepository::class)->getDataLimit('introduce', 16);
+            $view->with('__categoryIntroduce', Cache::remember('__categoryIntroduce', 60, function () {
+                return app(\App\Contracts\Repositories\CategoryRepository::class)->getLimitByType('introduce', 16);
             }));
-            $view->with('__pageDistributor', Cache::remember('__pageDistributor', 60, function () {
-                return app(\App\Contracts\Repositories\PageRepository::class)->getDataLimit('distributor', 16);
+            $view->with('__categoryDistributor', Cache::remember('__categoryDistributor', 60, function () {
+                return app(\App\Contracts\Repositories\CategoryRepository::class)->getLimitByType('distributor', 16);
             }));
-            $view->with('__pageRecruitment', Cache::remember('__pageRecruitment', 60, function () {
-                return app(\App\Contracts\Repositories\PageRepository::class)->getDataLimit('recruitment', 16);
+            $view->with('__categoryRecruitment', Cache::remember('__categoryRecruitment', 60, function () {
+                return app(\App\Contracts\Repositories\CategoryRepository::class)->getLimitByType('recruitment', 16);
             }));
-            $view->with('__pageInvestor', Cache::remember('__pageInvestor', 60, function () {
-                return app(\App\Contracts\Repositories\PageRepository::class)->getDataLimit('investor', 16);
+            $view->with('__categoryInvestor', Cache::remember('__categoryInvestor', 60, function () {
+                return app(\App\Contracts\Repositories\CategoryRepository::class)->getLimitByType('investor', 16);
             }));
             $view->with('__categoryPosts', Cache::remember('__categoryPosts', 60, function () {
                 return app(\App\Contracts\Repositories\CategoryRepository::class)->getLimitByType('post', 3);

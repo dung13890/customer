@@ -20,6 +20,8 @@ class CreateSlidesTable extends Migration
             $table->string('url')->nullable();
             $table->string('image')->nullable();
             $table->boolean('locked')->default(false);
+            $table->char('type', 20)->default('slide');
+            $table->integer('category_id')->default(0);
             $table->timestamps();
         });
     }

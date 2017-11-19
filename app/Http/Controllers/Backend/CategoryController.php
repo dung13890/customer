@@ -56,6 +56,7 @@ class CategoryController extends BackendController
     {
         $this->before(__FUNCTION__);
         parent::__edit($id);
+        $this->compacts['type'] = $this->compacts['item']->type;
 
         return $this->indexRender($this->compacts['item']->type, 'edit');
     }

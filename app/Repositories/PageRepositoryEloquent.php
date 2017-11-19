@@ -17,7 +17,6 @@ class PageRepositoryEloquent extends AbstractRepositoryEloquent implements PageR
             'ceo_description' => 'nullable|max:200',
             'ceo_keywords' => 'nullable|max:150',
             'image'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
-            'icon'=> 'required|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
             'file' => 'nullable|mimes:pdf',
             'create_dt' => 'required|date_format:d/m/Y H:i',
             'type' => 'required|in:introduce,distributor,recruitment,investor',
@@ -29,7 +28,6 @@ class PageRepositoryEloquent extends AbstractRepositoryEloquent implements PageR
             'ceo_keywords' => 'nullable|max:150',
             'create_dt' => 'required|date_format:d/m/Y H:i',
             'image'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
-            'icon'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
             'file' => 'nullable|mimes:pdf',
         ],
     ];
@@ -47,7 +45,6 @@ class PageRepositoryEloquent extends AbstractRepositoryEloquent implements PageR
             'ceo_description' => __('repositories.label.ceo_description'),
             'ceo_keywords' => __('repositories.label.ceo_keywords'),
             'image' => __('repositories.label.image'),
-            'icon' => __('repositories.label.icon'),
             'category_id' => __('repositories.category.name'),
             'create_dt' => __('repositories.label.create_dt'),
         ];

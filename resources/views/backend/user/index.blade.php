@@ -49,6 +49,7 @@
                                     <th>{{ __('repositories.label.username') }}</th>
                                     <th>{{ __('repositories.label.name') }}</th>
                                     <th>{{ __('repositories.label.email') }}</th>
+                                    <th>{{ __('repositories.label.role_id') }}</th>
                                     <th>{{ __('repositories.label.action') }}</th>
                                 </tr>
                             </thead>

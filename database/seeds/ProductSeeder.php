@@ -15,7 +15,7 @@ class ProductSeeder extends Seeder
         $categories = app(App\Eloquent\Category::class)->where('type', 'article');
         if (App::environment('local')) {
             factory(Product::class, 50)->create()->each(function ($item) use ($categories) {
-                $item->categories()->attach($categories->pluck('id')->random(4)->all());
+                $item->categories()->attach($categories->pluck('id')->random(3)->all());
             });
         }
     }

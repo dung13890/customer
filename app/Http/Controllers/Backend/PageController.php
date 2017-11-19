@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Contracts\Repositories\PageRepository;
+use App\Contracts\Repositories\CategoryRepository;
 use App\Jobs\Page\StoreJob;
 use App\Jobs\Page\UpdateJob;
 use App\Jobs\Page\DestroyJob;
@@ -14,10 +15,13 @@ class PageController extends BackendController
     use ControllableTrait;
 
     protected $dataSelect = ['id', 'name', 'ceo_keywords', 'locked', 'slug'];
+    protected $categorySelect = ['id', 'name'];
+    protected $repoCategory;
 
-    public function __construct(PageRepository $page)
+    public function __construct(PageRepository $page, CategoryRepository $category)
     {
         parent::__construct($page);
+        $this->repoCategory = $category;
     }
 
     public function type(Request $request, $type)
@@ -28,10 +32,15 @@ class PageController extends BackendController
         }
         parent::__index();
         $this->compacts['type'] = $type;
+        $this->compacts['categories'] = $this->repoCategory->getDataByType($type, $this->categorySelect)->pluck('name', 'id')->prepend('---', 0);
         if ($request->ajax() && $request->has('datatables')) {
             $params = $request->all();
             $datatables = \DataTables::of($this->repository->datatables($this->dataSelect)->where('type', $type));
-            $this->filterDatatable($datatables, $params);
+            $this->filterDatatable($datatables, $params, function ($query, $params) {
+                if (array_has($params, 'category_id') && $params['category_id']) {
+                    $query->byCategory($params['category_id']);
+                }
+            });
 
             return $this->columnDatatable($datatables)->make(true);
         }
@@ -44,6 +53,7 @@ class PageController extends BackendController
         $this->before(__FUNCTION__);
         parent::__create();
         $this->compacts['type'] = $type;
+        $this->compacts['categories'] = $this->repoCategory->getDataByType($type, $this->categorySelect)->pluck('name', 'id')->prepend('---', 0);
 
         return $this->viewRender();
     }
@@ -64,6 +74,7 @@ class PageController extends BackendController
         $this->before(__FUNCTION__);
         parent::__edit($id);
         $this->compacts['type'] = $this->compacts['item']->type;
+        $this->compacts['categories'] = $this->repoCategory->getDataByType($this->compacts['item']->type, $this->categorySelect)->pluck('name', 'id');
 
         return $this->viewRender();
     }

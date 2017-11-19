@@ -15,6 +15,7 @@ class SlideRepositoryEloquent extends AbstractRepositoryEloquent implements Slid
             'name' => 'required|min:2|max:50',
             'description' => 'nullable|max:200',
             'image'=> 'required|nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
+            'type' => 'required|in:slide,page',
         ],
         'update' => [
             'name' => 'required|min:2|max:50',
@@ -37,9 +38,10 @@ class SlideRepositoryEloquent extends AbstractRepositoryEloquent implements Slid
         ];
     }
 
-    public function getData($limit, $columns = ['*'])
+    public function getDataByType($limit, $type, $columns = ['*'])
     {
         return $this->model->where('locked', false)
+            ->where('type', $type)
             ->orderBy('updated_at', 'desc')
             ->take($limit)
             ->get($columns);

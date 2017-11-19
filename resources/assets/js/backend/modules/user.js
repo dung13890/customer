@@ -14,7 +14,8 @@ class User {
         }
       },
       { data: 'name', name: 'name'},
-      { data: 'email', name: 'email'}
+      { data: 'email', name: 'email'},
+      { data: 'roles', name: 'roles', orderable: false}
     ];
     let searches = {
       data: function (d) {

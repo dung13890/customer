@@ -17,6 +17,7 @@
                         'files' => true,
                         'autocomplete'=>'off',
                     ]) }}
+                        {{ Form::hidden('type', $type) }}
                         @include('backend.slide._form')
                     {{ Form::close() }}
                 </div>

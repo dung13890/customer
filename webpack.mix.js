@@ -38,3 +38,5 @@ mix.copyDirectory('resources/assets/vendor', 'public/frontend');
 mix.copyDirectory('resources/assets/vendor/images', 'public/images')
 
 mix.copy('resources/assets/bower/summernote/dist/summernote.min.js', 'public/assets/js/backend/summernote.min.js');
+mix.copy('resources/assets/bower/grid-editor/dist/jquery.grideditor.min.js', 'public/assets/js/backend/grideditor.min.js');
+mix.copy('resources/assets/bower/jquery-ui/jquery-ui.min.js', 'public/assets/js/backend/jquery-ui.min.js');

@@ -20,17 +20,17 @@
                     <div class="post-content">
                         <div class="row">
                             <div class="page-slider owl-carousel">
-                                @if (count($pages))
-                                @foreach ($pages as $page)
+                                @if (count($categories))
+                                @foreach ($categories as $category)
                                     <div class="page-item item">
                                         <div class="page-item__image col-sm-12 col-md-6 col-lg-6">
-                                            <img src="{{ route('image', $page->image_small) }}" alt="{{ $page->name }}">
+                                            <img src="{{ route('image', $category->image_medium) }}" alt="{{ $category->name }}">
                                         </div>
                                         <div class="page-item__content col-sm-12 col-md-6 col-lg-6">
                                             <h3 class="box-list-title">
-                                                <a href="{{ route('page.show', $page->slug) }}" title="{{ $page->name }}">{{ $page->name }}</a>
+                                                <a href="{{ route('category.show', $category->slug) }}" title="{{ $category->name }}">{{ $category->name }}</a>
                                             </h3>
-                                            {!! $page->description !!}
+                                            {{ $category->description }}
                                         </div>
                                     </div>
                                 @endforeach

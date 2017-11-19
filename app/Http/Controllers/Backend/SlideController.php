@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Contracts\Repositories\SlideRepository;
+use App\Contracts\Repositories\CategoryRepository;
 use App\Jobs\Slide\StoreJob;
 use App\Jobs\Slide\UpdateJob;
 use App\Jobs\Slide\DestroyJob;
@@ -13,21 +14,27 @@ class SlideController extends BackendController
 {
     use ControllableTrait;
 
+    protected $repoCategory;
+    protected $categorySelect = ['id', 'name'];
     protected $dataSelect = ['id', 'name', 'description', 'locked'];
 
-    public function __construct(SlideRepository $slide)
+    public function __construct(SlideRepository $slide, CategoryRepository $category)
     {
         parent::__construct($slide);
+        $this->repoCategory = $category;
     }
 
-    public function index(Request $request)
+    public function type(Request $request, $type)
     {
         $this->before(__FUNCTION__);
+        if (!in_array($type, config('common.slide.type'))) {
+            abort(403);
+        }
         parent::__index();
-
+        $this->compacts['type'] = $type;
         if ($request->ajax() && $request->has('datatables')) {
             $params = $request->all();
-            $datatables = \DataTables::of($this->repository->datatables($this->dataSelect));
+            $datatables = \DataTables::of($this->repository->datatables($this->dataSelect)->where('type', $type));
             $this->filterDatatable($datatables, $params);
 
             return $this->columnDatatable($datatables)->make(true);
@@ -36,10 +43,12 @@ class SlideController extends BackendController
         return $this->viewRender();
     }
 
-    public function create()
+    public function create($type)
     {
         $this->before(__FUNCTION__);
         parent::__create();
+        $this->compacts['type'] = $type;
+        $this->compacts['categories'] = $this->repoCategory->getDataIsPage($this->categorySelect)->pluck('name', 'id')->prepend('---', 0);
 
         return $this->viewRender();
     }
@@ -49,16 +58,19 @@ class SlideController extends BackendController
         $this->before(__FUNCTION__);
         $this->validation($request, __FUNCTION__);
         $data = $request->all();
+        $type = $request->type;
 
         return $this->doRequest(function () use ($data) {
             $this->dispatch(new StoreJob($data));
-        }, __FUNCTION__);
+        }, __FUNCTION__, false, route($this->prefix . 'slide.type', $type));
     }
 
     public function edit($id)
     {
         $this->before(__FUNCTION__);
         parent::__edit($id);
+        $this->compacts['type'] = $this->compacts['item']->type;
+        $this->compacts['categories'] = $this->repoCategory->getDataIsPage($this->categorySelect)->pluck('name', 'id');
 
         return $this->viewRender();
     }
@@ -72,7 +84,7 @@ class SlideController extends BackendController
 
         return $this->doRequest(function () use ($data, $item) {
             return $this->dispatch(new UpdateJob($data, $item));
-        }, __FUNCTION__);
+        }, __FUNCTION__, false, route($this->prefix . 'slide.type', $item->type));
     }
 
     public function destroy($id)

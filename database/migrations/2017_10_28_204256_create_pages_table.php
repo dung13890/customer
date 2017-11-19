@@ -20,7 +20,6 @@ class CreatePagesTable extends Migration
             $table->string('ceo_keywords', 150)->nullable();
             $table->string('name', 100);
             $table->string('slug', 100)->index()->unique();
-            $table->string('icon')->nullable();
             $table->string('image')->nullable();
             $table->string('file')->nullable();
             $table->text('description')->nullable();
@@ -30,6 +29,7 @@ class CreatePagesTable extends Migration
             $table->boolean('is_comment')->default(false);
             $table->json('attributes')->nullable();
             $table->char('type')->default('introduce');
+            $table->integer('category_id')->default(0);
             $table->timestamps();
         });
     }

@@ -1,10 +1,20 @@
 @include('backend._partials.components.errors')
 <div class="form-group">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8">
             {{ Form::label('name', __('repositories.label.title'), ['class'=>'control-label']) }}<span class="require">*</span>
             {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => __('repositories.label.title')]) }}
         </div>
+        @if ($type == 'product')
+        <div class="col-sm-4">
+            <label></label>
+            <div class="checkbox">
+                <label>
+                    {{ Form::checkbox('is_page', true, old('is_page'), ['data-size' => 'small']) }} <b>{{ __('repositories.label.is_page') }}</b>
+                </label>
+            </div>
+        </div>
+        @endif
     </div>
 </div>
 
@@ -16,7 +26,7 @@
 <div class="form-group">
     {{ Form::label('name', __('repositories.category.banner'), ['class' => 'control-label']) }}
     @component('backend._partials.components.uploadfile',
-    ['imgFields' => (isset($item) && $item->banner) ? $item->banner_default : null, 'elementFields' => 'banner-upload']
+    ['imgFields' => (isset($item) && $item->banner) ? $item->banner_1920x570 : null, 'elementFields' => 'banner-upload']
     )
     @slot('uploadFields')
         {{ Form::file('banner', ['id' => 'banner']) }}
@@ -34,7 +44,7 @@
             @endslot
             @endcomponent
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6">
             <label></label>
             <div class="checkbox">
                 <label>
@@ -42,7 +52,22 @@
                 </label>
             </div>
         </div>
-        <div class="col-sm-2">
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="row">
+        <div class="col-sm-6">
+            {{ Form::label('name', __('repositories.category.icon'), ['class' => 'control-label']) }}
+            @component('backend._partials.components.uploadfile',
+            ['imgFields' => (isset($item) && $item->icon) ? $item->icon_thumbnail : null, 'elementFields' => 'icon-upload']
+            )
+            @slot('uploadFields')
+                {{ Form::file('icon', ['id' => 'icon']) }}
+            @endslot
+            @endcomponent
+        </div>
+        <div class="col-sm-6">
             <label></label>
             <div class="checkbox">
                 <label>

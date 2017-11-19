@@ -19,6 +19,11 @@
                         <a class="nav-link" href="{{ route('backend.category.type', 'product') }}"> {{ __('repositories.category.name') }}</a>
                     </li>
                     @endcan
+                    @can('slide-read')
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('backend.slide.type', 'page') }}"> {{ __('repositories.text.slide_page') }}</a>
+                    </li>
+                    @endcan
                 </ul>
             </li>
             <li class="nav-item nav-dropdown">
@@ -85,7 +90,7 @@
                     @endcan
                     @can('slide-read')
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('backend.slide.index') }}"> {{ __('repositories.slide.name') }}</a>
+                        <a class="nav-link" href="{{ route('backend.slide.type', 'slide') }}"> {{ __('repositories.slide.name') }}</a>
                     </li>
                     @endcan
                     @can('menu-read')
