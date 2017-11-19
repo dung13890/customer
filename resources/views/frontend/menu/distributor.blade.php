@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="single-post-wrap">
-                    <div class="post-content table-responsive">
+                    <div class="post-content">
                         <div class="row">
                             <div class="page-slider owl-carousel">
                                 @if (count($pages))

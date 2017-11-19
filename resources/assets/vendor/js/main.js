@@ -424,6 +424,14 @@ new(function(){});var f=j.$Jease$={$Swing:function(a){return-c.cos(a*c.PI)/2+.5}
       });
     }
 
+    $('.page-slider').owlCarousel({
+      items: 1,
+      loop: false,
+      margin: 0,
+      nav: true,
+      navText: ["<i class='fa fa-angle-left '></i>","<i class='fa fa-angle-right'></i>"],
+    });
+
     /*$('.owl-product').owlCarousel({
       loop: false,
       margin: 18,
