@@ -38,7 +38,9 @@
                         </div>
                         @endslot
                     @endcomponent
+                    @can ('user-create')
                     <a href="{{ route('backend.user.create') }}" class="btn btn-success btn-sm create-form"><i class="ion-plus-round"></i> {{ __('repositories.title.create') }}</a>
+                    @endcan
                     <div class="table-responsive">
                         <table id="table-index" class="table table-bordered table-hover">
                             <thead>

@@ -39,6 +39,8 @@
     @endforeach
 </div>
 
+@if(Gate::check('menu-create') || Gate::check('menu-edit'))
 <div class="form-group text-right">
     <button type="submit" class="btn btn-success btn-sm"><i class="ion-checkmark-circled"></i> {{ isset($item) ? __('repositories.title.edit') : __('repositories.title.create') }}</button>
 </div>
+@endif

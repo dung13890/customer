@@ -34,4 +34,36 @@ class AbstractController extends Controller
     {
         return property_exists($this, 'guard') ? $this->guard : null;
     }
+
+    protected function before($action, $object = null)
+    {
+        switch ($action) {
+            case 'index':
+            case 'show':
+            case 'type':
+                $action = 'read';
+                break;
+            case 'create':
+            case 'store':
+                $action = 'create';
+                break;
+            case 'edit':
+            case 'update':
+                $action = 'edit';
+                break;
+            case 'destroy':
+                $action = 'destroy';
+                break;
+        }
+
+        if (!$object && $this->repository) {
+            $object = $this->repository->model;
+        }
+
+        if ($this->user->cannot($action, $object)) {
+            return abort(Response::HTTP_FORBIDDEN, __('repositories.text.forbiden_to_perform'));
+        }
+
+        return true;
+    }
 }

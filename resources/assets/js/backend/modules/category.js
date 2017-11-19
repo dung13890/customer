@@ -14,7 +14,7 @@ class Category {
     uploadbanner.init();
     this.jqTree(items, item);
 
-    notification.destroyRow(null, true);
+    notification.destroyRow(null, 'li');
     notification.flashMessage();
   }
 

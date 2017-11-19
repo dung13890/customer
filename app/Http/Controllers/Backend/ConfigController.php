@@ -20,6 +20,7 @@ class ConfigController extends BackendController
 
     public function index()
     {
+        $this->before(__FUNCTION__);
         parent::__index();
         $this->compacts['items'] = $this->repository->getData($this->dataSelect);
         $this->view = $this->repositoryName . '.create';
@@ -29,6 +30,7 @@ class ConfigController extends BackendController
 
     public function store(Request $request)
     {
+        $this->before('edit');
         $this->validation($request, __FUNCTION__);
         $data = $request->only([
             'name',

@@ -28,6 +28,11 @@
                                 <td>{{ $item->email }}</td>
                             </tr>
 
+                            <tr>
+                                <td>{{ __('repositories.role.name') }}</td>
+                                <td>{{ $item->roles->first()->name }}</td>
+                            </tr>
+
                         </tbody>
                     </table>
                 </div>

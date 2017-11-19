@@ -46,6 +46,7 @@ return [
         'sign_in_to_phon' => '(04) 66 530 666',
         'show_in_category' => 'Nhóm bài viết hiển thị',
         'message_contact' => 'Chúng tôi sẽ liên hệ với bạn sớm nhất có thể. Cám ơn!',
+        'forbiden_to_perform' => 'Bạn không có quyền truy cập!',
     ],
 
     'label' => [
@@ -99,6 +100,7 @@ return [
         'role_id' => 'Quyền',
         'url' => 'Đường dẫn',
         'abilities' => 'Quyền hạn',
+        'ability_ids' => 'Quyền hạn',
         'hotline' => 'Hotline',
     ],
 

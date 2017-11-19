@@ -18,6 +18,7 @@ class HomeController extends BackendController
 
     public function index(Request $request)
     {
+        $this->before(__FUNCTION__);
         $this->compacts['heading'] = __('repositories.home.name');
         $this->view = 'home.index';
 
@@ -27,12 +28,12 @@ class HomeController extends BackendController
             $this->filterDatatable($datatables, $params);
 
             return $datatables->addColumn('actions', function ($item) {
-                return [
+                return $this->user->can('destroy', $item) ? [
                     'delete' => [
                         'uri' => route($this->prefix . 'home.destroy', $item->id),
                         'label' => __('repositories.title.delete'),
                     ]
-                ];
+                ] : [];
             })->make(true);
         }
 
@@ -41,6 +42,7 @@ class HomeController extends BackendController
 
     public function show($id)
     {
+        $this->before(__FUNCTION__);
         $this->compacts['heading'] = __('repositories.home.name');
         $this->view = 'home.show';
 
@@ -51,6 +53,7 @@ class HomeController extends BackendController
 
     public function destroy($id)
     {
+        $this->before(__FUNCTION__);
         return $this->doRequest(function () use ($id) {
             return $this->dispatch(new DestroyJob($id));
         }, __FUNCTION__);
