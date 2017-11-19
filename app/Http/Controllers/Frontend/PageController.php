@@ -20,9 +20,9 @@ class PageController extends FrontendController
 
     public function show($slug)
     {
-        $this->view = 'page.show';
         $this->compacts['class'] = 'single-post';
         $item = $this->repository->findBySlug($slug);
+        $this->view = $item->type == 'distributor' ? 'page.distributor' : 'page.show';
         $this->compacts['item'] = $item;
         $this->compacts['heading'] = $item->ceo_title;
         $this->compacts['description'] = $item->ceo_description;
