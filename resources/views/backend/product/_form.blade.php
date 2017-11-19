@@ -59,7 +59,7 @@
         </div>
         <div class="form-group" id="dropzone-form">
             {{ Form::label('images[]', __('repositories.label.images')) }}
-            <upload-image @if(isset($item)) :images="item.images" @endif></upload-image>
+            <upload-image @if (isset($item)) :images="item.images" @endif></upload-image>
         </div>
         <div class="form-group">
             {{ Form::label('advantage', __('repositories.label.advantage'), ['class' => 'control-label']) }}

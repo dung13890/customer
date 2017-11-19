@@ -54,7 +54,6 @@ class PageController extends BackendController
         $this->validation($request, __FUNCTION__);
         $data = $request->all();
         $type = $request->type;
-
         return $this->doRequest(function () use ($data) {
             $this->dispatch(new StoreJob($data));
         }, __FUNCTION__, false, route($this->prefix . 'page.type', $type));
@@ -64,6 +63,7 @@ class PageController extends BackendController
     {
         $this->before(__FUNCTION__);
         parent::__edit($id);
+        $this->compacts['type'] = $this->compacts['item']->type;
 
         return $this->viewRender();
     }

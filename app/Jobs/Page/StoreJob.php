@@ -48,6 +48,10 @@ class StoreJob
             $data['file'] = $this->uploadFile($data['file'], $path, 'public');
         }
 
+        if (array_has($data, 'attributes')) {
+            $data['attributes'] = array_values(array_filter(array_map('array_filter', $data['attributes'])));
+        }
+
         $repository->store($data);
     }
 }
