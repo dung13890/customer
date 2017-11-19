@@ -14296,8 +14296,8 @@ p.a-menu {
     padding-left: 10px;
 }
 
-.megamenu .item-new img {
-    width: 60px;
+.megamenu .owl-carousel .owl-item .item-new img {
+    width: auto;
 }
 
 .megamenu .item-new:hover {
@@ -14615,7 +14615,7 @@ p.a-menu {
     padding-right: 40px;
 }
 
-.call-mobile a {
+.call-mobile span {
     color: #fff;
     font-size: 18px;
     font-weight: bold;
@@ -14625,6 +14625,7 @@ p.a-menu {
 }
 
 .call-mobile i {
+    color: #fff;
     font-size: 20px;
     line-height: 40px;
     background: #0c8c46;
@@ -14640,7 +14641,7 @@ p.a-menu {
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
 }
 
-#callnowbutton {
+.call-number {
     display: inline-block;
     width: 0;
     visibility: hidden;
@@ -14659,7 +14660,7 @@ p.a-menu {
     background: #dc6526;
 }
 
-.call-mobile:hover #callnowbutton {
+.call-mobile:hover .call-number {
     display: inline-block;
     width: auto;
     visibility: visible;
