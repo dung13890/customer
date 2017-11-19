@@ -22,7 +22,11 @@ Route::get('image/{path?}', ['as' => 'image' , function (Request $request, Media
 }])->where('path', '(.*?)');
 
 Route::get('webhook', ['as' => 'webhook', function (Request $request) {
-
+    \Log::info($request->all());
+    if ($request->has('hub_verify_token') && $request->hub_verify_token === env('HUB_VERIFY_TOKEN')) {
+        echo $request->hub_verify_token;
+    }
+    \Storage::put('facebook.json', file_get_contents('php://input'));
 }]);
 
 Route::group(['prefix' => '/', 'namespace' => 'Frontend'], function () {

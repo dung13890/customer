@@ -29,6 +29,16 @@
                                 </a>
                            </p>
                        </div>
+                       @if ($item->type == 'recruitment' && count($item->attributes))
+                       <div class="post-attributes">
+                            @foreach ($item->attributes as $attribute)
+                                <p>
+                                <strong class="attribute-key">{{ $attribute['key'] }}:</strong>
+                                <span class="attribute-value">{{ $attribute['value'] }}</span>
+                                </p>
+                            @endforeach
+                       </div>
+                        @endif
                         <div class="post-content">
                             {!! $item->description !!}
                         </div>

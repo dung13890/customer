@@ -10,6 +10,10 @@ class Page extends Model
 {
     use GetImageTrait, ModelableTrait;
 
+    protected $casts = [
+        'attributes' => 'json'
+    ];
+
     protected $fillable = [
         'ceo_title',
         'ceo_description',

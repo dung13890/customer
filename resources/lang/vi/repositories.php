@@ -37,6 +37,7 @@ return [
         'investor' => 'Cổ đông & nhà đầu tư',
         'recruitment' => 'Tuyển dụng',
         'link' => 'Đường dẫn',
+        'add' => 'Thêm',
     ],
 
     'text' => [
@@ -102,6 +103,9 @@ return [
         'abilities' => 'Quyền hạn',
         'ability_ids' => 'Quyền hạn',
         'hotline' => 'Hotline',
+        'attribute' => 'Thuộc tính',
+        'key' => 'Tiêu đề',
+        'value' => 'Giá trị',
     ],
 
     'button' => [

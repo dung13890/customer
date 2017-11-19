@@ -3,6 +3,9 @@
 {{ Html::script(mix('/assets/js/backend/modules/page.js')) }}
     <script>
         $(function () {
+            window.attributeRecruitment = {!! (isset($item) && count($item->attributes))
+                ? json_encode($item->attributes)
+                : '[]' !!};
             window.page.form();
         });
     </script>
@@ -51,7 +54,7 @@
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     {{ Form::label('pdf', __('repositories.label.pdf'), ['class' => 'control-label']) }}
                     {{ Form::file('file', ['id' => 'file']) }}
                     @if (isset($item) && $item->file)
@@ -74,7 +77,19 @@
                         </label>
                     </div>
                 </div>
-                <div class="col-sm-3">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                @if ( $type == 'recruitment')
+                <div class="col-sm-8">
+                    {{ Form::label('attributes', __('repositories.label.attribute'), ['class'=>'control-label']) }}
+                    <div class="row attributes-key-value">
+                    </div>
+                    <a href="javascript:void(0)" id="btn-add-attribute" class="btn btn-success">{{ __('repositories.title.add') }}</a>
+                </div>
+                @endif
+                <div class="col-sm-4">
                     <label></label>
                     <div class="checkbox">
                         <label>

@@ -45,6 +45,7 @@ class Page {
 
   form() {
     var _$ = window.jQuery;
+    this.addAttribute();
     var uploadfile = new Uploadfile();
     uploadfile.init();
     var uploadicon = new Uploadfile('#icon', '#icon-upload');
@@ -64,6 +65,41 @@ class Page {
           uploadfile.sendImage(files[0], laroute.route('backend.summernote.image'), _$(this));
         }
       }
+    });
+  }
+
+  addAttribute() {
+    var _$ = window.$;
+    var count = 0;
+    var domAttributes = '';
+    if (window.attributeRecruitment) {
+      window.attributeRecruitment.map(function (index) {
+        domAttributes += '<div class="group-attribute input-group"><div class="col-sm-4">\
+        <input class="form-control" placeholder="'+ window.lang.get('repositories.label.key') +'" name="attributes[' + count + '][key]" value="'+index.key+'" type="text">\
+        </div><div class="col-sm-6">\
+        <input class="form-control" placeholder="'+ window.lang.get('repositories.label.value') +'" name="attributes[' + count + '][value]" value="'+index.value+'" type="text">\
+        </div><div class="col-sm-2">\
+        <a href="#" class="btn btn-danger delete-attribute"><i class="ion-trash-a"></i></a>\
+        </div></div>';
+        count++;
+      });
+      _$('.attributes-key-value').append(domAttributes);
+    }
+    _$('#btn-add-attribute').on('click', function (e) {
+      e.preventDefault();
+      _$('.attributes-key-value').append('<div class="group-attribute input-group"><div class="col-sm-4">\
+        <input class="form-control" placeholder="'+ window.lang.get('repositories.label.key') +'" name="attributes[' + count + '][key]" type="text">\
+        </div><div class="col-sm-6">\
+        <input class="form-control" placeholder="'+ window.lang.get('repositories.label.value') +'" name="attributes[' + count + '][value]" type="text">\
+        </div><div class="col-sm-2">\
+        <a href="#" class="btn btn-danger delete-attribute"><i class="ion-trash-a"></i></a>\
+        </div></div>');
+      count++;
+    });
+
+    _$('.attributes-key-value').on('click', '.delete-attribute', function (e) {
+      e.preventDefault();
+      _$(this).closest('div.group-attribute').remove();
     });
   }
 }
