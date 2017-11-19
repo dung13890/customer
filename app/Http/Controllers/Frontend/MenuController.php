@@ -41,7 +41,7 @@ class MenuController extends FrontendController
 
     protected function listPage($type)
     {
-        $this->view = 'menu.page';
+        $this->view =  $type == 'distributor' ? 'menu.distributor' : 'menu.page';
         $this->compacts['pages'] = $this->repository->getDataLimit($type, 16);
         $this->compacts['heading'] = $this->menuRepo->findByType($type)->name;
 
