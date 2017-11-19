@@ -51,14 +51,18 @@ class BackendController extends AbstractController
                 'uri' => route($this->prefix . $this->repositoryName . '.show', $item->id),
                 'label' => __('repositories.title.show'),
             ];
-            $actions['edit'] = [
-                'uri' => route($this->prefix . $this->repositoryName . '.edit', $item->id),
-                'label' => __('repositories.title.edit'),
-            ];
-            $actions['delete'] = [
-                'uri' => route($this->prefix . $this->repositoryName . '.destroy', $item->id),
-                'label' => __('repositories.title.delete'),
-            ];
+            if ($this->user->can('edit', $item)) {
+                $actions['edit'] = [
+                    'uri' => route($this->prefix . $this->repositoryName . '.edit', $item->id),
+                    'label' => __('repositories.title.edit'),
+                ];
+            }
+            if ($this->user->can('destroy', $item)) {
+                $actions['delete'] = [
+                    'uri' => route($this->prefix . $this->repositoryName . '.destroy', $item->id),
+                    'label' => __('repositories.title.delete'),
+                ];
+            }
 
             return $actions;
         });

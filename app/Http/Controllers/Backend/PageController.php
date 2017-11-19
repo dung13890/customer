@@ -22,6 +22,7 @@ class PageController extends BackendController
 
     public function type(Request $request, $type)
     {
+        $this->before(__FUNCTION__);
         if (!in_array($type, config('common.page.type'))) {
             abort(403);
         }
@@ -40,6 +41,7 @@ class PageController extends BackendController
 
     public function create($type)
     {
+        $this->before(__FUNCTION__);
         parent::__create();
         $this->compacts['type'] = $type;
 
@@ -48,6 +50,7 @@ class PageController extends BackendController
 
     public function store(Request $request)
     {
+        $this->before(__FUNCTION__);
         $this->validation($request, __FUNCTION__);
         $data = $request->all();
         $type = $request->type;
@@ -59,6 +62,7 @@ class PageController extends BackendController
 
     public function edit($id)
     {
+        $this->before(__FUNCTION__);
         parent::__edit($id);
 
         return $this->viewRender();
@@ -66,6 +70,7 @@ class PageController extends BackendController
 
     public function update(Request $request, $id)
     {
+        $this->before(__FUNCTION__);
         $item = $this->repository->find($id);
         $this->validation($request, __FUNCTION__, $item);
         $data = $request->all();
@@ -77,6 +82,7 @@ class PageController extends BackendController
 
     public function destroy($id)
     {
+        $this->before(__FUNCTION__);
         return $this->doRequest(function () use ($id) {
             return $this->dispatch(new DestroyJob($id));
         }, __FUNCTION__);

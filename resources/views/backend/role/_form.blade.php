@@ -22,7 +22,7 @@
                             <div class="col-sm-3">
                                 <div class="checkbox">
                                     <label>
-                                        {{ Form::checkbox('ability_id[]', $id, $checked) }} {{ $name }}
+                                        {{ Form::checkbox('ability_ids[]', $id, $checked) }} {{ $name }}
                                     </label>
                                 </div>
                             </div>

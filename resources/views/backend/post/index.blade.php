@@ -40,7 +40,9 @@
                         </div>
                         @endslot
                     @endcomponent
+                    @can('post-create')
                     <a href="{{ route('backend.post.create.type', $type) }}" class="btn btn-success btn-sm create-form"><i class="ion-plus-round"></i> {{ __('repositories.title.create') }}</a>
+                    @endcan
                     <div class="table-responsive">
                         <table id="table-index" class="table table-bordered table-hover">
                             <thead>

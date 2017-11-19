@@ -30,7 +30,7 @@ class StoreJob
     public function handle(UserRepository $repository)
     {
         $data = array_only($this->attributes, $repository->model->getFillable());
+        $user = $repository->store($data);
         $user->roles()->sync($this->attributes['role_id']);
-        $repository->store($data);
     }
 }

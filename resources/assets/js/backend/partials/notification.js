@@ -3,7 +3,7 @@
 
 import swal from 'sweetalert2';
 class Notification {
-  destroyRow (datatable = null, remove = false, selector) {
+  destroyRow (datatable = null, remove = null, selector) {
     var _$ = window.$;
     var self = this;
     var el = selector || 'a.delete-action';
@@ -27,8 +27,8 @@ class Notification {
             if (datatable) {
               datatable.refresh();
             }
-            if (remove) {
-              $this.closest('li').fadeOut(400, function() {
+            if (!datatable && remove) {
+              $this.closest(remove).fadeOut(400, function() {
                 $this.remove();
               });
             }

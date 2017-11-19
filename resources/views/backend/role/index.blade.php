@@ -26,7 +26,9 @@
                             @include('backend._partials.components.notification_message')
                         </div>
                     </div>
+                    @can('role-create')
                     <a href="{{ route('backend.role.create') }}" class="btn btn-success btn-sm create-form"><i class="ion-plus-round"></i> {{ __('repositories.title.create') }}</a>
+                    @endcan
                     <div class="table-responsive">
                         <table id="table-index" class="table table-bordered table-hover">
                             <thead>
@@ -48,8 +50,12 @@
                                         })->implode(' ') !!}
                                     </td>
                                     <td>
+                                        @can ('role-edit')
                                         <a href="{{ route('backend.role.edit', $role) }}" class="btn btn-xs btn-default"><i class="ion-edit"></i></a>
+                                        @endcan
+                                        @can('role-destroy')
                                         <a href="{{ route('backend.role.destroy', $role) }}" class="btn btn-xs btn-danger delete-action"><i class="ion-close-circled"></i></a>
+                                        @endcan
                                     </td>
                                 </tr>
                                 @endforeach

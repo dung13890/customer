@@ -35,6 +35,7 @@ class CategoryController extends BackendController
 
     public function type($type)
     {
+        $this->before(__FUNCTION__);
         $this->compacts['type'] = $type;
 
         return $this->indexRender($type);
@@ -42,6 +43,7 @@ class CategoryController extends BackendController
 
     public function store(Request $request)
     {
+        $this->before(__FUNCTION__);
         $this->validation($request, __FUNCTION__);
         $data = $request->all();
 
@@ -52,6 +54,7 @@ class CategoryController extends BackendController
 
     public function edit($id)
     {
+        $this->before(__FUNCTION__);
         parent::__edit($id);
 
         return $this->indexRender($this->compacts['item']->type, 'edit');
@@ -59,6 +62,7 @@ class CategoryController extends BackendController
 
     public function update(Request $request, $id)
     {
+        $this->before(__FUNCTION__);
         $item = $this->repository->find($id);
         $this->validation($request, __FUNCTION__, $item);
         $data = $request->all();
@@ -70,6 +74,7 @@ class CategoryController extends BackendController
 
     public function destroy($id)
     {
+        $this->before(__FUNCTION__);
         return $this->doRequest(function () use ($id) {
             $status = $this->dispatch(new DestroyJob($id));
             if (!$status) {

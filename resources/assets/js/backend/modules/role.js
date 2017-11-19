@@ -7,7 +7,7 @@ class Role {
   index () {
     var _$ = window.$;
     var notification = new Notification();
-    notification.destroyRow(null, true);
+    notification.destroyRow(null, 'tr');
   }
 }
 

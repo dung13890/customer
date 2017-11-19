@@ -28,6 +28,7 @@ class ProductController extends BackendController
 
     public function index(Request $request)
     {
+        $this->before(__FUNCTION__);
         parent::__index();
         $this->compacts['categories'] = $this->repoCategory->getDataByType('product', $this->categorySelect)->pluck('name', 'id')->prepend('---', 0);
         if ($request->ajax() && $request->has('datatables')) {
@@ -47,6 +48,7 @@ class ProductController extends BackendController
 
     public function create()
     {
+        $this->before(__FUNCTION__);
         parent::__create();
         $this->compacts['categories'] = $this->repoCategory->getDataByType('product', $this->categorySelect)->pluck('name', 'id')->prepend('---', 0);
         $this->compacts['articleCategories'] = $this->repoCategory->getDataByType('article', $this->categorySelect);
@@ -56,6 +58,7 @@ class ProductController extends BackendController
 
     public function store(Request $request)
     {
+        $this->before(__FUNCTION__);
         $this->validation($request, __FUNCTION__);
         $data = $request->all();
 
@@ -66,6 +69,7 @@ class ProductController extends BackendController
 
     public function edit($id)
     {
+        $this->before(__FUNCTION__);
         parent::__edit($id);
         $this->compacts['categories'] = $this->repoCategory->getDataByType('product', $this->categorySelect)->pluck('name', 'id');
         $this->compacts['articleCategories'] = $this->repoCategory->getDataByType('article', $this->categorySelect);
@@ -76,6 +80,7 @@ class ProductController extends BackendController
 
     public function update(Request $request, $id)
     {
+        $this->before(__FUNCTION__);
         $item = $this->repository->find($id);
         $this->validation($request, __FUNCTION__, $item);
         $data = $request->all();
@@ -87,6 +92,7 @@ class ProductController extends BackendController
 
     public function destroy($id)
     {
+        $this->before(__FUNCTION__);
         return $this->doRequest(function () use ($id) {
             return $this->dispatch(new DestroyJob($id));
         }, __FUNCTION__);

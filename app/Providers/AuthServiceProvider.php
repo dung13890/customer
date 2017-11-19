@@ -13,7 +13,16 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
+        \App\Eloquent\User::class => \App\Policies\UserPolicy::class,
+        \Silber\Bouncer\Database\Role::class => \App\Policies\RolePolicy::class,
+        \App\Eloquent\Slide::class => \App\Policies\SlidePolicy::class,
+        \App\Eloquent\Menu::class => \App\Policies\MenuPolicy::class,
+        \App\Eloquent\Config::class => \App\Policies\ConfigPolicy::class,
+        \App\Eloquent\Page::class => \App\Policies\PagePolicy::class,
+        \App\Eloquent\Product::class => \App\Policies\ProductPolicy::class,
+        \App\Eloquent\Contact::class => \App\Policies\ContactPolicy::class,
+        \App\Eloquent\Category::class => \App\Policies\CategoryPolicy::class,
+        \App\Eloquent\Post::class => \App\Policies\PostPolicy::class,
     ];
 
     /**

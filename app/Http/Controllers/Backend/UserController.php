@@ -25,6 +25,7 @@ class UserController extends BackendController
 
     public function index(Request $request)
     {
+        $this->before(__FUNCTION__);
         parent::__index();
         $this->compacts['roles'] = $this->roleList;
 
@@ -45,6 +46,7 @@ class UserController extends BackendController
 
     public function create()
     {
+        $this->before(__FUNCTION__);
         parent::__create();
         $this->compacts['roles'] = $this->roleList;
 
@@ -53,6 +55,7 @@ class UserController extends BackendController
 
     public function store(Request $request)
     {
+        $this->before(__FUNCTION__);
         $this->validation($request, __FUNCTION__);
         $data = $request->all();
 
@@ -63,6 +66,7 @@ class UserController extends BackendController
 
     public function show($id)
     {
+        $this->before(__FUNCTION__);
         parent::__show($id);
 
         return $this->viewRender();
@@ -70,6 +74,7 @@ class UserController extends BackendController
 
     public function edit($id)
     {
+        $this->before(__FUNCTION__);
         $this->compacts['roles'] = $this->roleList;
         parent::__edit($id);
 
@@ -78,6 +83,7 @@ class UserController extends BackendController
 
     public function update(Request $request, $id)
     {
+        $this->before(__FUNCTION__);
         if (!$request->password) {
             $request->replace($request->except(['password', 'password_confirmation']));
         }
@@ -93,6 +99,7 @@ class UserController extends BackendController
 
     public function destroy($id)
     {
+        $this->before(__FUNCTION__);
         return $this->doRequest(function () use ($id) {
             return $this->dispatch(new DestroyJob($id));
         }, __FUNCTION__);

@@ -3,6 +3,8 @@
 namespace App\Exceptions;
 
 use Exception;
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use Illuminate\Http\Response;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -48,6 +50,14 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($request->ajax()) {
+            if ($exception instanceof HttpException && $exception->getStatusCode() == Response::HTTP_FORBIDDEN) {
+                $e['status'] = false;
+                $e['message'] = [$exception->getMessage()];
+                $code = Response::HTTP_FORBIDDEN;
+                return response()->json($e, $code);
+            }
+        }
         return parent::render($request, $exception);
     }
 }

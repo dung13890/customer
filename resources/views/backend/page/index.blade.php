@@ -32,7 +32,9 @@
                         @slot('filter_fields')
                         @endslot
                     @endcomponent
+                    @can('page-create')
                     <a href="{{ route('backend.page.create.type', $type) }}" class="btn btn-success btn-sm create-form"><i class="ion-plus-round"></i> {{ __('repositories.title.create') }}</a>
+                    @endcan
                     <div class="table-responsive">
                         <table id="table-index" class="table table-bordered table-hover">
                             <thead>

@@ -127,10 +127,12 @@
         </div>
         <hr>
 
+        @can('config-edit')
         <div class="form-group text-right">
             <button type="submit" class="btn btn-warning btn-sm"><i class="ion-trash-b"></i> {{ isset($item) ? __('repositories.title.edit') : __('repositories.title.cache_clear') }}</button>
             <button type="submit" class="btn btn-success btn-sm"><i class="ion-checkmark-circled"></i> {{ isset($item) ? __('repositories.title.edit') : __('repositories.title.edit') }}</button>
         </div>
+        @endcan
     </div>
     <div class="col-sm-4">
         @include('backend.config._seo')
