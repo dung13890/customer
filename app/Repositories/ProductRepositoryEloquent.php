@@ -58,8 +58,16 @@ class ProductRepositoryEloquent extends AbstractRepositoryEloquent implements Pr
             ->where('category_id', $id)
             ->where('locked', false)
             ->take($limit)
-            ->orderBy('updated')
+            ->orderBy('updated_at', 'desc')
             ->get($columns);
+    }
+
+    public function getDataByPaginate($paginate, $columns = ['*'])
+    {
+        return $this->model
+            ->where('locked', false)
+            ->orderBy('updated_at', 'desc')
+            ->paginate($paginate);
     }
 
     public function findBySlug($slug)

@@ -29,7 +29,7 @@ class Category extends Model
 
     public function products()
     {
-        return $this->hasMany(Product::class)->where('locked', false);
+        return $this->hasMany(Product::class)->where('locked', false)->orderBy('updated_at', 'desc');
     }
 
     public function limitPosts()

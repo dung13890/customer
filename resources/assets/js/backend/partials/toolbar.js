@@ -9,6 +9,7 @@ var toolbarSummernote = [
   ['table', ['table']],
   ['insert', ['link', 'picture', 'video', 'hr']],
   ['view', ['fullscreen', 'codeview']],
+  ['mybutton', ['layout']],
   ['help', ['help']]
 ]
 

@@ -2,7 +2,9 @@
 <script>
     var item = {!! $item or '{}' !!};
 </script>
+{{ Html::script(mix('/assets/js/backend/jquery-ui.min.js')) }}
 {{ Html::script(mix('/assets/js/backend/summernote.min.js')) }}
+{{ Html::script(mix('/assets/js/backend/grideditor.min.js')) }}
 {{ Html::script(mix('/assets/js/backend/modules/product.js')) }}
 {{ HTML::script(mix('assets/vue/dropzone.js')) }}
     <script>
@@ -63,6 +65,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('advantage', __('repositories.label.advantage'), ['class' => 'control-label']) }}
+            <div class="grid-editor"></div>
             {{ Form::textarea('advantage', null, ['class' => 'form-control textarea-summernote']) }}
         </div>
         <div class="form-group">

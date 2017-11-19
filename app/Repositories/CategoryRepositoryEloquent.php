@@ -52,6 +52,7 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
         return $this->model
             ->where('type', $type)
             ->where('locked', false)
+            ->where('id', '<>', config('common.category.id_system')[1])
             ->take($limit)
             ->orderBy('updated_at', 'desc')
             ->get($columns);

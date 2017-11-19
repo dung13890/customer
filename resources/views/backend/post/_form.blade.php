@@ -1,5 +1,7 @@
 @push('prescripts')
+{{ Html::script(mix('/assets/js/backend/jquery-ui.min.js')) }}
 {{ Html::script(mix('/assets/js/backend/summernote.min.js')) }}
+{{ Html::script(mix('/assets/js/backend/grideditor.min.js')) }}
 {{ Html::script(mix('/assets/js/backend/modules/post.js')) }}
     <script>
         $(function () {
@@ -59,6 +61,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('description', __('repositories.label.description'), ['class' => 'control-label']) }}
+            <div class="grid-editor"></div>
             {{ Form::textarea('description', null, ['class' => 'form-control textarea-summernote']) }}
         </div>
     </div>

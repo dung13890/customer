@@ -36,7 +36,6 @@
         @include('frontend.footer.footer')
     </div>
     @if ($configs['hotline'])
-    <div >
     <a class="call-mobile" href="tel:{{ $configs['hotline'] }}">
         <span class="call-number">{{ $configs['hotline'] }}</span><i class="fa fa-phone"></i>
     </a>
