@@ -36,9 +36,10 @@
         @include('frontend.footer.footer')
     </div>
     @if ($configs['hotline'])
-    <div class="call-mobile">
-        <a id="callnowbutton" href="tel:{{ $configs['hotline'] }}">{{ $configs['hotline'] }}</a><i class="fa fa-phone"></i>
-    </div>
+    <div >
+    <a class="call-mobile" href="tel:{{ $configs['hotline'] }}">
+        <span class="call-number">{{ $configs['hotline'] }}</span><i class="fa fa-phone"></i>
+    </a>
     @endif
     @include('frontend.footer.popup')
     {{ Html::script('/frontend/js/main.min.js') }}
