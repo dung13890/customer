@@ -14284,8 +14284,9 @@ p.a-menu {
     display: -ms-flexbox;
     display: flex;
     width: 100%;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
     margin-bottom: 24px;
     padding: 0 !important;
     color: #333 !important;
@@ -14297,7 +14298,7 @@ p.a-menu {
 }
 
 .megamenu .owl-carousel .owl-item .item-new img {
-    width: auto;
+    width: 60px;
 }
 
 .megamenu .item-new:hover {
