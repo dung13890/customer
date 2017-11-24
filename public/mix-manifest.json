@@ -20,7 +20,9 @@
     "/assets/js/backend/modules/role.js": "/assets/js/backend/modules/role.js",
     "/assets/js/backend/modules/config.js": "/assets/js/backend/modules/config.js",
     "/assets/js/backend/modules/menu.js": "/assets/js/backend/modules/menu.js",
+    "/assets/js/distributor.js": "/assets/js/distributor.js",
     "/assets/js/backend/summernote.min.js": "/assets/js/backend/summernote.min.js",
     "/assets/js/backend/grideditor.min.js": "/assets/js/backend/grideditor.min.js",
-    "/assets/js/backend/jquery-ui.min.js": "/assets/js/backend/jquery-ui.min.js"
+    "/assets/js/backend/jquery-ui.min.js": "/assets/js/backend/jquery-ui.min.js",
+    "/assets/js/backend/select2.min.js": "/assets/js/backend/select2.min.js"
 }

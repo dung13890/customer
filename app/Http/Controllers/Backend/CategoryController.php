@@ -37,6 +37,7 @@ class CategoryController extends BackendController
     {
         $this->before(__FUNCTION__);
         $this->compacts['type'] = $type;
+        $this->compacts['districts'] = config('common.districts');
 
         return $this->indexRender($type);
     }
@@ -57,6 +58,7 @@ class CategoryController extends BackendController
         $this->before(__FUNCTION__);
         parent::__edit($id);
         $this->compacts['type'] = $this->compacts['item']->type;
+        $this->compacts['districts'] = config('common.districts');
 
         return $this->indexRender($this->compacts['item']->type, 'edit');
     }

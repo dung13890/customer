@@ -4,7 +4,6 @@
 import '../../../bower/jqTree/build/tree.jquery';
 import Notification from './../partials/notification';
 import Uploadfile from './../partials/uploadfile';
-
 class Category {
   index(items, item) {
     var notification = new Notification();
@@ -18,6 +17,20 @@ class Category {
 
     notification.destroyRow(null, 'li');
     notification.flashMessage();
+    window.$('.textarea-summernote').summernote({
+      height:200,
+      toolbar: [
+        ['style', ['bold', 'italic', 'underline', 'clear']],
+        ['fontsize', ['fontsize']],
+        ['font', ['fontname']],
+        ['height', ['height']],
+        ['view', ['codeview']],
+      ]
+    });
+
+    window.$('.data-district').select2({
+      placeholder: '---'
+    });
   }
 
   jqTree(items, item, selector = '#list') {

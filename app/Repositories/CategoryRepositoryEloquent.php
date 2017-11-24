@@ -97,6 +97,24 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
             ->get($columns);
     }
 
+    public function getDistributorByCode($code, $columns = ['*'])
+    {
+        return $this->model
+            ->where('district_cd', $code)
+            ->where('type', 'distributor')
+            ->where('locked', false)
+            ->first($columns);
+    }
+
+    public function getCodeDistributor()
+    {
+        return $this->model
+            ->whereNotNull('district_cd')
+            ->where('district_cd', '<>', '')
+            ->distinct()
+            ->get(['district_cd']);
+    }
+
     public function findBySlug($slug)
     {
         return $this->model->findBySlugOrFail($slug);

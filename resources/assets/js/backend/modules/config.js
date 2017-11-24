@@ -20,12 +20,7 @@ class Config {
         ['font', ['fontname']],
         ['height', ['height']],
         ['view', ['codeview']],
-      ],
-      callbacks: {
-        onImageUpload: function(files) {
-          uploadfile.sendImage(files[0], laroute.route('backend.summernote.image'), _$(this));
-        }
-      }
+      ]
     });
   }
 }
