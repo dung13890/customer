@@ -54,18 +54,33 @@ class CategoryController extends FrontendController
         $this->view = 'category.product';
     }
 
-    public function pages($item)
+    protected function pages($item)
     {
         $this->view = 'category.page';
         $this->compacts['pages'] = $item->pages;
         $this->compacts['heading'] = $item->name;
     }
 
-    public function landingPage($item)
+    protected function landingPage($item)
     {
         $this->compacts['class'] = 'landing-page';
         $this->compacts['item'] = $item;
         $this->compacts['heading'] = $item->name;
         $this->view = 'category.landingpage';
+    }
+
+    public function ajaxDistributor(Request $request)
+    {
+        $code = $request->code;
+        $item = $this->repository->getDistributorByCode($code, ['name', 'slug', 'description']);
+        if (!$item) {
+            return response()->json([
+                'status' => false,
+            ]);
+        }
+        return response()->json([
+            'status' => true,
+            'item' => $item,
+        ]);
     }
 }

@@ -15,12 +15,18 @@
             </div>
         </div>
         @endif
+        @if ($type == 'distributor')
+        <div class="col-md-4">
+            {{ Form::label('district_cd', __('repositories.label.district'), ['class'=>'control-label']) }}
+            {{ Form::select('district_cd', $districts, null, ['class' => 'form-control data-district', 'placeholder' => '---']) }}
+        </div>
+        @endif
     </div>
 </div>
 
 <div class="form-group">
     {{ Form::label('name', __('repositories.label.description'), ['class' => 'control-label']) }}
-    {{ Form::textarea('description', null, ['class' => 'form-control', 'rows'=>'5', 'placeholder' => __('repositories.label.description')]) }}
+    {{ Form::textarea('description', null, ['class' => 'form-control textarea-summernote']) }}
 </div>
 
 <div class="form-group">

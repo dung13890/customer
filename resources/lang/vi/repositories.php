@@ -49,6 +49,7 @@ return [
         'show_in_category' => 'Nhóm bài viết hiển thị',
         'message_contact' => 'Chúng tôi sẽ liên hệ với bạn sớm nhất có thể. Cám ơn!',
         'forbiden_to_perform' => 'Bạn không có quyền truy cập!',
+        'not_distributor' => 'Hiện tại chúng tôi chưa có hệ thống phân phối tại tỉnh này.',
     ],
 
     'label' => [
@@ -108,6 +109,7 @@ return [
         'key' => 'Tiêu đề',
         'value' => 'Giá trị',
         'is_page' => 'Landing page',
+        'district' => 'Tỉnh',
     ],
 
     'button' => [

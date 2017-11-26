@@ -15,32 +15,29 @@
 <div class="container">
     <div class="single-product-container">
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="single-post-wrap">
-                    <div class="post-content">
-                        <div class="row">
-                            <div class="page-slider owl-carousel">
-                                @if (count($categories))
-                                @foreach ($categories as $category)
-                                    <div class="page-item item">
-                                        <div class="page-item__image col-sm-12 col-md-6 col-lg-6">
-                                            <img src="{{ route('image', $category->image_medium) }}" alt="{{ $category->name }}">
-                                        </div>
-                                        <div class="page-item__content col-sm-12 col-md-6 col-lg-6">
-                                            <h3 class="box-list-title">
-                                                <a href="{{ route('category.show', $category->slug) }}" title="{{ $category->name }}">{{ $category->name }}</a>
-                                            </h3>
-                                            {{ $category->description }}
-                                        </div>
-                                    </div>
-                                @endforeach
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div id="vnm_map"></div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <h3 class="box-list-title">
+                    <a href="{{ $distributor ? route('category.show', $distributor->slug) : 'javascript:void(0)' }}" id="title-distributor">{{ $distributor->name or '' }}</a>
+                </h3>
+                <div id="description-distributor">{!! $distributor->description or '' !!}</div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
+@push('prestyles')
+{{ Html::style('/frontend/css/custom.css') }}
+@endpush
+
+@push('prescripts')
+<script>
+    window.distributorCds = {!! json_encode($distributorCds) !!};
+    window.distributorCd = '{{ $distributorCd }}';
+    window.messageNotFound = '{{ __("repositories.text.not_distributor") }}';
+</script>
+{{ Html::script(mix('/assets/js/distributor.js')) }}
+@endpush

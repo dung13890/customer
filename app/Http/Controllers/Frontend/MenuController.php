@@ -23,14 +23,14 @@ class MenuController extends FrontendController
         $this->prodRepo = $product;
     }
 
-    public function index($type)
+    public function index($type, $code = null)
     {
         switch ($type) {
             case 'introduce':
             case 'distributor':
             case 'recruitment':
             case 'investor':
-                return $this->listPage($type);
+                return $this->listPage($type, $code);
                 break;
             case 'product':
                 return $this->listProduct();
@@ -45,9 +45,17 @@ class MenuController extends FrontendController
         }
     }
 
-    protected function listPage($type)
+    protected function listPage($type, $code = null)
     {
         $this->view =  $type == 'distributor' ? 'menu.distributor' : 'menu.category';
+        if ($type == 'distributor') {
+            if ($code && !in_array($code, array_keys(config('common.districts')))) {
+                abort(403);
+            }
+            $this->compacts['distributor'] = $this->cateRepo->getDistributorByCode($code, ['name', 'slug', 'description']);
+            $this->compacts['distributorCds'] = $this->cateRepo->getCodeDistributor()->pluck('district_cd');
+            $this->compacts['distributorCd'] = $code;
+        }
         $this->compacts['categories'] = $this->cateRepo->getLimitByType($type, 15, ['name', 'slug', 'image', 'banner', 'description']);
         $this->compacts['heading'] = $this->menuRepo->findByType($type)->name;
 

@@ -19,8 +19,7 @@ class Category extends Model
         'is_home',
         'is_page',
         'icon',
-        'districts',
-        'information',
+        'district_cd',
         'locked',
     ];
 

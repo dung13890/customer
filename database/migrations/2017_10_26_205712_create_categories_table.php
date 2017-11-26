@@ -21,8 +21,7 @@ class CreateCategoriesTable extends Migration
             $table->string('image')->nullable();
             $table->string('icon')->nullable();
             $table->string('banner')->nullable();
-            $table->string('districts')->nullable();
-            $table->string('information')->nullable();
+            $table->char('district_cd', 10)->nullable();
             $table->text('description')->nullable();
             $table->boolean('is_home')->default(true);
             $table->boolean('is_page')->default(false);

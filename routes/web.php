@@ -34,11 +34,12 @@ Route::group(['prefix' => '/', 'namespace' => 'Frontend'], function () {
     Route::post('lien-he', 'HomeController@contact')->name('home.contact');
     Route::get('danh-muc/{slug}', 'CategoryController@show')->name('category.show');
     Route::get('trang/{slug}', 'PageController@show')->name('page.show');
-    Route::get('menu/{type}', 'MenuController@index')->name('menu.index');
+    Route::get('menu/{type}/{code?}', 'MenuController@index')->name('menu.index');
     Route::get('bai-viet/{slug}', 'PostController@show')->name('post.show');
     Route::get('san-pham/{slug}', 'ProductController@show')->name('product.show');
     Route::get('lien-he', 'HomeController@pageContact')->name('home.page.contact');
     Route::post('san-pham-tim-kiem', 'ProductController@search')->name('product.search');
+    Route::post('category/distributor', 'CategoryController@ajaxDistributor')->name('category.post.distributor');
 });
 
 Route::group(['namespace' => 'Backend'], function () {
