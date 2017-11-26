@@ -73,14 +73,10 @@ class CategoryController extends FrontendController
     {
         $code = $request->code;
         $item = $this->repository->getDistributorByCode($code, ['name', 'slug', 'description']);
-        if (!$item) {
-            return response()->json([
-                'status' => false,
-            ]);
-        }
+
         return response()->json([
-            'status' => true,
-            'item' => $item,
+            'status' => $item ? true : false,
+            'item' => $item ?: null,
         ]);
     }
 }
