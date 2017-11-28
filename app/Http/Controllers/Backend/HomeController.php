@@ -4,17 +4,21 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Contracts\Repositories\ContactRepository;
+use App\Contracts\Repositories\CommentRepository;
 use App\Jobs\Contact\DestroyJob;
 use App\Contracts\Services\MediaInterface;
 
 class HomeController extends BackendController
 {
-    public function __construct(ContactRepository $contact)
+    protected $commentRepo;
+    protected $dataSelect = ['id', 'name', 'email', 'phone', 'description'];
+
+    public function __construct(ContactRepository $contact, CommentRepository $comment)
     {
         parent::__construct($contact);
+        $this->commentRepo = $comment;
     }
 
-    protected $dataSelect = ['id', 'name', 'email', 'phone', 'description'];
 
     public function index(Request $request)
     {
@@ -66,5 +70,13 @@ class HomeController extends BackendController
         return [
             'url' => route('image', app()['glide.builder']->getUrl($path))
         ];
+    }
+
+    public function readComment($id)
+    {
+        $comment = $this->commentRepo->find($id);
+        $comment->update(['is_read' => true]);
+        \Cache::forget('countComment');
+        return redirect($comment->url);
     }
 }

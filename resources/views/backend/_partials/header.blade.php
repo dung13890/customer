@@ -5,9 +5,9 @@
     </div>
 
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ $me->login_name }} <span class="caret"></span></a>
-    <a href="{{ route('home') }}" class="icon-menu">
+    <a target="_blank" href="{{ count($countComment) ? route('backend.home.read.comment', $countComment->first()->id) : 'javascript:void(0)' }}" class="icon-menu">
         <i class="ion-ios-bell-outline"></i>
-        <span class="fb-comments-count badge badge-dange" data-href="{{ env('APP_URL') }}">0</span>
+        <span class="badge badge-dange">{{ count($countComment) }}</span>
     </a>
     <ul class="dropdown-menu dropdown-menu-right">
         <li><a href="#"> <i class="ion-person"></i> {{ __('repositories.title.profile') }}</a></li>
@@ -25,4 +25,3 @@
         </li>
     </ul>
 </nav>
-@include('frontend.scripts._facebook')

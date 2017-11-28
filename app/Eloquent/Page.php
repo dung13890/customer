@@ -26,11 +26,15 @@ class Page extends Model
         'description',
         'locked',
         'is_home',
-        'is_comment',
         'attributes',
         'category_id',
         'type',
     ];
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable')->where('locked', false)->orderBy('created_at', 'desc')->take(50);
+    }
 
     public function setCeoTitleAttribute($value)
     {

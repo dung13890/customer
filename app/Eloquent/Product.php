@@ -26,8 +26,12 @@ class Product extends Model
         'image',
         'category_id',
         'locked',
-        'is_comment',
     ];
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable')->where('locked', false)->orderBy('created_at', 'desc')->take(50);
+    }
 
     public function categories()
     {

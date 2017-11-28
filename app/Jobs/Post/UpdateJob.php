@@ -35,7 +35,6 @@ class UpdateJob
         $path = strtolower(class_basename($repository->model));
         $data = array_only($this->attributes, $repository->model->getFillable());
         $data['locked'] = $data['locked'] ?? false;
-        $data['is_comment'] = $data['is_comment'] ?? false;
         if (array_has($data, 'image')) {
             if (!empty($this->item->image)) {
                 $this->destroyFile($this->item->image);

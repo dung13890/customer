@@ -4,22 +4,30 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Contracts\Repositories\CategoryRepository;
+use App\Contracts\Repositories\ContactRepository;
+use App\Contracts\Repositories\CommentRepository;
 use App\Contracts\Repositories\PageRepository;
 use App\Contracts\Repositories\SlideRepository;
-use App\Contracts\Repositories\ContactRepository;
 
 class HomeController extends FrontendController
 {
     protected $repoPage;
     protected $repoSlide;
     protected $repoContact;
+    protected $repoComment;
 
-    public function __construct(CategoryRepository $category, PageRepository $page, SlideRepository $slide, ContactRepository $contact)
-    {
+    public function __construct(
+        CategoryRepository $category,
+        PageRepository $page,
+        SlideRepository $slide,
+        ContactRepository $contact,
+        CommentRepository $comment
+    ) {
         parent::__construct($category);
         $this->repoPage = $page;
         $this->repoSlide = $slide;
         $this->repoContact = $contact;
+        $this->repoComment = $comment;
     }
 
     public function index()
@@ -42,6 +50,31 @@ class HomeController extends FrontendController
         }
 
         return redirect(route('home.page.contact'))->with('message', __('repositories.text.message_contact'));
+    }
+
+    public function comment(Request $request)
+    {
+        if ($request->name) {
+            $data = $request->only(['name', 'email', 'content', 'url']);
+            $data['url'] = parse_url($data['url'], PHP_URL_PATH);
+            $data['commentable_id'] = $request->type_id;
+            $type = $request->type;
+            switch ($type) {
+                case 'post':
+                    $data['commentable_type'] = \App\Eloquent\Post::class;
+                    break;
+                case 'product':
+                    $data['commentable_type'] = \App\Eloquent\Product::class;
+                    break;
+                case 'page':
+                    $data['commentable_type'] = \App\Eloquent\Page::class;
+                    break;
+            }
+            \Cache::forget('countComment');
+            $this->repoComment->store($data);
+        }
+
+        return redirect()->back()->with('message', __('repositories.text.message_comment'));
     }
 
     public function pageContact()

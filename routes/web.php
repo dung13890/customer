@@ -32,6 +32,7 @@ Route::get('webhook', ['as' => 'webhook', function (Request $request) {
 Route::group(['prefix' => '/', 'namespace' => 'Frontend'], function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::post('lien-he', 'HomeController@contact')->name('home.contact');
+    Route::post('binh-luan', 'HomeController@comment')->name('home.comment');
     Route::get('danh-muc/{slug}', 'CategoryController@show')->name('category.show');
     Route::get('trang/{slug}', 'PageController@show')->name('page.show');
     Route::get('menu/{type}/{code?}', 'MenuController@index')->name('menu.index');
@@ -47,9 +48,15 @@ Route::group(['namespace' => 'Backend'], function () {
     Route::group(['prefix' => 'backend', 'as' => 'backend.', 'middleware' => ['auth']], function () {
         Route::get('/', 'HomeController@index')->name('home.index');
         Route::post('summernote/image', 'HomeController@summernoteImage')->name('summernote.image');
+
+        Route::resource('comment', 'CommentController', [
+            'except' => ['create', 'store', 'show', 'destroy']
+        ]);
+        Route::post('comment/{comment}', 'CommentController@destroy')->name('comment.destroy');
         Route::resource('home', 'HomeController', [
             'except' => ['index', 'create', 'store', 'update', 'edit', 'destroy']
         ]);
+        Route::get('home/read/comment/{comment}', 'HomeController@readComment')->name('home.read.comment');
         Route::post('home/{contact}', 'HomeController@destroy')->name('home.destroy');
 
         Route::resource('user', 'UserController', [

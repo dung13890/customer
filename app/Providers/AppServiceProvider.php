@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Cache;
 use League\Glide\ServerFactory;
 use League\Glide\Responses\LaravelResponseFactory;
 use League\Glide\Urls\UrlBuilderFactory;
+use Carbon\Carbon;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,6 +18,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Carbon::setLocale('vi');
         \Schema::defaultStringLength(191);
     }
 
@@ -101,6 +103,9 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('backend.*', function ($view) {
             $view->with('me', \Auth::guard('backend')->user());
+            $view->with('countComment', Cache::remember('countComment', 60, function () {
+                return app(\App\Contracts\Repositories\CommentRepository::class)->getCommentUnRead();
+            }));
         });
 
         view()->composer('frontend.*', function ($view) {

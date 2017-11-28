@@ -23,6 +23,9 @@ class Distributor {
     var bubble_map = new Datamap({
       element: document.getElementById('vnm_map'),
       responsive: true,
+      fills: {
+        defaultFill: '#ccc' // Any hex, color name or rgb/rgba value
+      },
       geographyConfig: {
         popupOnHover: true,
         highlightOnHover: true,
@@ -32,8 +35,9 @@ class Distributor {
       scope: 'vnm',
       setProjection: function (element) {
         var projection = d3.geo.mercator()
-          .center([113, 17])
-          .scale(1800);
+          .center([106.9629, 16])
+          .scale(3.4*element.offsetWidth)
+          .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
         var path = d3.geo.path().projection(projection);
         return { path: path, projection: projection };
       },

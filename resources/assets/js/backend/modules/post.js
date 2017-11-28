@@ -17,6 +17,7 @@ class Post {
         }
       },
       { data: 'ceo_keywords', name: 'ceo_keywords'},
+      { data: 'category', name: 'category', orderable: false},
       { data: 'locked',
         name: 'locked',
         render:function (data, type, row) {

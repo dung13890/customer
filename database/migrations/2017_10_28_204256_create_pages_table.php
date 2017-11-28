@@ -26,7 +26,6 @@ class CreatePagesTable extends Migration
             $table->dateTime('create_dt');
             $table->boolean('locked')->default(false);
             $table->boolean('is_home')->default(false);
-            $table->boolean('is_comment')->default(false);
             $table->json('attributes')->nullable();
             $table->char('type')->default('introduce');
             $table->integer('category_id')->default(0);

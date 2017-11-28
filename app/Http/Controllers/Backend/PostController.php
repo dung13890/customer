@@ -15,7 +15,7 @@ class PostController extends BackendController
     use ControllableTrait;
 
     protected $repoCategory;
-    protected $dataSelect = ['id', 'name', 'ceo_keywords', 'locked', 'slug'];
+    protected $dataSelect = ['id', 'name', 'ceo_keywords', 'locked', 'category_id', 'slug'];
     protected $categorySelect = ['id', 'name'];
 
     public function __construct(PostRepository $post, CategoryRepository $category)
@@ -35,14 +35,17 @@ class PostController extends BackendController
         $this->compacts['categories'] = $this->repoCategory->getDataByType($type, $this->categorySelect)->pluck('name', 'id')->prepend('---', 0);
         if ($request->ajax() && $request->has('datatables')) {
             $params = $request->all();
-            $datatables = \DataTables::of($this->repository->datatables($this->dataSelect)->where('type', $type));
+            $datatables = \DataTables::of($this->repository->datatables($this->dataSelect, ['category'])->where('type', $type));
             $this->filterDatatable($datatables, $params, function ($query, $params) {
                 if (array_has($params, 'category_id') && $params['category_id']) {
                     $query->byCategory($params['category_id']);
                 }
             });
 
-            return $this->columnDatatable($datatables)->make(true);
+            return $this->columnDatatable($datatables)
+            ->addColumn('category', function ($item) {
+                return $item->category->name;
+            })->make(true);
         }
 
         return $this->viewRender();

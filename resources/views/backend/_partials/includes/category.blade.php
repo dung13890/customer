@@ -9,7 +9,6 @@
                 <?php
                     $checked = (isset($item) && isset($item->categories->keyBy('id')[$rootCategory->id])) ? true : false;
                 ?>
-                @if ($loop->first) <?php $checked = true ?> @endif
                 <li>
                     <div class="container-fluid checkbox">
                         <label>

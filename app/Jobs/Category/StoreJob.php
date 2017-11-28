@@ -32,6 +32,9 @@ class StoreJob
     {
         $path = strtolower(class_basename($repository->model));
         $data = array_only($this->attributes, $repository->model->getFillable());
+        $data['locked'] = $data['locked'] ?? false;
+        $data['is_home'] = $data['is_home'] ?? false;
+        $data['is_page'] = $data['is_page'] ?? false;
         if (array_has($data, 'image')) {
             $data['image'] = $this->uploadFile($data['image'], $path);
         }

@@ -27,6 +27,7 @@ return [
         'product' => 'Sản phẩm',
         'post' => 'Tin tức',
         'article' => 'Bài viết',
+        'comment' => 'Bình luận',
         'page' => 'Trang',
         'browse' => 'Chọn ảnh...',
         'social' => 'Mạng xã hội',
@@ -48,6 +49,7 @@ return [
         'sign_in_to_phon' => '(04) 66 530 666',
         'show_in_category' => 'Nhóm bài viết hiển thị',
         'message_contact' => 'Chúng tôi sẽ liên hệ với bạn sớm nhất có thể. Cám ơn!',
+        'message_comment' => 'Gửi bình luận thành công !',
         'forbiden_to_perform' => 'Bạn không có quyền truy cập!',
         'not_distributor' => 'Hiện tại chúng tôi chưa có hệ thống phân phối tại tỉnh này.',
     ],
@@ -191,6 +193,14 @@ return [
 
     'contact' => [
         'name' => 'Liên hệ',
+    ],
+
+    'comment' => [
+        'name' => 'Bình luận',
+        'resource' => [
+            'edit' => 'Cập nhật bình luận',
+            'index' => 'Danh sách bình luận',
+        ],
     ],
 
     'post' => [

@@ -18,11 +18,15 @@ class Post extends Model
         'slug',
         'image',
         'description',
-        'is_comment',
         'type',
         'locked',
         'category_id',
     ];
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable')->where('locked', false)->orderBy('created_at', 'desc')->take(50);
+    }
 
     public function category()
     {

@@ -98,6 +98,9 @@
                         <a class="nav-link" href="{{ route('backend.menu.index') }}"> {{ __('repositories.title.menu') }}</a>
                     </li>
                     @endcan
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('backend.comment.index') }}"> {{ __('repositories.title.comment') }}</a>
+                    </li>
                     @can('config-read')
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('backend.config.index') }}"> {{ __('repositories.title.setting') }}</a>
