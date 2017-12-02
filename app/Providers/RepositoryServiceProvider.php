@@ -56,6 +56,11 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Contracts\Repositories\MenuRepository::class,
             \App\Repositories\MenuRepositoryEloquent::class,
         ],
+
+        'comment' => [
+            \App\Contracts\Repositories\CommentRepository::class,
+            \App\Repositories\CommentRepositoryEloquent::class,
+        ],
     ];
     /**
      * Bootstrap the application services.

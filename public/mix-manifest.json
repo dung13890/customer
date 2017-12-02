@@ -16,6 +16,7 @@
     "/assets/js/backend/modules/slide.js": "/assets/js/backend/modules/slide.js",
     "/assets/js/backend/modules/user.js": "/assets/js/backend/modules/user.js",
     "/assets/js/backend/modules/home.js": "/assets/js/backend/modules/home.js",
+    "/assets/js/backend/modules/comment.js": "/assets/js/backend/modules/comment.js",
     "/assets/js/backend/modules/category.js": "/assets/js/backend/modules/category.js",
     "/assets/js/backend/modules/role.js": "/assets/js/backend/modules/role.js",
     "/assets/js/backend/modules/config.js": "/assets/js/backend/modules/config.js",

@@ -34,6 +34,8 @@ class StoreJob
     {
         $path = strtolower(class_basename($repository->model));
         $data = array_only($this->attributes, $repository->model->getFillable());
+        $data['locked'] = $data['locked'] ?? false;
+        $data['is_home'] = $data['is_home'] ?? false;
         $data['create_dt'] = Carbon::createFromFormat(config('common.create_dt.format'), $data['create_dt']);
 
         if (array_has($data, 'image')) {

@@ -130,9 +130,7 @@
                             </li>
                         </ul>
                     </div>
-                    @if ($item->is_comment)
-                    <div class="fb-comments" data-href="{{ Request::url()}}" data-width="100%" data-numposts="5"></div>
-                    @endif
+                    @include('frontend.comment._comment')
                 </div>
                 <aside class="sidebar sidebar-shop col-xs-12 col-sm-12 col-md-4">
                     <div class="sidebar-inner">
@@ -212,4 +210,3 @@
 @push('prescripts')
 {{ Html::script('/frontend/js/custom.js') }}
 @endpush
-@include('frontend.scripts._facebook')

@@ -85,14 +85,6 @@
                     <a href="javascript:void(0)" id="btn-add-attribute" class="btn btn-success">{{ __('repositories.title.add') }}</a>
                 </div>
                 @endif
-                <div class="col-sm-4">
-                    <label></label>
-                    <div class="checkbox">
-                        <label>
-                            {{ Form::checkbox('is_comment', true, old('is_comment'), ['data-toggle'=>'toggle', 'data-size' => 'small']) }} <b>{{ __('repositories.label.is_comment') }}</b>
-                        </label>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

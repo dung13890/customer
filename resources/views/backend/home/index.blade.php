@@ -22,7 +22,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-xs-12">
+                        <div class="col-sm-12">
                             @include('backend._partials.components.notification_message')
                         </div>
                     </div>
