@@ -16,7 +16,7 @@ class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostR
             'ceo_title' => 'nullable|max:100',
             'ceo_description' => 'nullable|max:200',
             'ceo_keywords' => 'nullable|max:150',
-            'image'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
+            'image'=> 'required|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
             'category_id' => 'required|integer|not_in:0',
             'type' => 'required|in:post,article',
         ],

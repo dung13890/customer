@@ -97,7 +97,7 @@
 <section class="home-client-say mb-30 clearfix" id="home-client-say">
     <div class="container">
         <div class="title-one-full">
-            <h2>{{ $pages->first()->name }}</h2>
+            <h2>{{ __('repositories.text.feedback_of_customer') }}</h2>
         </div>
         <div class="row">
             @foreach ($pages as $page)
@@ -107,6 +107,7 @@
                         <a href="{{ route('page.show', $page->slug) }}">
                             <img class="img-responsive" src="{{ route('image', $page->image_medium) }}" alt="{{ $page->name }}" />
                         </a>
+                        <h4 class="text-center">{{ $page->name }}</h3>
                     </div>
                 </div>
             </div>

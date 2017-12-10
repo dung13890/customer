@@ -123,7 +123,7 @@ class AppServiceProvider extends ServiceProvider
                 return app(\App\Contracts\Repositories\MenuRepository::class)->getDataLimit(10, ['type', 'name', 'url', 'sort']);
             }));
             $view->with('__categoryIntroduce', Cache::remember('__categoryIntroduce', 60, function () {
-                return app(\App\Contracts\Repositories\CategoryRepository::class)->getLimitByType('introduce', 16);
+                return app(\App\Contracts\Repositories\CategoryRepository::class)->getLimitByType('introduce', 16)->sortBy('sort');
             }));
             $view->with('__categoryDistributor', Cache::remember('__categoryDistributor', 60, function () {
                 return app(\App\Contracts\Repositories\CategoryRepository::class)->getLimitByType('distributor', 16);
@@ -132,7 +132,7 @@ class AppServiceProvider extends ServiceProvider
                 return app(\App\Contracts\Repositories\CategoryRepository::class)->getLimitByType('recruitment', 16);
             }));
             $view->with('__categoryInvestor', Cache::remember('__categoryInvestor', 60, function () {
-                return app(\App\Contracts\Repositories\CategoryRepository::class)->getLimitByType('investor', 16);
+                return app(\App\Contracts\Repositories\CategoryRepository::class)->getLimitByType('investor', 16)->sortBy('sort');
             }));
             $view->with('__categoryPosts', Cache::remember('__categoryPosts', 60, function () {
                 return app(\App\Contracts\Repositories\CategoryRepository::class)->getLimitByType('post', 3);

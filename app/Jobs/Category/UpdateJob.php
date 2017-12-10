@@ -37,6 +37,7 @@ class UpdateJob
         $data['locked'] = $data['locked'] ?? false;
         $data['is_home'] = $data['is_home'] ?? false;
         $data['is_page'] = $data['is_page'] ?? false;
+        $data['is_redirect'] = $data['is_redirect'] ?? false;
         if (array_has($data, 'image')) {
             if (!empty($this->item->image)) {
                 $this->destroyFile($this->item->image);

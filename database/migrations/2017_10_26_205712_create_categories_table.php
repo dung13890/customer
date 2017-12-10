@@ -23,7 +23,9 @@ class CreateCategoriesTable extends Migration
             $table->string('banner')->nullable();
             $table->char('district_cd', 10)->nullable();
             $table->text('description')->nullable();
+            $table->tinyInteger('sort')->default(0);
             $table->boolean('is_home')->default(true);
+            $table->boolean('is_redirect')->default(false);
             $table->boolean('is_page')->default(false);
             $table->boolean('locked')->default(false);
             $table->timestamps();

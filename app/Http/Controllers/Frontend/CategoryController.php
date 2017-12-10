@@ -9,6 +9,7 @@ use App\Contracts\Repositories\SlideRepository;
 class CategoryController extends FrontendController
 {
     protected $repoSlide;
+    protected $redirect = false;
 
     public function __construct(CategoryRepository $category, SlideRepository $slide)
     {
@@ -33,7 +34,9 @@ class CategoryController extends FrontendController
                 $this->pages($item);
                 break;
         }
-
+        if ($this->redirect) {
+            return redirect($this->redirect);
+        }
         return $this->viewRender();
     }
 
@@ -49,6 +52,11 @@ class CategoryController extends FrontendController
     protected function products($item)
     {
         $this->compacts['item'] = $item;
+        $product = $item->products->first();
+        if ($item->is_redirect && $product) {
+            $slug = $product->slug;
+            $this->redirect = route('product.show', $slug);
+        }
         $this->compacts['products'] = $item->products()->paginate(9);
         $this->compacts['heading'] = $item->name;
         $this->view = 'category.product';
@@ -57,6 +65,11 @@ class CategoryController extends FrontendController
     protected function pages($item)
     {
         $this->view = 'category.page';
+        $page = $item->pages->first();
+        if ($item->is_redirect && $page) {
+            $slug = $page->slug;
+            $this->redirect = route('page.show', $slug);
+        }
         $this->compacts['pages'] = $item->pages;
         $this->compacts['heading'] = $item->name;
     }

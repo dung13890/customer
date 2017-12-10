@@ -20,7 +20,7 @@
                                             @if (count($__categoryPosts))
                                             @foreach ($__categoryPosts as $categoryPost)
                                             <div class="col4 col-border">
-                                                <h4 class="title-new">{{ $categoryPost->name }}</h4>
+                                                <h4 class="title-new"><a href="{{ route('category.show', $categoryPost->slug) }}">{{ $categoryPost->name }}</a></h4>
                                                 <div class="owl-carousel owl-new">
                                                     @if ($categoryPost->limitPosts)
                                                     @foreach($categoryPost->limitPosts->chunk(5) as $chunks)

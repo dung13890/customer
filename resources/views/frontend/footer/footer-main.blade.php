@@ -5,24 +5,58 @@
         </div>
         <div class="row">
             @if (count($__categoryIntroduce))
-            @foreach ($__categoryIntroduce->chunk(6) as $chunks)
-            <div class="fmain-col col-xs-12 col-sm-6 @if ($loop->last) col-md-2 col-lg-2 @else col-md-3 col-lg-3 @endif">
+            <div class="fmain-col col-xs-12 col-sm-6 col-md-2 col-lg-2">
                 <div class="block footer-menu">
                     <h4 class="title">
-                        <span>{{ str_limit($chunks->first()->name, 20) }}</span>
+                        <span>{{ str_limit(__('repositories.title.introduce'), 20) }}</span>
                     </h4>
                     <ul class="menu">
-                        @foreach ($chunks as $chunk)
+                        @foreach ($__categoryIntroduce->take(6) as $take)
                         <li class="limenu">
-                            <a title="{{ $chunk->name }}" class="abmenu" href="{{ route('page.show', $chunk->slug) }}">
-                                <span>{{ str_limit($chunk->name, 20) }}</span>
+                            <a title="{{ $take->name }}" class="abmenu" href="{{ route('page.show', $take->slug) }}">
+                                <span>{{ str_limit($take->name, 20) }}</span>
                             </a>
                         </li>
                         @endforeach
                     </ul>
                 </div>
             </div>
-            @endforeach
+            @endif
+            @if (count($__categoryProducts))
+            <div class="fmain-col col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <div class="block footer-menu">
+                    <h4 class="title">
+                        <span>{{ str_limit(__('repositories.title.product'), 20) }}</span>
+                    </h4>
+                    <ul class="menu">
+                        @foreach ($__categoryProducts->take(6) as $take)
+                        <li class="limenu">
+                            <a title="{{ $take->name }}" class="abmenu" href="{{ route('category.show', $take->slug) }}">
+                                <span>{{ str_limit($take->name, 20) }}</span>
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            @endif
+            @if (count($__categoryRecruitment))
+            <div class="fmain-col col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <div class="block footer-menu">
+                    <h4 class="title">
+                        <span>{{ str_limit(__('repositories.title.recruitment'), 20) }}</span>
+                    </h4>
+                    <ul class="menu">
+                        @foreach ($__categoryRecruitment->take(6) as $take)
+                        <li class="limenu">
+                            <a title="{{ $take->name }}" class="abmenu" href="{{ route('page.show', $take->slug) }}">
+                                <span>{{ str_limit($take->name, 20) }}</span>
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
             @endif
             <div class="fmain-col col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="block footer-about">

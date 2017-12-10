@@ -22,7 +22,13 @@ class PageController extends FrontendController
     {
         $this->compacts['class'] = 'single-post';
         $item = $this->repository->findBySlug($slug);
-        $this->view = $item->type == 'distributor' ? 'page.distributor' : 'page.show';
+        if ($item->type == 'introduce') {
+            $this->view = 'page.introduce';
+        } elseif ($item->type == 'distributor') {
+            $this->view = 'page.distributor';
+        } else {
+            $this->view = 'page.show';
+        }
         $this->compacts['item'] = $item;
         $this->compacts['heading'] = $item->ceo_title;
         $this->compacts['description'] = $item->ceo_description;

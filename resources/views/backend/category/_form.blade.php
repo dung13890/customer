@@ -15,6 +15,12 @@
             </div>
         </div>
         @endif
+        @if ($type == 'introduce' || $type == 'investor')
+        <div class="col-md-4">
+            {{ Form::label('sort', __('repositories.label.sort'), ['class'=>'control-label']) }}
+            {{ Form::number('sort', null, ['class' => 'form-control', 'placeholder' => __('repositories.label.sort')]) }}
+        </div>
+        @endif
         @if ($type == 'distributor')
         <div class="col-md-4">
             {{ Form::label('district_cd', __('repositories.label.district'), ['class'=>'control-label']) }}
@@ -73,7 +79,7 @@
             @endslot
             @endcomponent
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-2">
             <label></label>
             <div class="checkbox">
                 <label>
@@ -81,6 +87,16 @@
                 </label>
             </div>
         </div>
+        @if ($type == 'product' || $type == 'introduce')
+        <div class="col-sm-4">
+            <label></label>
+            <div class="checkbox">
+                <label>
+                    {{ Form::checkbox('is_redirect', true, old('is_redirect'), ['data-toggle'=>'toggle', 'data-size' => 'small']) }} <b>{{ __('repositories.label.is_redirect') }}</b>
+                </label>
+            </div>
+        </div>
+        @endif
     </div>
 </div>
 

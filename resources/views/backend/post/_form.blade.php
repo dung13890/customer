@@ -34,7 +34,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-sm-6">
-                    {{ Form::label('name', __('repositories.label.image'), ['class' => 'control-label']) }}
+                    {{ Form::label('name', __('repositories.label.image'), ['class' => 'control-label']) }}<span class="require">*</span>
                     @component('backend._partials.components.uploadfile', ['imgFields' => (isset($item) && $item->image) ? $item->image_medium : null])
                     @slot('uploadFields')
                         {{ Form::file('image', ['id' => 'image']) }}

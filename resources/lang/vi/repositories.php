@@ -48,10 +48,12 @@ return [
         'sign_in_to_addr' => 'Quang Trung, Quận Hà Đông, Hà Nội',
         'sign_in_to_phon' => '(04) 66 530 666',
         'show_in_category' => 'Nhóm bài viết hiển thị',
+        'introduce_company' => 'Giới thiệu công ty',
         'message_contact' => 'Chúng tôi sẽ liên hệ với bạn sớm nhất có thể. Cám ơn!',
         'message_comment' => 'Gửi bình luận thành công !',
         'forbiden_to_perform' => 'Bạn không có quyền truy cập!',
         'not_distributor' => 'Hiện tại chúng tôi chưa có hệ thống phân phối tại tỉnh này.',
+        'feedback_of_customer' => 'Phản hồi của khách hàng',
     ],
 
     'label' => [
@@ -112,6 +114,7 @@ return [
         'value' => 'Giá trị',
         'is_page' => 'Landing page',
         'district' => 'Tỉnh',
+        'is_redirect' => 'Chuyển tới CT',
     ],
 
     'button' => [
