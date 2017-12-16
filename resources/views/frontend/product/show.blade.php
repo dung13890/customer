@@ -1,9 +1,9 @@
 @extends('layouts.frontend')
 
 @section('page-content')
-    <div class="featured-image clearfix">
+    <div class="featured-image clearfix container">
         @if (count($categories))
-        <img class="img-responsive" src="{{ route('image', $item->category->banner_default) }}" alt="" />
+        <img class="img-responsive" src="{{ route('image', $item->category->banner_1920x570) }}" alt="" />
         @endif
     </div>
     <div class="page-title-block clearfix">
@@ -81,13 +81,13 @@
                         </ul>
                         <div class="tab-content">
                             @if ($item->information)
-                            <div class="tab-pane active" id="product-info" role="tabpanel">
+                            <div class="tab-pane" id="product-info" role="tabpanel">
                                {!! $item->information !!}
                             </div>
                             @endif
 
                             @if ($item->advantage)
-                            <div class="tab-pane active" id="product-advantage" role="tabpanel">
+                            <div class="tab-pane" id="product-advantage" role="tabpanel">
                                {!! $item->advantage !!}
                             </div>
                             @endif

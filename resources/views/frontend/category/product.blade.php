@@ -1,8 +1,8 @@
 @extends('layouts.frontend')
 
 @section('page-content')
-    <div class="featured-image clearfix">
-        <img class="img-responsive" src="{{ route('image', $item->banner_default) }}" alt="" />
+    <div class="featured-image clearfix container">
+        <img class="img-responsive" src="{{ route('image', $item->banner_1920x570) }}" alt="" />
     </div>
     <div class="category-container mb-30 clearfix">
         <div class="container">
@@ -22,7 +22,7 @@
                             </a>
                             <div class="product-content">
                                 <h4 class="product-name">
-                                    <a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a>
+                                    <a href="{{ route('product.show', $product->slug) }}">{{ str_limit($product->name, 50) }}</a>
                                 </h4>
                                 <div class="product-info">
                                     <span>{{ $product->feature_1 }}</span>

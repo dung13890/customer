@@ -937,6 +937,10 @@ a.pswp__share--download:hover {
   margin-top: 6px;
 }
 
+.media-middle {
+    vertical-align: middle !important;
+}
+
 #vnm_map {
     position: relative !important;
     width: 100% !important;
@@ -947,6 +951,10 @@ a.pswp__share--download:hover {
 
 path.available {
     fill: #0e8b45 !important;
+}
+
+path.available:hover {
+    fill: rgb(252, 141, 89) !important;
 }
 path.selected {
     fill: #fc8d59 !important;

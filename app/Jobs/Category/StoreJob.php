@@ -35,6 +35,7 @@ class StoreJob
         $data['locked'] = $data['locked'] ?? false;
         $data['is_home'] = $data['is_home'] ?? false;
         $data['is_page'] = $data['is_page'] ?? false;
+        $data['is_redirect'] = $data['is_redirect'] ?? false;
         if (array_has($data, 'image')) {
             $data['image'] = $this->uploadFile($data['image'], $path);
         }

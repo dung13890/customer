@@ -19,6 +19,8 @@ class Category extends Model
         'is_home',
         'is_page',
         'icon',
+        'sort',
+        'is_redirect',
         'district_cd',
         'locked',
     ];

@@ -34,4 +34,4 @@ services:
       - "80:80"
       - "443:443"
     tty: true
-    command: /bin/bash -c "/serve.sh workspace toanthang.dev /var/www/app/public && nginx"
+    command: /bin/bash -c "/serve.sh workspace toanthang.test /var/www/app/public && nginx"
