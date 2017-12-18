@@ -13,7 +13,7 @@
                     <ul class="menu">
                         @foreach ($__categoryIntroduce->take(6) as $take)
                         <li class="limenu">
-                            <a title="{{ $take->name }}" class="abmenu" href="{{ route('page.show', $take->slug) }}">
+                            <a title="{{ $take->name }}" class="abmenu" href="{{ route('category.show', $take->slug) }}">
                                 <span>{{ str_limit($take->name, 20) }}</span>
                             </a>
                         </li>
@@ -49,7 +49,7 @@
                     <ul class="menu">
                         @foreach ($__categoryRecruitment->take(6) as $take)
                         <li class="limenu">
-                            <a title="{{ $take->name }}" class="abmenu" href="{{ route('page.show', $take->slug) }}">
+                            <a title="{{ $take->name }}" class="abmenu" href="{{ route('category.show', $take->slug) }}">
                                 <span>{{ str_limit($take->name, 20) }}</span>
                             </a>
                         </li>
