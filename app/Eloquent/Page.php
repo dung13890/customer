@@ -24,6 +24,8 @@ class Page extends Model
         'file',
         'create_dt',
         'description',
+        'requirement',
+        'instruction',
         'locked',
         'is_home',
         'attributes',

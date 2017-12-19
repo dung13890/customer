@@ -55,26 +55,41 @@
             {{ Form::label('images[]', __('repositories.label.images')) }}
             <upload-image @if (isset($item)) :images="item.images" @endif></upload-image>
         </div>
-        <div class="form-group">
-            {{ Form::label('advantage', __('repositories.label.advantage'), ['class' => 'control-label']) }}
+
+        <ul class="nav nav-tabs create-form">
+            <li class="active"><a data-toggle="tab" href="#advantage">{{ __('repositories.label.advantage') }}</a></li>
+            <li><a data-toggle="tab" href="#coordination">{{ __('repositories.label.coordination') }}</a></li>
+            <li><a data-toggle="tab" href="#information">{{ __('repositories.label.information') }}</a></li>
+            <li><a data-toggle="tab" href="#conduct">{{ __('repositories.label.conduct') }}</a></li>
+            <li><a data-toggle="tab" href="#produce">{{ __('repositories.label.produce') }}</a></li>
+        </ul>
+        <div class="tab-content">
             <div class="grid-editor"></div>
-            {{ Form::textarea('advantage', null, ['class' => 'form-control textarea-summernote']) }}
-        </div>
-        <div class="form-group">
-            {{ Form::label('coordination', __('repositories.label.coordination'), ['class' => 'control-label']) }}
-            {{ Form::textarea('coordination', null, ['class' => 'form-control textarea-summernote']) }}
-        </div>
-        <div class="form-group">
-            {{ Form::label('information', __('repositories.label.information'), ['class' => 'control-label']) }}
-            {{ Form::textarea('information', null, ['class' => 'form-control textarea-summernote']) }}
-        </div>
-        <div class="form-group">
-            {{ Form::label('conduct', __('repositories.label.conduct'), ['class' => 'control-label']) }}
-            {{ Form::textarea('conduct', null, ['class' => 'form-control textarea-summernote']) }}
-        </div>
-        <div class="form-group">
-            {{ Form::label('produce', __('repositories.label.produce'), ['class' => 'control-label']) }}
-            {{ Form::textarea('produce', null, ['class' => 'form-control textarea-summernote']) }}
+            <div id="advantage" class="tab-pane fade in active">
+                <div class="form-group">
+                    {{ Form::textarea('advantage', null, ['class' => 'form-control textarea-summernote']) }}
+                </div>
+            </div>
+            <div id="coordination" class="tab-pane fade in">
+                <div class="form-group">
+                    {{ Form::textarea('coordination', null, ['class' => 'form-control textarea-summernote']) }}
+                </div>
+            </div>
+            <div id="information" class="tab-pane fade in">
+                <div class="form-group">
+                    {{ Form::textarea('information', null, ['class' => 'form-control textarea-summernote']) }}
+                </div>
+            </div>
+            <div id="conduct" class="tab-pane fade in">
+                <div class="form-group">
+                    {{ Form::textarea('conduct', null, ['class' => 'form-control textarea-summernote']) }}
+                </div>
+            </div>
+            <div id="produce" class="tab-pane fade in">
+                <div class="form-group">
+                    {{ Form::textarea('produce', null, ['class' => 'form-control textarea-summernote']) }}
+                </div>
+            </div>
         </div>
     </div>
     <div class="col-sm-4">

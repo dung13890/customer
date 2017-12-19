@@ -23,6 +23,8 @@ class CreatePagesTable extends Migration
             $table->string('image')->nullable();
             $table->string('file')->nullable();
             $table->text('description')->nullable();
+            $table->text('requirement')->nullable();
+            $table->text('instruction')->nullable();
             $table->dateTime('create_dt');
             $table->boolean('locked')->default(false);
             $table->boolean('is_home')->default(false);

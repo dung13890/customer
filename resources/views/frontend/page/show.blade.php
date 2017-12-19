@@ -41,8 +41,19 @@
                        </div>
                         @endif
                         <div class="post-content">
+                            <h4>{{ __('repositories.label.description') }}</h4>
                             {!! $item->description !!}
                         </div>
+                        @if ($item->type == 'recruitment')
+                        <div class="post-content">
+                            <h4>{{ __('repositories.text.requirement') }}</h4>
+                            {!! $item->requirement !!}
+                        </div>
+                        <div class="post-content">
+                            <h4>{{ __('repositories.text.instruction') }}</h4>
+                            {!! $item->instruction !!}
+                        </div>
+                        @endif
                         <div class="share-links">
                             <ul class="social-icons list-inline pull-right">
                                 <li class="list-inline-item share-text">

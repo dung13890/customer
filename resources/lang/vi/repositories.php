@@ -54,6 +54,8 @@ return [
         'forbiden_to_perform' => 'Bạn không có quyền truy cập!',
         'not_distributor' => 'Hiện tại chúng tôi chưa có hệ thống phân phối tại tỉnh này.',
         'feedback_of_customer' => 'Phản hồi của khách hàng',
+        'instruction' => 'Hướng dẫn nộp hồ sơ',
+        'requirement' => 'Yêu cầu công việc',
     ],
 
     'label' => [

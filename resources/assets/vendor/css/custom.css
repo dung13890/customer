@@ -941,6 +941,10 @@ a.pswp__share--download:hover {
     vertical-align: middle !important;
 }
 
+.post-content {
+    margin: 30px 0;
+}
+
 #vnm_map {
     position: relative !important;
     width: 100% !important;

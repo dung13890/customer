@@ -97,6 +97,24 @@
     <div class="grid-editor"></div>
     {{ Form::textarea('description', null, ['class' => 'form-control textarea-summernote']) }}
 </div>
+@if ( $type == 'recruitment')
+<ul class="nav nav-tabs create-form">
+    <li class="active"><a data-toggle="tab" href="#requirement">{{ __('repositories.text.requirement') }}</a></li>
+    <li><a data-toggle="tab" href="#instruction">{{ __('repositories.text.instruction') }}</a></li>
+</ul>
+<div class="tab-content">
+    <div id="requirement" class="tab-pane fade in active">
+        <div class="form-group">
+            {{ Form::textarea('requirement', null, ['class' => 'form-control textarea-summernote']) }}
+        </div>
+    </div>
+    <div id="instruction" class="tab-pane fade in">
+        <div class="form-group">
+            {{ Form::textarea('instruction', null, ['class' => 'form-control textarea-summernote']) }}
+        </div>
+    </div>
+</div>
+@endif
 
 <div class="form-group">
     <div class="text-right">
