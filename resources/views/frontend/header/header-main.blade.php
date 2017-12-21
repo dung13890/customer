@@ -4,7 +4,7 @@
             <div class="@if (isset($is_home)) container-full @else container @endif">
                 <div class="menuzord relative" id="menuzord">
                     <a class="menuzord-brand hidden-lg hidden-md" href="{{ route('home') }}">
-                        <img src="{{ route('image', $configs['logo']) }}" />
+                        <img src="{{ route('image', $configs['logo']) }}" alt="" />
                     </a>
                     <ul class="menuzord-menu">
                         <li {{ check_active(route('home')) }}>
@@ -27,7 +27,7 @@
                                                     <div class="item">
                                                         @foreach($chunks as $chunk)
                                                         <a class="item-new" href="{{ route('post.show', $chunk->slug) }}">
-                                                            <img src="{{ route('image', $chunk->image_100x70) }}" />
+                                                            <img src="{{ route('image', $chunk->image_100x70) }}" alt="" />
                                                             <div class="info">
                                                                 <h5>{{ $chunk->name }}</h5>
                                                             </div>
@@ -61,7 +61,6 @@
                                             <!-- Contact form-->
                                             {{ Form::open([
                                                 'url' => route('home.contact'),
-                                                'role'  => 'form',
                                                 'class' => 'contact-form',
                                                 'autocomplete'=>'off',
                                             ]) }}
@@ -75,7 +74,7 @@
                                                     <input class="form-control" type="text" placeholder="Số điện thoại" name="phone" />
                                                 </div>
                                                 <div class="form-group">
-                                                    <textarea class="form-control" type="text" placeholder="Nhập nội dung" name="description"></textarea>
+                                                    <textarea class="form-control" placeholder="Nhập nội dung" name="description"></textarea>
                                                 </div>
                                                 <div class="form-group">
                                                     <button class="btn btn-primary" type="submit">Gửi</button>
@@ -83,7 +82,7 @@
                                             {{ Form::close() }}
                                         </div>
                                         <div class="col-md-8 col-lg-8">
-                                            <iframe frameborder="0" style="width:100%;height:374px;border:0;" src="{{ $configs['map'] }}" allowfullscreen="allowfullscreen"></iframe>
+                                            <iframe style="width:100%;height:374px;border:0;" src="{{ $configs['map'] }}" allowfullscreen="allowfullscreen"></iframe>
                                         </div>
                                     </div>
                                 </div>

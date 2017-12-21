@@ -33,7 +33,7 @@ return [
         'social' => 'Mạng xã hội',
         'contact' => 'Liên hệ',
         'menu' => 'Menu',
-        'introduce' => 'Gới thiệu',
+        'introduce' => 'Giới thiệu',
         'distributor' => 'Hệ thống phân phối',
         'investor' => 'Cổ đông & nhà đầu tư',
         'recruitment' => 'Tuyển dụng',

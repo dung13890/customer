@@ -15,11 +15,11 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ceo_title', 100)->nullable();
-            $table->string('ceo_description', 200)->nullable();
+            $table->string('ceo_title', 200)->nullable();
+            $table->string('ceo_description')->nullable();
             $table->string('ceo_keywords', 150)->nullable();
-            $table->string('name', 100);
-            $table->string('slug', 100)->index()->unique();
+            $table->string('name', 175);
+            $table->string('slug', 180)->index()->unique();
             $table->string('image')->nullable();
             $table->text('description')->nullable();
             $table->boolean('locked')->default(false);

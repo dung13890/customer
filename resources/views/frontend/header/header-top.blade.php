@@ -19,7 +19,6 @@
                         <!-- Search form-->
                         {{ Form::open([
                             'url' => route('product.search'),
-                            'role'  => 'form',
                             'class' => 'search-form d-ib float-right',
                             'autocomplete'=>'off',
                         ]) }}

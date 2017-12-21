@@ -12,9 +12,9 @@ class PageRepositoryEloquent extends AbstractRepositoryEloquent implements PageR
 
     protected $rules = [
         'store' => [
-            'name' => 'required|min:2|max:100',
-            'ceo_title' => 'nullable|max:100',
-            'ceo_description' => 'nullable|max:200',
+            'name' => 'required|min:2|max:175',
+            'ceo_title' => 'nullable|max:200',
+            'ceo_description' => 'nullable|max:250',
             'ceo_keywords' => 'nullable|max:150',
             'image'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
             'file' => 'nullable|mimes:pdf',
@@ -22,9 +22,9 @@ class PageRepositoryEloquent extends AbstractRepositoryEloquent implements PageR
             'type' => 'required|in:introduce,distributor,recruitment,investor',
         ],
         'update' => [
-            'name' => 'required|min:2|max:100',
-            'ceo_title' => 'nullable|max:100',
-            'ceo_description' => 'nullable|max:200',
+            'name' => 'required|min:2|max:175',
+            'ceo_title' => 'nullable|max:200',
+            'ceo_description' => 'nullable|max:250',
             'ceo_keywords' => 'nullable|max:150',
             'create_dt' => 'required|date_format:d/m/Y H:i',
             'image'=> 'nullable|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',

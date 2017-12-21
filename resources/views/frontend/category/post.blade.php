@@ -8,7 +8,7 @@
                         @if (count($slides))
                         @foreach ($slides as $slide)
                         <div class="item">
-                            <img src="{{ route('image', $slide->image_1170x445) }}" />
+                            <img src="{{ route('image', $slide->image_1170x445) }}" alt="" />
                         </div>
                         @endforeach
                         @endif

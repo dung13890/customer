@@ -9,7 +9,7 @@
                     @if (count($slides))
                     @foreach ($slides as $slide)
                     <div class="item">
-                        <img src="{{ route('image', $slide->image_1170x445) }}" />
+                        <img src="{{ route('image', $slide->image_1170x445) }}" alt="" />
                     </div>
                     @endforeach
                     @endif
@@ -107,7 +107,7 @@
                         <a href="{{ route('page.show', $page->slug) }}">
                             <img class="img-responsive" src="{{ route('image', $page->image_medium) }}" alt="{{ $page->name }}" />
                         </a>
-                        <h4 class="text-center">{{ $page->name }}</h3>
+                        <h4 class="text-center">{{ $page->name }}</h4>
                     </div>
                 </div>
             </div>
