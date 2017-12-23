@@ -46,6 +46,7 @@ class CategoryController extends FrontendController
         $this->compacts['slides'] = $this->repoSlide->getDataByType(5, 'slide', ['image', 'name']);
         $this->compacts['item'] = $item;
         $this->compacts['heading'] = $item->name;
+        $this->compacts['paginates'] = $item->posts()->select(['image', 'name', 'slug', 'ceo_description'])->paginate(6);
         $this->compacts['categories'] = $this->repository->getLimitWithOut('post', 3, $item->id, ['name', 'slug', 'id']);
     }
 
