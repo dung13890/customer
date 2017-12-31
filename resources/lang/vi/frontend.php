@@ -7,5 +7,6 @@ return [
         'phone' => 'Điện thoại',
         'fax' => 'Fax',
         'email' => 'Email',
+        'address' => 'Địa chỉ',
     ]
 ];

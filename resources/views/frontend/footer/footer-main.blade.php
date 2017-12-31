@@ -65,7 +65,7 @@
                         <div class="address">
                             <strong>{{ $configs['name'] }}</strong>
                             <br/>
-                            <abbr title="{{ __('frontend.label.office') }}">{{ __('frontend.label.office') }}: </abbr>{{ $configs['address'] }}
+                            <abbr title="{{ __('frontend.label.address') }}">{{ __('frontend.label.address') }}: </abbr>{{ $configs['address'] }}
                             <br/>
                             <abbr title="{{ __('frontend.label.manufactory') }}">{{ __('frontend.label.manufactory') }}: </abbr>{{ $configs['factory'] }}
                             <br/>

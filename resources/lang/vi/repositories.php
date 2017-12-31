@@ -102,7 +102,7 @@ return [
         'popup_url' => 'Popup chuyển đến',
         'factory' => 'Nhà máy',
         'copyright' => 'Copyright',
-        'pdf' => 'PDF',
+        'pdf' => 'PDF, XLS, DOC',
         'feature_1' => 'Đặc tính 1',
         'feature_2' => 'Đặc tính 2',
         'sort' => 'Thứ tự',

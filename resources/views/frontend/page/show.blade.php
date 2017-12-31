@@ -22,7 +22,7 @@
                            <p>
                                 <span>{{ $item->create_dt }}</span>
                                 <a href="{{ asset('/statics/file/' . $item->file) }}">
-                                    <i class="fa fa-file-pdf-o"></i>Download PDF
+                                    <i class="fa fa-file-pdf-o"></i>Download
                                 </a>
                                 <a href="#">
                                     <i class="fa fa-print"></i>Print

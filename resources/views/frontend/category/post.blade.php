@@ -23,8 +23,8 @@
                 <a href="{{ route('category.show', $item->slug) }}">{{ $item->name }}</a>
             </div>
             <div class="row">
-                @if (count($item->homePosts))
-                @foreach ($item->homePosts->take(3) as $post)
+                @if (count($paginates))
+                @foreach ($paginates as $post)
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-20">
                     <div class="box-grid news-block mb-15">
                         <a class="box-grid-img" href="{{ route('post.show', $post->slug) }}" title="{{ $post->name }}">
@@ -38,6 +38,13 @@
                 </div>
                 @endforeach
                 @endif
+            </div>
+            <div class="row">
+                <div class="container">
+                    <nav class="pagination-wrapper pull-right">
+                        <nav>{{ $paginates->render() }}</nav>
+                    </nav>
+                </div>
             </div>
         </div>
     </section>
