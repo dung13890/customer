@@ -171,7 +171,7 @@ return [
 
     'category' => [
         'name' => 'Danh mục',
-        'banner' => 'Ảnh nền ( 1920x570 )',
+        'banner' => 'Ảnh nền ( 1170x445 )',
         'image' => 'Ảnh đại diện ( 640 x 480 )',
         'icon' => 'Ảnh menu ( 100 x 100 )',
     ],

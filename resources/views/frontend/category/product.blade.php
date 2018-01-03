@@ -2,7 +2,7 @@
 
 @section('page-content')
     <div class="featured-image clearfix container">
-        <img class="img-responsive" src="{{ route('image', $item->banner_1920x570) }}" alt="" />
+        <img class="img-responsive" src="{{ route('image', $item->banner_1170x445) }}" alt="" />
     </div>
     <div class="category-container mb-30 clearfix">
         <div class="container">

@@ -2,7 +2,7 @@
 @section('page-content')
     <div class="featured-image clearfix">
         @if (count($categories))
-        <img class="img-responsive" src="{{ route('image', $categories->first()->banner_1920x570) }}" alt="" />
+        <img class="img-responsive" src="{{ route('image', $categories->first()->banner_1170x445) }}" alt="" />
         @endif
     </div>
     <section class="daily-news mt-30 mb-30 clearfix" id="daily-news">
