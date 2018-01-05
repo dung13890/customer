@@ -78,4 +78,9 @@ class Category extends Model
     {
         return app()['glide.builder']->getUrl($this->banner, ['p' => '1920x570']);
     }
+
+    public function getBanner1170x445Attribute($value)
+    {
+        return app()['glide.builder']->getUrl($this->banner, ['p' => '1170x445']);
+    }
 }
