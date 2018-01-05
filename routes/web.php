@@ -21,14 +21,6 @@ Route::get('image/{path?}', ['as' => 'image' , function (Request $request, Media
     return $service->getReponseImage($path, $params);
 }])->where('path', '(.*?)');
 
-Route::get('webhook', ['as' => 'webhook', function (Request $request) {
-    \Log::info($request->all());
-    if ($request->has('hub_verify_token') && $request->hub_verify_token === env('HUB_VERIFY_TOKEN')) {
-        echo $request->hub_challenge;
-    }
-    \Storage::put('facebook.json', $request->getContent());
-}]);
-
 Route::group(['prefix' => '/', 'namespace' => 'Frontend'], function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::post('lien-he', 'HomeController@contact')->name('home.contact');
@@ -48,6 +40,7 @@ Route::group(['namespace' => 'Backend'], function () {
     Route::group(['prefix' => 'backend', 'as' => 'backend.', 'middleware' => ['auth']], function () {
         Route::get('/', 'HomeController@index')->name('home.index');
         Route::post('summernote/image', 'HomeController@summernoteImage')->name('summernote.image');
+        Route::get('summernote/all-image/{year?}/{month?}/{folder?}', 'HomeController@summernoteAllImage')->name('summernote.all.image');
 
         Route::resource('comment', 'CommentController', [
             'except' => ['create', 'store', 'show', 'destroy']

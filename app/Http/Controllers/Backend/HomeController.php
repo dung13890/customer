@@ -77,6 +77,16 @@ class HomeController extends BackendController
         $comment = $this->commentRepo->find($id);
         $comment->update(['is_read' => true]);
         \Cache::forget('countComment');
+
         return redirect($comment->url);
+    }
+
+    public function summernoteAllImage(MediaInterface $service, $year = null, $month = null, $folder = 'summernote')
+    {
+        $year = $year ?: date('Y');
+        $month = $month ? sprintf("%02d", $month) :  date('m');
+        $images = $service->getSummernoteImages($year, $month, $folder);
+
+        return $images;
     }
 }

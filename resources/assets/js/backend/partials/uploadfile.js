@@ -54,6 +54,28 @@ class Upload {
       callback.apply(this);
     }
   }
+
+  getSummernoteImages(year = '#select-year', month = '#select-month', folder = '#select-folder', el = '#images-thumb-summernote') {
+    var _$ = window.$;
+    var year = _$(year).val();
+    var month = _$(month).val();
+    var folder = _$(folder).val();
+    _$(el).html('');
+    var images = '';
+    var url = laroute.route('backend.summernote.all.image', {'year': year, 'month': month, 'folder': folder});
+    _$.get(url, (data) => {
+      if (data.length > 0) {
+        data.map((index) => {
+          images += '<a class="insert-image-summernote" href="javascript:;" data-image="' + index.default + '">\
+            <img class="img-thumbnail" src="' + index.thumb + '" />\
+          </a>';
+        });
+      } else {
+        images = '<p>' + window.lang.get('repositories.text.not_found_image') + '</p>';
+      }
+      _$(el).append(images);
+    });
+  }
 }
 
 export default Upload;

@@ -112,3 +112,4 @@
     </div>
 </div>
 
+@include('backend._partials.includes.summernote-images')

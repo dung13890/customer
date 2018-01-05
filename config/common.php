@@ -32,6 +32,15 @@ return [
         'format' => 'd/m/Y H:i',
     ],
 
+    'summernote_year' => [
+        'from' => 2017,
+        'to' => 2030,
+    ],
+
+    'folder_images' => [
+        'product', 'post', 'page', 'category', 'image', 'summernote'
+    ],
+
     'districts' => [
         'VN.QN' => 'Quảng Ninh',
         'VN.TN' => 'Tây Ninh',
