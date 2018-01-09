@@ -30,4 +30,19 @@ class MediaService implements MediaInterface
     {
         return $this->dispatch(new SummernoteJob($attributes));
     }
+
+    public function getSummernoteImages($year, $month, $folder)
+    {
+        $path = "images/{$year}/{$month}/{$folder}/";
+        $files = \Storage::disk('local')->allFiles($path);
+        $images = [];
+        if (count($files)) {
+            foreach ($files as $key => $image) {
+                $images[$key]['thumb'] = route('image', app()['glide.builder']->getUrl($image, ['p' => 'thumbnail']));
+                $images[$key]['default'] = route('image', app()['glide.builder']->getUrl($image));
+            }
+        }
+
+        return $images;
+    }
 }

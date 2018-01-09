@@ -29,6 +29,8 @@ return [
         'article' => 'Bài viết',
         'comment' => 'Bình luận',
         'page' => 'Trang',
+        'summernote' => 'Thư viện',
+        'image' => 'Hình ảnh',
         'browse' => 'Chọn ảnh...',
         'social' => 'Mạng xã hội',
         'contact' => 'Liên hệ',
@@ -56,6 +58,9 @@ return [
         'feedback_of_customer' => 'Phản hồi của khách hàng',
         'instruction' => 'Hướng dẫn nộp hồ sơ',
         'requirement' => 'Yêu cầu công việc',
+        'image_manager' => 'Quản lý thư viện ảnh',
+        'get_images' => 'Lấy ảnh',
+        'not_found_image' => 'Không tìm thấy ảnh',
     ],
 
     'label' => [

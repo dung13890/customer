@@ -7,7 +7,7 @@ var toolbarSummernote = [
   ['para', ['ul', 'ol', 'paragraph']],
   ['height', ['height']],
   ['table', ['table']],
-  ['insert', ['link', 'picture', 'video', 'hr']],
+  ['insert', ['link', 'picture', 'imagemanager','video', 'hr']],
   ['view', ['fullscreen', 'codeview']],
   ['mybutton', ['layout']],
   ['help', ['help']]

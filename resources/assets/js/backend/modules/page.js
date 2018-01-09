@@ -50,6 +50,7 @@ class Page {
     this.addAttribute();
     var uploadfile = new Uploadfile();
     uploadfile.init();
+    this.summernoteImageManager(uploadfile);
     var uploadicon = new Uploadfile('#icon', '#icon-upload');
     uploadicon.init();
     _$('.datetimepicker').datetimepicker({
@@ -67,7 +68,8 @@ class Page {
       toolbar: toolbarSummernote,
       height:250,
       buttons: {
-        layout: this.insertLayout
+        layout: this.insertLayout,
+        imagemanager: this.imageManager
       },
       callbacks: {
         onImageUpload: function(files) {
@@ -75,6 +77,36 @@ class Page {
         }
       }
     });
+  }
+
+  summernoteImageManager (uploadfile) {
+    uploadfile.getSummernoteImages();
+    var _$ = window.$;
+    _$('#get-images-summernote').on('click', function (e) {
+      e.preventDefault();
+      uploadfile.getSummernoteImages();
+    });
+
+    _$('#images-thumb-summernote').on('click', '.insert-image-summernote', function (e) {
+      e.preventDefault();
+      var img = _$(this).data('image');
+      _$('.textarea-summernote').summernote("insertImage", img);
+      _$('#summernote-images').modal('hide');
+    });
+  }
+
+  imageManager () {
+    var _$ = window.$;
+    var ui = _$.summernote.ui;
+    var button = ui.button({
+      contents: '<i class="ion-ios-folder-outline"/>',
+      tooltip: 'images manager',
+      click: function () {
+        _$('#summernote-images').modal('show');
+      }
+    });
+
+    return button.render();
   }
 
   insertLayout (context) {
