@@ -25,6 +25,7 @@
 
     <!-- Styles -->
     {{ Html::style('/frontend/css/main.min.css') }}
+    {{ Html::style('/frontend/css/custom.css') }}
     @stack('prestyles')
 </head>
 <body class="{{ $class or null }}">
@@ -76,7 +77,7 @@
     </script>
     <noscript>
     <div style="display:inline;">
-    <img height="1" width="1" style="border-style:none;" alt="" src="{{ $configs['adwords_src'] }}"/>
+    <img height="1" width="1" style="border-style:none;" alt="adwords" src="{{ $configs['adwords_src'] }}"/>
     </div>
     </noscript>
     @endif
