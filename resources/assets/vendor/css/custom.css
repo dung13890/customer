@@ -963,3 +963,26 @@ path.available:hover {
 path.selected {
     fill: #fc8d59 !important;
 }
+
+.home-client-say .category-item h3 {
+    font-size: 18px;
+}
+
+.block.footer-about h3 {
+    margin: 0;
+}
+
+.fmain-col .social {
+    margin: 10px 0 0 5px;
+}
+
+.fmain-col .social li a {
+    background: #0c8c46;
+    border: 1px solid #0c8c46;
+}
+
+.fmain-col .social li a:hover {
+    color: #fff;
+    border: 1px solid #fff;
+    background: #0c8c46;
+}

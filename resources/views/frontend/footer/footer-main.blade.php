@@ -60,7 +60,7 @@
             @endif
             <div class="fmain-col col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="block footer-about">
-                    <img class="footer-logo img-responsive" src="{{ route('image', $configs['logo']) }}" alt="" />
+                    <h3><img class="footer-logo img-responsive" src="{{ route('image', $configs['logo']) }}" alt="logo" /></h3>
                     <div class="about-content">
                         <div class="address">
                             <strong>{{ $configs['name'] }}</strong>
@@ -77,6 +77,33 @@
                         </div>
                     </div>
                 </div>
+                <ul class="social list-inline">
+                    <li class="list-inline-item">
+                        <a href="{{ $configs['facebook'] }}" target="_blank">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="{{ $configs['twitter'] }}" target="_blank">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="{{ $configs['instagram'] }}" target="_blank">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="{{ $configs['youtube'] }}" target="_blank">
+                            <i class="fa fa-youtube-play"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="{{ $configs['whatsapp'] }}" target="_blank">
+                            <i class="fa fa-whatsapp"></i>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
