@@ -4,12 +4,12 @@
         <a class="brand" href="#"></a>
     </div>
 
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ $me->login_name }} <span class="caret"></span></a>
+    <a href="#" class="dropdown-toggle" id="dropdownMenuRight" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">{{ $me->login_name }} <span class="caret"></span></a>
     <a target="_blank" href="{{ count($countComment) ? route('backend.home.read.comment', $countComment->first()->id) : 'javascript:void(0)' }}" class="icon-menu">
         <i class="ion-ios-bell-outline"></i>
         <span class="badge badge-dange">{{ count($countComment) }}</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-right">
+    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuRight">
         <li><a href="#"> <i class="ion-person"></i> {{ __('repositories.title.profile') }}</a></li>
         <li><a href="#"> <i class="ion-ios-cog"></i> {{ __('repositories.title.setting') }}</a></li>
         <li role="separator" class="divider"></li>
